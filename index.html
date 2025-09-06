@@ -1,11 +1,19 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" class="dark" data-radius="square">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Adam J — Creative Digital Developer</title>
   <meta name="description" content="Creative digital developer crafting playful, useful experiences across web, tools, video, and sound. Clean UX, cohesive branding, and cheeky ideas that actually ship." />
-  <link rel="icon" href="/public/favicon.svg" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="/public/favicon.svg" type="image/svg+xml" />
+
+  <!-- Performance & UA hints -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
 
   <!-- OG / Twitter -->
   <meta property="og:title" content="Adam J — Creative Digital Developer" />
@@ -28,27 +36,40 @@
   </script>
 
   <style>
-    /* dotted grid + fade */
+    /* --- Visual tokens (no build step) --- */
+    :root{ --surface:#ffffff; --text:#0a0a0a; --border:rgba(0,0,0,.12); --ring:rgba(85,230,165,.45) }
+    .dark:root{ --surface:#0a0a0a; --text:#fafafa; --border:rgba(255,255,255,.08) }
+
+    /* Radius system: set on <html data-radius="…"> */
+    html[data-radius="soft"]{ --r:12px }
+    html[data-radius="sharp"]{ --r:6px }
+    html[data-radius="square"]{ --r:0px }
+    .r{ border-radius:var(--r) }             /* generic radius helper */
+
+    /* Dotted grid */
     .grid-bg{
-      background-image:
-        radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
       background-size:14px 14px;
       mask-image: linear-gradient(to bottom, black, black 75%, transparent);
       -webkit-mask-image: linear-gradient(to bottom, black, black 75%, transparent);
     }
-    .focus-ring:focus{outline:none; box-shadow:0 0 0 3px rgba(85,230,165,.45)}
-    /* gradient emphasis words */
-    .grad-brand{background:linear-gradient(90deg,#55e6a5 0%,#7cfcc0 100%); -webkit-background-clip:text; background-clip:text; color:transparent}
-    .grad-accent{background:linear-gradient(90deg,#ff7b62 0%,#ff6347 100%); -webkit-background-clip:text; background-clip:text; color:transparent}
-    /* card micro-motion */
-    .card{transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease}
-    .card:hover{transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,.35); border-color:rgba(85,230,165,.7)}
-    @media (prefers-reduced-motion: reduce){
-      .card,.card:hover{transition:none; transform:none; box-shadow:none}
-    }
-    /* skip link */
-    .skip{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
-    .skip:focus{left:1rem;top:1rem;width:auto;height:auto;background:#000;color:#fff;padding:.5rem .75rem;border-radius:.5rem;z-index:50}
+
+    /* Focus ring */
+    .focus-ring:focus{ outline:none; box-shadow:0 0 0 3px var(--ring) }
+
+    /* Emphasis words */
+    .grad-brand{ background:linear-gradient(90deg,#55e6a5 0%,#7cfcc0 100%); -webkit-background-clip:text; background-clip:text; color:transparent }
+    .grad-accent{ background:linear-gradient(90deg,#ff7b62 0%,#ff6347 100%); -webkit-background-clip:text; background-clip:text; color:transparent }
+
+    /* Card */
+    .card{ transition:box-shadow .18s ease, border-color .18s ease }
+    .card:hover{ box-shadow:0 6px 16px rgba(0,0,0,.18); border-color:rgba(85,230,165,.55) }
+    @media (prefers-reduced-motion: reduce){ .card, .card:hover{ transition:none; transform:none; box-shadow:none } }
+
+    /* Skip link */
+    .skip{ position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden }
+    .skip:focus{ left:1rem; top:1rem; width:auto; height:auto; background:var(--surface); color:var(--text);
+      padding:.5rem .75rem; border-radius:.5rem; z-index:50; border:1px solid var(--border) }
   </style>
 
   <!-- JSON-LD -->
@@ -72,7 +93,7 @@
   <a href="#main" class="skip">Skip to content</a>
 
   <script>
-    // Respect saved theme or system preference at boot
+    // Init theme from saved pref or system
     const pref = localStorage.getItem('theme');
     if (pref === 'light' || (!pref && matchMedia('(prefers-color-scheme: light)').matches)) {
       document.documentElement.classList.remove('dark');
@@ -86,11 +107,11 @@
     <div class="grid-bg absolute inset-0 pointer-events-none"></div>
     <div class="max-w-6xl mx-auto px-6 py-10 flex items-center justify-between">
       <a href="/" class="font-semibold tracking-tight text-lg">Adam<span class="text-brand">J</span></a>
-      <nav class="flex items-center gap-2">
-        <a href="https://ajstudios.dev" class="hidden sm:inline text-sm px-3 py-1.5 rounded-full border border-zinc-700 hover:border-brand/70 transition focus-ring">Portfolio</a>
-        <a href="https://ajstudios.dev/blog" class="hidden sm:inline text-sm px-3 py-1.5 rounded-full border border-zinc-700 hover:border-brand/70 transition focus-ring">Blog</a>
-        <a href="https://github.com/admjski" class="hidden sm:inline text-sm px-3 py-1.5 rounded-full border border-zinc-700 hover:border-brand/70 transition focus-ring">GitHub</a>
-        <button id="themeToggle" class="text-sm px-3 py-1.5 rounded-full border border-zinc-700 hover:border-brand/70 transition focus-ring" aria-label="Toggle theme">☾</button>
+      <nav class="flex items-center gap-2" aria-label="Primary">
+        <a href="https://ajstudios.dev" class="hidden sm:inline text-sm px-3 py-1.5 r border border-zinc-800/60 hover:border-brand/70 transition focus-ring">Portfolio</a>
+        <a href="https://ajstudios.dev/blog" class="hidden sm:inline text-sm px-3 py-1.5 r border border-zinc-800/60 hover:border-brand/70 transition focus-ring">Blog</a>
+        <a href="https://github.com/admjski" class="hidden sm:inline text-sm px-3 py-1.5 r border border-zinc-800/60 hover:border-brand/70 transition focus-ring">GitHub</a>
+        <button id="themeToggle" class="text-sm px-3 py-1.5 r border border-zinc-800/60 hover:border-brand/70 transition focus-ring" aria-label="Toggle theme">☾</button>
       </nav>
     </div>
   </header>
@@ -98,7 +119,7 @@
   <main id="main" class="max-w-6xl mx-auto px-6">
     <!-- Hero -->
     <section class="pt-4 pb-10">
-      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.05]">
+      <h1 class="font-extrabold tracking-tight leading-[1.05] text-[clamp(2.25rem,6vw,3.75rem)]">
         Creative Digital Developer<br/>
         crafting <span class="grad-brand">useful</span> + <span class="grad-accent">fun</span> things.
       </h1>
@@ -106,14 +127,14 @@
         Web, tools, video, sound. Clean UX, cohesive branding, and cheeky ideas that actually ship.
       </p>
       <div class="mt-7 flex flex-wrap gap-3">
-        <a href="https://ajstudios.dev" class="px-5 py-3 rounded-xl bg-brand text-black font-semibold hover:opacity-90 transition focus-ring">View Portfolio</a>
-        <a href="mailto:hello@ajstudios.dev" class="px-5 py-3 rounded-xl border border-zinc-700 hover:border-brand/70 transition focus-ring">Contact</a>
+        <a href="https://ajstudios.dev" class="px-5 py-3 r bg-brand text-black font-semibold hover:opacity-90 transition focus-ring">View Portfolio</a>
+        <a href="mailto:hello@ajstudios.dev" class="px-5 py-3 r border border-zinc-800/60 hover:border-brand/70 transition focus-ring">Contact</a>
       </div>
     </section>
 
     <!-- Currently building -->
     <section class="mt-2 mb-10">
-      <div class="rounded-2xl border border-zinc-800/70 p-5 bg-zinc-900/30">
+      <div class="r border border-zinc-800/50 p-5 bg-zinc-900/30">
         <h2 class="text-sm uppercase tracking-[0.2em] text-zinc-400 mb-3">Currently building</h2>
         <ul class="grid sm:grid-cols-2 gap-2 text-zinc-300">
           <li>• Hex Labs — modern ECU remapping education & browser-based tools</li>
@@ -127,15 +148,15 @@
     <!-- Work preview -->
     <section class="mb-14">
       <div class="grid md:grid-cols-2 gap-6">
-        <a href="https://ajstudios.dev" class="card group block rounded-2xl overflow-hidden border border-zinc-800/70 transition">
-          <img src="/public/hexlabs-shot.jpg" width="1600" height="900" alt="Hex Labs" class="w-full h-64 object-cover group-hover:scale-[1.02] transition" loading="lazy" decoding="async" />
+        <a href="https://ajstudios.dev" class="card group block r overflow-hidden border border-zinc-800/50 transition">
+          <img src="/public/hexlabs-shot.jpg" width="1600" height="900" alt="Hex Labs" class="w-full h-64 object-cover hover:opacity-95 transition" loading="lazy" decoding="async" />
           <div class="p-4">
             <h3 class="font-semibold">Hex Labs</h3>
             <p class="text-sm text-zinc-400">Interactive courses & tools replacing legacy tuning software.</p>
           </div>
         </a>
-        <a href="https://infinite-curios.blog" class="card group block rounded-2xl overflow-hidden border border-zinc-800/70 transition">
-          <img src="/public/infinitecurios-shot.jpg" width="1600" height="900" alt="Infinite Curios" class="w-full h-64 object-cover group-hover:scale-[1.02] transition" loading="lazy" decoding="async" />
+        <a href="https://infinite-curios.blog" class="card group block r overflow-hidden border border-zinc-800/50 transition">
+          <img src="/public/infinitecurios-shot.jpg" width="1600" height="900" alt="Infinite Curios" class="w-full h-64 object-cover hover:opacity-95 transition" loading="lazy" decoding="async" />
           <div class="p-4">
             <h3 class="font-semibold">Infinite Curios</h3>
             <p class="text-sm text-zinc-400">Writing, experiments, and weird web nostalgia.</p>
@@ -146,14 +167,14 @@
 
     <!-- Book CTA -->
     <section class="mb-16">
-      <div class="rounded-2xl border border-zinc-800/70 p-6 flex flex-col sm:flex-row items-center gap-6">
+      <div class="r border border-zinc-800/50 p-6 flex flex-col sm:flex-row items-center gap-6">
         <img src="/public/seo-book.png" width="400" height="600" alt="Get Optimized — SEO" class="w-28 sm:w-32" loading="lazy" decoding="async" />
         <div class="flex-1">
           <h3 class="font-semibold text-xl">Get Optimized — SEO (friendly, no fluff)</h3>
           <p class="text-zinc-400 mt-1">Actionable checklists, clean metaphors, and real-world examples.</p>
           <div class="mt-3 flex gap-3">
-            <a href="https://ajstudios.dev/book" class="px-4 py-2 rounded-lg bg-accent text-white font-medium hover:opacity-90 transition focus-ring">Preview</a>
-            <a href="https://ajstudios.dev/newsletter" class="px-4 py-2 rounded-lg border border-zinc-700 hover:border-brand/70 transition focus-ring">Get updates</a>
+            <a href="https://ajstudios.dev/book" class="px-4 py-2 r bg-accent text-white font-medium hover:opacity-90 transition focus-ring">Preview</a>
+            <a href="https://ajstudios.dev/newsletter" class="px-4 py-2 r border border-zinc-800/60 hover:border-brand/70 transition focus-ring">Get updates</a>
           </div>
         </div>
       </div>
@@ -161,25 +182,25 @@
 
     <!-- Contact + social -->
     <section class="mb-24">
-      <div class="rounded-2xl border border-zinc-800/70 p-6">
+      <div class="r border border-zinc-800/50 p-6">
         <h2 class="font-semibold text-xl mb-4">Say hi</h2>
         <div class="flex flex-wrap items-center gap-3">
-          <a href="mailto:hello@ajstudios.dev" class="px-4 py-2 rounded-lg border border-zinc-700 hover:border-brand/70 transition focus-ring">hello@ajstudios.dev</a>
+          <a href="mailto:hello@ajstudios.dev" class="px-4 py-2 r border border-zinc-800/60 hover:border-brand/70 transition focus-ring">hello@ajstudios.dev</a>
 
           <div class="flex items-center gap-2 ml-2" aria-label="Social links">
-            <a aria-label="X (Twitter)" href="https://x.com/admjski" class="p-2 rounded-lg border border-zinc-800/70 hover:border-brand/70 transition focus-ring">
+            <a aria-label="X (Twitter)" href="https://x.com/admjski" class="p-2 r border border-zinc-800/50 hover:border-brand/70 transition focus-ring">
               <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#x"></use></svg>
             </a>
-            <a aria-label="LinkedIn" href="https://www.linkedin.com" class="p-2 rounded-lg border border-zinc-800/70 hover:border-brand/70 transition focus-ring">
+            <a aria-label="LinkedIn" href="https://www.linkedin.com" class="p-2 r border border-zinc-800/50 hover:border-brand/70 transition focus-ring">
               <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#linkedin"></use></svg>
             </a>
-            <a aria-label="GitHub" href="https://github.com/admjski" class="p-2 rounded-lg border border-zinc-800/70 hover:border-brand/70 transition focus-ring">
+            <a aria-label="GitHub" href="https://github.com/admjski" class="p-2 r border border-zinc-800/50 hover:border-brand/70 transition focus-ring">
               <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#github"></use></svg>
             </a>
-            <a aria-label="Instagram" href="https://instagram.com" class="p-2 rounded-lg border border-zinc-800/70 hover:border-brand/70 transition focus-ring">
+            <a aria-label="Instagram" href="https://instagram.com" class="p-2 r border border-zinc-800/50 hover:border-brand/70 transition focus-ring">
               <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#instagram"></use></svg>
             </a>
-            <a aria-label="Email" href="mailto:hello@ajstudios.dev" class="p-2 rounded-lg border border-zinc-800/70 hover:border-brand/70 transition focus-ring">
+            <a aria-label="Email" href="mailto:hello@ajstudios.dev" class="p-2 r border border-zinc-800/50 hover:border-brand/70 transition focus-ring">
               <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#mail"></use></svg>
             </a>
           </div>
@@ -190,17 +211,19 @@
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-zinc-800/70">
+  <footer class="border-t border-zinc-800/50">
     <div class="max-w-6xl mx-auto px-6 py-8 text-sm text-zinc-500 flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between">
       <span>© <span id="y"></span> Adam Johnston — Scotland, UK</span>
-      <a href="https://ajstudios.dev/privacy" class="hover:text-brand">Privacy</a>
+      <a href="https://ajstudios.dev/privacy" class="underline decoration-brand/50 underline-offset-4 hover:decoration-brand">Privacy</a>
     </div>
   </footer>
 
   <script>
     // Year + theme toggle
     document.getElementById('y').textContent = new Date().getFullYear();
-    document.getElementById('themeToggle').addEventListener('click', () => {
+
+    const toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('click', () => {
       const root = document.documentElement;
       const isDark = root.classList.toggle('dark');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
@@ -212,6 +235,14 @@
         document.body.classList.remove('bg-black','text-zinc-100');
       }
     });
+
+    // Optional: change radius globally via console:
+    // document.documentElement.setAttribute('data-radius','sharp'|'square'|'soft');
+    // Or persist a choice:
+    const savedR = localStorage.getItem('radius');
+    if(savedR) document.documentElement.setAttribute('data-radius', savedR);
+    window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v); localStorage.setItem('radius', v); }
+    // Example: call setRadius('sharp') in the console to try it.
   </script>
 </body>
 </html>
