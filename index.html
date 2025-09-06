@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adam J — Creative Digital Developer</title>
+  <meta name="description" content="Playful, useful, forward-thinking projects across web, tools, video, and sound." />
+  <link rel="icon" href="/public/favicon.svg" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Adam J — Creative Digital Developer" />
+  <meta property="og:description" content="Clean UX, cohesive branding, and cheeky ideas that actually ship." />
+  <meta property="og:image" content="https://adamj.link/public/og.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: { brand: '#55e6a5', accent: '#ff6347' }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .grid-bg{
+      background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size:14px 14px;
+      mask-image: linear-gradient(to bottom, black, black 75%, transparent);
+      -webkit-mask-image: linear-gradient(to bottom, black, black 75%, transparent);
+    }
+    .focus-ring:focus{outline:none; box-shadow:0 0 0 3px rgba(85,230,165,.45)}
+  </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Adam Johnston",
+    "url":"https://adamj.link",
+    "sameAs":[
+      "https://ajstudios.dev",
+      "https://github.com/admjski",
+      "https://www.youtube.com/@admjski"
+    ],
+    "jobTitle":"Creative Digital Developer",
+    "knowsAbout":["Web Development","UX","Branding","Multimedia","AI Tools","ECU Tuning Tools"]
+  }
+  </script>
+</head>
+<body class="bg-black text-zinc-100 selection:bg-brand/30 selection:text-white">
+  <script>
+    // Respect saved theme or system preference
+    const pref = localStorage.getItem('theme');
+    if (pref === 'light' || (!pref && matchMedia('(prefers-color-scheme: light)').matches)) {
+      document.documentElement.classList.remove('dark');
+      document.body.classList.remove('bg-black','text-zinc-100');
+      document.body.classList.add('bg-white','text-zinc-900');
+    }
+  </script>
+
+  <!-- Header -->
+  <header class="relative">
+    <div class="grid-bg absolute inset-0 pointer-events-none"></div>
+    <div class="max-w-6xl mx-auto px-6 py-10 flex items-center justify-between">
+      <a href="/" class="font-semibold tracking-tight text-lg">Adam<span class="text-brand">J</span></a>
+      <nav class="flex items-center gap-2">
+        <a href="https://ajstudios.dev" class="hidden sm:inline text-sm px-3 py-1.5 rounded-full border border-zinc-700 hover:border-brand/70 transition focus-ring">Portfolio</a>
+        <a href="https://ajstudios.dev/blog" class="hidden sm:inline text-sm px-3 py-1.5 rounded-full border border-zinc-700 hover:border-brand/70 transition focus-ring">Blog</a>
+        <a href="https://github.com/admjski" class="hidden sm:inline text-sm px-3 py-1.5 rounded-full border border-zinc-700 hover:border-brand/70 transition focus-ring">GitHub</a>
+        <button id="themeToggle" class="text-sm px-3 py-1.5 rounded-full border border-zinc-700 hover:border-brand/70 transition focus-ring" aria-label="Toggle theme">☾</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6">
+    <!-- Hero -->
+    <section class="pt-6 pb-10">
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.05]">
+        Creative Digital Developer<br/>
+        crafting <span class="text-brand">useful</span> + <span class="text-accent">fun</span> things.
+      </h1>
+      <p class="mt-5 max-w-2xl text-zinc-400">
+        Web, tools, video, sound. Clean UX, cohesive branding, and cheeky ideas that actually ship.
+      </p>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <a href="https://ajstudios.dev" class="px-5 py-3 rounded-xl bg-brand text-black font-semibold hover:opacity-90 transition focus-ring">View Portfolio</a>
+        <a href="mailto:hello@ajstudios.dev" class="px-5 py-3 rounded-xl border border-zinc-700 hover:border-brand/70 transition focus-ring">Contact</a>
+      </div>
+    </section>
+
+    <!-- Currently building -->
+    <section class="mt-2 mb-10">
+      <div class="rounded-2xl border border-zinc-800/70 p-5 bg-zinc-900/30">
+        <h2 class="text-sm uppercase tracking-[0.2em] text-zinc-400 mb-3">Currently building</h2>
+        <ul class="grid sm:grid-cols-2 gap-2 text-zinc-300">
+          <li>• Hex Labs — modern ECU remapping education & browser-based tools</li>
+          <li>• Greg-AI — local prompt-aware coding assistant (cost-efficient)</li>
+          <li>• Infinite Curios — blog on tech, nostalgia & internet oddities</li>
+          <li>• SEO book + micro-courses (friendly, practical, non-boring)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Work preview cards -->
+    <section class="mb-14">
+      <div class="grid md:grid-cols-2 gap-6">
+        <a href="https://ajstudios.dev" class="group block rounded-2xl overflow-hidden border border-zinc-800/70 hover:border-brand/70 transition">
+          <img src="/public/hexlabs-shot.jpg" alt="Hex Labs" class="w-full h-64 object-cover group-hover:scale-[1.02] transition" loading="lazy" decoding="async" />
+          <div class="p-4">
+            <h3 class="font-semibold">Hex Labs</h3>
+            <p class="text-sm text-zinc-400">Interactive courses & tools replacing legacy tuning software.</p>
+          </div>
+        </a>
+        <a href="https://infinite-curios.blog" class="group block rounded-2xl overflow-hidden border border-zinc-800/70 hover:border-brand/70 transition">
+          <img src="/public/infinitecurios-shot.jpg" alt="Infinite Curios" class="w-full h-64 object-cover group-hover:scale-[1.02] transition" loading="lazy" decoding="async" />
+          <div class="p-4">
+            <h3 class="font-semibold">Infinite Curios</h3>
+            <p class="text-sm text-zinc-400">Writing, experiments, and weird web nostalgia.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Book CTA -->
+    <section class="mb-16">
+      <div class="rounded-2xl border border-zinc-800/70 p-6 flex flex-col sm:flex-row items-center gap-6">
+        <img src="/public/seo-book.png" alt="Get Optimized — SEO" class="w-28 sm:w-32" loading="lazy" decoding="async" />
+        <div class="flex-1">
+          <h3 class="font-semibold text-xl">Get Optimized — SEO (friendly, no fluff)</h3>
+          <p class="text-zinc-400 mt-1">Actionable checklists, clean metaphors, and real-world examples.</p>
+          <div class="mt-3 flex gap-3">
+            <a href="https://ajstudios.dev/book" class="px-4 py-2 rounded-lg bg-accent text-white font-medium hover:opacity-90 transition focus-ring">Preview</a>
+            <a href="https://ajstudios.dev/newsletter" class="px-4 py-2 rounded-lg border border-zinc-700 hover:border-brand/70 transition focus-ring">Get updates</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact + social -->
+    <section class="mb-24">
+      <div class="rounded-2xl border border-zinc-800/70 p-6">
+        <h2 class="font-semibold text-xl mb-4">Say hi</h2>
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="mailto:hello@ajstudios.dev" class="px-4 py-2 rounded-lg border border-zinc-700 hover:border-brand/70 transition focus-ring">hello@ajstudios.dev</a>
+          <div class="flex items-center gap-2 ml-2">
+            <!-- Social icon buttons -->
+            <a aria-label="X" href="https://x.com/admjski" class="p-2 rounded-lg border border-zinc-800/70 hover:border-brand/70 transition focus-ring">
+              <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#x"></use></svg>
+            </a>
+            <a aria-label="LinkedIn" href="https://www.linkedin.com" class="p-2 rounded-lg border border-zinc-800/70 hover:border-brand/70 transition focus-ring">
+              <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#linkedin"></use></svg>
+            </a>
+            <a aria-label="GitHub" href="https://github.com/admjski" class="p-2 rounded-lg border border-zinc-800/70 hover:border-brand/70 transition focus-ring">
+              <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#github"></use></svg>
+            </a>
+            <a aria-label="Instagram" href="https://instagram.com" class="p-2 rounded-lg border border-zinc-800/70 hover:border-brand/70 transition focus-ring">
+              <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#instagram"></use></svg>
+            </a>
+            <a aria-label="Email" href="mailto:hello@ajstudios.dev" class="p-2 rounded-lg border border-zinc-800/70 hover:border-brand/70 transition focus-ring">
+              <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#mail"></use></svg>
+            </a>
+          </div>
+        </div>
+        <p class="text-zinc-500 text-sm mt-3">Icons are inline SVG from <code>/public/icons.svg</code>.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-800/70">
+    <div class="max-w-6xl mx-auto px-6 py-8 text-sm text-zinc-500 flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between">
+      <span>© <span id="y"></span> Adam Johnston — Scotland, UK</span>
+      <a href="https://ajstudios.dev/privacy" class="hover:text-brand">Privacy</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const root = document.documentElement;
+      const isDark = root.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      if (isDark) {
+        document.body.classList.add('bg-black','text-zinc-100');
+        document.body.classList.remove('bg-white','text-zinc-900');
+      } else {
+        document.body.classList.add('bg-white','text-zinc-900');
+        document.body.classList.remove('bg-black','text-zinc-100');
+      }
+    });
+  </script>
+</body>
+</html>
