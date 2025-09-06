@@ -4,12 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Adam J — Creative Digital Developer</title>
-  <meta name="description" content="Playful, useful, forward-thinking projects across web, tools, video, and sound." />
+  <meta name="description" content="Creative digital developer crafting playful, useful experiences across web, tools, video, and sound. Clean UX, cohesive branding, and cheeky ideas that actually ship." />
   <link rel="icon" href="/public/favicon.svg" />
 
-  <!-- Open Graph / Twitter -->
+  <!-- OG / Twitter -->
   <meta property="og:title" content="Adam J — Creative Digital Developer" />
-  <meta property="og:description" content="Clean UX, cohesive branding, and cheeky ideas that actually ship." />
+  <meta property="og:description" content="Playful, useful, forward-thinking projects. Portfolio, blog, GitHub." />
   <meta property="og:image" content="https://adamj.link/public/og.jpg" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -28,13 +28,27 @@
   </script>
 
   <style>
+    /* dotted grid + fade */
     .grid-bg{
-      background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-image:
+        radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
       background-size:14px 14px;
       mask-image: linear-gradient(to bottom, black, black 75%, transparent);
       -webkit-mask-image: linear-gradient(to bottom, black, black 75%, transparent);
     }
     .focus-ring:focus{outline:none; box-shadow:0 0 0 3px rgba(85,230,165,.45)}
+    /* gradient emphasis words */
+    .grad-brand{background:linear-gradient(90deg,#55e6a5 0%,#7cfcc0 100%); -webkit-background-clip:text; background-clip:text; color:transparent}
+    .grad-accent{background:linear-gradient(90deg,#ff7b62 0%,#ff6347 100%); -webkit-background-clip:text; background-clip:text; color:transparent}
+    /* card micro-motion */
+    .card{transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease}
+    .card:hover{transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,.35); border-color:rgba(85,230,165,.7)}
+    @media (prefers-reduced-motion: reduce){
+      .card,.card:hover{transition:none; transform:none; box-shadow:none}
+    }
+    /* skip link */
+    .skip{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip:focus{left:1rem;top:1rem;width:auto;height:auto;background:#000;color:#fff;padding:.5rem .75rem;border-radius:.5rem;z-index:50}
   </style>
 
   <!-- JSON-LD -->
@@ -55,8 +69,10 @@
   </script>
 </head>
 <body class="bg-black text-zinc-100 selection:bg-brand/30 selection:text-white">
+  <a href="#main" class="skip">Skip to content</a>
+
   <script>
-    // Respect saved theme or system preference
+    // Respect saved theme or system preference at boot
     const pref = localStorage.getItem('theme');
     if (pref === 'light' || (!pref && matchMedia('(prefers-color-scheme: light)').matches)) {
       document.documentElement.classList.remove('dark');
@@ -79,12 +95,12 @@
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-6">
+  <main id="main" class="max-w-6xl mx-auto px-6">
     <!-- Hero -->
-    <section class="pt-6 pb-10">
+    <section class="pt-4 pb-10">
       <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.05]">
         Creative Digital Developer<br/>
-        crafting <span class="text-brand">useful</span> + <span class="text-accent">fun</span> things.
+        crafting <span class="grad-brand">useful</span> + <span class="grad-accent">fun</span> things.
       </h1>
       <p class="mt-5 max-w-2xl text-zinc-400">
         Web, tools, video, sound. Clean UX, cohesive branding, and cheeky ideas that actually ship.
@@ -108,18 +124,18 @@
       </div>
     </section>
 
-    <!-- Work preview cards -->
+    <!-- Work preview -->
     <section class="mb-14">
       <div class="grid md:grid-cols-2 gap-6">
-        <a href="https://ajstudios.dev" class="group block rounded-2xl overflow-hidden border border-zinc-800/70 hover:border-brand/70 transition">
-          <img src="/public/hexlabs-shot.jpg" alt="Hex Labs" class="w-full h-64 object-cover group-hover:scale-[1.02] transition" loading="lazy" decoding="async" />
+        <a href="https://ajstudios.dev" class="card group block rounded-2xl overflow-hidden border border-zinc-800/70 transition">
+          <img src="/public/hexlabs-shot.jpg" width="1600" height="900" alt="Hex Labs" class="w-full h-64 object-cover group-hover:scale-[1.02] transition" loading="lazy" decoding="async" />
           <div class="p-4">
             <h3 class="font-semibold">Hex Labs</h3>
             <p class="text-sm text-zinc-400">Interactive courses & tools replacing legacy tuning software.</p>
           </div>
         </a>
-        <a href="https://infinite-curios.blog" class="group block rounded-2xl overflow-hidden border border-zinc-800/70 hover:border-brand/70 transition">
-          <img src="/public/infinitecurios-shot.jpg" alt="Infinite Curios" class="w-full h-64 object-cover group-hover:scale-[1.02] transition" loading="lazy" decoding="async" />
+        <a href="https://infinite-curios.blog" class="card group block rounded-2xl overflow-hidden border border-zinc-800/70 transition">
+          <img src="/public/infinitecurios-shot.jpg" width="1600" height="900" alt="Infinite Curios" class="w-full h-64 object-cover group-hover:scale-[1.02] transition" loading="lazy" decoding="async" />
           <div class="p-4">
             <h3 class="font-semibold">Infinite Curios</h3>
             <p class="text-sm text-zinc-400">Writing, experiments, and weird web nostalgia.</p>
@@ -131,7 +147,7 @@
     <!-- Book CTA -->
     <section class="mb-16">
       <div class="rounded-2xl border border-zinc-800/70 p-6 flex flex-col sm:flex-row items-center gap-6">
-        <img src="/public/seo-book.png" alt="Get Optimized — SEO" class="w-28 sm:w-32" loading="lazy" decoding="async" />
+        <img src="/public/seo-book.png" width="400" height="600" alt="Get Optimized — SEO" class="w-28 sm:w-32" loading="lazy" decoding="async" />
         <div class="flex-1">
           <h3 class="font-semibold text-xl">Get Optimized — SEO (friendly, no fluff)</h3>
           <p class="text-zinc-400 mt-1">Actionable checklists, clean metaphors, and real-world examples.</p>
@@ -149,9 +165,9 @@
         <h2 class="font-semibold text-xl mb-4">Say hi</h2>
         <div class="flex flex-wrap items-center gap-3">
           <a href="mailto:hello@ajstudios.dev" class="px-4 py-2 rounded-lg border border-zinc-700 hover:border-brand/70 transition focus-ring">hello@ajstudios.dev</a>
-          <div class="flex items-center gap-2 ml-2">
-            <!-- Social icon buttons -->
-            <a aria-label="X" href="https://x.com/admjski" class="p-2 rounded-lg border border-zinc-800/70 hover:border-brand/70 transition focus-ring">
+
+          <div class="flex items-center gap-2 ml-2" aria-label="Social links">
+            <a aria-label="X (Twitter)" href="https://x.com/admjski" class="p-2 rounded-lg border border-zinc-800/70 hover:border-brand/70 transition focus-ring">
               <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#x"></use></svg>
             </a>
             <a aria-label="LinkedIn" href="https://www.linkedin.com" class="p-2 rounded-lg border border-zinc-800/70 hover:border-brand/70 transition focus-ring">
@@ -182,6 +198,7 @@
   </footer>
 
   <script>
+    // Year + theme toggle
     document.getElementById('y').textContent = new Date().getFullYear();
     document.getElementById('themeToggle').addEventListener('click', () => {
       const root = document.documentElement;
