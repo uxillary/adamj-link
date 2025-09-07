@@ -94,6 +94,35 @@
     /* Theme toggle spin */
     .spin{ transition: transform .4s ease }
     .spin.spin-anim{ transform: rotate(180deg) }
+    
+    /* Currently building — glassy feature cards */
+    .cb{ counter-reset: item }
+    .cb-item{
+      position: relative;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.08);
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+    .dark .cb-item{ background: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.12)) }
+    .cb-item:hover{ transform: translateY(-2px); border-color: rgba(85,230,165,.55); box-shadow: 0 8px 20px rgba(0,0,0,.20) }
+    .cb-item::before{
+      counter-increment: item;
+      content: counter(item);
+      position: absolute; inset: -1px auto auto -1px;
+      width: 32px; height: 32px; display: grid; place-items: center;
+      background: #55e6a5; color: #0a0a0a; font-weight: 700; font-size: 14px;
+      border-bottom-right-radius: 8px;
+    }
+    .cb-top{
+      position:absolute; left:0; right:0; top:0; height:1px;
+      background: linear-gradient(90deg, rgba(85,230,165,.7), rgba(255,99,71,.65));
+      opacity:.85;
+    }
+    @media (prefers-reduced-motion: reduce){
+      .cb-item, .cb-item:hover{ transition:none; transform:none; box-shadow:none }
+    }
   </style>
 
   <!-- JSON-LD -->
@@ -167,9 +196,19 @@
     <section class="mt-2 mb-10">
       <div class="r card border border-zinc-800/50 p-5">
         <h2 class="text-sm uppercase tracking-[0.2em] text-zinc-400 mb-3">Currently building</h2>
-        <ul class="grid sm:grid-cols-2 gap-4 text-zinc-300 list-disc list-inside space-y-1 sm:space-y-0">
-          <li class="pl-1">Local ai coding tool that connects to openai, offering smart prompt handling to reduce API costs while enabling efficient, context-aware code generation.</li>
-          <li class="pl-1">Interactive UGC-driven game using <a href="https://developers.reddit.com">Devvit Web</a> and Reddit posts. Designed for quick, daily play with a polished Reddit-native feel, blending playful mechanics, community creativity, and a seamless UX.</li>
+        <ul class="cb grid sm:grid-cols-2 gap-4 text-zinc-300 overflow-x-auto snap-x sm:overflow-visible [-ms-overflow-style:none] [scrollbar-width:none]">
+          <li class="shrink-0 snap-start">
+            <div class="cb-item r p-4">
+              <span class="cb-top" aria-hidden="true"></span>
+              Local ai coding tool that connects to openai, offering smart prompt handling to reduce API costs while enabling efficient, context-aware code generation.
+            </div>
+          </li>
+          <li class="shrink-0 snap-start">
+            <div class="cb-item r p-4">
+              <span class="cb-top" aria-hidden="true"></span>
+              Interactive UGC-driven game using <a href="https://developers.reddit.com">Devvit Web</a> and Reddit posts. Designed for quick, daily play with a polished Reddit-native feel, blending playful mechanics, community creativity, and a seamless UX.
+            </div>
+          </li>
         </ul>
       </div>
     </section>
