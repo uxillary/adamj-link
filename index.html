@@ -355,9 +355,13 @@
           <!-- Tiny analytics -->
           <div class="mt-4 sm:mt-0 text-left sm:text-right">
             <div class="text-xs text-zinc-500 mb-1">Tiny analytics</div>
-            <div class="flex flex-wrap gap-2 sm:justify-end">
-              <span id="views" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-zinc-800/50 text-sm text-zinc-300">Views: —</span>
-              <span id="ghFollowers" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-zinc-800/50 text-sm text-zinc-300">GitHub: —</span>
+            <div class="flex flex-wrap gap-4 sm:justify-end mt-1 text-sm text-zinc-300">
+              <span id="views" aria-live="polite">Views: —</span>
+              <span id="ghFollowers" aria-live="polite">GitHub: —</span>
+              <span>Contribs: <span id="gh-contributions" aria-live="polite">—</span></span>
+              <span>Videos: <span id="youtube-counter" aria-live="polite">—</span></span>
+              <span>Repos: <span id="repo-counter" aria-live="polite">—</span></span>
+              <span>Posts: <span id="blog-counter" aria-live="polite">—</span></span>
             </div>
           </div>
         </div>
@@ -504,7 +508,7 @@
       const n = parseInt(localStorage.getItem(k) || '0', 10) + 1;
       localStorage.setItem(k, String(n));
       const el = document.getElementById('views');
-      if (el) el.textContent = 'Views: ' + n;
+      if (el) countUp(el, n);
     })();
 
     // 2) GitHub followers (public API, no key)
@@ -513,10 +517,13 @@
         .then(r => r.ok ? r.json() : null)
         .then(d => {
           const el = document.getElementById('ghFollowers');
-          if (!el || !d) return;
-          el.textContent = 'GitHub: ' + (d.followers ?? '—') + ' followers';
+          if (!el || !d || typeof d.followers !== 'number') { if (el) el.title = 'Temporarily unavailable'; return; }
+          countUp(el, d.followers);
         })
-        .catch(()=>{ /* ignore */ });
+        .catch(()=>{
+          const el = document.getElementById('ghFollowers');
+          if (el) el.title = 'Temporarily unavailable';
+        });
     })();
 
     // Radius preference helper (optional, persists)
@@ -602,6 +609,84 @@
         });
       });
     })();
+
+    const COUNTERS = [
+      { id: 'youtube-counter', url: 'https://uxillary.github.io/automated/video-count.txt' },
+      { id: 'repo-counter', url: 'https://uxillary.github.io/automated/repos.txt' },
+      { id: 'gh-contributions', url: 'https://uxillary.github.io/automated/contributions.txt' },
+      { id: 'blog-counter', url: 'https://uxillary.github.io/automated/blog-total.txt' }
+    ];
+    const MIRRORS = {
+      'youtube-counter': 'statVideos',
+      'repo-counter': 'statRepos',
+      'gh-contributions': 'statContribs',
+      'blog-counter': 'statBlog'
+    };
+
+    function fmt(n){
+      return new Intl.NumberFormat('en-GB').format(n);
+    }
+
+    function countUp(el, to, ms=600){
+      if(!el) return;
+      const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const labelMatch = el.textContent.match(/^[^:]+:\s*/);
+      const label = labelMatch ? labelMatch[0] : '';
+      if(prefersReduced){
+        el.textContent = label + fmt(to);
+        return;
+      }
+      const from = parseInt(el.textContent.replace(/[^0-9]/g,'') || '0', 10);
+      const start = performance.now();
+      function frame(now){
+        const progress = Math.min((now - start) / ms, 1);
+        const value = Math.round(from + (to - from) * progress);
+        el.textContent = label + fmt(value);
+        if(progress < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
+
+    function setNumber(id, value){
+      const el = document.getElementById(id);
+      if(el) countUp(el, value);
+      const mirrorId = MIRRORS[id];
+      if(mirrorId){
+        const mirrorEl = document.getElementById(mirrorId);
+        if(mirrorEl) countUp(mirrorEl, value);
+      }
+    }
+
+    async function refreshCounters(){
+      const maxAge = 10 * 60 * 1000;
+      const now = Date.now();
+      for(const {id, url} of COUNTERS){
+        const el = document.getElementById(id);
+        if(!el) continue;
+        try{
+          const cached = sessionStorage.getItem(id);
+          if(cached){
+            const {v, t} = JSON.parse(cached);
+            if(now - t < maxAge){
+              setNumber(id, v);
+              continue;
+            }
+          }
+          const res = await fetch(url);
+          if(!res.ok) throw new Error('fetch failed');
+          const txt = await res.text();
+          const num = parseInt(txt.trim(), 10);
+          if(!Number.isFinite(num)) throw new Error('NaN');
+          setNumber(id, num);
+          sessionStorage.setItem(id, JSON.stringify({v:num, t:now}));
+          el.removeAttribute('title');
+        }catch{
+          el.title = 'Temporarily unavailable';
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', refreshCounters);
   </script>
 </body>
 </html>
