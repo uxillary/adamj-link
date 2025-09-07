@@ -131,14 +131,15 @@
     @media (prefers-reduced-motion: reduce){
       .cb-item, .cb-item:hover{ transition:none; transform:none; box-shadow:none }
     }
-    /* Timeline */
-    .timeline{ position:relative }
-    .timeline::before{ content:""; position:absolute; top:1.75rem; left:0; right:0; height:1px; background:var(--border) }
-    .timeline::-webkit-scrollbar{ display:none }
-    .timeline-dot{ transition: background-color .2s ease }
-    .timeline-item:hover .timeline-dot,
-    .timeline-item:focus .timeline-dot{ background:#55e6a5 }
-    @media (prefers-reduced-motion: reduce){ .timeline-dot{ transition:none } }
+    /* Now timeline micro interactions */
+    .now-dot{ transition:box-shadow .2s ease, background-color .2s ease }
+    .now-item:hover .now-dot,
+    .now-item:focus .now-dot{ box-shadow:0 0 0 4px rgba(85,230,165,.45) }
+    .now-item:hover .now-title,
+    .now-item:focus .now-title{ color:#fff; font-weight:600 }
+    @media (prefers-reduced-motion: reduce){
+      .now-dot, .now-progress{ transition:none !important }
+    }
   </style>
 
   <!-- JSON-LD -->
@@ -196,31 +197,33 @@
 
     <!-- NOW section -->
     <section class="mb-10">
-      <div class="r card border border-zinc-800/50 p-5">
+      <div id="nowTimeline" data-active="2" class="relative r card border border-zinc-800/50 p-4 sm:p-5">
         <h2 class="text-sm uppercase tracking-[0.2em] text-zinc-400 mb-3">Now</h2>
-        <span id="timelineDesc" class="sr-only">Current focus timeline</span>
-        <div role="list" aria-describedby="timelineDesc" class="timeline flex gap-8 overflow-x-auto snap-x snap-mandatory py-4 [-ms-overflow-style:none] [scrollbar-width:none] sm:overflow-visible sm:gap-0 sm:justify-between">
-          <div role="listitem" tabindex="0" class="timeline-item group flex flex-col items-center text-center w-40 shrink-0 snap-center focus-ring sm:flex-1 sm:w-auto">
-            <span class="text-xs text-zinc-500">17 Sep</span>
-            <span class="timeline-dot my-2 w-3 h-3 rounded-full bg-zinc-500 dark:bg-zinc-400"></span>
-            <span class="text-sm text-zinc-800 dark:text-zinc-200">Reddit game</span>
-          </div>
-          <div role="listitem" tabindex="0" class="timeline-item group flex flex-col items-center text-center w-40 shrink-0 snap-center focus-ring sm:flex-1 sm:w-auto">
-            <span class="text-xs text-zinc-500">2 Oct</span>
-            <span class="timeline-dot my-2 w-3 h-3 rounded-full bg-zinc-500 dark:bg-zinc-400"></span>
-            <span class="text-sm text-zinc-800 dark:text-zinc-200">NASA app</span>
-          </div>
-          <div role="listitem" tabindex="0" class="timeline-item group flex flex-col items-center text-center w-40 shrink-0 snap-center focus-ring sm:flex-1 sm:w-auto">
-            <span class="text-xs text-zinc-500">Nov</span>
-            <span class="timeline-dot my-2 w-3 h-3 rounded-full bg-zinc-500 dark:bg-zinc-400"></span>
-            <span class="text-sm text-zinc-800 dark:text-zinc-200">YouTube project</span>
-          </div>
-          <div role="listitem" tabindex="0" class="timeline-item group flex flex-col items-center text-center w-40 shrink-0 snap-center focus-ring sm:flex-1 sm:w-auto">
-            <span class="text-xs text-zinc-500">TBC</span>
-            <span class="timeline-dot my-2 w-3 h-3 rounded-full bg-zinc-500 dark:bg-zinc-400"></span>
-            <span class="text-sm text-zinc-800 dark:text-zinc-200">2026</span>
-          </div>
-        </div>
+        <span id="nowTimelineHelp" class="sr-only">Use left and right keys or click to set the active step</span>
+        <div class="now-progress absolute left-3 top-1/2 -translate-y-1/2 h-[3px] rounded-full bg-gradient-to-r from-brand to-accent transition-[width] duration-500 ease-out" style="width:0"></div>
+        <div class="absolute left-3 right-3 top-1/2 -translate-y-1/2 h-px bg-zinc-800/60"></div>
+        <ul role="list" aria-label="Current focus timeline" aria-describedby="nowTimelineHelp" class="flex gap-6 overflow-x-auto snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] sm:grid sm:grid-cols-4 sm:gap-0 sm:overflow-visible">
+          <li role="listitem" tabindex="0" data-step="0" class="now-item group relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center">
+            <span class="absolute -top-6 text-xs text-zinc-500">17 Sep</span>
+            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
+            <span class="now-title absolute -bottom-6 text-sm font-medium text-zinc-300">Reddit game</span>
+          </li>
+          <li role="listitem" tabindex="0" data-step="1" class="now-item group relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center">
+            <span class="absolute -top-6 text-xs text-zinc-500">2 Oct</span>
+            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
+            <span class="now-title absolute -bottom-6 text-sm font-medium text-zinc-300">NASA app</span>
+          </li>
+          <li role="listitem" tabindex="0" data-step="2" class="now-item group relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center">
+            <span class="absolute -top-6 text-xs text-zinc-500">Nov</span>
+            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
+            <span class="now-title absolute -bottom-6 text-sm font-medium text-zinc-300">YouTube project</span>
+          </li>
+          <li role="listitem" tabindex="0" data-step="3" class="now-item group relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center">
+            <span class="absolute -top-6 text-xs text-zinc-500">TBC</span>
+            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
+            <span class="now-title absolute -bottom-6 text-sm font-medium text-zinc-300">2026</span>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -481,6 +484,67 @@
     const savedR = localStorage.getItem('radius');
     if(savedR) document.documentElement.setAttribute('data-radius', savedR);
     window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v); localStorage.setItem('radius', v); };
+
+    // Now timeline interaction
+    (function(){
+      const container = document.getElementById('nowTimeline');
+      if(!container) return;
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const progress = container.querySelector('.now-progress');
+      const items = Array.from(container.querySelectorAll('[data-step]'));
+      let activeIndex = parseInt(container.dataset.active || '0', 10);
+
+      const updateProgress = () => {
+        const active = items[activeIndex];
+        const dot = active.querySelector('.now-dot');
+        const containerRect = container.getBoundingClientRect();
+        const dotRect = dot.getBoundingClientRect();
+        const width = dotRect.left + dotRect.width / 2 - (containerRect.left + progress.offsetLeft);
+        if(prefersReduced){
+          progress.style.transition = 'none';
+        } else {
+          progress.style.transition = '';
+        }
+        progress.style.width = width + 'px';
+      };
+
+      const setActive = (idx) => {
+        activeIndex = idx;
+        items.forEach((item,i)=>{
+          const dot = item.querySelector('.now-dot');
+          const title = item.querySelector('.now-title');
+          if(i===idx){
+            item.setAttribute('aria-current','step');
+            dot.classList.add('bg-brand','after:absolute','after:inset-[-6px]','after:rounded-full','after:border','after:border-brand/60');
+            title.classList.add('text-white','font-semibold');
+          }else{
+            item.removeAttribute('aria-current');
+            dot.classList.remove('bg-brand','after:absolute','after:inset-[-6px]','after:rounded-full','after:border','after:border-brand/60');
+            title.classList.remove('text-white','font-semibold');
+          }
+        });
+        updateProgress();
+        items[idx].scrollIntoView({inline:'center',block:'nearest',behavior:prefersReduced?'auto':'smooth'});
+      };
+
+      items.forEach(item=>{
+        item.addEventListener('click',()=>setActive(parseInt(item.dataset.step,10)));
+        item.addEventListener('keydown',e=>{
+          if(e.key==='Enter' || e.key===' '){
+            e.preventDefault();
+            setActive(parseInt(item.dataset.step,10));
+          }
+        });
+      });
+
+      // init
+      setActive(activeIndex);
+      if(!prefersReduced){
+        const finalWidth = progress.style.width;
+        progress.style.width = '0px';
+        requestAnimationFrame(()=>{ progress.style.width = finalWidth; });
+      }
+    })();
   </script>
 </body>
 </html>
