@@ -123,6 +123,14 @@
     @media (prefers-reduced-motion: reduce){
       .cb-item, .cb-item:hover{ transition:none; transform:none; box-shadow:none }
     }
+    /* Timeline */
+    .timeline{ position:relative }
+    .timeline::before{ content:""; position:absolute; top:1.75rem; left:0; right:0; height:1px; background:var(--border) }
+    .timeline::-webkit-scrollbar{ display:none }
+    .timeline-dot{ transition: background-color .2s ease }
+    .timeline-item:hover .timeline-dot,
+    .timeline-item:focus .timeline-dot{ background:#55e6a5 }
+    @media (prefers-reduced-motion: reduce){ .timeline-dot{ transition:none } }
   </style>
 
   <!-- JSON-LD -->
@@ -182,11 +190,29 @@
     <section class="mb-10">
       <div class="r card border border-zinc-800/50 p-5">
         <h2 class="text-sm uppercase tracking-[0.2em] text-zinc-400 mb-3">Now</h2>
-        <ul class="flex sm:grid sm:grid-cols-3 gap-3 overflow-x-auto snap-x sm:overflow-visible text-zinc-300 [-ms-overflow-style:none] [scrollbar-width:none]">
-          <li class="r border border-zinc-800/40 px-4 py-3 shrink-0 snap-start">Hex Labs prototype polish — Map Viewer + VIN decoder UI clean-up</li>
-          <li class="r border border-zinc-800/40 px-4 py-3 shrink-0 snap-start">Editing short, funny clips for @admjski (lean captions, big hooks)</li>
-          <li class="r border border-zinc-800/40 px-4 py-3 shrink-0 snap-start">Shaping “Get Optimized — SEO” checklists into micro-lessons</li>
-        </ul>
+        <span id="timelineDesc" class="sr-only">Current focus timeline</span>
+        <div role="list" aria-describedby="timelineDesc" class="timeline flex gap-8 overflow-x-auto snap-x snap-mandatory py-4 [-ms-overflow-style:none] [scrollbar-width:none] sm:overflow-visible sm:gap-0 sm:justify-between">
+          <div role="listitem" tabindex="0" class="timeline-item group flex flex-col items-center text-center w-40 shrink-0 snap-center focus-ring sm:flex-1 sm:w-auto">
+            <span class="text-xs text-zinc-500">17 Sep</span>
+            <span class="timeline-dot my-2 w-3 h-3 rounded-full bg-zinc-500 dark:bg-zinc-400"></span>
+            <span class="text-sm text-zinc-800 dark:text-zinc-200">Reddit game</span>
+          </div>
+          <div role="listitem" tabindex="0" class="timeline-item group flex flex-col items-center text-center w-40 shrink-0 snap-center focus-ring sm:flex-1 sm:w-auto">
+            <span class="text-xs text-zinc-500">2 Oct</span>
+            <span class="timeline-dot my-2 w-3 h-3 rounded-full bg-zinc-500 dark:bg-zinc-400"></span>
+            <span class="text-sm text-zinc-800 dark:text-zinc-200">NASA app</span>
+          </div>
+          <div role="listitem" tabindex="0" class="timeline-item group flex flex-col items-center text-center w-40 shrink-0 snap-center focus-ring sm:flex-1 sm:w-auto">
+            <span class="text-xs text-zinc-500">Nov</span>
+            <span class="timeline-dot my-2 w-3 h-3 rounded-full bg-zinc-500 dark:bg-zinc-400"></span>
+            <span class="text-sm text-zinc-800 dark:text-zinc-200">YouTube project</span>
+          </div>
+          <div role="listitem" tabindex="0" class="timeline-item group flex flex-col items-center text-center w-40 shrink-0 snap-center focus-ring sm:flex-1 sm:w-auto">
+            <span class="text-xs text-zinc-500">TBC</span>
+            <span class="timeline-dot my-2 w-3 h-3 rounded-full bg-zinc-500 dark:bg-zinc-400"></span>
+            <span class="text-sm text-zinc-800 dark:text-zinc-200">2026</span>
+          </div>
+        </div>
       </div>
     </section>
 
