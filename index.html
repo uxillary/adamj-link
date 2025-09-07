@@ -197,28 +197,28 @@
 
     <!-- NOW section -->
     <section class="mb-10">
-      <div id="nowTimeline" data-active="2" class="relative r card border border-zinc-800/50 p-4 sm:p-5">
+      <div id="nowTimeline" class="relative r card border border-zinc-800/50 p-4 sm:p-5">
         <h2 class="text-sm uppercase tracking-[0.2em] text-zinc-400 mb-3">Now</h2>
         <span id="nowTimelineHelp" class="sr-only">Use left and right keys or click to set the active step</span>
         <div class="now-progress absolute left-3 top-1/2 -translate-y-1/2 h-[3px] rounded-full bg-gradient-to-r from-brand to-accent transition-[width] duration-500 ease-out" style="width:0"></div>
         <div class="absolute left-3 right-3 top-1/2 -translate-y-1/2 h-px bg-zinc-800/60"></div>
         <ul role="list" aria-label="Current focus timeline" aria-describedby="nowTimelineHelp" class="flex gap-6 overflow-x-auto snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] sm:grid sm:grid-cols-4 sm:gap-0 sm:overflow-visible">
-          <li role="listitem" tabindex="0" data-step="0" class="now-item group relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center">
+          <li role="listitem" tabindex="0" data-step="0" data-date="2025-09-17" class="now-item group relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center">
             <span class="absolute -top-6 text-xs text-zinc-500">17 Sep</span>
             <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
             <span class="now-title absolute -bottom-6 text-sm font-medium text-zinc-300">Reddit game</span>
           </li>
-          <li role="listitem" tabindex="0" data-step="1" class="now-item group relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center">
+          <li role="listitem" tabindex="0" data-step="1" data-date="2025-10-02" class="now-item group relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center">
             <span class="absolute -top-6 text-xs text-zinc-500">2 Oct</span>
             <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
             <span class="now-title absolute -bottom-6 text-sm font-medium text-zinc-300">NASA app</span>
           </li>
-          <li role="listitem" tabindex="0" data-step="2" class="now-item group relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center">
+          <li role="listitem" tabindex="0" data-step="2" data-date="2025-11-01" class="now-item group relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center">
             <span class="absolute -top-6 text-xs text-zinc-500">Nov</span>
             <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
             <span class="now-title absolute -bottom-6 text-sm font-medium text-zinc-300">YouTube project</span>
           </li>
-          <li role="listitem" tabindex="0" data-step="3" class="now-item group relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center">
+          <li role="listitem" tabindex="0" data-step="3" data-date="2026-01-01" class="now-item group relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center">
             <span class="absolute -top-6 text-xs text-zinc-500">TBC</span>
             <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
             <span class="now-title absolute -bottom-6 text-sm font-medium text-zinc-300">2026</span>
@@ -485,28 +485,15 @@
     if(savedR) document.documentElement.setAttribute('data-radius', savedR);
     window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v); localStorage.setItem('radius', v); };
 
-    // Now timeline interaction
+    // Now timeline date-aware progress
     (function(){
       const container = document.getElementById('nowTimeline');
       if(!container) return;
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const progress = container.querySelector('.now-progress');
       const items = Array.from(container.querySelectorAll('[data-step]'));
-      let activeIndex = parseInt(container.dataset.active || '0', 10);
-
-      const updateProgress = () => {
-        const active = items[activeIndex];
-        const dot = active.querySelector('.now-dot');
-        const containerRect = container.getBoundingClientRect();
-        const dotRect = dot.getBoundingClientRect();
-        const width = dotRect.left + dotRect.width / 2 - (containerRect.left + progress.offsetLeft);
-        if(prefersReduced){
-          progress.style.transition = 'none';
-        } else {
-          progress.style.transition = '';
-        }
-        progress.style.width = width + 'px';
-      };
+      const dates = items.map(i => new Date(i.dataset.date));
+      let activeIndex = -1;
 
       const setActive = (idx) => {
         activeIndex = idx;
@@ -517,15 +504,54 @@
             item.setAttribute('aria-current','step');
             dot.classList.add('bg-brand','after:absolute','after:inset-[-6px]','after:rounded-full','after:border','after:border-brand/60');
             title.classList.add('text-white','font-semibold');
+            item.scrollIntoView({inline:'center',block:'nearest',behavior:prefersReduced?'auto':'smooth'});
           }else{
             item.removeAttribute('aria-current');
             dot.classList.remove('bg-brand','after:absolute','after:inset-[-6px]','after:rounded-full','after:border','after:border-brand/60');
             title.classList.remove('text-white','font-semibold');
           }
         });
-        updateProgress();
-        items[idx].scrollIntoView({inline:'center',block:'nearest',behavior:prefersReduced?'auto':'smooth'});
       };
+
+      function updateTimelineProgress(){
+        const today = new Date();
+        today.setHours(0,0,0,0);
+        const earliest = dates[0];
+        const latest = dates[dates.length-1];
+        let width = 0;
+        let idx = -1;
+        if(today >= earliest){
+          for(let i=dates.length-1;i>=0;i--){
+            if(today >= dates[i]){ idx = i; break; }
+          }
+          const containerRect = container.getBoundingClientRect();
+          const progressStart = containerRect.left + progress.offsetLeft;
+          const firstDot = items[0].querySelector('.now-dot').getBoundingClientRect();
+          const lastDot = items[items.length-1].querySelector('.now-dot').getBoundingClientRect();
+          const trackStart = firstDot.left + firstDot.width/2;
+          const trackEnd = lastDot.left + lastDot.width/2;
+          const trackWidth = trackEnd - trackStart;
+          const offsetStart = trackStart - progressStart;
+          if(today >= latest){
+            width = offsetStart + trackWidth;
+          }else{
+            const fraction = (today - earliest) / (latest - earliest);
+            width = offsetStart + fraction * trackWidth;
+          }
+        }
+        if(prefersReduced){
+          progress.style.transition = 'none';
+          progress.style.width = width + 'px';
+        }else{
+          progress.style.transition = '';
+          progress.style.width = '0px';
+          requestAnimationFrame(()=>{ progress.style.width = width + 'px'; });
+        }
+        setActive(idx);
+      }
+
+      updateTimelineProgress();
+      window.addEventListener('resize', updateTimelineProgress);
 
       items.forEach(item=>{
         item.addEventListener('click',()=>setActive(parseInt(item.dataset.step,10)));
@@ -536,14 +562,6 @@
           }
         });
       });
-
-      // init
-      setActive(activeIndex);
-      if(!prefersReduced){
-        const finalWidth = progress.style.width;
-        progress.style.width = '0px';
-        requestAnimationFrame(()=>{ progress.style.width = finalWidth; });
-      }
     })();
   </script>
 </body>
