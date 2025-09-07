@@ -21,6 +21,11 @@
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
 
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <!-- Apply saved/system theme BEFORE paint to avoid flash -->
   <script>
     (function(){
@@ -64,7 +69,10 @@
     }
 
     /* Smooth theme transition */
-    body{ transition: background-color .25s ease, color .25s ease }
+    body{ font-family:'Inter',system-ui,-apple-system,sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; transition: background-color .25s ease, color .25s ease }
+
+    a{ transition:color .15s ease,border-color .15s ease,background-color .15s ease }
+    ::selection{ background:rgba(85,230,165,.35); color:var(--text) }
 
     /* Focus ring */
     .focus-ring:focus{ outline:none; box-shadow:0 0 0 3px var(--ring) }
