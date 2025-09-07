@@ -131,14 +131,16 @@
     @media (prefers-reduced-motion: reduce){
       .cb-item, .cb-item:hover{ transition:none; transform:none; box-shadow:none }
     }
-    /* Timeline */
-    .timeline{ position:relative }
-    .timeline::before{ content:""; position:absolute; top:1.75rem; left:0; right:0; height:1px; background:var(--border) }
-    .timeline::-webkit-scrollbar{ display:none }
-    .timeline-dot{ transition: background-color .2s ease }
-    .timeline-item:hover .timeline-dot,
-    .timeline-item:focus .timeline-dot{ background:#55e6a5 }
-    @media (prefers-reduced-motion: reduce){ .timeline-dot{ transition:none } }
+    /* Now timeline micro interactions */
+    .now-dot{ transition:box-shadow .2s ease, background-color .2s ease }
+    .now-dot.active::after{ content:''; position:absolute; inset:-6px; border:1px solid rgba(85,230,165,.6); border-radius:9999px }
+    .now-item:hover .now-dot,
+    .now-item:focus-visible .now-dot{ box-shadow:0 0 0 4px rgba(85,230,165,.45); background-color:#55e6a5 }
+    .now-item:hover .now-title,
+    .now-item:focus-visible .now-title{ color:#fff; font-weight:600 }
+    @media (prefers-reduced-motion: reduce){
+      .now-dot, .now-progress, .now-today{ transition:none !important }
+    }
   </style>
 
   <!-- JSON-LD -->
@@ -195,32 +197,52 @@
     </section>
 
     <!-- NOW section -->
-    <section class="mb-10">
-      <div class="r card border border-zinc-800/50 p-5">
-        <h2 class="text-sm uppercase tracking-[0.2em] text-zinc-400 mb-3">Now</h2>
-        <span id="timelineDesc" class="sr-only">Current focus timeline</span>
-        <div role="list" aria-describedby="timelineDesc" class="timeline flex gap-8 overflow-x-auto snap-x snap-mandatory py-4 [-ms-overflow-style:none] [scrollbar-width:none] sm:overflow-visible sm:gap-0 sm:justify-between">
-          <div role="listitem" tabindex="0" class="timeline-item group flex flex-col items-center text-center w-40 shrink-0 snap-center focus-ring sm:flex-1 sm:w-auto">
-            <span class="text-xs text-zinc-500">17 Sep</span>
-            <span class="timeline-dot my-2 w-3 h-3 rounded-full bg-zinc-500 dark:bg-zinc-400"></span>
-            <span class="text-sm text-zinc-800 dark:text-zinc-200">Reddit game</span>
-          </div>
-          <div role="listitem" tabindex="0" class="timeline-item group flex flex-col items-center text-center w-40 shrink-0 snap-center focus-ring sm:flex-1 sm:w-auto">
-            <span class="text-xs text-zinc-500">2 Oct</span>
-            <span class="timeline-dot my-2 w-3 h-3 rounded-full bg-zinc-500 dark:bg-zinc-400"></span>
-            <span class="text-sm text-zinc-800 dark:text-zinc-200">NASA app</span>
-          </div>
-          <div role="listitem" tabindex="0" class="timeline-item group flex flex-col items-center text-center w-40 shrink-0 snap-center focus-ring sm:flex-1 sm:w-auto">
-            <span class="text-xs text-zinc-500">Nov</span>
-            <span class="timeline-dot my-2 w-3 h-3 rounded-full bg-zinc-500 dark:bg-zinc-400"></span>
-            <span class="text-sm text-zinc-800 dark:text-zinc-200">YouTube project</span>
-          </div>
-          <div role="listitem" tabindex="0" class="timeline-item group flex flex-col items-center text-center w-40 shrink-0 snap-center focus-ring sm:flex-1 sm:w-auto">
-            <span class="text-xs text-zinc-500">TBC</span>
-            <span class="timeline-dot my-2 w-3 h-3 rounded-full bg-zinc-500 dark:bg-zinc-400"></span>
-            <span class="text-sm text-zinc-800 dark:text-zinc-200">2026</span>
-          </div>
+    <section class="mt-2 mb-10">
+      <h2 class="text-sm uppercase tracking-[0.2em] text-zinc-400 mb-2">Now</h2>
+      <div id="nowTimeline" data-active="auto" class="relative r card border border-zinc-800/50 px-4 sm:px-5 py-3">
+        <p id="nowTimelineDesc" class="sr-only">Timeline showing key focus points across 2025–2026.</p>
+        <span id="nowTimelineHelp" class="sr-only">Use left and right keys or click to set the active step</span>
+        <div class="now-progress absolute left-6 top-1/2 -translate-y-1/2 h-[3px] rounded-full bg-gradient-to-r from-brand to-accent transition-[width] duration-700 ease-out" style="width:0"></div>
+        <div class="now-track absolute left-6 right-6 top-1/2 -translate-y-1/2 h-px bg-zinc-800/60"></div>
+        <div class="now-ticks hidden sm:flex absolute left-6 right-6 top-1/2 -translate-y-1/2 justify-between" aria-hidden="true">
+          <span class="w-px h-2 bg-zinc-700/50"></span>
+          <span class="w-px h-2 bg-zinc-700/50"></span>
+          <span class="w-px h-2 bg-zinc-700/50"></span>
+          <span class="w-px h-2 bg-zinc-700/50"></span>
+          <span class="w-px h-2 bg-zinc-700/50"></span>
+          <span class="w-px h-2 bg-zinc-700/50"></span>
+          <span class="w-px h-2 bg-zinc-700/50"></span>
         </div>
+        <div id="todayMarker" aria-label="Today" class="now-today absolute top-1/2 -translate-y-1/2 transition-[left] duration-700 ease-out" style="left:0">
+          <span class="block size-2 rotate-45 bg-accent rounded-[2px] shadow"></span>
+          <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-zinc-400">Today</span>
+        </div>
+        <ul role="list" aria-label="Current focus timeline" aria-describedby="nowTimelineDesc nowTimelineHelp" class="flex sm:grid sm:grid-cols-4 gap-6 sm:gap-0 overflow-x-auto snap-x snap-mandatory sm:overflow-visible [-ms-overflow-style:none] [scrollbar-width:none]">
+          <li role="listitem" tabindex="0" data-step="0" data-date="2025-09-17" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
+            <span class="absolute -top-7 text-xs text-zinc-500">17 Sep</span>
+            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
+            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-300">Reddit game</span>
+            <span class="sr-only">17 Sep — Reddit game</span>
+          </li>
+          <li role="listitem" tabindex="0" data-step="1" data-date="2025-10-02" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
+            <span class="absolute -top-7 text-xs text-zinc-500">2 Oct</span>
+            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
+            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-300">NASA app</span>
+            <span class="sr-only">2 Oct — NASA app</span>
+          </li>
+          <li role="listitem" tabindex="0" data-step="2" data-date="2025-11-01" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
+            <span class="absolute -top-7 text-xs text-zinc-500">Nov</span>
+            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
+            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-300">YouTube project</span>
+            <span class="sr-only">Nov — YouTube project</span>
+          </li>
+          <li role="listitem" tabindex="0" data-step="3" data-date="2026-01-01" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
+            <span class="absolute -top-7 text-xs text-zinc-500">TBC</span>
+            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
+            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-300">2026</span>
+            <span class="sr-only">TBC — 2026</span>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -501,6 +523,85 @@
     const savedR = localStorage.getItem('radius');
     if(savedR) document.documentElement.setAttribute('data-radius', savedR);
     window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v); localStorage.setItem('radius', v); };
+
+    // Now timeline date-aware progress
+    (function(){
+      const container = document.getElementById('nowTimeline');
+      if(!container) return;
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const track = container.querySelector('.now-track');
+      const progress = container.querySelector('.now-progress');
+      const todayMarker = container.querySelector('.now-today');
+      const items = Array.from(container.querySelectorAll('[data-step]'));
+      const dates = items.map(i => new Date(i.dataset.date));
+
+      const setActive = (idx) => {
+        items.forEach((item,i)=>{
+          const dot = item.querySelector('.now-dot');
+          const title = item.querySelector('.now-title');
+          if(i===idx){
+            item.setAttribute('aria-current','step');
+            dot.classList.add('bg-brand','active');
+            title.classList.add('text-white','font-semibold');
+            item.scrollIntoView({inline:'center',block:'nearest',behavior:prefersReduced?'auto':'smooth'});
+          }else{
+            item.removeAttribute('aria-current');
+            dot.classList.remove('bg-brand','active');
+            title.classList.remove('text-white','font-semibold');
+          }
+        });
+      };
+
+      function updateTimelineProgress(){
+        const today = new Date();
+        today.setHours(0,0,0,0);
+        const first = dates[0];
+        const last = dates[dates.length-1];
+        let fraction = 0;
+        if(today <= first) fraction = 0;
+        else if(today >= last) fraction = 1;
+        else fraction = (today - first) / (last - first);
+        const trackWidth = track.getBoundingClientRect().width;
+        const width = trackWidth * fraction;
+        if(prefersReduced){
+          progress.style.transition = 'none';
+          todayMarker.style.transition = 'none';
+          progress.style.width = width + 'px';
+          todayMarker.style.left = track.offsetLeft + width + 'px';
+        }else{
+          progress.style.transition = '';
+          todayMarker.style.transition = '';
+          progress.style.width = '0px';
+          todayMarker.style.left = track.offsetLeft + 'px';
+          requestAnimationFrame(()=>{
+            progress.style.width = width + 'px';
+            todayMarker.style.left = track.offsetLeft + width + 'px';
+          });
+        }
+        let activeIdx = -1;
+        for(let i=dates.length-1;i>=0;i--){
+          if(today >= dates[i]){ activeIdx = i; break; }
+        }
+        setActive(activeIdx);
+      }
+
+      updateTimelineProgress();
+      let resizeTimer;
+      window.addEventListener('resize',()=>{
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(updateTimelineProgress,150);
+      });
+
+      items.forEach(item=>{
+        item.addEventListener('click',()=>setActive(parseInt(item.dataset.step,10)));
+        item.addEventListener('keydown',e=>{
+          if(e.key==='Enter' || e.key===' '){
+            e.preventDefault();
+            setActive(parseInt(item.dataset.step,10));
+          }
+        });
+      });
+    })();
   </script>
 </body>
 </html>
