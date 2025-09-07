@@ -271,16 +271,36 @@
       </div>
     </section>
 
-    <!-- Book CTA -->
+    <!-- Book CTA + contact form -->
     <section class="mb-16 py-6">
-      <div class="r backdrop-blur-sm border border-zinc-800/40 p-4 sm:p-6 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-        <img src="/public/3d-cover-sm.png" width="400" height="600" alt="Get Optimized — SEO" class="w-24 sm:w-32" loading="lazy" decoding="async" />
-        <div class="flex-1">
-          <h3 class="font-semibold text-xl"><span class="mr-2 text-xs text-accent px-1.5 py-0.5 border border-accent/50 rounded">Guide</span>Get Optimized — SEO Guide</h3>
-          <p class="text-zinc-400/90 mt-1">Comprehensive guide to SEO, with clean metaphors, and real-world examples.</p>
-          <div class="mt-3 flex gap-3">
-            <a href="https://ajstudios.dev/newsletter" class="px-4 py-2 r border border-accent/50 text-accent hover:bg-accent/10 transition focus-ring">Buy</a>
+      <div class="grid gap-6 sm:grid-cols-2">
+        <div class="r backdrop-blur-sm border border-zinc-800/40 p-4 sm:p-6 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+          <img src="/public/3d-cover-sm.png" width="400" height="600" alt="Get Optimized — SEO" class="w-24 sm:w-32" loading="lazy" decoding="async" />
+          <div class="flex-1">
+            <h3 class="font-semibold text-xl"><span class="mr-2 text-xs text-accent px-1.5 py-0.5 border border-accent/50 rounded">Guide</span>Get Optimized — SEO Guide</h3>
+            <p class="text-zinc-400/90 mt-1">Comprehensive guide to SEO, with clean metaphors, and real-world examples.</p>
+            <div class="mt-3 flex gap-3">
+              <a href="https://ajstudios.dev/newsletter" class="px-4 py-2 r border border-accent/50 text-accent hover:bg-accent/10 transition focus-ring">Buy</a>
+            </div>
           </div>
+        </div>
+        <div class="r backdrop-blur-sm border border-zinc-800/40 p-4 sm:p-6">
+          <h3 class="font-semibold text-xl mb-2">Contact</h3>
+          <form id="contactForm" class="flex flex-col gap-3">
+            <div>
+              <label for="cf-name" class="sr-only">Name</label>
+              <input id="cf-name" name="name" type="text" required placeholder="Name" class="w-full p-2 r border border-zinc-800/40 bg-black/20 focus-ring" />
+            </div>
+            <div>
+              <label for="cf-email" class="sr-only">Email</label>
+              <input id="cf-email" name="email" type="email" required placeholder="Email" class="w-full p-2 r border border-zinc-800/40 bg-black/20 focus-ring" />
+            </div>
+            <div>
+              <label for="cf-message" class="sr-only">Message</label>
+              <textarea id="cf-message" name="message" rows="3" required placeholder="Message" class="w-full p-2 r border border-zinc-800/40 bg-black/20 focus-ring"></textarea>
+            </div>
+            <button type="submit" class="px-4 py-2 r bg-brand text-black font-semibold hover:opacity-90 transition focus-ring">Send</button>
+          </form>
         </div>
       </div>
     </section>
