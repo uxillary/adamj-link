@@ -199,14 +199,14 @@
     </section>
 
     <!-- Book CTA -->
-    <section class="mb-16">
-      <div class="r card border border-zinc-800/50 p-6 flex flex-col sm:flex-row items-center gap-6">
-        <img src="/public/3d-cover-sm.png" width="400" height="600" alt="Get Optimized — SEO" class="w-24 sm:w-28 md:w-32" loading="lazy" decoding="async" />
+    <section class="mb-16 py-6">
+      <div class="r backdrop-blur-sm border border-zinc-800/40 p-4 sm:p-6 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+        <img src="/public/3d-cover-sm.png" width="400" height="600" alt="Get Optimized — SEO" class="w-24 sm:w-32" loading="lazy" decoding="async" />
         <div class="flex-1">
-          <h3 class="font-semibold text-xl">Get Optimized — SEO Guide</h3>
+          <h3 class="font-semibold text-xl"><span class="mr-2 text-xs text-accent px-1.5 py-0.5 border border-accent/50 rounded">Guide</span>Get Optimized — SEO Guide</h3>
           <p class="text-zinc-400/90 mt-1">Comprehensive guide to SEO, with clean metaphors, and real-world examples.</p>
           <div class="mt-3 flex gap-3">
-            <a href="https://ajstudios.dev/newsletter" class="px-4 py-2 r bg-accent text-white font-medium hover:opacity-90 transition focus-ring">Buy</a>
+            <a href="https://ajstudios.dev/newsletter" class="px-4 py-2 r border border-accent/50 text-accent hover:bg-accent/10 transition focus-ring">Buy</a>
           </div>
         </div>
       </div>
@@ -215,40 +215,119 @@
     <!-- Contact + social + tiny analytics -->
     <section class="mb-24">
       <div class="r card border border-zinc-800/50 p-6">
-        <div class="flex flex-wrap items-center gap-3 justify-between">
+        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
           <div>
             <h2 class="font-semibold text-xl mb-2">Say hi</h2>
-            <a href="mailto:hello@ajstudios.dev" class="px-4 py-2 r border border-zinc-800/50 hover:border-brand/70 transition focus-ring inline-block">aj@ajstudios.dev</a>
+            <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+              <a href="mailto:hello@ajstudios.dev" class="px-4 py-2 rounded-full border border-zinc-800/50 hover:border-brand/70 transition focus-ring text-sm text-zinc-300">aj@ajstudios.dev</a>
+              <div class="flex flex-wrap items-center gap-2 sm:gap-3" aria-label="Social links">
+                <a aria-label="X (Twitter)" href="https://x.com/admjski" class="w-10 h-10 flex items-center justify-center rounded-md border border-zinc-800/50 hover:border-brand/70 transition focus-ring">
+                  <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#x"></use></svg>
+                </a>
+                <a aria-label="LinkedIn" href="https://www.linkedin.com" class="w-10 h-10 flex items-center justify-center rounded-md border border-zinc-800/50 hover:border-brand/70 transition focus-ring">
+                  <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#linkedin"></use></svg>
+                </a>
+                <a aria-label="GitHub" href="https://github.com/admjski" class="w-10 h-10 flex items-center justify-center rounded-md border border-zinc-800/50 hover:border-brand/70 transition focus-ring">
+                  <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#github"></use></svg>
+                </a>
+                <a aria-label="Instagram" href="https://instagram.com" class="w-10 h-10 flex items-center justify-center rounded-md border border-zinc-800/50 hover:border-brand/70 transition focus-ring">
+                  <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#instagram"></use></svg>
+                </a>
+              </div>
+            </div>
           </div>
 
           <!-- Tiny analytics -->
-          <div class="text-left sm:text-right mt-4 sm:mt-0">
-            <div class="text-sm text-zinc-400">Tiny analytics</div>
-            <div class="flex gap-4 sm:justify-end mt-1 text-sm">
-              <span id="views" class="text-zinc-300">Views: —</span>
-              <span id="ghFollowers" class="text-zinc-300">GitHub: —</span>
+          <div class="mt-4 sm:mt-0 text-left sm:text-right">
+            <div class="text-xs text-zinc-500 mb-1">Tiny analytics</div>
+            <div class="flex flex-wrap gap-2 sm:justify-end">
+              <span id="views" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-zinc-800/50 text-sm text-zinc-300">Views: —</span>
+              <span id="ghFollowers" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-zinc-800/50 text-sm text-zinc-300">GitHub: —</span>
             </div>
           </div>
         </div>
-
-        <div class="flex items-center gap-2 mt-4" aria-label="Social links">
-          <a aria-label="X (Twitter)" href="https://x.com/admjski" class="p-2 r border border-zinc-800/50 hover:border-brand/70 transition focus-ring">
-            <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#x"></use></svg>
-          </a>
-          <a aria-label="LinkedIn" href="https://www.linkedin.com" class="p-2 r border border-zinc-800/50 hover:border-brand/70 transition focus-ring">
-            <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#linkedin"></use></svg>
-          </a>
-          <a aria-label="GitHub" href="https://github.com/admjski" class="p-2 r border border-zinc-800/50 hover:border-brand/70 transition focus-ring">
-            <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#github"></use></svg>
-          </a>
-          <a aria-label="Instagram" href="https://instagram.com" class="p-2 r border border-zinc-800/50 hover:border-brand/70 transition focus-ring">
-            <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#instagram"></use></svg>
-          </a>
-          <a aria-label="Email" href="mailto:hello@ajstudios.dev" class="p-2 r border border-zinc-800/50 hover:border-brand/70 transition focus-ring">
-            <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#mail"></use></svg>
-          </a>
-        </div>
       </div>
+    </section>
+
+    <!-- From the blog -->
+    <section>
+      <h2 class="font-semibold text-xl mb-4">From the blog</h2>
+      <div id="blogList" class="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+        <a href="#" class="r border border-zinc-800/50 p-4 hover:border-brand/70 transition focus-ring">
+          <div class="flex items-center gap-2">
+            <h3 class="font-medium text-zinc-100">Post title</h3>
+            <span class="text-xs text-accent border border-accent/50 rounded px-1.5 py-0.5">Tag</span>
+          </div>
+          <div class="text-xs text-zinc-500 mt-1">Jan 1, 2024</div>
+          <p class="text-sm text-zinc-400/90 mt-1">Brief summary goes here.</p>
+        </a>
+        <a href="#" class="r border border-zinc-800/50 p-4 hover:border-brand/70 transition focus-ring">
+          <div class="flex items-center gap-2">
+            <h3 class="font-medium text-zinc-100">Post title</h3>
+            <span class="text-xs text-accent border border-accent/50 rounded px-1.5 py-0.5">Tag</span>
+          </div>
+          <div class="text-xs text-zinc-500 mt-1">Jan 1, 2024</div>
+          <p class="text-sm text-zinc-400/90 mt-1">Brief summary goes here.</p>
+        </a>
+        <a href="#" class="r border border-zinc-800/50 p-4 hover:border-brand/70 transition focus-ring">
+          <div class="flex items-center gap-2">
+            <h3 class="font-medium text-zinc-100">Post title</h3>
+            <span class="text-xs text-accent border border-accent/50 rounded px-1.5 py-0.5">Tag</span>
+          </div>
+          <div class="text-xs text-zinc-500 mt-1">Jan 1, 2024</div>
+          <p class="text-sm text-zinc-400/90 mt-1">Brief summary goes here.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Latest YouTube -->
+    <section>
+      <h2 class="font-semibold text-xl mb-4">Latest YouTube</h2>
+      <div id="ytList" class="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+        <a href="#" class="block">
+          <div class="r aspect-[16/9] bg-zinc-800/40"></div>
+          <h3 class="mt-2 font-medium">Video title</h3>
+          <div class="text-sm text-zinc-500">Channel name</div>
+        </a>
+        <a href="#" class="block">
+          <div class="r aspect-[16/9] bg-zinc-800/40"></div>
+          <h3 class="mt-2 font-medium">Video title</h3>
+          <div class="text-sm text-zinc-500">Channel name</div>
+        </a>
+        <a href="#" class="block">
+          <div class="r aspect-[16/9] bg-zinc-800/40"></div>
+          <h3 class="mt-2 font-medium">Video title</h3>
+          <div class="text-sm text-zinc-500">Channel name</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Recent contributions -->
+    <section>
+      <h2 class="font-semibold text-xl mb-4">Recent contributions</h2>
+      <ul id="ossList" class="space-y-3">
+        <li class="r border border-zinc-800/50 p-4">
+          <div class="flex items-center justify-between">
+            <a href="#" class="font-medium hover:underline">repo-name</a>
+            <span class="text-xs text-zinc-500">★123</span>
+          </div>
+          <p class="text-sm text-zinc-400/90">Short description.</p>
+        </li>
+        <li class="r border border-zinc-800/50 p-4">
+          <div class="flex items-center justify-between">
+            <a href="#" class="font-medium hover:underline">repo-name</a>
+            <span class="text-xs text-zinc-500">PR merged</span>
+          </div>
+          <p class="text-sm text-zinc-400/90">Short description.</p>
+        </li>
+        <li class="r border border-zinc-800/50 p-4">
+          <div class="flex items-center justify-between">
+            <a href="#" class="font-medium hover:underline">repo-name</a>
+            <span class="text-xs text-zinc-500">★456</span>
+          </div>
+          <p class="text-sm text-zinc-400/90">Short description.</p>
+        </li>
+      </ul>
     </section>
   </main>
 
