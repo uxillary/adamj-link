@@ -225,7 +225,7 @@
         <span class="eyebrow">Now</span>
         <span id="nowDate" class="text-xs text-zinc-500"></span>
       </div>
-      <div id="nowTimeline" data-active="auto" class="t-card p-4 sm:p-5 relative rounded-[12px]">
+      <div id="nowTimeline" data-active="auto" class="t-card p-4 sm:p-5 relative !rounded-[12px] overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none]">
         <p id="nowTimelineDesc" class="sr-only">Timeline showing key focus points across 2025–2026.</p>
         <span id="nowTimelineHelp" class="sr-only">Use left and right keys or click to set the active step</span>
         <div class="now-progress absolute left-6 top-1/2 -translate-y-1/2 h-[3px] rounded-full bg-gradient-to-r from-brand to-accent transition-[width] duration-700 ease-out" style="width:0"></div>
@@ -243,7 +243,7 @@
           <span class="block size-2 rotate-45 bg-accent rounded-[2px] shadow"></span>
           <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-zinc-400">Today</span>
         </div>
-        <ul role="list" aria-label="Current focus timeline" aria-describedby="nowTimelineDesc nowTimelineHelp" class="flex sm:grid sm:grid-cols-4 gap-6 sm:gap-0 overflow-x-auto snap-x snap-mandatory sm:overflow-visible [-ms-overflow-style:none] [scrollbar-width:none]">
+        <ul role="list" aria-label="Current focus timeline" aria-describedby="nowTimelineDesc nowTimelineHelp" class="flex sm:grid sm:grid-cols-4 gap-6 sm:gap-0 snap-x snap-mandatory sm:overflow-visible w-max">
           <li role="listitem" tabindex="0" data-step="0" data-date="2025-09-17" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
             <span class="absolute -top-7 text-xs text-zinc-500">17 Sep</span>
             <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
@@ -438,7 +438,7 @@
     <div class="soft-hr"></div>
 
     <!-- Contact -->
-    <section class="section mb-20">
+    <section class="section mb-32">
       <div class="t-card p-5 sm:p-6">
         <h3 class="font-semibold text-xl mb-2">Contact</h3>
         <form id="contactForm" class="flex flex-col space-y-3">
