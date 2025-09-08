@@ -72,6 +72,8 @@
     body{ font-family:'Inter',system-ui,-apple-system,sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; transition: background-color .25s ease, color .25s ease }
 
     a{ transition:color .15s ease,border-color .15s ease,background-color .15s ease }
+    a:not([class]){ text-decoration:underline; text-decoration-color:rgba(85,230,165,.5); text-underline-offset:4px }
+    a:not([class]):hover{ text-decoration-color:#55e6a5 }
     ::selection{ background:rgba(85,230,165,.35); color:var(--text) }
 
     /* Focus ring */
@@ -159,7 +161,7 @@
     .section-head { display:flex; align-items:flex-end; justify-content:space-between; gap:.75rem; }
     .eyebrow { letter-spacing:.22em; text-transform:uppercase; font-size:.78rem; color:rgba(255,255,255,.55) }
     .soft-hr { height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent); }
-    .t-card { border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:1rem; background:rgba(255,255,255,.02); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); transition: border-color .18s ease, transform .18s ease; }
+    .t-card { border:1px solid rgba(255,255,255,.08); border-radius:0; padding:1rem; background:rgba(255,255,255,.02); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); transition: border-color .18s ease, transform .18s ease; }
     .t-card:hover { border-color: rgba(85,230,165,.55); transform: translateY(-1px); }
     @media (min-width:640px){ .section{ margin-top:4rem; margin-bottom:4rem } }
   </style>
@@ -223,7 +225,7 @@
         <span class="eyebrow">Now</span>
         <span id="nowDate" class="text-xs text-zinc-500"></span>
       </div>
-      <div id="nowTimeline" data-active="auto" class="t-card p-4 sm:p-5 relative">
+      <div id="nowTimeline" data-active="auto" class="t-card p-4 sm:p-5 relative rounded-[12px]">
         <p id="nowTimelineDesc" class="sr-only">Timeline showing key focus points across 2025–2026.</p>
         <span id="nowTimelineHelp" class="sr-only">Use left and right keys or click to set the active step</span>
         <div class="now-progress absolute left-6 top-1/2 -translate-y-1/2 h-[3px] rounded-full bg-gradient-to-r from-brand to-accent transition-[width] duration-700 ease-out" style="width:0"></div>
@@ -317,96 +319,48 @@
       </div>
     </section>
 
-    <!-- Book CTA + contact form -->
+    <!-- Book CTA -->
     <section class="section">
-      <div class="grid gap-6 sm:grid-cols-2">
-        <div class="t-card p-5 sm:p-6 grid grid-cols-[auto,1fr] gap-4 sm:gap-6 items-center">
-          <img src="/public/3d-cover-sm.png" width="400" height="600" alt="Get Optimized — SEO" class="w-24 sm:w-28 md:w-32" loading="lazy" decoding="async" />
-          <div class="flex-1">
-            <h3 class="font-semibold text-xl"><span class="mr-2 text-xs text-accent px-1.5 py-0.5 border border-accent/50 rounded">Guide</span>Get Optimized — SEO Guide</h3>
-            <p class="text-zinc-400/90 mt-1 leading-relaxed">Comprehensive guide to SEO, with clean metaphors, and real-world examples.</p>
-            <div class="mt-3 flex gap-3">
-              <a href="https://ajstudios.dev/newsletter" class="px-4 py-2 rounded-md border border-accent/50 text-accent hover:bg-accent/10 transition focus-ring">Buy</a>
-            </div>
+      <div class="t-card p-5 sm:p-6 grid grid-cols-[auto,1fr] gap-4 sm:gap-6 items-center">
+        <img src="/public/3d-cover-sm.png" width="400" height="600" alt="Get Optimized — SEO" class="w-24 sm:w-28 md:w-32" loading="lazy" decoding="async" />
+        <div class="flex-1">
+          <h3 class="font-semibold text-xl"><span class="mr-2 text-xs text-accent px-1.5 py-0.5 border border-accent/50">Guide</span>Get Optimized — SEO Guide</h3>
+          <p class="text-zinc-400/90 mt-1 leading-relaxed">Comprehensive guide to SEO, with clean metaphors, and real-world examples.</p>
+          <div class="mt-3 flex gap-3">
+            <a href="https://ajstudios.dev/newsletter" class="px-4 py-2 r border border-accent/50 text-accent hover:bg-accent/10 transition focus-ring">Buy</a>
           </div>
-        </div>
-        <div class="t-card p-5 sm:p-6">
-          <h3 class="font-semibold text-xl mb-2">Contact</h3>
-          <form id="contactForm" class="flex flex-col space-y-3">
-            <div>
-              <label for="cf-name" class="sr-only">Name</label>
-              <input id="cf-name" name="name" type="text" required placeholder="Name" class="w-full p-2 rounded-md border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70" />
-            </div>
-            <div>
-              <label for="cf-email" class="sr-only">Email</label>
-              <input id="cf-email" name="email" type="email" required placeholder="Email" class="w-full p-2 rounded-md border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70" />
-            </div>
-            <div>
-              <label for="cf-message" class="sr-only">Message</label>
-              <textarea id="cf-message" name="message" rows="3" required placeholder="Message" class="w-full p-2 rounded-md border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70"></textarea>
-            </div>
-            <button type="submit" class="px-4 py-2 rounded-md bg-brand text-black font-semibold hover:opacity-90 transition focus-ring">Send</button>
-          </form>
         </div>
       </div>
     </section>
 
-    <!-- Contact + social + tiny analytics -->
+    <!-- Tiny analytics -->
     <section class="section">
-      <div class="t-card p-5 sm:p-6 sm:grid sm:grid-cols-2 gap-6 items-center">
-        <!-- socials column -->
-        <div class="flex flex-wrap items-center gap-3">
-          <a href="mailto:hello@ajstudios.dev" class="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-zinc-800/60 hover:border-brand/70 transition focus-ring">
-            <span class="sr-only">Email</span>
-            <svg class="icon-line" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M3 6h18v12H3zM3 7l9 6 9-6"/>
-            </svg>
-            <span>hello@ajstudios.dev</span>
-          </a>
-          <nav class="flex flex-wrap items-center gap-2 sm:gap-3" aria-label="Social links">
-            <a aria-label="X (Twitter)" href="https://x.com/admjski" class="w-10 h-10 flex items-center justify-center rounded-md border border-zinc-800/60 hover:border-brand/70 transition focus-ring">
-              <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#x"></use></svg>
-            </a>
-            <a aria-label="LinkedIn" href="https://www.linkedin.com" class="w-10 h-10 flex items-center justify-center rounded-md border border-zinc-800/60 hover:border-brand/70 transition focus-ring">
-              <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#linkedin"></use></svg>
-            </a>
-            <a aria-label="GitHub" href="https://github.com/admjski" class="w-10 h-10 flex items-center justify-center rounded-md border border-zinc-800/60 hover:border-brand/70 transition focus-ring">
-              <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#github"></use></svg>
-            </a>
-            <a aria-label="Instagram" href="https://instagram.com" class="w-10 h-10 flex items-center justify-center rounded-md border border-zinc-800/60 hover:border-brand/70 transition focus-ring">
-              <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#instagram"></use></svg>
-            </a>
-          </nav>
-        </div>
-
-        <!-- analytics column -->
-        <div>
-          <div class="text-xs text-zinc-500 mb-2 sm:text-right">Tiny analytics</div>
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:justify-items-end">
-            <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 rounded-md border border-zinc-800/60 bg-zinc-900/30" title="Local device session views">
-              <span class="text-xs text-zinc-500">Views</span>
-              <span class="tabular-nums font-semibold text-white" id="views" aria-live="polite">—</span>
-            </div>
-            <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 rounded-md border border-zinc-800/60 bg-zinc-900/30" title="GitHub followers">
-              <span class="text-xs text-zinc-500">GitHub</span>
-              <span class="tabular-nums font-semibold text-white" id="ghFollowers" aria-live="polite">—</span>
-            </div>
-            <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 rounded-md border border-zinc-800/60 bg-zinc-900/30" title="GitHub contributions (2025)">
-              <span class="text-xs text-zinc-500">Contribs</span>
-              <span class="tabular-nums font-semibold text-white" id="gh-contributions" aria-live="polite">—</span>
-            </div>
-            <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 rounded-md border border-zinc-800/60 bg-zinc-900/30" title="YouTube videos">
-              <span class="text-xs text-zinc-500">Videos</span>
-              <span class="tabular-nums font-semibold text-white" id="youtube-counter" aria-live="polite">—</span>
-            </div>
-            <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 rounded-md border border-zinc-800/60 bg-zinc-900/30" title="Public repos">
-              <span class="text-xs text-zinc-500">Repos</span>
-              <span class="tabular-nums font-semibold text-white" id="repo-counter" aria-live="polite">—</span>
-            </div>
-            <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 rounded-md border border-zinc-800/60 bg-zinc-900/30" title="Blog posts total">
-              <span class="text-xs text-zinc-500">Posts</span>
-              <span class="tabular-nums font-semibold text-white" id="blog-counter" aria-live="polite">—</span>
-            </div>
+      <div class="t-card p-5 sm:p-6">
+        <div class="text-xs text-zinc-500 mb-2">Tiny analytics</div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+          <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 border border-zinc-800/60 bg-zinc-900/30" title="Local device session views">
+            <span class="text-xs text-zinc-500">Views</span>
+            <span class="tabular-nums font-semibold text-white" id="views" aria-live="polite">—</span>
+          </div>
+          <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 border border-zinc-800/60 bg-zinc-900/30" title="GitHub followers">
+            <span class="text-xs text-zinc-500">GitHub</span>
+            <span class="tabular-nums font-semibold text-white" id="ghFollowers" aria-live="polite">—</span>
+          </div>
+          <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 border border-zinc-800/60 bg-zinc-900/30" title="GitHub contributions (2025)">
+            <span class="text-xs text-zinc-500">Contribs</span>
+            <span class="tabular-nums font-semibold text-white" id="gh-contributions" aria-live="polite">—</span>
+          </div>
+          <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 border border-zinc-800/60 bg-zinc-900/30" title="YouTube videos">
+            <span class="text-xs text-zinc-500">Videos</span>
+            <span class="tabular-nums font-semibold text-white" id="youtube-counter" aria-live="polite">—</span>
+          </div>
+          <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 border border-zinc-800/60 bg-zinc-900/30" title="Public repos">
+            <span class="text-xs text-zinc-500">Repos</span>
+            <span class="tabular-nums font-semibold text-white" id="repo-counter" aria-live="polite">—</span>
+          </div>
+          <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 border border-zinc-800/60 bg-zinc-900/30" title="Blog posts total">
+            <span class="text-xs text-zinc-500">Posts</span>
+            <span class="tabular-nums font-semibold text-white" id="blog-counter" aria-live="polite">—</span>
           </div>
         </div>
       </div>
@@ -481,13 +435,56 @@
         </li>
       </ul>
     </section>
+    <div class="soft-hr"></div>
+
+    <!-- Contact -->
+    <section class="section mb-20">
+      <div class="t-card p-5 sm:p-6">
+        <h3 class="font-semibold text-xl mb-2">Contact</h3>
+        <form id="contactForm" class="flex flex-col space-y-3">
+          <div>
+            <label for="cf-name" class="sr-only">Name</label>
+            <input id="cf-name" name="name" type="text" required placeholder="Name" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70" />
+          </div>
+          <div>
+            <label for="cf-email" class="sr-only">Email</label>
+            <input id="cf-email" name="email" type="email" required placeholder="Email" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70" />
+          </div>
+          <div>
+            <label for="cf-message" class="sr-only">Message</label>
+            <textarea id="cf-message" name="message" rows="3" required placeholder="Message" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70"></textarea>
+          </div>
+          <button type="submit" class="px-4 py-2 bg-brand text-black font-semibold hover:opacity-90 transition focus-ring">Send</button>
+        </form>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
   <footer class="border-t border-zinc-800/60">
-    <div class="max-w-6xl mx-auto px-6 py-8 text-sm text-zinc-500 flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between">
-      <span>© <span id="y"></span> Adam Johnston — Fife, Scotland, UK</span>
-      <a href="https://ajstudios.dev/privacy" class="underline decoration-brand/50 underline-offset-4 hover:decoration-brand">Privacy</a>
+    <div class="max-w-6xl mx-auto px-6 py-8 text-sm text-zinc-500 space-y-6">
+      <nav class="flex flex-wrap items-center justify-center gap-3" aria-label="Social links">
+        <a href="mailto:hello@ajstudios.dev" class="inline-flex items-center gap-2 px-4 py-2 border border-zinc-800/60 hover:border-brand/70 transition focus-ring">
+          <svg class="icon-line" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg>
+          <span>hello@ajstudios.dev</span>
+        </a>
+        <a aria-label="X (Twitter)" href="https://x.com/admjski" class="w-10 h-10 flex items-center justify-center border border-zinc-800/60 hover:border-brand/70 transition focus-ring">
+          <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#x"></use></svg>
+        </a>
+        <a aria-label="GitHub" href="https://github.com/admjski" class="w-10 h-10 flex items-center justify-center border border-zinc-800/60 hover:border-brand/70 transition focus-ring">
+          <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#github"></use></svg>
+        </a>
+        <a aria-label="Instagram" href="https://instagram.com" class="w-10 h-10 flex items-center justify-center border border-zinc-800/60 hover:border-brand/70 transition focus-ring">
+          <svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#instagram"></use></svg>
+        </a>
+        <a aria-label="YouTube" href="https://www.youtube.com/@admjski" class="w-10 h-10 flex items-center justify-center border border-zinc-800/60 hover:border-brand/70 transition focus-ring">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.8 8s-.2-1.5-.8-2.2c-.8-.9-1.7-.9-2.1-1-2.9-.2-7.1-.2-7.1-.2h-.1s-4.2 0-7.1.2c-.4 0-1.3 0-2.1 1C2.4 6.5 2.2 8 2.2 8S2 9.6 2 11.1v1.7c0 1.5.2 3.1.2 3.1s.2 1.5.8 2.2c.8.9 1.8.9 2.2 1 1.6.1 6.9.2 6.9.2s4.2 0 7.1-.2c.4 0 1.3 0 2.1-1 .6-.7.8-2.2.8-2.2s.2-1.5.2-3.1v-1.7c0-1.5-.2-3.1-.2-3.1zM9.9 14.7V9.3l5.7 2.7-5.7 2.7z"/></svg>
+        </a>
+      </nav>
+      <div class="flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between">
+        <span>© <span id="y"></span> Adam Johnston — Fife, Scotland, UK</span>
+        <a href="https://ajstudios.dev/privacy" class="underline decoration-brand/50 underline-offset-4 hover:decoration-brand">Privacy</a>
+      </div>
     </div>
   </footer>
 
