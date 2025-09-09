@@ -2,11 +2,14 @@
   const list = document.getElementById('blogList');
   if (!list) return;
 
-  list.innerHTML = Array.from({length:3}).map(()=>`
-    <div class="t-card p-4 animate-pulse">
-      <div class="h-3 w-24 mb-2 bg-white/10 rounded"></div>
-      <div class="h-4 w-3/4 mb-2 bg-white/10 rounded"></div>
-      <div class="h-3 w-5/6 bg-white/10 rounded"></div>
+  list.innerHTML = Array.from({ length: 3 }).map(() => `
+    <div class="card border border-zinc-800/60 overflow-hidden animate-pulse shrink-0 snap-start">
+      <div class="aspect-[16/9] bg-white/10"></div>
+      <div class="p-4">
+        <div class="h-3 w-24 mb-2 bg-white/10 rounded"></div>
+        <div class="h-4 w-3/4 mb-2 bg-white/10 rounded"></div>
+        <div class="h-3 w-5/6 bg-white/10 rounded"></div>
+      </div>
     </div>
   `).join('');
 
@@ -19,12 +22,20 @@
     }
     list.innerHTML = items.map(it => {
       const d = it.pubDate ? new Date(it.pubDate) : null;
-      const date = d ? d.toLocaleDateString('en-GB', { month:'short', day:'numeric', year:'numeric' }) : '';
+      const date = d ? d.toLocaleDateString('en-GB', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+      const img = it.image
+        ? `<img src="${it.image}" alt="" class="w-full h-full object-cover" loading="lazy"/>`
+        : `<div class="w-full h-full bg-gradient-to-br from-zinc-800/40 to-zinc-900/40"></div>`;
+      const cat = it.category ? `<span class="mt-3 inline-block px-2 py-0.5 border border-brand/40 text-brand text-[0.65rem] uppercase tracking-wide r">${it.category}</span>` : '';
       return `
-        <a href="${it.link}" class="t-card p-4 group">
-          <div class="text-xs text-zinc-500">${date}</div>
-          <h3 class="mt-1 font-medium group-hover:underline">${it.title}</h3>
-          <p class="mt-1 text-sm text-zinc-400/90 leading-relaxed line-clamp-2">${it.summary || ''}</p>
+        <a href="${it.link}" class="card border border-zinc-800/60 overflow-hidden flex flex-col group shrink-0 snap-start">
+          <div class="aspect-[16/9] overflow-hidden">${img}</div>
+          <div class="p-4 flex flex-col">
+            <span class="mb-2 inline-block px-2 py-0.5 border border-zinc-800/60 text-[0.65rem] uppercase tracking-wide text-zinc-400 r">${date}</span>
+            <h3 class="text-lg font-semibold leading-tight group-hover:underline">${it.title}</h3>
+            <p class="mt-2 text-sm text-zinc-400/90 line-clamp-2">${it.summary || ''}</p>
+            ${cat}
+          </div>
         </a>
       `;
     }).join('');

@@ -27,8 +27,24 @@ export const onRequestGet = async ({ request }) => {
       .replace(/<[^>]*>/g, "")
       .replace(/\s+/g, " ")
       .slice(0, 180);
-    items.push({ title, link, pubDate, summary: desc });
+
+    const url = new URL(link);
+    const seg = url.pathname.split("/")[2] || "";
+    const category = decodeURIComponent(seg);
+
+    items.push({ title, link, pubDate, summary: desc, category });
   }
+
+  await Promise.all(items.map(async (it) => {
+    try {
+      const page = await fetch(it.link, { cf: { cacheTtl: 300 } });
+      const html = await page.text();
+      const m = html.match(/<meta property=["']og:image["'] content=["']([^"']+)["']/i);
+      if (m) it.image = m[1];
+    } catch (_) {
+      it.image = '';
+    }
+  }));
 
   const out = new Response(JSON.stringify({ items }), {
     headers: {
