@@ -35,22 +35,11 @@ export const onRequestGet = async ({ request }) => {
     items.push({ title, link, pubDate, summary: desc, category });
   }
 
-  await Promise.all(items.map(async (it) => {
-    try {
-      const page = await fetch(it.link, { cf: { cacheTtl: 300 } });
-      const html = await page.text();
-      const m = html.match(/<meta property=["']og:image["'] content=["']([^"']+)["']/i);
-      if (m) it.image = m[1];
-    } catch (_) {
-      it.image = '';
-    }
-  }));
-
   const out = new Response(JSON.stringify({ items }), {
     headers: {
       "content-type": "application/json; charset=utf-8",
-      "cache-control": "public, max-age=900"
-    }
+      "cache-control": "public, max-age=900",
+    },
   });
   await cache.put(cacheKey, out.clone());
   return out;
