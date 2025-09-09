@@ -377,14 +377,11 @@
 
     <!-- From the blog -->
     <section class="section">
-      <div class="section-head"><h2 class="font-medium text-lg text-zinc-300">From the blog</h2><a class="text-sm text-zinc-400 hover:text-brand" href="https://ajstudios.dev/blog">All posts →</a></div>
-      <section class="section">
-        <div class="section-head"><h2 class="font-semibold text-xl">From the blog</h2><a class="text-sm text-zinc-400 hover:text-brand" href="https://ajstudios.dev/blog">All posts →</a></div>
-        <div id="blogList" class="grid gap-4 sm:gap-5 md:grid-cols-3">
-          ...
-        </div>
-      </section>
+      <div class="section-head">
+        <h2 class="font-medium text-lg text-zinc-300">From the blog</h2>
+        <a class="text-sm text-zinc-400 hover:text-brand" href="https://infinitecurios.blog">All posts →</a>
       </div>
+      <div id="blogList" class="grid gap-4 sm:gap-5 md:grid-cols-3"></div>
     </section>
 
     <!-- Latest YouTube -->
@@ -694,8 +691,9 @@
       }
     }
 
-  document.addEventListener('DOMContentLoaded', refreshCounters);
+    document.addEventListener('DOMContentLoaded', refreshCounters);
   </script>
+  <script src="/scripts/infinitecurios-posts.js"></script>
   <script>
     const GH_USER = 'uxillary';
     const OSS_LIMIT = 3;
