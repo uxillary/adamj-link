@@ -728,7 +728,7 @@
       const res = await fetch(`https://api.github.com/users/${GH_USER}/events/public`);
       if(!res.ok) throw new Error('fetch failed');
       const data = await res.json();
-      const items = data.filter(e=>['PushEvent','PullRequestEvent','IssuesEvent','ReleaseEvent','PullRequestReviewCommentEvent'].includes(e.type))
+      const mapped = data.filter(e=>['PushEvent','PullRequestEvent','IssuesEvent','ReleaseEvent','PullRequestReviewCommentEvent'].includes(e.type))
         .map(e=>{
           const item = {repo:e.repo.name, link:`https://github.com/${e.repo.name}`, date:e.created_at};
           switch(e.type){
@@ -755,8 +755,17 @@
               break;
           }
           return item;
-        })
-        .slice(0, OSS_LIMIT);
+        });
+
+      const items = [];
+      const seen = new Set();
+      for(const item of mapped){
+        const key = item.repo + '|' + item.message;
+        if(seen.has(key)) continue;
+        seen.add(key);
+        items.push(item);
+        if(items.length === OSS_LIMIT) break;
+      }
 
       const repos = [...new Set(items.map(i=>i.repo))];
       await Promise.all(repos.map(async repo=>{
