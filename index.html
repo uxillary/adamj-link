@@ -169,6 +169,9 @@
     .soft-hr { height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent); }
     .t-card { border:1px solid rgba(255,255,255,.08); border-radius:0; padding:1rem; background:rgba(255,255,255,.02); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); transition: border-color .18s ease, transform .18s ease; }
     .t-card:hover { border-color: rgba(85,230,165,.55); transform: translateY(-1px); }
+    .clamp-2{ display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden }
+    .badge{ display:inline-flex; align-items:center; gap:.25rem; padding:0 .4rem; border-radius:6px; border:1px solid rgba(255,255,255,.08); font-size:.65rem; line-height:1.4 }
+    .badge svg{ width:.75rem; height:.75rem }
     @media (min-width:640px){ .section{ margin-top:4rem; margin-bottom:4rem } }
   </style>
 
@@ -405,7 +408,8 @@
     <!-- Recent contributions -->
     <section class="section">
       <div class="section-head"><h2 class="font-medium text-lg text-zinc-300">Recent (public) contributions</h2></div>
-      <div id="ossList" class="mt-4 space-y-3" aria-busy="true"></div>
+      <div id="ossList" class="mt-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3" aria-busy="true"></div>
+      <a href="https://github.com/uxillary" class="block mt-3 text-sm text-zinc-500 hover:text-brand">View all on GitHub →</a>
     </section>
     <div class="soft-hr"></div>
 
@@ -695,9 +699,10 @@
   <script src="/scripts/infinitecurios-posts.js"></script>
   <script>
     const GH_USER = 'uxillary';
-    const OSS_LIMIT = 3;
+    const OSS_LIMIT = 6;
     const OSS_CACHE_KEY = 'aj_oss_v1';
     const OSS_CACHE_TTL = 15 * 60 * 1000;
+    const LANG_COLORS = { JavaScript:'#f1e05a', TypeScript:'#3178c6', HTML:'#e34c26', CSS:'#563d7c', Python:'#3572A5', Go:'#00ADD8', Rust:'#dea584', Shell:'#89e051', Java:'#b07219' };
 
     function cacheRead(key){
       try{
@@ -713,9 +718,18 @@
       try{ sessionStorage.setItem(key, JSON.stringify({items, t:Date.now()})); }catch{}
     }
 
-    const fmtNum = n => new Intl.NumberFormat('en-GB').format(n);
-    const fmtDate = d => new Intl.DateTimeFormat('en-GB', {dateStyle:'medium'}).format(new Date(d));
+    const rtf = new Intl.RelativeTimeFormat('en', {numeric:'auto'});
+    function timeAgo(d){
+      let diff = (new Date(d).getTime() - Date.now()) / 1000;
+      const units = [ ['year',31536000], ['month',2592000], ['day',86400], ['hour',3600], ['minute',60], ['second',1] ];
+      for(const [unit, sec] of units){
+        if(Math.abs(diff) >= sec || unit === 'second'){
+          return rtf.format(Math.round(diff/sec), unit);
+        }
+      }
+    }
     function esc(str){ const div = document.createElement('div'); div.textContent = str; return div.innerHTML; }
+    function cleanMessage(msg){ return msg.replace(/^(feat|chore|fix|refactor|docs|test|style|perf|ci|build)(\(.+\))?:\s*/i,'').trim(); }
 
     async function fetchContribs(){
       const cached = cacheRead(OSS_CACHE_KEY);
@@ -723,32 +737,37 @@
       const res = await fetch(`https://api.github.com/users/${GH_USER}/events/public`);
       if(!res.ok) throw new Error('fetch failed');
       const data = await res.json();
-      const mapped = data.filter(e=>['PushEvent','PullRequestEvent','IssuesEvent','ReleaseEvent','PullRequestReviewCommentEvent'].includes(e.type))
+      const mapped = data.filter(e=>['PushEvent','PullRequestEvent','IssuesEvent','ReleaseEvent'].includes(e.type))
         .map(e=>{
-          const item = {repo:e.repo.name, link:`https://github.com/${e.repo.name}`, date:e.created_at};
+          const item = {repo:e.repo.name, date:e.created_at};
           switch(e.type){
-            case 'PushEvent':
-              item.kind='Push';
-              item.message=e.payload.commits && e.payload.commits[0]?e.payload.commits[0].message:'Pushed commits';
-              break;
+            case 'PushEvent':{
+              const c = e.payload.commits && e.payload.commits[0];
+              item.kind='Commit';
+              if(c){ item.message=c.message; item.sha=c.sha; item.link=`https://github.com/${e.repo.name}/commit/${c.sha}`; }
+              else { item.message='Pushed commits'; item.link=`https://github.com/${e.repo.name}`; }
+              break;}
             case 'PullRequestEvent':
               item.kind='PR';
-              item.message=e.payload.pull_request.title;
               item.merged=e.payload.pull_request.merged;
+              item.number=e.payload.pull_request.number;
+              item.message=e.payload.pull_request.title;
+              item.link=e.payload.pull_request.html_url;
               break;
             case 'IssuesEvent':
               item.kind='Issue';
+              item.number=e.payload.issue.number;
               item.message=e.payload.issue.title;
+              item.link=e.payload.issue.html_url;
               break;
             case 'ReleaseEvent':
               item.kind='Release';
-              item.message=e.payload.release.name || e.payload.release.tag_name;
-              break;
-            case 'PullRequestReviewCommentEvent':
-              item.kind='Review';
-              item.message=e.payload.comment.body.slice(0,80);
+              item.tag=e.payload.release.tag_name;
+              item.message=e.payload.release.name || item.tag;
+              item.link=e.payload.release.html_url;
               break;
           }
+          item.message = cleanMessage(item.message);
           return item;
         });
 
@@ -768,9 +787,16 @@
           const r = await fetch(`https://api.github.com/repos/${repo}`);
           if(!r.ok) return;
           const j = await r.json();
-          items.filter(i=>i.repo===repo).forEach(i=>i.stars=j.stargazers_count);
+          items.filter(i=>i.repo===repo).forEach(i=>{
+            i.stars=j.stargazers_count;
+            i.language=j.language;
+            i.avatar=j.owner && j.owner.avatar_url;
+            i.langColor=LANG_COLORS[j.language] || '#999';
+          });
         }catch{}
       }));
+
+      items.forEach(i=>{ if(i.kind==='Commit' && i.sha) i.shortSha=i.sha.slice(0,7); if(i.language && !i.langColor) i.langColor='#999'; });
 
       cacheWrite(OSS_CACHE_KEY, items);
       return items;
@@ -780,16 +806,32 @@
       const list = document.getElementById('ossList');
       list.innerHTML='';
       items.forEach(item=>{
-        const rightMeta = item.kind==='PR' && item.merged ? 'PR merged' : item.stars ? `★${fmtNum(item.stars)}` : '';
-        const row = document.createElement('div');
-        row.className='t-card p-4 flex items-start justify-between gap-3';
-        row.innerHTML=`<div>
-            <a href="${item.link}" class="font-medium hover:text-brand">${esc(item.repo)}</a>
-            <div class="text-sm text-zinc-400/90">${esc(item.message)}</div>
-            <div class="text-xs text-zinc-500 mt-1">${fmtDate(item.date)}</div>
+        const card=document.createElement('a');
+        card.href=item.link;
+        card.className='t-card p-4 flex flex-col gap-2 focus-ring hover:-translate-y-0.5 hover:ring-1 hover:ring-brand/40';
+        const badgeLabel = item.kind==='PR'? (item.merged?'PR merged':'PR') : item.kind;
+        const badgeTitle = item.kind==='PR' ? `Pull Request${item.merged?' • merged':''}` : item.kind;
+        const meta = item.kind==='Commit'? item.shortSha : item.kind==='PR'? `#${item.number}${item.merged?' • merged':''}` : item.kind==='Issue'? `#${item.number}` : item.kind==='Release'? item.tag : '';
+        const icon = {
+          'Commit':'<svg class="icon-line" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v6m0 6v6"/></svg>',
+          'PR':'<svg class="icon-line" viewBox="0 0 24 24"><path d="M6 3v12"/><circle cx="6" cy="15" r="3"/><path d="M6 6a6 6 0 0 1 6 6v3"/><circle cx="12" cy="15" r="3"/></svg>',
+          'Issue':'<svg class="icon-line" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>',
+          'Release':'<svg class="icon-line" viewBox="0 0 24 24"><path d="M3 3h7l11 11-7 7L3 10V3z"/><path d="M7 7h.01"/></svg>'
+        }[item.kind==='PR'?'PR':item.kind];
+        card.innerHTML=`<div class="flex items-center justify-between text-xs text-zinc-400">
+            <div class="flex items-center gap-2">
+              ${item.avatar ? `<img src="${item.avatar}" alt="" class="w-4 h-4 rounded-full">` : ''}
+              <span class="inline-flex items-center gap-1"><span class="w-2 h-2 rounded-full" style="background:${item.langColor}"></span>${esc(item.repo)}</span>
+            </div>
+            <span class="text-zinc-500">${timeAgo(item.date)}</span>
           </div>
-          <div class="text-xs text-zinc-500 whitespace-nowrap">${rightMeta}</div>`;
-        list.appendChild(row);
+          <div class="h-px bg-zinc-800/60"></div>
+          <div class="text-sm text-white clamp-2">${esc(item.message)}</div>
+          <div class="flex items-center justify-between text-xs mt-1">
+            <span class="badge" title="${badgeTitle}">${icon}${badgeLabel}</span>
+            <span class="${item.kind==='Commit'?'copy-sha cursor-pointer text-zinc-400':''}"${item.kind==='Commit'?` data-sha="${item.shortSha}"`:''}>${esc(meta)}</span>
+          </div>`;
+        list.appendChild(card);
       });
       list.removeAttribute('aria-busy');
     }
@@ -806,13 +848,8 @@
       list.innerHTML='';
       for(let i=0;i<OSS_LIMIT;i++){
         const sk=document.createElement('div');
-        sk.className='t-card p-4 flex items-start justify-between gap-3 animate-pulse';
-        sk.innerHTML=`<div class="flex-1 space-y-2">
-            <div class="h-4 bg-zinc-700/40 rounded w-1/2"></div>
-            <div class="h-3 bg-zinc-700/30 rounded w-3/4"></div>
-            <div class="h-3 bg-zinc-700/30 rounded w-1/3"></div>
-          </div>
-          <div class="h-4 bg-zinc-700/30 rounded w-10"></div>`;
+        sk.className='t-card p-4 flex flex-col gap-2 animate-pulse';
+        sk.innerHTML=`<div class="flex items-center justify-between"><div class="h-3 bg-zinc-700/40 rounded w-24"></div><div class="h-3 bg-zinc-700/40 rounded w-12"></div></div><div class="h-4 bg-zinc-700/30 rounded w-5/6"></div><div class="h-4 bg-zinc-700/30 rounded w-2/3"></div><div class="h-3 bg-zinc-700/30 rounded w-16 mt-1"></div>`;
         list.appendChild(sk);
       }
     }
@@ -820,6 +857,19 @@
     document.addEventListener('DOMContentLoaded',()=>{
       renderSkeletons();
       fetchContribs().then(renderContribs).catch(showFallback);
+    });
+
+    document.addEventListener('click',e=>{
+      const t=e.target.closest('.copy-sha');
+      if(!t) return;
+      e.preventDefault();
+      e.stopPropagation();
+      const sha=t.dataset.sha;
+      navigator.clipboard.writeText(sha).then(()=>{
+        const txt=t.textContent;
+        t.textContent='copied';
+        setTimeout(()=>{t.textContent=txt;},1000);
+      });
     });
   </script>
 </body>
