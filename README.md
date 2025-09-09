@@ -30,3 +30,12 @@
 ## Nice-to-haves (optional)
 - Add Cloudflare Web Analytics (one script tag)
 - Add `/press` with logo SVG + brand colors
+
+## Contact form
+
+The contact form posts to `/api/contact` and uses [Resend](https://resend.com/) to send
+emails. Configure these environment variables in the Cloudflare Pages project:
+
+- `RESEND_API_KEY` – API key for Resend
+- `CONTACT_FROM` – verified sender address
+- `CONTACT_TO` – destination email address
