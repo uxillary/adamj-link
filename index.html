@@ -523,7 +523,7 @@
 
     // 2) GitHub followers (public API, no key)
     (function(){
-      fetch('https://api.github.com/users/admjski')
+      fetch('https://api.github.com/users/uxillary')
         .then(r => r.ok ? r.json() : null)
         .then(d => {
           const el = document.getElementById('ghFollowers');
@@ -699,7 +699,7 @@
   document.addEventListener('DOMContentLoaded', refreshCounters);
   </script>
   <script>
-    const GH_USER = 'admjski';
+    const GH_USER = 'uxillary';
     const OSS_LIMIT = 3;
     const OSS_CACHE_KEY = 'aj_oss_v1';
     const OSS_CACHE_TTL = 15 * 60 * 1000;
