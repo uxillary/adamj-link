@@ -39,6 +39,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="/scripts/tailwind-config.js"></script>
 
+  <link rel="preload" as="image" href="/public/hex-labs-card.png" />
+  <link rel="preload" as="image" href="/public/infinitecurios-card.png" />
+
   <link rel="stylesheet" href="/styles/main.css">
 
   <!-- JSON-LD -->
@@ -84,7 +87,7 @@
         Creative Digital Developer<br/>
         crafting <span class="grad-brand">useful</span> + <span class="grad-accent">fun</span> things.
       </h1>
-      <p class="mt-4 max-w-xl text-zinc-400/90 leading-relaxed">
+      <p class="mt-4 max-w-xl text-zinc-300 leading-relaxed">
         Websites, tools, QoL, Multimedia, Clean UX, cohesive branding - ideas to MVP, with fast deployment.
 
       </p>
@@ -156,13 +159,13 @@
           <li class="shrink-0 snap-start">
             <div class="t-card p-5 sm:p-6 cb-item">
               <span class="cb-top" aria-hidden="true"></span>
-              <p class="text-sm text-zinc-400/90 leading-relaxed">Interactive UGC-driven game using <a href="https://developers.reddit.com">Devvit Web</a> and Reddit posts. Designed for quick, daily play with a polished Reddit-native feel, blending playful mechanics, community creativity, and a seamless UX.</p>
+              <p class="text-sm text-zinc-300 leading-relaxed">Interactive UGC-driven game using <a href="https://developers.reddit.com">Devvit Web</a> and Reddit posts. Designed for quick, daily play with a polished Reddit-native feel, blending playful mechanics, community creativity, and a seamless UX.</p>
             </div>
           </li>
           <li class="shrink-0 snap-start">
             <div class="t-card p-5 sm:p-6 cb-item">
               <span class="cb-top" aria-hidden="true"></span>
-              <p class="text-sm text-zinc-400/90 leading-relaxed">Local AI coding tool <a href="https://github.com/uxillary/codex-assist">codex assist</a> that connects to OpenAI, offering smart prompt handling to reduce API costs while enabling efficient, context-aware code generation.</p>
+              <p class="text-sm text-zinc-300 leading-relaxed">Local AI coding tool <a href="https://github.com/uxillary/codex-assist">codex assist</a> that connects to OpenAI, offering smart prompt handling to reduce API costs while enabling efficient, context-aware code generation.</p>
             </div>
           </li>
         </ul>
@@ -178,7 +181,7 @@
           </div>
           <div class="p-4">
             <h3 class="font-semibold">hexlabs.app</h3>
-            <p class="text-sm text-zinc-400/90 leading-relaxed">Learning environment/ web app including remapping tools, designed to modernize legacy tuning software.</p>
+            <p class="text-sm text-zinc-300 leading-relaxed">Learning environment/ web app including remapping tools, designed to modernize legacy tuning software.</p>
           </div>
         </a>
         <a href="https://infinitecurios.blog" class="t-card p-0 overflow-hidden block">
@@ -187,7 +190,7 @@
           </div>
           <div class="p-4">
             <h3 class="font-semibold">infinitecurios.blog</h3>
-            <p class="text-sm text-zinc-400/90 leading-relaxed">General blog - exploring tech, design, and creativity. Including everday, free web tools.</p>
+            <p class="text-sm text-zinc-300 leading-relaxed">General blog - exploring tech, design, and creativity. Including everday, free web tools.</p>
           </div>
         </a>
       </div>
@@ -313,7 +316,7 @@
         <img src="/public/3d-cover-sm.png" width="400" height="600" alt="Get Optimized — SEO" class="w-16 sm:w-20" loading="lazy" decoding="async" />
         <div class="text-sm">
           <h3 class="font-medium">Get Optimized — SEO Guide</h3>
-          <p class="text-zinc-400 mt-1 leading-relaxed">Comprehensive guide to SEO with real-world examples.</p>
+          <p class="text-zinc-300 mt-1 leading-relaxed">Comprehensive guide to SEO with real-world examples.</p>
           <a href="https://www.amazon.co.uk/dp/B0F9B2MN62" class="inline-block mt-2 px-3 py-1.5 r border border-accent/50 text-accent hover:bg-accent/10 transition focus-ring">Buy book</a>
         </div>
       </div>
@@ -344,7 +347,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-zinc-800/60 mt-20">
+  <footer class="relative mt-20 before:content-[''] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-zinc-800/60 before:to-transparent">
     <div class="max-w-6xl mx-auto px-6 py-8 text-sm text-zinc-500 space-y-6">
       <nav class="flex flex-wrap items-center justify-center gap-3" aria-label="Social links">
         <a href="mailto:hello@ajstudios.dev" class="inline-flex items-center gap-2 px-4 py-2 border border-zinc-800/60 hover:border-brand/70 transition focus-ring">
@@ -376,6 +379,16 @@
       </div>
     </div>
   </footer>
+
+  <!-- Radius toggle UI -->
+  <div id="radiusUI" class="fixed bottom-4 right-4 flex flex-col gap-2 z-40">
+    <button data-radius="square" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Square radius">
+      <svg width="16" height="16" class="icon-line"><rect x="3" y="3" width="10" height="10" rx="0"/></svg>
+    </button>
+    <button data-radius="soft" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring rounded-full" aria-label="Soft radius">
+      <svg width="16" height="16" class="icon-line"><circle cx="8" cy="8" r="5"/></svg>
+    </button>
+  </div>
 
   <script src="/scripts/main.js"></script>
   <script src="/scripts/infinitecurios-posts.js"></script>
