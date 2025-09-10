@@ -27,14 +27,19 @@ export const onRequestGet = async ({ request }) => {
       .replace(/<[^>]*>/g, "")
       .replace(/\s+/g, " ")
       .slice(0, 180);
-    items.push({ title, link, pubDate, summary: desc });
+
+    const url = new URL(link);
+    const seg = url.pathname.split("/")[2] || "";
+    const category = decodeURIComponent(seg);
+
+    items.push({ title, link, pubDate, summary: desc, category });
   }
 
   const out = new Response(JSON.stringify({ items }), {
     headers: {
       "content-type": "application/json; charset=utf-8",
-      "cache-control": "public, max-age=900"
-    }
+      "cache-control": "public, max-age=900",
+    },
   });
   await cache.put(cacheKey, out.clone());
   return out;
