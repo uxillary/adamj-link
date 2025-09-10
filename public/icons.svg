@@ -20,4 +20,10 @@
   <symbol id="mail" viewBox="0 0 24 24">
     <path fill="currentColor" d="M2 4h20v16H2V4zm18 2-8 5-8-5v2l8 5 8-5V6z"/>
   </symbol>
+  <symbol id="refresh" viewBox="0 0 24 24">
+    <path d="M4.5 9.75a7.5 7.5 0 0113.264-3.764" />
+    <path d="M19.5 14.25a7.5 7.5 0 01-13.264 3.764" />
+    <path d="M19.5 3v4.5h-4.5" />
+    <path d="M4.5 21v-4.5h4.5" />
+  </symbol>
 </svg>

@@ -44,7 +44,7 @@ Place in `/public`:
 - `/public/hexlabs-shot.jpg` — 1600×900.
 - `/public/infinitecurios-shot.jpg` — 1600×900.
 - `/public/seo-book.png` — transparent, ~600px height.
-- `/public/favicon.svg` — AJ monogram.
+- `/public/favicon/` — PNG/ICO favicons.
 - `/public/icons.svg` — SVG sprite containing: `x`, `linkedin`, `instagram`, `github`, `mail`.
 
 ## Files we’ll have
@@ -60,7 +60,7 @@ Place in `/public`:
    ├─ hexlabs-shot.jpg
    ├─ infinitecurios-shot.jpg
    ├─ seo-book.png
-   ├─ favicon.svg
+   ├─ favicon/               # favicon assets
    └─ icons.svg              # <symbol id="x">…</symbol> etc.
 ```
 
