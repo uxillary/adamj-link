@@ -14,4 +14,10 @@
   <symbol id="mail" viewBox="0 0 24 24">
     <path fill="currentColor" d="M2 4h20v16H2V4zm18 2-8 5-8-5v2l8 5 8-5V6z"/>
   </symbol>
+  <symbol id="refresh" viewBox="0 0 24 24">
+    <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 2v6h-6"/>
+    <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 22v-6h6"/>
+    <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3.51 15a9 9 0 0 1 14.36-8.36"/>
+    <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20.49 9a9 9 0 0 1-14.36 8.36"/>
+  </symbol>
 </svg>
