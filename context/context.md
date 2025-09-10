@@ -133,6 +133,6 @@ Add `robots.txt`, `sitemap.txt`, `404.html`, OG image wiring, tiny JS for year +
 
 - Primary site: <https://ajstudios.dev>  
 - Blog: <https://ajstudios.dev/blog>  
-- GitHub: <https://github.com/admjski>  
+- GitHub: <https://github.com/uxillary>
 - YouTube: <https://youtube.com/@admjski>  
 - Email: <hello@ajstudios.dev>
