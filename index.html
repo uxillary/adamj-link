@@ -170,10 +170,46 @@
     .t-card { border:1px solid rgba(255,255,255,.08); border-radius:0; padding:1rem; background:rgba(255,255,255,.02); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); transition: border-color .18s ease, transform .18s ease; }
     .t-card:hover { border-color: rgba(85,230,165,.55); transform: translateY(-1px); }
     .clamp-2{ display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden }
-    .badge{ display:inline-flex; align-items:center; gap:.25rem; padding:0 .4rem; border-radius:6px; border:1px solid rgba(255,255,255,.08); font-size:.65rem; line-height:1.4 }
-    .badge svg{ width:.75rem; height:.75rem }
-    @media (min-width:640px){ .section{ margin-top:4rem; margin-bottom:4rem } }
-  </style>
+      .badge{ display:inline-flex; align-items:center; gap:.25rem; padding:0 .4rem; border-radius:6px; border:1px solid rgba(255,255,255,.08); font-size:.65rem; line-height:1.4 }
+      .badge svg{ width:.75rem; height:.75rem }
+
+      .post-card{
+        --accent:#55e6a5; /* fallback */
+        position:relative;
+      }
+      .post-card::before{
+        content:"";
+        position:absolute; inset:0 0 auto 0; height:3px;
+        background:linear-gradient(90deg,var(--accent),transparent 60%);
+        opacity:.9;
+      }
+      .post-card::after{
+        content:"";
+        position:absolute; inset:-10% -10% 30% 50%;
+        background:radial-gradient(50% 60% at 20% 40%, color-mix(in oklab, var(--accent) 20%, transparent) 0%, transparent 60%);
+        filter:blur(16px); pointer-events:none;
+      }
+      .post-card:hover{
+        box-shadow:0 0 0 1px color-mix(in oklab,var(--accent) 35%,transparent),
+                   0 10px 40px -10px color-mix(in oklab,var(--accent) 35%,transparent);
+        transform:translateY(-1px);
+        transition:box-shadow .25s,transform .25s;
+      }
+      .post-card .post-tag{
+        border:1px solid color-mix(in oklab,var(--accent) 60%,#0a0a0a);
+        color:color-mix(in oklab,var(--accent) 80%,#e5e5e5);
+        background:color-mix(in oklab,var(--accent) 10%,transparent);
+      }
+
+      /* Tag mapping */
+      .post-card[data-tag="guides"]   { --accent:#55e6a5; }
+      .post-card[data-tag="tools"]    { --accent:#60a5fa; }
+      .post-card[data-tag="seo"]      { --accent:#f59e0b; }
+      .post-card[data-tag="wellness"] { --accent:#a78bfa; }
+      .post-card[data-tag="news"]     { --accent:#f87171; }
+
+      @media (min-width:640px){ .section{ margin-top:4rem; margin-bottom:4rem } }
+    </style>
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
