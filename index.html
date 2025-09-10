@@ -495,6 +495,37 @@
       }
     });
 
+    // Contact form handling
+    (function(){
+      const form = document.getElementById('contactForm');
+      if(!form) return;
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        const data = Object.fromEntries(new FormData(form).entries());
+        try{
+          const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'content-type':'application/json' },
+            body: JSON.stringify(data)
+          });
+          if(res.ok){
+            form.innerHTML = '<p class="text-green-500">Thanks, message sent!</p>';
+          }else{
+            btn.disabled = false;
+            btn.textContent = 'Send';
+            alert('Failed to send. Please try again later.');
+          }
+        }catch{
+          btn.disabled = false;
+          btn.textContent = 'Send';
+          alert('Failed to send. Please try again later.');
+        }
+      });
+    })();
+
     // Ultra-subtle grid parallax (background-position)
     (function(){
       const el = document.getElementById('bgGrid');
