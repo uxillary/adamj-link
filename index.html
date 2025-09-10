@@ -100,7 +100,7 @@
     .dark .card{
       background: linear-gradient( to bottom, rgba(0,0,0,.25), rgba(0,0,0,.12) );
     }
-    .card:hover{ box-shadow:0 6px 16px rgba(0,0,0,.18); border-color:rgba(85,230,165,.55); transform: translateY(-1px) }
+    .card:hover{ box-shadow:0 6px 16px rgba(0,0,0,.18),0 0 0 1px rgba(85,230,165,.45); border-color:rgba(85,230,165,.55); transform: translateY(-1px) }
     @media (prefers-reduced-motion: reduce){ .card, .card:hover{ transition:none; transform:none; box-shadow:none } }
 
     /* Skip link */
@@ -380,10 +380,13 @@
     <!-- From the blog -->
     <section class="section">
       <div class="section-head">
-        <h2 class="font-medium text-lg text-zinc-300">From the blog</h2>
+        <div>
+          <div class="eyebrow">Latest posts</div>
+          <h2 class="font-medium text-lg text-zinc-300">From the blog</h2>
+        </div>
         <a class="text-sm text-zinc-400 hover:text-brand" href="https://infinitecurios.blog">All posts →</a>
       </div>
-      <div id="blogList" class="grid gap-4 sm:gap-5 md:grid-cols-3"></div>
+      <div id="blogList" class="grid grid-flow-col auto-cols-[80%] gap-6 sm:gap-7 overflow-x-auto snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] md:grid-flow-row md:auto-cols-auto md:grid-cols-3 md:overflow-visible md:snap-none"></div>
     </section>
 
     <!-- Latest YouTube -->
