@@ -7,7 +7,6 @@
   <meta name="description" content="Creative digital developer crafting playful, useful experiences across web, tools, video, and sound. Clean UX, cohesive branding, and cheeky ideas that actually ship." />
 
   <!-- Favicons -->
-  <link rel="icon" href="/public/favicon.svg" type="image/svg+xml" />
   <link rel="shortcut icon" href="/public/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon/favicon-16x16.png" />
@@ -99,9 +98,8 @@
     <section class="section">
       <div class="section-head">
         <span class="eyebrow">Now</span>
-        <span id="nowDate" class="text-xs text-zinc-500"></span>
       </div>
-      <div id="nowTimeline" data-active="auto" class="t-card px-4 py-8 sm:px-5 sm:py-9 relative !rounded-[12px] overflow-x-auto overflow-y-visible [-ms-overflow-style:none] [scrollbar-width:none]">
+      <div id="nowTimeline" data-active="auto" class="t-card px-4 py-8 sm:px-5 sm:py-9 relative !rounded-none overflow-x-auto overflow-y-visible [-ms-overflow-style:none] [scrollbar-width:none]">
         <p id="nowTimelineDesc" class="sr-only">Timeline showing key focus points across 2025–2026.</p>
         <span id="nowTimelineHelp" class="sr-only">Use left and right keys or click to set the active step</span>
         <div class="now-progress absolute left-6 top-1/2 -translate-y-1/2 h-[3px] rounded-full bg-gradient-to-r from-brand to-accent transition-[width] duration-700 ease-out" style="width:0"></div>
@@ -283,7 +281,12 @@
           <div class="eyebrow">Latest posts</div>
           <h2 class="font-medium text-lg text-zinc-300">From the blog</h2>
         </div>
-        <a class="text-sm text-zinc-400 hover:text-brand" href="https://infinitecurios.blog">All posts →</a>
+        <div class="flex items-center gap-2">
+          <button id="refreshPosts" type="button" class="text-zinc-400 hover:text-brand" aria-label="Refresh posts">
+            <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#refresh"></use></svg>
+          </button>
+          <a class="text-sm text-zinc-400 hover:text-brand" href="https://infinitecurios.blog">All posts →</a>
+        </div>
       </div>
       <div id="blogList" class="grid grid-flow-col auto-cols-[80%] gap-6 sm:gap-7 overflow-x-auto snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] md:grid-flow-row md:auto-cols-auto md:grid-cols-3 md:overflow-visible md:snap-none"></div>
     </section>
@@ -309,7 +312,12 @@
 
     <!-- Recent contributions -->
     <section class="section">
-      <div class="section-head"><h2 class="font-medium text-lg text-zinc-300">Recent (public) contributions</h2></div>
+      <div class="section-head">
+        <h2 class="font-medium text-lg text-zinc-300">Recent (public) contributions</h2>
+        <button id="refreshContribs" type="button" class="text-zinc-400 hover:text-brand" aria-label="Refresh contributions">
+          <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#refresh"></use></svg>
+        </button>
+      </div>
       <div id="ossList" class="mt-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3" aria-busy="true"></div>
       <a href="https://github.com/uxillary" class="block mt-3 text-sm text-zinc-500 hover:text-brand">View all on GitHub →</a>
     </section>

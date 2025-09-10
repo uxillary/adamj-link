@@ -154,9 +154,16 @@ function renderSkeletons(){
   }
 }
 
-document.addEventListener('DOMContentLoaded',()=>{
+function loadContribs(force=false){
+  if(force) try{ sessionStorage.removeItem(OSS_CACHE_KEY); }catch{}
   renderSkeletons();
   fetchContribs().then(renderContribs).catch(showFallback);
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  loadContribs();
+  const btn=document.getElementById('refreshContribs');
+  if(btn) btn.addEventListener('click',()=>loadContribs(true));
 });
 
 document.addEventListener('click',e=>{

@@ -1,7 +1,5 @@
 // Year
 document.getElementById('y').textContent = new Date().getFullYear();
-// Today label
-document.getElementById('nowDate').textContent = new Date().toLocaleDateString('en-GB', { month: 'short', day: 'numeric' });
 
 // Theme toggle with flair (fade + icon spin)
 const toggle = document.getElementById('themeToggle');
