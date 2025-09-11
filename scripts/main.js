@@ -101,6 +101,26 @@ const savedR = localStorage.getItem('radius');
 if(savedR) document.documentElement.setAttribute('data-radius', savedR);
 window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v); localStorage.setItem('radius', v); };
 
+// Radius toggle UI
+(function(){
+  const ui = document.getElementById('radiusUI');
+  if(!ui) return;
+  const buttons = ui.querySelectorAll('button[data-radius]');
+  const update = () => {
+    const current = document.documentElement.getAttribute('data-radius');
+    buttons.forEach(btn => {
+      const active = btn.dataset.radius === current;
+      btn.classList.toggle('bg-brand', active);
+      btn.classList.toggle('text-black', active);
+    });
+  };
+  buttons.forEach(btn => btn.addEventListener('click', () => {
+    setRadius(btn.dataset.radius);
+    update();
+  }));
+  update();
+})();
+
 // Now timeline date-aware progress
 (function(){
   const container = document.getElementById('nowTimeline');
