@@ -121,6 +121,15 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
   update();
 })();
 
+// Scroll-to-top button
+(function(){
+  const btn = document.getElementById('scrollTop');
+  if(!btn) return;
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
 // Now timeline date-aware progress
 (function(){
   const container = document.getElementById('nowTimeline');
