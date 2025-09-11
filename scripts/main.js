@@ -126,7 +126,10 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
   const btn = document.getElementById('scrollTop');
   if(!btn) return;
   btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const opts = { top: 0, behavior: 'smooth' };
+    window.scrollTo(opts);
+    document.documentElement.scrollTo(opts);
+    document.body.scrollTo(opts);
   });
 })();
 
