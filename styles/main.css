@@ -100,6 +100,7 @@ a:not([class]):hover{ text-decoration-color:#55e6a5 }
 
 /* Line icons matching the logo vibe */
 .icon-line{ stroke: currentColor; stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; fill:none }
+.clip-triangle{ clip-path:polygon(50% 0%,0% 100%,100% 100%); -webkit-clip-path:polygon(50% 0%,0% 100%,100% 100%) }
 
 /* Stat pills */
 .stat-pill{

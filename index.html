@@ -172,67 +172,74 @@
       </div>
     </section>
 
-    <!-- Work preview -->
-    <section class="section">
-      <div class="grid md:grid-cols-2 gap-6 sm:gap-7">
-        <a href="https://hexlabs.app" class="t-card p-0 overflow-hidden block">
-          <div class="aspect-[16/9] bg-zinc-900/40">
-            <img src="/public/hex-labs-card.png" width="1600" height="900" alt="Hex Labs" class="w-full h-full object-cover opacity-80 hover:opacity-95 transition" loading="lazy" decoding="async" />
-          </div>
-          <div class="p-4">
-            <h3 class="font-semibold">hexlabs.app</h3>
-            <p class="text-sm text-zinc-300 leading-relaxed">Learning environment/ web app including remapping tools, designed to modernize legacy tuning software.</p>
-          </div>
-        </a>
-        <a href="https://infinitecurios.blog" class="t-card p-0 overflow-hidden block">
-          <div class="aspect-[16/9] bg-zinc-900/40">
-            <img src="/public/infinitecurios-card.png" width="1600" height="900" alt="Infinite Curios" class="w-full h-full object-cover opacity-80 hover:opacity-95 transition" loading="lazy" decoding="async" />
-          </div>
-          <div class="p-4">
-            <h3 class="font-semibold">infinitecurios.blog</h3>
-            <p class="text-sm text-zinc-300 leading-relaxed">General blog - exploring tech, design, and creativity. Including everday, free web tools.</p>
-          </div>
-        </a>
-      </div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-5 mt-6">
-        <a href="https://aspartameawareness.org" class="t-card p-0 overflow-hidden block">
-          <div class="aspect-[16/9] bg-zinc-900/40 overflow-hidden">
-            <img src="/public/aspartame-logo-caution.png" alt="Aspartame Awareness" class="w-full h-full object-cover opacity-80 hover:opacity-90 transition" loading="lazy" decoding="async" />
-          </div>
-          <div class="p-2">
-            <h4 class="font-medium text-sm">aspartameawareness.org</h4>
-          </div>
-        </a>
-        <a href="https://404cache.net" class="t-card p-0 overflow-hidden block">
-          <div class="aspect-[16/9] bg-zinc-900/40 overflow-hidden">
-            <img src="/public/404cache-preview.png" alt="404cache" class="w-full h-full object-cover opacity-80 hover:opacity-90 transition" loading="lazy" decoding="async" />
-          </div>
-          <div class="p-2">
-            <h4 class="font-medium text-sm">404cache.net</h4>
-          </div>
-        </a>
-        <a href="https://maintenancegoblin.com" class="t-card p-0 overflow-hidden block">
-          <div class="aspect-[16/9] bg-zinc-900/40 overflow-hidden"></div>
-          <div class="p-2">
-            <h4 class="font-medium text-sm">maintenance goblin</h4>
-          </div>
-        </a>
-        <a href="https://fontsizetweak.com" class="t-card p-0 overflow-hidden block">
-          <div class="aspect-[16/9] bg-zinc-900/40 overflow-hidden">
-            <img src="/public/font-size-tweak.png" alt="Font Size Tweak" class="w-full h-full object-cover opacity-80 hover:opacity-90 transition" loading="lazy" decoding="async" />
-          </div>
-          <div class="p-2">
-            <h4 class="font-medium text-sm">font size tweak</h4>
-          </div>
-        </a>
-        <div class="t-card p-0 overflow-hidden">
-          <div class="aspect-[16/9] bg-zinc-900/40 overflow-hidden"></div>
-          <div class="p-2">
-            <h4 class="font-medium text-sm text-zinc-500">Coming soon</h4>
+      <!-- Work preview -->
+      <section class="section">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
+          <a href="https://hexlabs.app" class="t-card p-0 overflow-hidden block group md:col-span-2 hover:shadow-brand/30">
+            <div class="relative aspect-[16/9]">
+              <img src="/public/hex-labs-card.png" width="1600" height="900" alt="Hex Labs" class="w-full h-full object-cover brightness-90 contrast-95 saturate-75 group-hover:brightness-110 group-hover:saturate-100 group-hover:scale-105 transition" loading="lazy" decoding="async" />
+              <div class="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
+              <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                <h3 class="font-semibold">hexlabs.app</h3>
+                <p class="text-xs text-zinc-300 leading-relaxed">Learning environment/ web app including remapping tools, designed to modernize legacy tuning software.</p>
+              </div>
+            </div>
+          </a>
+          <a href="https://infinitecurios.blog" class="t-card p-0 overflow-hidden block group md:col-span-2 hover:shadow-brand/30">
+            <div class="relative aspect-[16/9]">
+              <img src="/public/infinitecurios-card.png" width="1600" height="900" alt="Infinite Curios" class="w-full h-full object-cover brightness-90 contrast-95 saturate-75 group-hover:brightness-110 group-hover:saturate-100 group-hover:scale-105 transition" loading="lazy" decoding="async" />
+              <div class="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
+              <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                <h3 class="font-semibold">infinitecurios.blog</h3>
+                <p class="text-xs text-zinc-300 leading-relaxed">General blog - exploring tech, design, and creativity. Including everyday, free web tools.</p>
+              </div>
+            </div>
+          </a>
+          <a href="https://aspartameawareness.org" class="t-card p-0 overflow-hidden block group hover:shadow-brand/30">
+            <div class="relative aspect-[16/9] bg-zinc-900/40">
+              <img src="/public/aspartame-logo-caution.png" alt="Aspartame Awareness" class="w-full h-full object-contain p-4 brightness-90 contrast-95 saturate-75 group-hover:brightness-110 group-hover:saturate-100 group-hover:scale-105 transition" loading="lazy" decoding="async" />
+              <div class="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
+              <div class="absolute inset-x-0 bottom-0 p-2 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                <h4 class="font-medium text-sm">aspartameawareness.org</h4>
+              </div>
+            </div>
+          </a>
+          <a href="https://404cache.net" class="t-card p-0 overflow-hidden block group hover:shadow-brand/30">
+            <div class="relative aspect-[16/9] bg-zinc-900/40">
+              <img src="/public/404cache-preview.png" alt="404cache" class="w-full h-full object-contain p-4 brightness-90 contrast-95 saturate-75 group-hover:brightness-110 group-hover:saturate-100 group-hover:scale-105 transition" loading="lazy" decoding="async" />
+              <div class="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
+              <div class="absolute inset-x-0 bottom-0 p-2 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                <h4 class="font-medium text-sm">404cache.net</h4>
+              </div>
+            </div>
+          </a>
+          <a href="https://maintenancegoblin.com" class="t-card p-0 overflow-hidden block group hover:shadow-brand/30">
+            <div class="relative aspect-[16/9] bg-zinc-900/40">
+              <div class="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
+              <div class="absolute inset-x-0 bottom-0 p-2 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                <h4 class="font-medium text-sm">maintenance goblin</h4>
+              </div>
+            </div>
+          </a>
+          <a href="https://fontsizetweak.com" class="t-card p-0 overflow-hidden block group hover:shadow-brand/30">
+            <div class="relative aspect-[16/9] bg-zinc-900/40">
+              <img src="/public/font-size-tweak.png" alt="Font Size Tweak" class="w-full h-full object-contain p-4 brightness-90 contrast-95 saturate-75 group-hover:brightness-110 group-hover:saturate-100 group-hover:scale-105 transition" loading="lazy" decoding="async" />
+              <div class="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
+              <div class="absolute inset-x-0 bottom-0 p-2 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                <h4 class="font-medium text-sm">font size tweak</h4>
+              </div>
+            </div>
+          </a>
+          <div class="t-card p-0 overflow-hidden group">
+            <div class="relative aspect-[16/9] bg-zinc-900/40">
+              <div class="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
+              <div class="absolute inset-x-0 bottom-0 p-2 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                <h4 class="font-medium text-sm text-zinc-500">Coming soon</h4>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
     <!-- Tiny analytics -->
     <section class="section">
@@ -386,18 +393,18 @@
     </div>
   </footer>
 
-  <!-- Radius toggle UI -->
-  <div id="radiusUI" class="fixed bottom-4 right-4 flex flex-col gap-2 z-40">
-    <button data-radius="square" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Square radius" title="Square corners">
-      <svg width="16" height="16" class="icon-line"><rect x="3" y="3" width="10" height="10" rx="0"/></svg>
-    </button>
-    <button data-radius="soft" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring rounded-full" aria-label="Soft radius" title="Rounded corners">
-      <svg width="16" height="16" class="icon-line"><circle cx="8" cy="8" r="5"/></svg>
-    </button>
-    <a href="#top" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Back to top" title="Back to top">
-      <svg width="16" height="16" class="icon-line"><path d="M8 5l5 6H3z"/></svg>
-    </a>
-  </div>
+    <!-- Radius toggle UI -->
+    <div id="radiusUI" class="fixed bottom-4 right-4 flex flex-col gap-2 z-40">
+      <a href="#top" class="clip-triangle w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white hover:border-brand/70 focus-ring" aria-label="Back to top" title="Back to top">
+        <svg width="16" height="16" class="icon-line"><path d="M8 5l5 6H3z"/></svg>
+      </a>
+      <button data-radius="soft" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring rounded-full" aria-label="Soft radius" title="Rounded corners">
+        <svg width="16" height="16" class="icon-line"><circle cx="8" cy="8" r="5"/></svg>
+      </button>
+      <button data-radius="square" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Square radius" title="Square corners">
+        <svg width="16" height="16" class="icon-line"><rect x="3" y="3" width="10" height="10" rx="0"/></svg>
+      </button>
+    </div>
 
   <script src="/scripts/main.js"></script>
   <script src="/scripts/infinitecurios-posts.js"></script>
