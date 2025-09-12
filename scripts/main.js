@@ -28,6 +28,7 @@ toggle.addEventListener('click', () => {
   const form = document.getElementById('contactForm');
   if(!form) return;
   const fields = form.querySelectorAll('input[required], textarea[required]');
+  const status = form.querySelector('#cf-status');
   fields.forEach(f=>{
     f.addEventListener('input',()=>{
       f.setAttribute('aria-invalid', f.checkValidity() ? 'false' : 'true');
@@ -38,6 +39,10 @@ toggle.addEventListener('click', () => {
     const btn = form.querySelector('button[type="submit"]');
     btn.disabled = true;
     btn.textContent = 'Sending...';
+    if(status){
+      status.textContent = '';
+      status.classList.remove('text-red-500');
+    }
     const data = Object.fromEntries(new FormData(form).entries());
     for(const f of fields){
       if(!f.checkValidity()){
@@ -54,17 +59,20 @@ toggle.addEventListener('click', () => {
         headers: { 'content-type':'application/json' },
         body: JSON.stringify(data)
       });
-      if(res.ok){
+      const result = await res.json().catch(()=>({}));
+      if(res.ok && result.success){
         form.innerHTML = '<p class="text-green-500">Thanks! I\u2019ll reply within 24\u201348h.</p>';
       }else{
-        btn.disabled = false;
-        btn.textContent = 'Send';
-        alert('Failed to send. Please try again later.');
+        throw new Error(result.error || 'Failed to send. Please try again later.');
       }
-    }catch{
+    }catch(err){
       btn.disabled = false;
       btn.textContent = 'Send';
-      alert('Failed to send. Please try again later.');
+      if(status){
+        status.textContent = err.message;
+        status.classList.add('text-red-500');
+      }
+      console.error('Contact form error:', err);
     }
   });
 })();
