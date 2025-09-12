@@ -1,5 +1,8 @@
 :root{ --surface:#ffffff; --text:#0a0a0a; --border:rgba(0,0,0,.12); --ring:rgba(85,230,165,.45) }
 .dark:root{ --surface:#0a0a0a; --text:#fafafa; --border:rgba(255,255,255,.08) }
+.border-zinc-800\/60{ border-color:var(--border)!important }
+.bg-black\/20{ background-color:color-mix(in oklab,var(--surface) 80%,#000)!important }
+.bg-zinc-900\/30{ background-color:color-mix(in oklab,var(--surface) 90%,#000)!important }
 
 /* Radius system */
 html[data-radius="soft"]{ --r:12px }
@@ -9,16 +12,17 @@ html[data-radius="square"]{ --r:0px }
 
 /* Subtle dotted grid with parallax */
 .grid-bg{
-  background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(0,0,0,0.06) 1px, transparent 1px);
   background-size: 14px 14px;
   transform: translateZ(0);
   will-change: background-position;
   mask-image: linear-gradient(to bottom, black, black 75%, transparent);
   -webkit-mask-image: linear-gradient(to bottom, black, black 75%, transparent);
 }
+.dark .grid-bg{ background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px) }
 
 /* Smooth theme transition */
-body{ font-family:'Inter',system-ui,-apple-system,sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; transition: background-color .25s ease, color .25s ease }
+body{ font-family:'Inter',system-ui,-apple-system,sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; transition: background-color .25s ease, color .25s ease; background:var(--surface); color:var(--text) }
 
 a{ transition:color .15s ease,border-color .15s ease,background-color .15s ease }
 a:not([class]){ text-decoration:underline; text-decoration-color:rgba(85,230,165,.5); text-underline-offset:4px }
