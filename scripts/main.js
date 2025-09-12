@@ -158,10 +158,7 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
   const btn = document.getElementById('scrollTop');
   if(!btn) return;
   btn.addEventListener('click', () => {
-    const opts = { top: 0, behavior: 'smooth' };
-    window.scrollTo(opts);
-    document.documentElement.scrollTo(opts);
-    document.body.scrollTo(opts);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 })();
 
@@ -173,6 +170,7 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
   const track = container.querySelector('.now-track');
   const progress = container.querySelector('.now-progress');
   const todayMarker = container.querySelector('.now-today');
+  const list = container.querySelector('ul');
   const items = Array.from(container.querySelectorAll('[data-step]'));
   const dates = items.map(i => new Date(i.dataset.date));
 
@@ -202,21 +200,22 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
     if(today <= first) fraction = 0;
     else if(today >= last) fraction = 1;
     else fraction = (today - first) / (last - first);
-    const trackWidth = track.getBoundingClientRect().width;
+    const trackWidth = list.scrollWidth;
+    track.style.width = trackWidth + 'px';
     const width = trackWidth * fraction;
     if(prefersReduced){
       progress.style.transition = 'none';
       todayMarker.style.transition = 'none';
       progress.style.width = width + 'px';
-      todayMarker.style.left = track.offsetLeft + width + 'px';
+      todayMarker.style.left = width + 'px';
     }else{
       progress.style.transition = '';
       todayMarker.style.transition = '';
       progress.style.width = '0px';
-      todayMarker.style.left = track.offsetLeft + 'px';
+      todayMarker.style.left = '0px';
       requestAnimationFrame(()=>{
         progress.style.width = width + 'px';
-        todayMarker.style.left = track.offsetLeft + width + 'px';
+        todayMarker.style.left = width + 'px';
       });
     }
     let activeIdx = -1;
