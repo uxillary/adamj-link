@@ -93,7 +93,7 @@
       </p>
       <div class="mt-6 flex flex-wrap gap-3">
         <a href="https://ajstudios.dev" class="px-5 py-3 r bg-brand text-black font-semibold hover:opacity-90 transition focus-ring">View Portfolio</a>
-        <a href="mailto:hello@ajstudios.dev" class="px-5 py-3 r border border-zinc-800/60 hover:border-brand/70 transition focus-ring">Contact</a>
+        <a href="#contact" class="px-5 py-3 r border border-zinc-800/60 hover:border-brand/70 transition focus-ring">Email me</a>
       </div>
     </section>
 
@@ -103,6 +103,12 @@
         <span class="eyebrow">Now</span>
       </div>
       <div id="nowTimeline" data-active="auto" class="t-card px-4 py-8 sm:px-5 sm:py-9 relative !rounded-none overflow-x-auto overflow-y-visible [-ms-overflow-style:none] [scrollbar-width:none]">
+        <span class="hidden sm:block pointer-events-none absolute left-2 top-1/2 -translate-y-1/2 text-zinc-600" aria-hidden="true">
+          <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#arrow-left"></use></svg>
+        </span>
+        <span class="hidden sm:block pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-zinc-600" aria-hidden="true">
+          <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#arrow-right"></use></svg>
+        </span>
         <p id="nowTimelineDesc" class="sr-only">Timeline showing key focus points across 2025–2026.</p>
         <span id="nowTimelineHelp" class="sr-only">Use left and right keys or click to set the active step</span>
         <div class="now-ticks hidden sm:flex absolute left-0 right-0 top-1/2 -translate-y-1/2 justify-between" aria-hidden="true">
@@ -159,15 +165,19 @@
         <h2 class="eyebrow">Currently building</h2>
         <ul class="cb grid sm:grid-cols-2 gap-5 sm:gap-6 overflow-x-auto snap-x sm:overflow-visible [-ms-overflow-style:none] [scrollbar-width:none]">
           <li class="shrink-0 snap-start">
-            <div class="t-card p-5 sm:p-6 cb-item">
-              <span class="cb-top" aria-hidden="true"></span>
-              <p class="text-sm text-zinc-300 leading-relaxed">Interactive UGC-driven game using <a href="https://developers.reddit.com">Devvit Web</a> and Reddit posts. Designed for quick, daily play with a polished Reddit-native feel, blending playful mechanics, community creativity, and a seamless UX.</p>
+            <div class="t-card p-5 sm:p-6 cb-item flex flex-col">
+              <img src="/public/reddi-first.png" alt="Reddit game logo" class="w-12 h-12 mb-4" loading="lazy" decoding="async" />
+              <h3 class="font-medium">Reddit game</h3>
+              <p class="mt-1 text-sm text-zinc-300 leading-relaxed flex-grow">Interactive UGC-driven game built with Devvit Web and Reddit posts.</p>
+              <a href="https://developers.reddit.com" class="mt-3 text-sm text-brand hover:underline">Learn more ↗</a>
             </div>
           </li>
           <li class="shrink-0 snap-start">
-            <div class="t-card p-5 sm:p-6 cb-item">
-              <span class="cb-top" aria-hidden="true"></span>
-              <p class="text-sm text-zinc-300 leading-relaxed">Local AI coding tool <a href="https://github.com/uxillary/codex-assist">codex assist</a> that connects to OpenAI, offering smart prompt handling to reduce API costs while enabling efficient, context-aware code generation.</p>
+            <div class="t-card p-5 sm:p-6 cb-item flex flex-col">
+              <img src="/public/font-size-app.png" alt="codex assist logo" class="w-12 h-12 mb-4" loading="lazy" decoding="async" />
+              <h3 class="font-medium">codex assist</h3>
+              <p class="mt-1 text-sm text-zinc-300 leading-relaxed flex-grow">Local AI coding tool that connects to OpenAI with smart prompt handling.</p>
+              <a href="https://github.com/uxillary/codex-assist" class="mt-3 text-sm text-brand hover:underline">Learn more ↗</a>
             </div>
           </li>
         </ul>
@@ -199,31 +209,35 @@
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-5 mt-6">
         <a href="https://aspartameawareness.org" class="t-card p-0 overflow-hidden block">
           <div class="aspect-[16/9] bg-zinc-900/40"></div>
-          <div class="p-2">
+          <div class="p-2 flex items-center justify-between">
             <h4 class="font-medium text-sm">aspartameawareness.org</h4>
+            <span class="badge">Site</span>
           </div>
         </a>
         <a href="https://404cache.net" class="t-card p-0 overflow-hidden block">
           <div class="aspect-[16/9] bg-zinc-900/40"></div>
-          <div class="p-2">
+          <div class="p-2 flex items-center justify-between">
             <h4 class="font-medium text-sm">404cache.net</h4>
+            <span class="badge">Site</span>
           </div>
         </a>
         <a href="https://github.com/uxillary/maintenance-goblin" class="t-card p-0 overflow-hidden block">
           <div class="aspect-[16/9] bg-zinc-900/40"></div>
-          <div class="p-2">
+          <div class="p-2 flex items-center justify-between">
             <h4 class="font-medium text-sm">Maintenance goblin</h4>
+            <span class="badge">GitHub</span>
           </div>
         </a>
         <a href="https://github.com/uxillary/font-size-tweak/releases/tag/v1.0.0" class="t-card p-0 overflow-hidden block">
           <div class="aspect-[16/9] bg-zinc-900/40"></div>
-          <div class="p-2">
+          <div class="p-2 flex items-center justify-between">
             <h4 class="font-medium text-sm">Font size tweak</h4>
+            <span class="badge">GitHub</span>
           </div>
         </a>
         <div class="t-card p-0 overflow-hidden">
           <div class="aspect-[16/9] bg-zinc-900/40"></div>
-          <div class="p-2">
+          <div class="p-2 flex items-center justify-between">
             <h4 class="font-medium text-sm text-zinc-500">Coming soon</h4>
           </div>
         </div>
@@ -237,27 +251,27 @@
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
           <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 border border-zinc-800/60 bg-zinc-900/30" title="Local device session views">
             <span class="text-xs text-zinc-500">page views</span>
-            <span class="tabular-nums font-semibold text-white" id="views" aria-live="polite">—</span>
+            <span class="tabular-nums font-semibold text-white" id="views" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
           </div>
           <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 border border-zinc-800/60 bg-zinc-900/30" title="Blog posts total">
             <span class="text-xs text-zinc-500">blog posts</span>
-            <span class="tabular-nums font-semibold text-white" id="blog-counter" aria-live="polite">—</span>
+            <span class="tabular-nums font-semibold text-white" id="blog-counter" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
           </div>
           <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 border border-zinc-800/60 bg-zinc-900/30" title="YouTube videos">
             <span class="text-xs text-zinc-500">youtube videos</span>
-            <span class="tabular-nums font-semibold text-white" id="youtube-counter" aria-live="polite">—</span>
+            <span class="tabular-nums font-semibold text-white" id="youtube-counter" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
           </div>
           <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 border border-zinc-800/60 bg-zinc-900/30" title="Public repos">
             <span class="text-xs text-zinc-500">public repos</span>
-            <span class="tabular-nums font-semibold text-white" id="repo-counter" aria-live="polite">—</span>
+            <span class="tabular-nums font-semibold text-white" id="repo-counter" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
           </div>
           <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 border border-zinc-800/60 bg-zinc-900/30" title="GitHub contributions (2025)">
             <span class="text-xs text-zinc-500">contributions</span>
-            <span class="tabular-nums font-semibold text-white" id="gh-contributions" aria-live="polite">—</span>
+            <span class="tabular-nums font-semibold text-white" id="gh-contributions" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
           </div>
           <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 border border-zinc-800/60 bg-zinc-900/30" title="GitHub followers">
             <span class="text-xs text-zinc-500">github follows</span>
-            <span class="tabular-nums font-semibold text-white" id="ghFollowers" aria-live="polite">—</span>
+            <span class="tabular-nums font-semibold text-white" id="ghFollowers" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
           </div>
           
         </div>
@@ -315,10 +329,15 @@
     <!-- Book CTA -->
     <section class="section">
       <div class="t-card p-4 sm:p-5 flex items-center gap-4">
-        <img src="/public/3d-cover-sm.png" width="400" height="600" alt="Get Optimized — SEO" class="w-16 sm:w-20" loading="lazy" decoding="async" />
+        <img src="/public/3d-cover-sm.png" width="400" height="600" alt="Cover of Get Optimized — SEO Guide" class="w-16 sm:w-20" loading="lazy" decoding="async" />
         <div class="text-sm">
           <h3 class="font-medium">Get Optimized — SEO Guide</h3>
           <p class="text-zinc-300 mt-1 leading-relaxed">Comprehensive guide to SEO with real-world examples.</p>
+          <ul class="mt-2 list-disc list-inside text-zinc-300 space-y-1">
+            <li>Boost search visibility</li>
+            <li>Practical checklists</li>
+          </ul>
+          <blockquote class="mt-2 text-xs text-zinc-500 italic">"Straightforward and packed with tips."</blockquote>
           <a href="https://www.amazon.co.uk/dp/B0F9B2MN62" class="inline-block mt-2 px-3 py-1.5 r border border-accent/50 text-accent hover:bg-accent/10 transition focus-ring">Buy book</a>
         </div>
       </div>
@@ -326,21 +345,21 @@
     <div class="soft-hr"></div>
 
     <!-- Contact -->
-    <section class="section mb-32">
+    <section id="contact" class="section mb-32">
       <div class="t-card p-5 sm:p-6">
         <h3 class="font-semibold text-xl mb-2">Contact</h3>
         <form id="contactForm" class="flex flex-col space-y-3">
           <div>
-            <label for="cf-name" class="sr-only">Name</label>
-            <input id="cf-name" name="name" type="text" required placeholder="Name" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70" />
+            <label for="cf-name" class="block mb-1 text-sm text-zinc-300">Name</label>
+            <input id="cf-name" name="name" type="text" required placeholder="Name" aria-invalid="false" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70" />
           </div>
           <div>
-            <label for="cf-email" class="sr-only">Email</label>
-            <input id="cf-email" name="email" type="email" required placeholder="Email" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70" />
+            <label for="cf-email" class="block mb-1 text-sm text-zinc-300">Email</label>
+            <input id="cf-email" name="email" type="email" required placeholder="Email" aria-invalid="false" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70" />
           </div>
           <div>
-            <label for="cf-message" class="sr-only">Message</label>
-            <textarea id="cf-message" name="message" rows="3" required placeholder="Message" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70"></textarea>
+            <label for="cf-message" class="block mb-1 text-sm text-zinc-300">Message</label>
+            <textarea id="cf-message" name="message" rows="3" required placeholder="Message" aria-invalid="false" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70"></textarea>
           </div>
           <button type="submit" class="px-4 py-2 bg-brand text-black font-semibold hover:opacity-90 transition focus-ring">Send</button>
         </form>
