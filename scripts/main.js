@@ -72,13 +72,45 @@ toggle.addEventListener('click', () => {
 })();
 
 // Tiny analytics:
-// 1) Local page views (per device)
+// 1) Page views — global with local fallback
 (function(){
   const k = 'aj_views';
   const n = parseInt(localStorage.getItem(k) || '0', 10) + 1;
   localStorage.setItem(k, String(n));
   const el = document.getElementById('views');
-  if (el) countUp(el, n);
+  if (!el) return;
+  const wrap = el.parentElement;
+
+  countUp(el, n); // local count first
+
+  const cacheKey = 'aj_views_global';
+  const maxAge = 15 * 60 * 1000;
+  const now = Date.now();
+
+  try {
+    const cached = sessionStorage.getItem(cacheKey);
+    if (cached) {
+      const { v, t } = JSON.parse(cached);
+      if (typeof v === 'number' && now - t < maxAge) {
+        wrap.title = 'Global views';
+        countUp(el, v);
+        return;
+      }
+    }
+  } catch {}
+
+  document.addEventListener('DOMContentLoaded', () => {
+    fetch(`/api/views?path=${encodeURIComponent(location.pathname)}`, { method: 'POST' })
+      .then(r => r.ok ? r.json() : null)
+      .then(d => {
+        if (!d || typeof d.count !== 'number') { el.title = 'Temporarily unavailable'; return; }
+        wrap.title = 'Global views';
+        el.removeAttribute('title');
+        countUp(el, d.count);
+        sessionStorage.setItem(cacheKey, JSON.stringify({ v: d.count, t: Date.now() }));
+      })
+      .catch(() => { el.title = 'Temporarily unavailable'; });
+  });
 })();
 
 // 2) GitHub followers (public API, no key)

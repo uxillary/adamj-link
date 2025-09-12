@@ -39,3 +39,37 @@ emails. Configure these environment variables in the Cloudflare Pages project:
 - `RESEND_API_KEY` – API key for Resend
 - `CONTACT_FROM` – verified sender address
 - `CONTACT_TO` – destination email address
+
+## Tiny analytics
+
+Page views are counted globally using Cloudflare KV. Bind a namespace named
+`VIEWS_KV` to the Pages project:
+
+1. Cloudflare Dashboard → **Pages** → your project
+2. Settings → Functions → KV namespaces → **Bind** `VIEWS_KV`
+
+For local development, `wrangler.toml` can include:
+
+```toml
+[[kv_namespaces]]
+binding = "VIEWS_KV"
+id = "dummy"
+preview_id = "dummy"
+```
+
+Optional environment variables:
+
+- `UNIQUE_VIEWS=1` – count one view per IP per 24h
+- `IP_SALT=<random string>` – salt used to hash IP addresses
+
+API examples:
+
+```sh
+curl -X POST 'https://adamj.link/api/views?path=/'
+curl 'https://adamj.link/api/views?path=/'
+```
+
+The API stores counters under `count:<path>` and, when unique mode is on,
+stamps `seen:<path>:<day>:<ipHash>` with a 24 h TTL. Plain IPs are never
+stored; only a salted hash is kept temporarily. KV increments aren't
+strictly atomic—use Durable Objects if precision is critical.
