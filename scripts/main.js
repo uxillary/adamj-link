@@ -27,12 +27,27 @@ toggle.addEventListener('click', () => {
 (function(){
   const form = document.getElementById('contactForm');
   if(!form) return;
+  const fields = form.querySelectorAll('input[required], textarea[required]');
+  fields.forEach(f=>{
+    f.addEventListener('input',()=>{
+      f.setAttribute('aria-invalid', f.checkValidity() ? 'false' : 'true');
+    });
+  });
   form.addEventListener('submit', async (e)=>{
     e.preventDefault();
     const btn = form.querySelector('button[type="submit"]');
     btn.disabled = true;
     btn.textContent = 'Sending...';
     const data = Object.fromEntries(new FormData(form).entries());
+    for(const f of fields){
+      if(!f.checkValidity()){
+        f.setAttribute('aria-invalid','true');
+        btn.disabled = false;
+        btn.textContent = 'Send';
+        f.focus();
+        return;
+      }
+    }
     try{
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -40,7 +55,7 @@ toggle.addEventListener('click', () => {
         body: JSON.stringify(data)
       });
       if(res.ok){
-        form.innerHTML = '<p class="text-green-500">Thanks, message sent!</p>';
+        form.innerHTML = '<p class="text-green-500">Thanks! I\u2019ll reply within 24\u201348h.</p>';
       }else{
         btn.disabled = false;
         btn.textContent = 'Send';
