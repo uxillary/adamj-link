@@ -1,8 +1,8 @@
 :root{ --surface:#ffffff; --text:#0a0a0a; --border:rgba(0,0,0,.12); --ring:rgba(85,230,165,.45) }
 .dark:root{ --surface:#0a0a0a; --text:#fafafa; --border:rgba(255,255,255,.08) }
 .border-zinc-800\/60{ border-color:var(--border)!important }
-.bg-black\/20{ background-color:color-mix(in oklab,var(--surface) 80%,#000)!important }
-.bg-zinc-900\/30{ background-color:color-mix(in oklab,var(--surface) 90%,#000)!important }
+.bg-black\/20{ background-color:color-mix(in oklab,var(--surface) 85%,#000)!important }
+.bg-zinc-900\/30{ background-color:color-mix(in oklab,var(--surface) 95%,#000)!important }
 
 /* Radius system */
 html[data-radius="soft"]{ --r:12px }
@@ -44,7 +44,7 @@ a:not([class]):hover{ text-decoration-color:#55e6a5 }
   transition: box-shadow .18s ease, border-color .18s ease, transform .18s ease;
 }
 .dark .card{
-  background: linear-gradient( to bottom, rgba(0,0,0,.25), rgba(0,0,0,.12) );
+  background: linear-gradient( to bottom, rgba(0,0,0,.20), rgba(0,0,0,.10) );
 }
 .card:hover{ box-shadow:0 6px 16px rgba(0,0,0,.18),0 0 0 1px rgba(85,230,165,.45); border-color:rgba(85,230,165,.55); transform: translateY(-1px) }
 @media (prefers-reduced-motion: reduce){ .card, .card:hover{ transition:none; transform:none; box-shadow:none } }
@@ -65,9 +65,9 @@ a:not([class]):hover{ text-decoration-color:#55e6a5 }
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   background: linear-gradient(to bottom, rgba(255,255,255,.06), rgba(255,255,255,.02));
-  border: 1px solid rgba(255,255,255,.08);
+  border: 1px solid var(--border);
 }
-.dark .cb-item{ background: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.12)) }
+.dark .cb-item{ background: linear-gradient(to bottom, rgba(0,0,0,.20), rgba(0,0,0,.10)) }
 .cb-item:hover{ border-color: rgba(85,230,165,.55); transform:none; box-shadow:none }
 .cb-item::before{
   counter-increment: item;
@@ -109,20 +109,20 @@ a:not([class]):hover{ text-decoration-color:#55e6a5 }
 .stat-pill{
   display:grid; grid-template-columns:auto 1fr; column-gap:.5rem; align-items:baseline;
   padding:.4rem .6rem; border-radius:8px;
-  border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.02);
+  border:1px solid var(--border); background:color-mix(in oklab,var(--surface) 98%,var(--text) 2%);
 }
-.dark .stat-pill{ background:linear-gradient(to bottom, rgba(0,0,0,.20), rgba(0,0,0,.06)) }
-.stat-pill .label{ font-size:.75rem; color:rgba(255,255,255,.6) }
-.stat-pill .value{ font-size:1rem; font-weight:600; color:#fff; }
+.dark .stat-pill{ background:linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.05)) }
+.stat-pill .label{ font-size:.75rem; color:color-mix(in oklab,var(--text) 65%,var(--surface) 35%) }
+.stat-pill .value{ font-size:1rem; font-weight:600; color:var(--text); }
 .section { margin-top: 3.5rem; margin-bottom: 3.5rem; }
 .section > * + * { margin-top: 1.25rem; }
 .section-head { display:flex; align-items:flex-end; justify-content:space-between; gap:.75rem; }
-.eyebrow { letter-spacing:.22em; text-transform:uppercase; font-size:.78rem; color:rgba(255,255,255,.55) }
-.soft-hr { height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent); }
-.t-card { border:1px solid rgba(255,255,255,.08); border-radius:var(--r); padding:1rem; background:rgba(255,255,255,.02); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); transition: border-color .18s ease, transform .18s ease; }
+.eyebrow { letter-spacing:.22em; text-transform:uppercase; font-size:.78rem; color:color-mix(in oklab,var(--text) 70%,var(--surface) 30%) }
+.soft-hr { height:1px; background:linear-gradient(90deg,transparent,var(--border),transparent); }
+.t-card { border:1px solid var(--border); border-radius:var(--r); padding:1rem; background:color-mix(in oklab,var(--surface) 98%,var(--text) 2%); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); transition: border-color .18s ease, transform .18s ease; }
 .t-card:hover { border-color: rgba(85,230,165,.55); transform: translateY(-1px) scale(1.01); }
 .clamp-2{ display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden }
-  .badge{ display:inline-flex; align-items:center; gap:.25rem; padding:0 .4rem; border-radius:6px; border:1px solid rgba(255,255,255,.08); font-size:.65rem; line-height:1.4 }
+  .badge{ display:inline-flex; align-items:center; gap:.25rem; padding:0 .4rem; border-radius:6px; border:1px solid var(--border); font-size:.65rem; line-height:1.4; color:color-mix(in oklab,var(--text) 70%,var(--surface) 30%); background:color-mix(in oklab,var(--surface) 96%,var(--text) 4%) }
   .badge svg{ width:.75rem; height:.75rem }
 
   .post-card{
