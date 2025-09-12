@@ -114,17 +114,22 @@ toggle.addEventListener('click', () => {
     }
   } catch {}
 
-  document.addEventListener('DOMContentLoaded', () => {
-    fetch(`/api/views?path=${encodeURIComponent(location.pathname)}`, { method: 'POST' })
-      .then(r => r.ok ? r.json() : null)
-      .then(d => {
-        if (!d || typeof d.count !== 'number') { el.title = 'Temporarily unavailable'; return; }
-        wrap.title = 'Global views';
-        el.removeAttribute('title');
-        countUp(el, d.count);
-        sessionStorage.setItem(cacheKey, JSON.stringify({ v: d.count, t: Date.now() }));
-      })
-      .catch(() => { el.title = 'Temporarily unavailable'; });
+  document.addEventListener('DOMContentLoaded', async () => {
+    const path = encodeURIComponent(location.pathname);
+    try {
+      let res = await fetch(`/api/views?path=${path}`, { method: 'POST' });
+      if (!res.ok) {
+        res = await fetch(`/api/views?path=${path}`);
+      }
+      const d = res.ok ? await res.json() : null;
+      if (!d || typeof d.count !== 'number') { el.title = 'Temporarily unavailable'; return; }
+      wrap.title = 'Global views';
+      el.removeAttribute('title');
+      countUp(el, d.count);
+      sessionStorage.setItem(cacheKey, JSON.stringify({ v: d.count, t: Date.now() }));
+    } catch {
+      el.title = 'Temporarily unavailable';
+    }
   });
 })();
 
