@@ -3,7 +3,6 @@
   if(!mount) return;
 
   const brand = '#55e6a5';
-  const accent = '#ff6347';
   const solvedEvt = new Event('human:solved');
 
   // Utility
@@ -14,61 +13,6 @@
     if (mount.dataset.solved) return; // idempotent
     mount.dataset.solved = '1';
     window.dispatchEvent(solvedEvt);
-  }
-
-  // ---- Challenge: Glitchy “Press the Button” ----
-  function renderGlitchButton(){
-    mount.innerHTML = '';
-    const box = document.createElement('div');
-    box.className = 'relative p-3 border border-zinc-800/40 bg-zinc-900/20 overflow-hidden';
-    const p = document.createElement('p');
-    p.className = 'text-sm text-zinc-400';
-    p.textContent = 'Wait for the button to settle, then press it.';
-    box.appendChild(p);
-
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'mt-3 px-3 py-1.5 border border-zinc-700 bg-black/40 hover:border-brand/70 focus-ring';
-    btn.textContent = 'Press me';
-    box.appendChild(btn);
-
-    let ready = false;
-    function run(){
-      ready = false;
-      btn.classList.remove('border-brand');
-      let t0 = performance.now();
-      const anim = () => {
-        const t = performance.now() - t0;
-        if (t < 1500) {
-          const dx = (Math.random()*16 - 8);
-          const dy = (Math.random()*16 - 8);
-          btn.style.transform = `translate(${dx}px, ${dy}px)`;
-          requestAnimationFrame(anim);
-        } else if (t < 3000) {
-          const dx = (Math.random()*120 - 60);
-          const dy = (Math.random()*60 - 30);
-          btn.style.transform = `translate(${dx}px, ${dy}px)`;
-          requestAnimationFrame(anim);
-        } else {
-          btn.style.transform = 'translate(0,0)';
-          btn.classList.add('border-brand');
-          ready = true;
-        }
-      };
-      anim();
-    }
-    run();
-
-    btn.addEventListener('click', ()=>{
-      if (!ready) {
-        run();
-        return;
-      }
-      btn.textContent = 'Nice ✔';
-      fireSolved();
-    });
-
-    mount.appendChild(box);
   }
 
   // ---- Challenge: Line Icon “Odd One Out” ----
@@ -128,7 +72,7 @@
     box.className = 'p-3 border border-zinc-800/40 bg-black/40 font-mono';
     const label = document.createElement('div');
     label.className = 'text-sm text-zinc-400';
-    label.textContent = 'Enter the brand hex (55e6a5) and press Enter.';
+    label.textContent = `Enter the brand hex (${brand}) and press Enter.`;
     const line = document.createElement('div');
     line.className = 'mt-2 flex items-center gap-2';
     line.innerHTML = `<span>&gt;</span>`;
@@ -148,11 +92,11 @@
     input.addEventListener('keydown', (e)=>{
       if (e.key === 'Enter') {
         const v = (input.value || '').trim().toLowerCase();
-        if (v === '55e6a5') {
+        if (v === brand.toLowerCase() || v === brand.slice(1).toLowerCase()) {
           label.textContent = 'Confirmed ✔';
           fireSolved();
         } else {
-          label.textContent = 'Try again: 55e6a5';
+          label.textContent = `Try again: ${brand}`;
           input.classList.add('animate-wiggle');
           setTimeout(()=>input.classList.remove('animate-wiggle'), 250);
         }
@@ -160,7 +104,7 @@
     });
   }
 
-  const challenges = [renderGlitchButton, renderOddOneOut, renderTerminal];
+  const challenges = [renderOddOneOut, renderTerminal];
   let lastIdx = -1;
 
   function renderRandom(){
