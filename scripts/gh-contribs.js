@@ -1,5 +1,5 @@
 const GH_USER = 'uxillary';
-const OSS_LIMIT = 6;
+const OSS_LIMIT = 8;
 const OSS_CACHE_KEY = 'aj_oss_v1';
 const OSS_CACHE_TTL = 15 * 60 * 1000;
 const LANG_COLORS = { JavaScript:'#f1e05a', TypeScript:'#3178c6', HTML:'#e34c26', CSS:'#563d7c', Python:'#3572A5', Go:'#00ADD8', Rust:'#dea584', Shell:'#89e051', Java:'#b07219' };
@@ -108,7 +108,7 @@ function renderContribs(items){
   items.forEach(item=>{
     const card=document.createElement('a');
     card.href=item.link;
-    card.className='t-card p-4 flex flex-col gap-2 focus-ring hover:-translate-y-0.5 hover:ring-1 hover:ring-brand/40';
+    card.className='t-card p-3 flex flex-col gap-1.5 focus-ring hover:-translate-y-0.5 hover:ring-1 hover:ring-brand/40';
     const badgeLabel = item.kind==='PR'? (item.merged?'PR merged':'PR') : item.kind;
     const badgeTitle = item.kind==='PR' ? `Pull Request${item.merged?' • merged':''}` : item.kind;
     const meta = item.kind==='Commit'? item.shortSha : item.kind==='PR'? `#${item.number}${item.merged?' • merged':''}` : item.kind==='Issue'? `#${item.number}` : item.kind==='Release'? item.tag : '';
@@ -148,7 +148,7 @@ function renderSkeletons(){
   list.innerHTML='';
   for(let i=0;i<OSS_LIMIT;i++){
     const sk=document.createElement('div');
-    sk.className='t-card p-4 flex flex-col gap-2 animate-pulse';
+    sk.className='t-card p-3 flex flex-col gap-1.5 animate-pulse';
     sk.innerHTML=`<div class="flex items-center justify-between"><div class="h-3 bg-zinc-700/40 rounded w-24"></div><div class="h-3 bg-zinc-700/40 rounded w-12"></div></div><div class="h-4 bg-zinc-700/30 rounded w-5/6"></div><div class="h-4 bg-zinc-700/30 rounded w-2/3"></div><div class="h-3 bg-zinc-700/30 rounded w-16 mt-1"></div>`;
     list.appendChild(sk);
   }
