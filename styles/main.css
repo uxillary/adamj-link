@@ -1,8 +1,10 @@
-:root{ --surface:#ffffff; --text:#0a0a0a; --border:rgba(0,0,0,.12); --ring:rgba(85,230,165,.45) }
-.dark:root{ --surface:#0a0a0a; --text:#fafafa; --border:rgba(255,255,255,.08) }
+:root{ --surface:#ffffff; --text:#0a0a0a; --border:rgba(0,0,0,.18); --ring:rgba(85,230,165,.45); --muted:#3f3f46 }
+.dark:root{ --surface:#0a0a0a; --text:#fafafa; --border:rgba(255,255,255,.08); --muted:#d4d4d8 }
 .border-zinc-800\/60{ border-color:var(--border)!important }
 .bg-black\/20{ background-color:color-mix(in oklab,var(--surface) 85%,#000)!important }
 .bg-zinc-900\/30{ background-color:color-mix(in oklab,var(--surface) 95%,#000)!important }
+
+:root:not(.dark) .text-zinc-300,:root:not(.dark) .text-zinc-400,:root:not(.dark) .text-zinc-400\/90,:root:not(.dark) .text-zinc-500{ color:var(--muted)!important }
 
 /* Radius system */
 html[data-radius="soft"]{ --r:12px }
