@@ -119,7 +119,15 @@ a:not([class]):hover{ text-decoration-color:#55e6a5 }
 .section { margin-top: 3.5rem; margin-bottom: 3.5rem; }
 .section > * + * { margin-top: 1.25rem; }
 .section-head { display:flex; align-items:flex-end; justify-content:space-between; gap:.75rem; }
-.eyebrow { letter-spacing:.22em; text-transform:uppercase; font-size:.78rem; color:color-mix(in oklab,var(--text) 70%,var(--surface) 30%) }
+.eyebrow {
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  font-size:.78rem;
+  color:#55e6a5;
+  display:inline-block;
+  border-bottom:1px solid rgba(85,230,165,.3);
+  padding-bottom:.125rem;
+}
 .soft-hr { height:1px; background:linear-gradient(90deg,transparent,var(--border),transparent); }
 .t-card { border:1px solid var(--border); border-radius:var(--r); padding:1rem; background:color-mix(in oklab,var(--surface) 98%,var(--text) 2%); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); transition: border-color .18s ease, transform .18s ease; }
 .t-card:hover { border-color: rgba(85,230,165,.55); transform: translateY(-1px) scale(1.01); }

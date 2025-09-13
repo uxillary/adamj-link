@@ -393,4 +393,14 @@ async function refreshCounters(){
   }
 }
 
-document.addEventListener('DOMContentLoaded', refreshCounters);
+document.addEventListener('DOMContentLoaded', () => {
+  const analyticsSection = document.getElementById('views')?.closest('section');
+  if(!analyticsSection) return;
+  const obs = new IntersectionObserver((entries, observer) => {
+    if(entries.some(e => e.isIntersecting)){
+      refreshCounters();
+      observer.disconnect();
+    }
+  }, { threshold:0.3 });
+  obs.observe(analyticsSection);
+});
