@@ -20,7 +20,7 @@
   function renderGlitchButton(){
     mount.innerHTML = '';
     const box = document.createElement('div');
-    box.className = 'relative p-4 border border-zinc-800/40 bg-zinc-900/20 overflow-hidden';
+    box.className = 'relative p-3 border border-zinc-800/40 bg-zinc-900/20 overflow-hidden';
     const p = document.createElement('p');
     p.className = 'text-sm text-zinc-400';
     p.textContent = 'Wait for the button to settle, then press it.';
@@ -28,7 +28,7 @@
 
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = 'mt-4 px-4 py-2 border border-zinc-700 bg-black/40 hover:border-brand/70 focus-ring';
+    btn.className = 'mt-3 px-3 py-1.5 border border-zinc-700 bg-black/40 hover:border-brand/70 focus-ring';
     btn.textContent = 'Press me';
     box.appendChild(btn);
 
@@ -89,21 +89,21 @@
     const pool = [...chosenIcons, { emoji, odd:true, label: emoji }].sort(()=>Math.random()-0.5);
 
     const box = document.createElement('div');
-    box.className = 'p-4 border border-zinc-800/40 bg-zinc-900/20';
+    box.className = 'p-3 border border-zinc-800/40 bg-zinc-900/20';
     box.innerHTML = `<p class="text-sm text-zinc-400">Select the item that <strong>doesn\u2019t</strong> match the others.</p>`;
 
     const grid = document.createElement('div');
-    grid.className = 'mt-3 grid grid-cols-3 sm:grid-cols-6 gap-3';
+    grid.className = 'mt-2 inline-grid grid-cols-3 sm:grid-cols-6 gap-2';
     pool.forEach(opt=>{
       const b = document.createElement('button');
       b.type = 'button';
-      b.className = 'aspect-square flex items-center justify-center border border-zinc-700 hover:border-brand/70 focus-ring';
+      b.className = 'size-9 flex items-center justify-center border border-zinc-700 hover:border-brand/70 focus-ring';
       b.setAttribute('aria-label', opt.label);
       if (opt.odd) {
         b.textContent = opt.emoji;
-        b.style.fontSize = '22px';
+        b.style.fontSize = '18px';
       } else {
-        b.innerHTML = `<svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#${opt.id}"></use></svg>${sr(opt.label)}`;
+        b.innerHTML = `<svg width="18" height="18" aria-hidden="true"><use href="/public/icons.svg#${opt.id}"></use></svg>${sr(opt.label)}`;
       }
       b.addEventListener('click', ()=>{
         if (opt.odd) {
@@ -125,7 +125,7 @@
   function renderTerminal(){
     mount.innerHTML = '';
     const box = document.createElement('div');
-    box.className = 'p-4 border border-zinc-800/40 bg-black/40 font-mono';
+    box.className = 'p-3 border border-zinc-800/40 bg-black/40 font-mono';
     const label = document.createElement('div');
     label.className = 'text-sm text-zinc-400';
     label.textContent = 'Enter the brand hex (55e6a5) and press Enter.';
