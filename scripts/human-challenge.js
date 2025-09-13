@@ -37,7 +37,7 @@
     box.innerHTML = `<p class="text-sm text-zinc-400">Select the item that <strong>doesn\u2019t</strong> match the others.</p>`;
 
     const grid = document.createElement('div');
-    grid.className = 'mt-2 inline-grid grid-cols-3 sm:grid-cols-6 gap-2';
+    grid.className = 'mt-2 grid grid-cols-3 sm:grid-cols-6 gap-2 w-max mx-auto';
     pool.forEach(opt=>{
       const b = document.createElement('button');
       b.type = 'button';
