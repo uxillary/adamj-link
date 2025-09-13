@@ -28,27 +28,71 @@ toggle.addEventListener('click', () => {
   const form = document.getElementById('contactForm');
   if(!form) return;
   const fields = form.querySelectorAll('input[required], textarea[required]');
-  const status = form.querySelector('#cf-status');
+  const cfStatus = form.querySelector('#cf-status');
+  const btn = form.querySelector('button[type="submit"]');
+  const status = document.getElementById('hcStatus');
+  const refreshBtn = document.getElementById('hcRefresh');
+
+  // Disable submit until solved
+  if (btn) {
+    btn.disabled = true;
+    btn.classList.add('opacity-60','cursor-not-allowed');
+  }
+
+  // Listen for completion from the challenge renderer
+  window.addEventListener('human:solved', () => {
+    form.dataset.validated = 'true';
+    if (btn) {
+      btn.disabled = false;
+      btn.classList.remove('opacity-60','cursor-not-allowed');
+    }
+    if (status) status.textContent = 'Nice one — challenge complete. You can send your message.';
+  });
+
+  // Allow user to roll a different challenge
+  if (refreshBtn) {
+    refreshBtn.addEventListener('click', () => {
+      form.dataset.validated = '';
+      if (btn) {
+        btn.disabled = true;
+        btn.classList.add('opacity-60','cursor-not-allowed');
+      }
+      if (status) status.textContent = 'Swapped the challenge — complete it to enable Send.';
+      if (window.humanChallenge && typeof window.humanChallenge.reset === 'function') {
+        window.humanChallenge.reset();
+      }
+    });
+  }
+
   fields.forEach(f=>{
     f.addEventListener('input',()=>{
       f.setAttribute('aria-invalid', f.checkValidity() ? 'false' : 'true');
     });
   });
+
   form.addEventListener('submit', async (e)=>{
+    if (!form.dataset.validated) {
+      e.preventDefault();
+      alert('Please complete the challenge first.');
+      return;
+    }
     e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
-    if(status){
-      status.textContent = '';
-      status.classList.remove('text-red-500');
+    if(btn){
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+    }
+    if(cfStatus){
+      cfStatus.textContent = '';
+      cfStatus.classList.remove('text-red-500');
     }
     const data = Object.fromEntries(new FormData(form).entries());
     for(const f of fields){
       if(!f.checkValidity()){
         f.setAttribute('aria-invalid','true');
-        btn.disabled = false;
-        btn.textContent = 'Send';
+        if(btn){
+          btn.disabled = false;
+          btn.textContent = 'Send';
+        }
         f.focus();
         return;
       }
@@ -66,11 +110,13 @@ toggle.addEventListener('click', () => {
         throw new Error(result.error || 'Failed to send. Please try again later.');
       }
     }catch(err){
-      btn.disabled = false;
-      btn.textContent = 'Send';
-      if(status){
-        status.textContent = err.message;
-        status.classList.add('text-red-500');
+      if(btn){
+        btn.disabled = false;
+        btn.textContent = 'Send';
+      }
+      if(cfStatus){
+        cfStatus.textContent = err.message;
+        cfStatus.classList.add('text-red-500');
       }
       console.error('Contact form error:', err);
     }

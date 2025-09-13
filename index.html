@@ -361,6 +361,21 @@
             <label for="cf-message" class="block mb-1 text-sm text-zinc-600">Message</label>
           <textarea id="cf-message" name="message" rows="3" required placeholder="Message" aria-invalid="false" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70"></textarea>
           </div>
+          <!-- Human challenge -->
+          <div id="humanChallenge" class="t-card p-3 mb-2 border border-zinc-800/40 bg-zinc-900/20">
+            <div class="flex items-center justify-between gap-2">
+              <div>
+                <div class="eyebrow">Human check</div>
+                <p id="hcStatus" class="text-sm text-zinc-400/90">Complete a quick branded challenge to enable Send.</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <button id="hcRefresh" type="button" class="text-xs px-2 py-1 border border-zinc-800/40 hover:border-brand/70 focus-ring">
+                  Try another
+                </button>
+              </div>
+            </div>
+            <div id="hcMount" class="mt-2"></div>
+          </div>
           <button type="submit" class="px-4 py-2 bg-brand text-black font-semibold hover:opacity-90 transition focus-ring">Send</button>
           <p id="cf-status" class="text-sm mt-2" aria-live="polite"></p>
         </form>
@@ -418,6 +433,7 @@
   </div>
 
   <script src="/scripts/main.js"></script>
+  <script src="/scripts/human-challenge.js"></script>
   <script src="/scripts/infinitecurios-posts.js"></script>
   <script src="/scripts/gh-contribs.js"></script>
 </body>
