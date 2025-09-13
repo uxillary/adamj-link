@@ -76,9 +76,6 @@
         <a href="https://ajstudios.dev" class="hidden sm:inline text-sm px-3 py-1.5 r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 transition focus-ring">Portfolio</a>
         <a href="https://infinitecurios.blog" class="hidden sm:inline text-sm px-3 py-1.5 r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 transition focus-ring">Blog</a>
         <a href="https://github.com/uxillary" class="hidden sm:inline text-sm px-3 py-1.5 r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 transition focus-ring">GitHub</a>
-        <button id="themeToggle" class="text-sm px-3 py-1.5 r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 transition focus-ring flex items-center gap-2" aria-label="Toggle theme">
-          <span id="themeIcon" class="spin">☾</span><span class="hidden sm:inline">Theme</span>
-        </button>
       </nav>
     </div>
   </header>
@@ -95,8 +92,8 @@
 
       </p>
       <div class="mt-6 flex flex-wrap gap-3">
-        <a href="https://ajstudios.dev" class="px-5 py-3 r bg-brand text-black font-semibold hover:opacity-90 transition focus-ring">View Portfolio</a>
         <a href="#contact" class="px-5 py-3 r border border-zinc-800/60 hover:border-brand/70 transition focus-ring">Email me</a>
+        <a href="https://ajstudios.dev" class="px-5 py-3 r bg-brand text-black font-semibold hover:opacity-90 transition focus-ring">View Portfolio</a>
       </div>
     </section>
 
@@ -115,44 +112,42 @@
         <p id="nowTimelineDesc" class="sr-only">Timeline showing key focus points across 2025–2026.</p>
         <span id="nowTimelineHelp" class="sr-only">Use left and right keys or click to set the active step</span>
         <div class="now-ticks hidden sm:flex absolute left-0 right-0 top-1/2 -translate-y-1/2 justify-between" aria-hidden="true">
-          <span class="w-px h-2 bg-zinc-700/50"></span>
-          <span class="w-px h-2 bg-zinc-700/50"></span>
-          <span class="w-px h-2 bg-zinc-700/50"></span>
-          <span class="w-px h-2 bg-zinc-700/50"></span>
-          <span class="w-px h-2 bg-zinc-700/50"></span>
-          <span class="w-px h-2 bg-zinc-700/50"></span>
-          <span class="w-px h-2 bg-zinc-700/50"></span>
+          <span class="w-px h-2 bg-zinc-700/20"></span>
+          <span class="w-px h-2 bg-zinc-700/20"></span>
+          <span class="w-px h-2 bg-zinc-700/20"></span>
+          <span class="w-px h-2 bg-zinc-700/20"></span>
+          <span class="w-px h-2 bg-zinc-700/20"></span>
         </div>
         <div class="relative w-max sm:w-full">
           <div class="now-progress absolute left-0 top-1/2 -translate-y-1/2 h-[3px] rounded-full bg-gradient-to-r from-brand to-accent transition-[width] duration-700 ease-out" style="width:0"></div>
           <div class="now-track absolute left-0 top-1/2 -translate-y-1/2 h-px bg-zinc-800/60 w-full"></div>
           <div id="todayMarker" aria-label="Today" class="now-today absolute top-1/2 -translate-y-1/2 transition-[left] duration-700 ease-out" style="left:0">
-            <span class="block size-2 rotate-45 bg-accent rounded-[2px] shadow"></span>
+            <span class="block size-3 rotate-45 bg-accent rounded-[2px] shadow ring-2 ring-accent/40 animate-pulse"></span>
             <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-zinc-400">Today</span>
           </div>
           <ul role="list" aria-label="Current focus timeline" aria-describedby="nowTimelineDesc nowTimelineHelp" class="flex sm:grid sm:grid-cols-4 gap-6 sm:gap-0 snap-x snap-mandatory sm:overflow-visible w-max sm:w-full">
             <li role="listitem" tabindex="0" data-step="0" data-date="2025-09-17" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
             <span class="absolute -top-7 text-xs text-zinc-500">17 Sep</span>
             <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
-            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-300">Reddit game</span>
+            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-200">Reddit game</span>
             <span class="sr-only">17 Sep — Reddit game</span>
           </li>
           <li role="listitem" tabindex="0" data-step="1" data-date="2025-10-02" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
             <span class="absolute -top-7 text-xs text-zinc-500">2 Oct</span>
             <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
-            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-300">NASA app</span>
+            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-200">NASA app</span>
             <span class="sr-only">2 Oct — NASA app</span>
           </li>
           <li role="listitem" tabindex="0" data-step="2" data-date="2025-11-01" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
             <span class="absolute -top-7 text-xs text-zinc-500">Nov</span>
             <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
-            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-300">YouTube project</span>
+            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-200">YouTube project</span>
             <span class="sr-only">Nov — YouTube project</span>
           </li>
           <li role="listitem" tabindex="0" data-step="3" data-date="2026-01-01" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
             <span class="absolute -top-7 text-xs text-zinc-500">2026</span>
             <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
-            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-300">TBC</span>
+            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-200">TBC</span>
             <span class="sr-only">2026 — TBC</span>
           </li>
           </ul>
@@ -171,7 +166,7 @@
             <div class="t-card p-5 sm:p-6 cb-item flex flex-col">
               <img src="/public/reddi-first.png" alt="Reddit game logo" class="w-12 h-12 mb-4" loading="lazy" decoding="async" />
               <h3 class="font-medium">Reddit game</h3>
-              <p class="mt-1 text-sm text-zinc-300 leading-relaxed flex-grow">Interactive UGC-driven game built with Devvit Web and Reddit posts.</p>
+              <p class="mt-1 text-sm text-zinc-200 leading-relaxed flex-grow">Interactive UGC-driven game built with Devvit Web and Reddit posts.</p>
               <a href="https://developers.reddit.com" class="mt-3 text-sm text-brand hover:underline">Learn more ↗</a>
             </div>
           </li>
@@ -179,7 +174,7 @@
             <div class="t-card p-5 sm:p-6 cb-item flex flex-col">
               <img src="/public/codex-assist.png" alt="codex assist logo" class="w-12 h-12 mb-4" loading="lazy" decoding="async" />
               <h3 class="font-medium">Codex assist</h3>
-              <p class="mt-1 text-sm text-zinc-300 leading-relaxed flex-grow">Local AI coding tool that connects to OpenAI with smart prompt handling.</p>
+              <p class="mt-1 text-sm text-zinc-200 leading-relaxed flex-grow">Local AI coding tool that connects to OpenAI with smart prompt handling.</p>
               <a href="https://github.com/uxillary/codex-assist" class="mt-3 text-sm text-brand hover:underline">Learn more ↗</a>
             </div>
           </li>
@@ -187,60 +182,65 @@
       </div>
     </section>
 
+    <div class="soft-hr"></div>
+
     <!-- Work preview -->
     <section class="section">
       <div class="grid md:grid-cols-2 gap-6 sm:gap-7">
-        <a href="https://hexlabs.app" class="t-card p-0 overflow-hidden block">
-          <div class="aspect-[16/9] bg-zinc-900/40">
-            <img src="/public/hex-labs-card.png" width="1600" height="900" alt="Hex Labs" class="w-full h-full object-cover hover:opacity-95 transition" loading="lazy" decoding="async" />
+        <a href="https://hexlabs.app" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
+          <div class="aspect-[16/9] bg-zinc-900/40 relative">
+            <img src="/public/hex-labs-card.png" width="1600" height="900" alt="Hex Labs" class="w-full h-full object-cover brightness-90 group-hover:brightness-100 transition" loading="lazy" decoding="async" />
+            <div class="absolute inset-0 bg-black/10"></div>
           </div>
           <div class="p-4">
-            <h3 class="font-semibold">hexlabs.app</h3>
-            <p class="text-sm text-zinc-300 leading-relaxed">Learning environment/ web app including remapping tools, designed to modernize legacy tuning software.</p>
+            <div class="flex items-center justify-between mb-1">
+              <h3 class="font-semibold">hexlabs.app</h3>
+              <span class="badge">App</span>
+            </div>
+            <p class="text-sm text-zinc-200 leading-relaxed">Learning environment/ web app including remapping tools, designed to modernize legacy tuning software.</p>
           </div>
         </a>
-        <a href="https://infinitecurios.blog" class="t-card p-0 overflow-hidden block">
-          <div class="aspect-[16/9] bg-zinc-900/40">
-            <img src="/public/infinitecurios-card.png" width="1600" height="900" alt="Infinite Curios" class="w-full h-full object-cover hover:opacity-95 transition" loading="lazy" decoding="async" />
+        <a href="https://infinitecurios.blog" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
+          <div class="aspect-[16/9] bg-zinc-900/40 relative">
+            <img src="/public/infinitecurios-card.png" width="1600" height="900" alt="Infinite Curios" class="w-full h-full object-cover brightness-90 group-hover:brightness-100 transition" loading="lazy" decoding="async" />
+            <div class="absolute inset-0 bg-black/10"></div>
           </div>
           <div class="p-4">
-            <h3 class="font-semibold">infinitecurios.blog</h3>
-            <p class="text-sm text-zinc-300 leading-relaxed">General blog - exploring tech, design, and creativity. Including everday, free web tools.</p>
+            <div class="flex items-center justify-between mb-1">
+              <h3 class="font-semibold">infinitecurios.blog</h3>
+              <span class="badge">Blog</span>
+            </div>
+            <p class="text-sm text-zinc-200 leading-relaxed">General blog - exploring tech, design, and creativity. Including everday, free web tools.</p>
           </div>
         </a>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-5 mt-6">
-        <a href="https://aspartameawareness.org" class="t-card p-0 overflow-hidden block">
-          <div class="aspect-[16/9] bg-zinc-900/40"></div>
-          <div class="p-2 flex items-center justify-between">
+        <a href="https://aspartameawareness.org" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
+          <div class="aspect-[16/9] bg-gradient-to-br from-brand/20 to-accent/20 flex items-end p-2 gap-2">
             <h4 class="font-medium text-sm">aspartameawareness.org</h4>
-            <span class="badge">Site</span>
+            <span class="badge ml-auto">Campaign</span>
           </div>
         </a>
-        <a href="https://404cache.net" class="t-card p-0 overflow-hidden block">
-          <div class="aspect-[16/9] bg-zinc-900/40"></div>
-          <div class="p-2 flex items-center justify-between">
+        <a href="https://404cache.net" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
+          <div class="aspect-[16/9] bg-gradient-to-br from-brand/20 to-accent/20 flex items-end p-2 gap-2">
             <h4 class="font-medium text-sm">404cache.net</h4>
-            <span class="badge">Site</span>
+            <span class="badge ml-auto">Tool</span>
           </div>
         </a>
-        <a href="https://github.com/uxillary/maintenance-goblin" class="t-card p-0 overflow-hidden block">
-          <div class="aspect-[16/9] bg-zinc-900/40"></div>
-          <div class="p-2 flex items-center justify-between">
+        <a href="https://github.com/uxillary/maintenance-goblin" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
+          <div class="aspect-[16/9] bg-gradient-to-br from-brand/20 to-accent/20 flex items-end p-2 gap-2">
             <h4 class="font-medium text-sm">Maintenance goblin</h4>
-            <span class="badge">Windows</span>
+            <span class="badge ml-auto">Tool</span>
           </div>
         </a>
-        <a href="https://github.com/uxillary/font-size-tweak/releases/tag/v1.0.0" class="t-card p-0 overflow-hidden block">
-          <div class="aspect-[16/9] bg-zinc-900/40"></div>
-          <div class="p-2 flex items-center justify-between">
+        <a href="https://github.com/uxillary/font-size-tweak/releases/tag/v1.0.0" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
+          <div class="aspect-[16/9] bg-gradient-to-br from-brand/20 to-accent/20 flex items-end p-2 gap-2">
             <h4 class="font-medium text-sm">Font size tweak</h4>
-            <span class="badge">Windows</span>
+            <span class="badge ml-auto">Tool</span>
           </div>
         </a>
         <div class="t-card p-0 overflow-hidden">
-          <div class="aspect-[16/9] bg-zinc-900/40"></div>
-          <div class="p-2 flex items-center justify-between">
+          <div class="aspect-[16/9] bg-gradient-to-br from-brand/20 to-accent/20 flex items-end p-2">
             <h4 class="font-medium text-sm text-zinc-500">Coming soon</h4>
           </div>
         </div>
@@ -250,7 +250,8 @@
     <!-- Tiny analytics -->
     <section class="section">
       <div class="t-card p-5 sm:p-6">
-        <div class="text-xs text-zinc-500 mb-2"><sup>Tiny</sup> analytics</div>
+        <div class="eyebrow mb-1">Analytics</div>
+        <h3 class="font-semibold text-xl mb-4 tracking-tight">Live stats</h3>
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
           <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 border border-zinc-800/60 bg-zinc-900/30" title="Local device session views">
             <span class="text-xs text-zinc-500">page views</span>
@@ -287,7 +288,7 @@
       <div class="section-head">
         <div>
           <div class="eyebrow">Latest posts</div>
-          <h2 class="font-medium text-lg text-zinc-300">From the blog</h2>
+          <h2 class="font-semibold text-xl text-zinc-200 tracking-tight">From the blog</h2>
         </div>
         <div class="flex items-center gap-2">
           <button id="refreshPosts" type="button" class="text-zinc-400 hover:text-brand" aria-label="Refresh posts">
@@ -301,7 +302,7 @@
 
     <!-- Latest YouTube 
     <section class="section">
-      <div class="section-head"><h2 class="font-medium text-lg text-zinc-300">Latest YouTube</h2><a class="text-sm text-zinc-400 hover:text-brand" href="https://www.youtube.com/@admjski">View channel →</a></div>
+      <div class="section-head"><h2 class="font-semibold text-xl text-zinc-200 tracking-tight">Latest YouTube</h2><a class="text-sm text-zinc-400 hover:text-brand" href="https://www.youtube.com/@admjski">View channel →</a></div>
       <div id="ytList" class="grid gap-4 sm:gap-5 md:grid-cols-3">
         <a href="#" class="t-card p-4">
           <div class="r aspect-[16/9] bg-zinc-900/40"></div>
@@ -321,7 +322,7 @@
     <!-- Recent contributions -->
     <section class="section">
       <div class="section-head">
-        <h2 class="font-medium text-lg text-zinc-300">Recent (public) contributions</h2>
+        <h2 class="font-semibold text-xl text-zinc-200 tracking-tight">Recent (public) contributions</h2>
         <button id="refreshContribs" type="button" class="text-zinc-400 hover:text-brand" aria-label="Refresh contributions">
           <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#refresh"></use></svg>
         </button>
@@ -335,7 +336,7 @@
         <img src="/public/3d-cover-sm.png" width="400" height="600" alt="Cover of Get Optimized — SEO Guide" class="w-16 sm:w-20" loading="lazy" decoding="async" />
         <div class="text-sm">
           <h3 class="font-medium">Get Optimized</h3>
-          <p class="text-zinc-300 mt-1 leading-relaxed">Comprehensive guide to SEO with real-world examples.</p>
+          <p class="text-zinc-200 mt-1 leading-relaxed">Comprehensive guide to SEO with real-world examples.</p>
           <ul class="mt-2 list-disc list-inside text-s text-zinc-400 space-y-1">
             <li>Boost search visibility</li>
             <li>Practical checklists</li>
@@ -424,6 +425,9 @@
 
   <!-- Radius toggle UI -->
   <div id="radiusUI" class="fixed bottom-4 right-4 flex flex-col gap-2 z-40">
+    <button id="themeToggle" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Toggle theme">
+      <span id="themeIcon" class="spin">☾</span>
+    </button>
     <button id="scrollTop" type="button" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Scroll to top">
       <svg width="16" height="16" class="icon-line"><path d="M8 4l4 8H4l4-8z"/></svg>
     </button>
