@@ -4,7 +4,7 @@ const OSS_CACHE_KEY = 'aj_oss_v1';
 const OSS_CACHE_TTL = 15 * 60 * 1000;
 const LANG_COLORS = { JavaScript:'#f1e05a', TypeScript:'#3178c6', HTML:'#e34c26', CSS:'#563d7c', Python:'#3572A5', Go:'#00ADD8', Rust:'#dea584', Shell:'#89e051', Java:'#b07219' };
 const OSS_MAX_RETRIES = 3;
-const OSS_RETRY_DELAY = 3000;
+const OSS_RETRY_DELAY = 5000;
 let ossRetries = 0;
 
 function cacheRead(key){
@@ -145,16 +145,10 @@ function showFallback(){
   list.removeAttribute('aria-busy');
 }
 
-function renderSkeletons(){
+function renderLoader(){
   const list = document.getElementById('ossList');
   list.setAttribute('aria-busy','true');
-  list.innerHTML='';
-  for(let i=0;i<OSS_LIMIT;i++){
-    const sk=document.createElement('div');
-    sk.className='t-card p-3 flex flex-col gap-1.5 animate-pulse';
-    sk.innerHTML=`<div class="flex items-center justify-between"><div class="h-3 bg-zinc-700/40 rounded w-24"></div><div class="h-3 bg-zinc-700/40 rounded w-12"></div></div><div class="h-4 bg-zinc-700/30 rounded w-5/6"></div><div class="h-4 bg-zinc-700/30 rounded w-2/3"></div><div class="h-3 bg-zinc-700/30 rounded w-16 mt-1"></div>`;
-    list.appendChild(sk);
-  }
+  list.innerHTML='<div class="col-span-full flex justify-center"><div class="tetris-loader" aria-hidden="true"><span></span><span></span><span></span><span></span></div></div>';
 }
 
 function loadContribs(force=false){
@@ -162,7 +156,7 @@ function loadContribs(force=false){
     try{ sessionStorage.removeItem(OSS_CACHE_KEY); }catch{}
     ossRetries = 0;
   }
-  renderSkeletons();
+  renderLoader();
   fetchContribs().then(items=>{
     if(!items || !items.length) throw new Error('empty');
     ossRetries = 0;
