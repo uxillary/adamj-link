@@ -138,6 +138,7 @@ a:not([class]):hover{ text-decoration-color:#55e6a5 }
   .post-card{
     --accent:#55e6a5; /* fallback */
     position:relative;
+    border-radius:var(--r);
   }
   .post-card::before{
     content:"";
