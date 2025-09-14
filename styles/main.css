@@ -5,6 +5,8 @@
 .bg-zinc-900\/30{ background-color:color-mix(in oklab,var(--surface) 95%,#000)!important }
 
 :root:not(.dark) .text-zinc-300,:root:not(.dark) .text-zinc-400,:root:not(.dark) .text-zinc-400\/90,:root:not(.dark) .text-zinc-500{ color:var(--muted)!important }
+:root:not(.dark) .text-brand{ color:#047857!important }
+:root:not(.dark) .hover\:text-brand:hover{ color:#047857!important }
 
 /* Radius system */
 html[data-radius="soft"]{ --r:12px }
