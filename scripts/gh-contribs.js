@@ -3,6 +3,9 @@ const OSS_LIMIT = 8;
 const OSS_CACHE_KEY = 'aj_oss_v1';
 const OSS_CACHE_TTL = 15 * 60 * 1000;
 const LANG_COLORS = { JavaScript:'#f1e05a', TypeScript:'#3178c6', HTML:'#e34c26', CSS:'#563d7c', Python:'#3572A5', Go:'#00ADD8', Rust:'#dea584', Shell:'#89e051', Java:'#b07219' };
+const OSS_MAX_RETRIES = 3;
+const OSS_RETRY_DELAY = 3000;
+let ossRetries = 0;
 
 function cacheRead(key){
   try{
@@ -155,15 +158,29 @@ function renderSkeletons(){
 }
 
 function loadContribs(force=false){
-  if(force) try{ sessionStorage.removeItem(OSS_CACHE_KEY); }catch{}
+  if(force){
+    try{ sessionStorage.removeItem(OSS_CACHE_KEY); }catch{}
+    ossRetries = 0;
+  }
   renderSkeletons();
-  fetchContribs().then(renderContribs).catch(showFallback);
+  fetchContribs().then(items=>{
+    if(!items || !items.length) throw new Error('empty');
+    ossRetries = 0;
+    renderContribs(items);
+  }).catch(()=>{
+    if(ossRetries < OSS_MAX_RETRIES){
+      ossRetries++;
+      setTimeout(()=>loadContribs(force), OSS_RETRY_DELAY);
+    }else{
+      showFallback();
+    }
+  });
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
   loadContribs();
   const btn=document.getElementById('refreshContribs');
-  if(btn) btn.addEventListener('click',()=>loadContribs(true));
+  if(btn) btn.addEventListener('click',()=>{ ossRetries=0; loadContribs(true); });
 });
 
 document.addEventListener('click',e=>{
