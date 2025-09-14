@@ -161,7 +161,7 @@
     <section class="section">
       <div class="t-card p-5 sm:p-6">
         <h2 class="eyebrow">Currently building</h2>
-        <ul class="cb grid sm:grid-cols-2 gap-5 sm:gap-6 overflow-x-auto snap-x sm:overflow-visible [-ms-overflow-style:none] [scrollbar-width:none]">
+        <ul class="cb grid sm:grid-cols-3 gap-5 sm:gap-6 overflow-x-auto snap-x sm:overflow-visible [-ms-overflow-style:none] [scrollbar-width:none]">
           <li class="shrink-0 snap-start">
             <div class="t-card p-5 sm:p-6 cb-item flex flex-col">
               <img src="/public/reddi-first.png" alt="Reddit game logo" class="w-12 h-12 mb-4" loading="lazy" decoding="async" />
@@ -176,6 +176,14 @@
               <h3 class="font-medium">Codex assist</h3>
               <p class="mt-1 text-sm text-zinc-200 leading-relaxed flex-grow">Local AI coding tool that connects to OpenAI with smart prompt handling.</p>
               <a href="https://github.com/uxillary/codex-assist" class="mt-3 text-sm text-brand hover:underline">Learn more ↗</a>
+            </div>
+          </li>
+          <li class="shrink-0 snap-start">
+            <div class="t-card p-5 sm:p-6 cb-item flex flex-col">
+              <img src="/public/synthtax-preview.png" alt="Synthtax preview" class="w-12 h-12 mb-4" loading="lazy" decoding="async" />
+              <h3 class="font-medium">Synthtax</h3>
+              <p class="mt-1 text-sm text-zinc-200 leading-relaxed flex-grow">Code-first music mix engine — write your mix in YAML, render with Python (pydub), prompt with AI.</p>
+              <a href="https://github.com/uxillary/synthtax" class="mt-3 text-sm text-brand hover:underline">Learn more ↗</a>
             </div>
           </li>
         </ul>
@@ -216,31 +224,31 @@
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-5 mt-6">
         <a href="https://aspartameawareness.org" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
-          <div class="aspect-[16/9] bg-gradient-to-br from-brand/20 to-accent/20 flex items-end p-2 gap-2">
+          <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
             <h4 class="font-medium text-sm">aspartameawareness.org</h4>
             <span class="badge ml-auto">Campaign</span>
           </div>
         </a>
         <a href="https://404cache.net" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
-          <div class="aspect-[16/9] bg-gradient-to-br from-brand/20 to-accent/20 flex items-end p-2 gap-2">
+          <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
             <h4 class="font-medium text-sm">404cache.net</h4>
             <span class="badge ml-auto">Tool</span>
           </div>
         </a>
         <a href="https://github.com/uxillary/maintenance-goblin" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
-          <div class="aspect-[16/9] bg-gradient-to-br from-brand/20 to-accent/20 flex items-end p-2 gap-2">
+          <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
             <h4 class="font-medium text-sm">Maintenance goblin</h4>
             <span class="badge ml-auto">Tool</span>
           </div>
         </a>
         <a href="https://github.com/uxillary/font-size-tweak/releases/tag/v1.0.0" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
-          <div class="aspect-[16/9] bg-gradient-to-br from-brand/20 to-accent/20 flex items-end p-2 gap-2">
+          <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
             <h4 class="font-medium text-sm">Font size tweak</h4>
             <span class="badge ml-auto">Tool</span>
           </div>
         </a>
         <div class="t-card p-0 overflow-hidden">
-          <div class="aspect-[16/9] bg-gradient-to-br from-brand/20 to-accent/20 flex items-end p-2">
+          <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2">
             <h4 class="font-medium text-sm text-zinc-500">Coming soon</h4>
           </div>
         </div>
@@ -372,14 +380,14 @@
                 <div class="eyebrow">Human check</div>
                 <p id="hcStatus" class="text-sm text-zinc-400/90">Complete a quick branded challenge to enable Send.</p>
               </div>
-              <div class="flex items-center gap-2">
-                <button id="hcRefresh" type="button" class="text-xs px-2 py-1 border border-zinc-800/40 hover:border-brand/70 focus-ring">
-                  Try another
-                </button>
+                <div class="flex items-center gap-2">
+                  <button id="hcRefresh" type="button" class="text-zinc-400 hover:text-brand focus-ring" aria-label="New challenge">
+                    <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#refresh"></use></svg>
+                  </button>
+                </div>
               </div>
+              <div id="hcMount" class="mt-2"></div>
             </div>
-            <div id="hcMount" class="mt-2"></div>
-          </div>
           <button type="submit" class="px-4 py-2 bg-brand text-black font-semibold hover:opacity-90 transition focus-ring">Send</button>
           <p id="cf-status" class="text-sm mt-2" aria-live="polite"></p>
         </form>
@@ -424,16 +432,16 @@
   </footer>
 
   <!-- Radius toggle UI -->
-  <div id="radiusUI" class="fixed bottom-4 right-4 flex flex-col gap-2 z-40">
-    <button id="themeToggle" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Toggle theme">
-      <span id="themeIcon" class="spin">☾</span>
-    </button>
-    <button id="scrollTop" type="button" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Scroll to top">
-      <svg width="16" height="16" class="icon-line"><path d="M8 4l4 8H4l4-8z"/></svg>
-    </button>
-    <button data-radius="soft" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring rounded-full" aria-label="Soft radius">
-      <svg width="16" height="16" class="icon-line"><circle cx="8" cy="8" r="5"/></svg>
-    </button>
+    <div id="radiusUI" class="fixed bottom-4 right-4 flex flex-col gap-2 z-40">
+      <button id="scrollTop" type="button" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Scroll to top">
+        <svg width="16" height="16" class="icon-line"><path d="M8 4l4 8H4l4-8z"/></svg>
+      </button>
+      <button id="themeToggle" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Toggle theme">
+        <span id="themeIcon" class="spin">☾</span>
+      </button>
+      <button data-radius="soft" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring rounded-full" aria-label="Soft radius">
+        <svg width="16" height="16" class="icon-line"><circle cx="8" cy="8" r="5"/></svg>
+      </button>
     <button data-radius="square" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Square radius">
       <svg width="16" height="16" class="icon-line"><rect x="3" y="3" width="10" height="10" rx="0"/></svg>
     </button>
