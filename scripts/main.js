@@ -255,12 +255,12 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
       if(i===idx){
         item.setAttribute('aria-current','step');
         dot.classList.add('bg-brand','active');
-        title.classList.add('text-white','font-semibold');
+        title.classList.add('font-semibold');
         item.scrollIntoView({inline:'center',block:'nearest',behavior:prefersReduced?'auto':'smooth'});
       }else{
         item.removeAttribute('aria-current');
         dot.classList.remove('bg-brand','active');
-        title.classList.remove('text-white','font-semibold');
+        title.classList.remove('font-semibold');
       }
     });
   };

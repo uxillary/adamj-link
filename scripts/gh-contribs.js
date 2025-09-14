@@ -126,7 +126,7 @@ function renderContribs(items){
         <span class="text-zinc-500">${timeAgo(item.date)}</span>
       </div>
       <div class="h-px bg-zinc-800/60"></div>
-      <div class="text-sm text-white clamp-2">${esc(item.message)}</div>
+      <div class="text-sm text-zinc-900 dark:text-white clamp-2">${esc(item.message)}</div>
       <div class="flex items-center justify-between text-xs mt-1">
         <span class="badge" title="${badgeTitle}">${icon}${badgeLabel}</span>
         <span class="${item.kind==='Commit'?'copy-sha cursor-pointer text-zinc-400':''}"${item.kind==='Commit'?` data-sha="${item.shortSha}"`:''}>${esc(meta)}</span>

@@ -94,7 +94,7 @@ a:not([class]):hover{ text-decoration-color:#55e6a5 }
 .now-item:hover .now-dot,
 .now-item:focus-visible .now-dot{ box-shadow:0 0 0 4px rgba(85,230,165,.45); background-color:#55e6a5 }
 .now-item:hover .now-title,
-.now-item:focus-visible .now-title{ color:#fff; font-weight:600 }
+.now-item:focus-visible .now-title{ color:var(--text); font-weight:600 }
 @media (prefers-reduced-motion: reduce){
   .now-dot, .now-progress, .now-today{ transition:none !important }
 }
@@ -123,9 +123,9 @@ a:not([class]):hover{ text-decoration-color:#55e6a5 }
   letter-spacing:.22em;
   text-transform:uppercase;
   font-size:.78rem;
-  color:#55e6a5;
+  color:color-mix(in oklab,#55e6a5,var(--text) 40%);
   display:inline-block;
-  border-bottom:1px solid rgba(85,230,165,.3);
+  border-bottom:1px solid color-mix(in oklab,#55e6a5,transparent 70%);
   padding-bottom:.125rem;
 }
 .soft-hr { height:1px; background:linear-gradient(90deg,transparent,var(--border),transparent); }
