@@ -187,20 +187,6 @@ toggle.addEventListener('click', () => {
   });
 })();
 
-// 2) GitHub followers (public API, no key)
-(function(){
-  fetch('https://api.github.com/users/uxillary')
-    .then(r => r.ok ? r.json() : null)
-    .then(d => {
-      const el = document.getElementById('ghFollowers');
-      if (!el || !d || typeof d.followers !== 'number') { if (el) el.title = 'Temporarily unavailable'; return; }
-      countUp(el, d.followers);
-    })
-    .catch(()=>{
-      const el = document.getElementById('ghFollowers');
-      if (el) el.title = 'Temporarily unavailable';
-    });
-})();
 
 // Radius preference helper (optional, persists)
 const savedR = localStorage.getItem('radius');
@@ -321,7 +307,8 @@ const COUNTERS = [
   { id: 'youtube-counter', url: 'https://uxillary.github.io/automated/video-count.txt' },
   { id: 'repo-counter', url: 'https://uxillary.github.io/automated/repos.txt' },
   { id: 'gh-contributions', url: 'https://uxillary.github.io/automated/contributions.txt' },
-  { id: 'blog-counter', url: 'https://uxillary.github.io/automated/blog-total.txt' }
+  { id: 'blog-counter', url: 'https://uxillary.github.io/automated/blog-total.txt' },
+  { id: 'subscriber-counter', url: 'https://uxillary.github.io/automated/total-subscribers.txt' }
 ];
 const MIRRORS = {
   'youtube-counter': 'statVideos',
