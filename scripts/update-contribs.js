@@ -3,7 +3,7 @@ import fs from 'fs/promises';
 import {execSync} from 'child_process';
 
 const GH_USER = 'uxillary';
-const LIMIT = 20; // keep most recent N items
+const LIMIT = 6; // keep most recent N items
 const LANG_COLORS = {
   JavaScript: '#f1e05a',
   TypeScript: '#3178c6',

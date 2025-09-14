@@ -1,5 +1,18 @@
 [
   {
+    "repo": "uxillary/reddi",
+    "date": "2025-09-14T02:46:41Z",
+    "kind": "Commit",
+    "message": "track pet age",
+    "sha": "d44c9618c09414bde242f33fdd7a611fe07dc117",
+    "link": "https://github.com/uxillary/reddi/commit/d44c9618c09414bde242f33fdd7a611fe07dc117",
+    "stars": 0,
+    "language": "TypeScript",
+    "avatar": "https://avatars.githubusercontent.com/u/22217717?v=4",
+    "langColor": "#3178c6",
+    "shortSha": "d44c961"
+  },
+  {
     "repo": "uxillary/automated",
     "date": "2025-09-14T02:04:21Z",
     "kind": "Commit",
@@ -63,31 +76,5 @@
     "language": "Python",
     "avatar": "https://avatars.githubusercontent.com/u/22217717?v=4",
     "langColor": "#3572A5"
-  },
-  {
-    "repo": "uxillary/automated",
-    "date": "2025-09-14T01:12:02Z",
-    "kind": "Commit",
-    "message": "Add total subscribers daily output",
-    "sha": "8cc848f6f688fc97e6db538de180347831cd7f01",
-    "link": "https://github.com/uxillary/automated/commit/8cc848f6f688fc97e6db538de180347831cd7f01",
-    "stars": 0,
-    "language": "Python",
-    "avatar": "https://avatars.githubusercontent.com/u/22217717?v=4",
-    "langColor": "#3572A5",
-    "shortSha": "8cc848f"
-  },
-  {
-    "repo": "uxillary/reddi",
-    "date": "2025-09-14T01:00:31Z",
-    "kind": "Commit",
-    "message": "display overall health meter",
-    "sha": "5f93ca2ea91e6e1e1a6383c2d2d95ade36fbed67",
-    "link": "https://github.com/uxillary/reddi/commit/5f93ca2ea91e6e1e1a6383c2d2d95ade36fbed67",
-    "stars": 0,
-    "language": "TypeScript",
-    "avatar": "https://avatars.githubusercontent.com/u/22217717?v=4",
-    "langColor": "#3178c6",
-    "shortSha": "5f93ca2"
   }
 ]
