@@ -12,15 +12,7 @@ toggle.addEventListener('click', () => {
   const isDark = document.documentElement.classList.toggle('dark');
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 
-  if (isDark) {
-    document.body.classList.add('bg-black','text-zinc-100');
-    document.body.classList.remove('bg-white','text-zinc-900');
-    icon.textContent = '☾';
-  } else {
-    document.body.classList.add('bg-white','text-zinc-900');
-    document.body.classList.remove('bg-black','text-zinc-100');
-    icon.textContent = '☀';
-  }
+  icon.textContent = isDark ? '☾' : '☀';
 });
 
 // Contact form handling
