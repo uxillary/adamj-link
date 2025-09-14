@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" class="dark" data-radius="square">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy — Adam J</title>
+  <meta name="description" content="Privacy policy for adamj.link" />
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="/public/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/favicon/apple-icon-180x180.png" />
+  <link rel="manifest" href="/public/favicon/manifest.json" />
+  <meta name="msapplication-TileColor" content="#0a0a0a" />
+  <meta name="msapplication-config" content="/public/favicon/browserconfig.xml" />
+
+  <!-- Color scheme & theme colors -->
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Apply saved/system theme BEFORE paint to avoid flash -->
+  <script src="/scripts/theme.js"></script>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/scripts/tailwind-config.js"></script>
+
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body class="selection:bg-brand/30 selection:text-white">
+  <a href="#main" class="skip">Skip to content</a>
+
+  <main id="main" class="max-w-3xl mx-auto px-6 py-16 space-y-8">
+    <nav aria-label="Breadcrumb">
+      <a href="/" class="text-sm underline decoration-brand/20 underline-offset-4 hover:decoration-brand">&larr; Back home</a>
+    </nav>
+
+    <h1 class="text-4xl font-extrabold">Privacy Policy</h1>
+
+    <p class="dark:text-zinc-300 text-zinc-600">This page explains what information is collected when you visit this site and how it is used.</p>
+
+    <h2 class="text-2xl font-semibold mt-8">Data collection</h2>
+    <p class="dark:text-zinc-300 text-zinc-600">Server logs may store your IP address, browser details, and pages visited. Logs are used for security and are automatically purged.</p>
+
+    <h2 class="text-2xl font-semibold mt-8">Analytics</h2>
+    <p class="dark:text-zinc-300 text-zinc-600">Basic traffic metrics may be gathered using privacy‑focused analytics. Data is aggregated and never sold.</p>
+
+    <h2 class="text-2xl font-semibold mt-8">Contact</h2>
+    <p class="dark:text-zinc-300 text-zinc-600">If you email or otherwise contact Adam, your details will be used only to respond to your message.</p>
+
+    <h2 class="text-2xl font-semibold mt-8">Local storage &amp; cookies</h2>
+    <p class="dark:text-zinc-300 text-zinc-600">This site uses your browser's localStorage and sessionStorage to remember settings like your theme and to cache basic page-view counts.</p>
+    <p class="dark:text-zinc-300 text-zinc-600">No third-party cookies or tracking scripts are used. Because this storage is first-party and required for core features and aggregated analytics, explicit consent is not necessary.</p>
+
+    <h2 class="text-2xl font-semibold mt-8">Updates</h2>
+    <p class="dark:text-zinc-300 text-zinc-600">This policy may change over time. Check this page for the latest version. Questions? Email <a href="mailto:adam@ajstudios.dev" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">adam@ajstudios.dev</a>.</p>
+  </main>
+
+  <footer class="mt-16 border-t border-zinc-800/60 py-8 text-center text-sm text-zinc-700">
+    <span>© <span id="y"></span> Adam C Johnston — Fife, Scotland, UK</span>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
