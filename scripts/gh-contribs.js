@@ -1,8 +1,5 @@
-const GH_USER = 'uxillary';
-const OSS_LIMIT = 8;
 const OSS_CACHE_KEY = 'aj_oss_v1';
 const OSS_CACHE_TTL = 15 * 60 * 1000;
-const LANG_COLORS = { JavaScript:'#f1e05a', TypeScript:'#3178c6', HTML:'#e34c26', CSS:'#563d7c', Python:'#3572A5', Go:'#00ADD8', Rust:'#dea584', Shell:'#89e051', Java:'#b07219' };
 const OSS_MAX_RETRIES = 3;
 const OSS_RETRY_DELAY = 5000;
 let ossRetries = 0;
@@ -32,75 +29,13 @@ function timeAgo(d){
   }
 }
 function esc(str){ const div = document.createElement('div'); div.textContent = str; return div.innerHTML; }
-function cleanMessage(msg){ return msg.replace(/^(feat|chore|fix|refactor|docs|test|style|perf|ci|build)(\(.+\))?:\s*/i,'').trim(); }
 
 async function fetchContribs(){
   const cached = cacheRead(OSS_CACHE_KEY);
   if(cached) return cached;
-  const res = await fetch(`https://api.github.com/users/${GH_USER}/events/public`);
+  const res = await fetch('/public/contributions.json');
   if(!res.ok) throw new Error('fetch failed');
-  const data = await res.json();
-  const mapped = data.filter(e=>['PushEvent','PullRequestEvent','IssuesEvent','ReleaseEvent'].includes(e.type))
-    .map(e=>{
-      const item = {repo:e.repo.name, date:e.created_at};
-      switch(e.type){
-        case 'PushEvent':{
-          const c = e.payload.commits && e.payload.commits[0];
-          item.kind='Commit';
-          if(c){ item.message=c.message; item.sha=c.sha; item.link=`https://github.com/${e.repo.name}/commit/${c.sha}`; }
-          else { item.message='Pushed commits'; item.link=`https://github.com/${e.repo.name}`; }
-          break;}
-        case 'PullRequestEvent':
-          item.kind='PR';
-          item.merged=e.payload.pull_request.merged;
-          item.number=e.payload.pull_request.number;
-          item.message=e.payload.pull_request.title;
-          item.link=e.payload.pull_request.html_url;
-          break;
-        case 'IssuesEvent':
-          item.kind='Issue';
-          item.number=e.payload.issue.number;
-          item.message=e.payload.issue.title;
-          item.link=e.payload.issue.html_url;
-          break;
-        case 'ReleaseEvent':
-          item.kind='Release';
-          item.tag=e.payload.release.tag_name;
-          item.message=e.payload.release.name || item.tag;
-          item.link=e.payload.release.html_url;
-          break;
-      }
-      item.message = cleanMessage(item.message);
-      return item;
-    });
-
-  const items = [];
-  const seen = new Set();
-  for(const item of mapped){
-    const key = item.repo + '|' + item.message;
-    if(seen.has(key)) continue;
-    seen.add(key);
-    items.push(item);
-    if(items.length === OSS_LIMIT) break;
-  }
-
-  const repos = [...new Set(items.map(i=>i.repo))];
-  await Promise.all(repos.map(async repo=>{
-    try{
-      const r = await fetch(`https://api.github.com/repos/${repo}`);
-      if(!r.ok) return;
-      const j = await r.json();
-      items.filter(i=>i.repo===repo).forEach(i=>{
-        i.stars=j.stargazers_count;
-        i.language=j.language;
-        i.avatar=j.owner && j.owner.avatar_url;
-        i.langColor=LANG_COLORS[j.language] || '#999';
-      });
-    }catch{}
-  }));
-
-  items.forEach(i=>{ if(i.kind==='Commit' && i.sha) i.shortSha=i.sha.slice(0,7); if(i.language && !i.langColor) i.langColor='#999'; });
-
+  const items = await res.json();
   cacheWrite(OSS_CACHE_KEY, items);
   return items;
 }

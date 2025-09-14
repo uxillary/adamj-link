@@ -31,6 +31,18 @@
 - Add Cloudflare Web Analytics (one script tag)
 - Add `/press` with logo SVG + brand colors
 
+## GitHub contributions cache
+
+Recent GitHub activity is pre-fetched and stored in `public/contributions.json` to
+avoid runtime API calls. Refresh the cache periodically by running:
+
+```
+node scripts/update-contribs.js
+```
+
+The script fetches the latest events for the configured user and keeps only the
+most recent items.
+
 ## Contact form
 
 The contact form posts to `/api/contact` and uses [Resend](https://resend.com/) to send
