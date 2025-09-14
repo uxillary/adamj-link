@@ -1,9 +1,8 @@
 (function(){
-  const mount = document.getElementById('hcMount');
-  if(!mount) return;
+    const mount = document.getElementById('hcMount');
+    if(!mount) return;
 
-  const brand = '#55e6a5';
-  const solvedEvt = new Event('human:solved');
+    const solvedEvt = new Event('human:solved');
 
   // Utility
   const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
@@ -65,59 +64,14 @@
     mount.appendChild(box);
   }
 
-  // ---- Challenge: Mini Terminal Prompt ----
-  function renderTerminal(){
-    mount.innerHTML = '';
-    const box = document.createElement('div');
-    box.className = 'p-3 border border-zinc-800/40 bg-black/40 font-mono';
-    const label = document.createElement('div');
-    label.className = 'text-sm text-zinc-400';
-    label.textContent = `Enter the brand hex (${brand}) and press Enter.`;
-    const line = document.createElement('div');
-    line.className = 'mt-2 flex items-center gap-2';
-    line.innerHTML = `<span>&gt;</span>`;
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.inputMode = 'text';
-    input.autocomplete = 'off';
-    input.spellcheck = false;
-    input.className = 'flex-1 bg-black/20 border border-zinc-700 focus-ring px-2 py-1';
-    input.setAttribute('aria-label','Enter the brand color hex and press Enter');
-    line.appendChild(input);
-    box.appendChild(label);
-    box.appendChild(line);
-    mount.appendChild(box);
-    input.focus();
-
-    input.addEventListener('keydown', (e)=>{
-      if (e.key === 'Enter') {
-        const v = (input.value || '').trim().toLowerCase();
-        if (v === brand.toLowerCase() || v === brand.slice(1).toLowerCase()) {
-          label.textContent = 'Confirmed ✔';
-          fireSolved();
-        } else {
-          label.textContent = `Try again: ${brand}`;
-          input.classList.add('animate-wiggle');
-          setTimeout(()=>input.classList.remove('animate-wiggle'), 250);
-        }
-      }
-    });
-  }
-
-  const challenges = [renderOddOneOut, renderTerminal];
-  let lastIdx = -1;
-
-  function renderRandom(){
+  function render(){
     mount.dataset.solved = '';
-    const pool = challenges.map((_,i)=>i).filter(i=>i!==lastIdx);
-    const idx = pool[Math.floor(Math.random()*pool.length)];
-    lastIdx = idx;
-    challenges[idx]();
+    renderOddOneOut();
   }
 
   // public API
   window.humanChallenge = {
-    reset: renderRandom
+    reset: render
   };
 
   // Minimal animation (wiggle) via injected CSS once
@@ -132,5 +86,5 @@
   }
 
   // initial render
-  renderRandom();
-})();
+  render();
+  })();
