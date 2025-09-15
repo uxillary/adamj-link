@@ -89,5 +89,18 @@
     "avatar": "https://avatars.githubusercontent.com/u/22217717?v=4",
     "langColor": "#999",
     "shortSha": "58d2284"
+  },
+  {
+    "repo": "uxillary/example",
+    "date": "2025-09-14T15:00:00Z",
+    "kind": "Commit",
+    "message": "placeholder commit for demo",
+    "sha": "0000000000000000000000000000000000000000",
+    "link": "https://github.com/uxillary/example/commit/0000000000000000000000000000000000000000",
+    "stars": 0,
+    "language": "JavaScript",
+    "avatar": "https://avatars.githubusercontent.com/u/22217717?v=4",
+    "langColor": "#f1e05a",
+    "shortSha": "0000000"
   }
 ]
