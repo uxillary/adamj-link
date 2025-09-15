@@ -42,7 +42,9 @@ node scripts/update-contribs.js
 ```
 
 The script fetches the latest events for the configured user and keeps only the
-most recent items.
+most recent items. Requests authenticate with a GitHub token from the
+`GITHUB_TOKEN` or `TOKEN_KEY` environment variables (the scheduled workflow uses
+the `TOKEN_KEY` repository secret).
 
 ## Contact form
 

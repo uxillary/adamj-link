@@ -16,7 +16,7 @@ jobs:
       - name: Update contributions
         run: node scripts/update-contribs.js
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TOKEN_KEY: ${{ secrets.TOKEN_KEY }}
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"

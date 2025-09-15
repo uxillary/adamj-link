@@ -21,7 +21,7 @@ function cleanMessage(msg){
 }
 
 function fetchJson(url){
-  const token = process.env.GITHUB_TOKEN;
+  const token = process.env.GITHUB_TOKEN || process.env.TOKEN_KEY;
   const auth = token ? `-H "Authorization: Bearer ${token}"` : '';
   const out = execSync(`curl -fsSL ${auth} ${url}`, {encoding:'utf8'});
   return JSON.parse(out);
