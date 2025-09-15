@@ -431,20 +431,23 @@
   </footer>
 
   <!-- Radius toggle UI -->
-    <div id="radiusUI" class="fixed bottom-4 right-4 flex flex-col gap-2 z-40">
-      <button id="scrollTop" type="button" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Scroll to top">
-        <svg width="16" height="16" class="icon-line"><path d="M8 4l4 8H4l4-8z"/></svg>
+      <div id="radiusUI" class="fixed bottom-4 right-4 flex flex-col gap-2 z-40">
+        <button id="scrollTop" type="button" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Scroll to top">
+          <svg width="16" height="16" viewBox="0 0 16 16">
+            <polygon points="8,4 12,12 4,12" class="icon-line"/>
+            <polygon points="8,6 10,11 6,11" fill="currentColor"/>
+          </svg>
+        </button>
+        <button data-radius="soft" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring rounded-full" aria-label="Soft radius">
+          <svg width="16" height="16" class="icon-line"><circle cx="8" cy="8" r="5"/></svg>
+        </button>
+      <button data-radius="square" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Square radius">
+        <svg width="16" height="16" class="icon-line"><rect x="3" y="3" width="10" height="10" rx="0"/></svg>
       </button>
       <button id="themeToggle" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Toggle theme">
         <span id="themeIcon" class="spin">☾</span>
       </button>
-      <button data-radius="soft" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring rounded-full" aria-label="Soft radius">
-        <svg width="16" height="16" class="icon-line"><circle cx="8" cy="8" r="5"/></svg>
-      </button>
-    <button data-radius="square" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Square radius">
-      <svg width="16" height="16" class="icon-line"><rect x="3" y="3" width="10" height="10" rx="0"/></svg>
-    </button>
-  </div>
+    </div>
 
   <script src="/scripts/main.js"></script>
   <script src="/scripts/human-challenge.js"></script>
