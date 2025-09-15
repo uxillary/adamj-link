@@ -91,16 +91,16 @@
     "shortSha": "58d2284"
   },
   {
-    "repo": "uxillary/example",
-    "date": "2025-09-14T15:00:00Z",
+    "repo": "uxillary/aspartameawareness",
+    "date": "2025-09-14T16:06:54Z",
     "kind": "Commit",
-    "message": "placeholder commit for demo",
-    "sha": "0000000000000000000000000000000000000000",
-    "link": "https://github.com/uxillary/example/commit/0000000000000000000000000000000000000000",
+    "message": "astro install",
+    "sha": "a58c015ccf8b196cb3151eefaa91a4e65b6757df",
+    "link": "https://github.com/uxillary/aspartameawareness/commit/a58c015ccf8b196cb3151eefaa91a4e65b6757df",
     "stars": 0,
-    "language": "JavaScript",
+    "language": "Astro",
     "avatar": "https://avatars.githubusercontent.com/u/22217717?v=4",
-    "langColor": "#f1e05a",
-    "shortSha": "0000000"
+    "langColor": "#999",
+    "shortSha": "a58c015"
   }
 ]
