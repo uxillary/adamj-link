@@ -28,10 +28,15 @@ function fetchJson(url){
 }
 
 async function main(){
-  const data = fetchJson(`https://api.github.com/users/${GH_USER}/events/public`);
-  const mapped = data
-    .filter(e=>['PushEvent','PullRequestEvent','IssuesEvent','ReleaseEvent'].includes(e.type))
-    .map(e=>{
+  const items = [];
+  const seen = new Set();
+
+  for(let page=1; items.length < LIMIT && page <= 10; page++){
+    const pageData = fetchJson(`https://api.github.com/users/${GH_USER}/events/public?page=${page}`);
+    if(!pageData.length) break;
+
+    for(const e of pageData){
+      if(!['PushEvent','PullRequestEvent','IssuesEvent','ReleaseEvent'].includes(e.type)) continue;
       const item = { repo: e.repo.name, date: e.created_at };
       switch(e.type){
         case 'PushEvent': {
@@ -68,17 +73,12 @@ async function main(){
           break;
       }
       item.message = cleanMessage(item.message);
-      return item;
-    });
-
-  const items = [];
-  const seen = new Set();
-  for(const item of mapped){
-    const key = item.repo + '|' + item.message;
-    if(seen.has(key)) continue;
-    seen.add(key);
-    items.push(item);
-    if(items.length === LIMIT) break;
+      const key = item.repo + '|' + item.message;
+      if(seen.has(key)) continue;
+      seen.add(key);
+      items.push(item);
+      if(items.length === LIMIT) break;
+    }
   }
 
   const repos = [...new Set(items.map(i=>i.repo))];
