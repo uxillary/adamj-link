@@ -34,14 +34,17 @@
 ## GitHub contributions cache
 
 Recent GitHub activity is pre-fetched and stored in `public/contributions.json` to
-avoid runtime API calls. Refresh the cache periodically by running:
+avoid runtime API calls. A scheduled GitHub Actions workflow refreshes this file
+twice daily. To update manually, run:
 
 ```
 node scripts/update-contribs.js
 ```
 
 The script fetches the latest events for the configured user and keeps only the
-most recent items.
+most recent items. Requests authenticate with a GitHub token from the
+`GITHUB_TOKEN` or `TOKEN_KEY` environment variables (the scheduled workflow uses
+the `TOKEN_KEY` repository secret).
 
 ## Contact form
 
