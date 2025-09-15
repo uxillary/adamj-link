@@ -3,6 +3,7 @@ const OSS_CACHE_TTL = 15 * 60 * 1000;
 const OSS_MAX_RETRIES = 3;
 const OSS_RETRY_DELAY = 5000;
 let ossRetries = 0;
+// Render recent GitHub contributions into OSS cards
 
 function cacheRead(key){
   try{
@@ -40,37 +41,74 @@ async function fetchContribs(){
   return items;
 }
 
+function renderContrib(it){
+  const repoFull = it.repoFullName || it.repo || '';
+  const repoShort = repoFull.replace(/^.*\//, '');
+  const url = it.url || it.link || '#';
+  let kind = it.kind || it.type || 'Commit';
+  const shaFull = it.sha || it.hash || '';
+  const shaShort = (it.shortSha || shaFull).slice(0,7);
+  const when = it.when || it.time || it.relative || timeAgo(it.date);
+  const title = it.title || it.message || '';
+  let subtitle = it.subtitle || '';
+  if(!subtitle){
+    if(it.kind === 'PR') subtitle = `#${it.number}`;
+    else if(it.kind === 'Issue') subtitle = `#${it.number}`;
+    else if(it.kind === 'Release') subtitle = it.tag || '';
+  }
+
+  const badgeLabel = kind === 'PR' ? (it.merged ? 'PR merged' : 'PR') : kind;
+  const badgeTitle = kind === 'PR' ? `Pull Request${it.merged ? ' • merged' : ''}` : kind;
+  const meta = kind === 'Commit' ? shaShort : kind === 'PR' ? `#${it.number}${it.merged ? ' • merged' : ''}` : kind === 'Issue' ? `#${it.number}` : kind === 'Release' ? (it.tag || '') : '';
+  const icons = {
+    'Commit':'<svg class="icon-line" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v6m0 6v6"/></svg>',
+    'PR':'<svg class="icon-line" viewBox="0 0 24 24"><path d="M6 3v12"/><circle cx="6" cy="15" r="3"/><path d="M6 6a6 6 0 0 1 6 6v3"/><circle cx="12" cy="15" r="3"/></svg>',
+    'Issue':'<svg class="icon-line" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>',
+    'Release':'<svg class="icon-line" viewBox="0 0 24 24"><path d="M3 3h7l11 11-7 7L3 10V3z"/><path d="M7 7h.01"/></svg>'
+  };
+  const icon = icons[kind === 'PR' ? 'PR' : kind] || '';
+
+  const clampClass = 'line-clamp-2';
+
+  return `
+    <article class="oss-card t-card p-4 h-full flex flex-col">
+      <!-- Top row: avatar + repo + time -->
+      <div class="flex items-center justify-between text-xs text-zinc-400 min-w-0">
+        <div class="flex items-center gap-2 min-w-0">
+          ${it.avatar ? `<img src="${it.avatar}" alt="" class="w-4 h-4 rounded-full shrink-0">` : ''}
+          <a href="${url}" class="min-w-0 inline-flex items-center gap-1 truncate" title="${esc(repoFull)}">
+            ${it.langColor ? `<span class="w-2 h-2 rounded-full shrink-0" style="background:${it.langColor}"></span>` : ''}
+            <span class="truncate">${esc(repoShort)}</span>
+          </a>
+        </div>
+        <span class="whitespace-nowrap text-zinc-500">${esc(when)}</span>
+      </div>
+
+      <div class="mt-2 h-px bg-zinc-800/60"></div>
+
+      <!-- Title / message -->
+      <h3 class="mt-2 text-sm text-zinc-200 ${clampClass}">
+        ${esc(title) || '&nbsp;'}
+      </h3>
+
+      <!-- Optional small subtitle (PR number, etc.) -->
+      ${subtitle ? `<div class="mt-1 text-xs text-zinc-500">${esc(subtitle)}</div>` : ''}
+
+      <!-- Spacer to push meta row down -->
+      <div class="mt-auto"></div>
+
+      <!-- Meta row: badge left, meta right -->
+      <div class="pt-2 flex items-center justify-between text-xs text-zinc-500">
+        <span class="badge inline-flex items-center gap-1 shrink-0" title="${esc(badgeTitle)}">${icon}${esc(badgeLabel)}</span>
+        <span class="${kind==='Commit'?'copy-sha cursor-pointer text-zinc-400':''}"${kind==='Commit'?` data-sha="${shaFull}"`:''}>${esc(meta)}</span>
+      </div>
+    </article>
+  `;
+}
+
 function renderContribs(items){
   const list = document.getElementById('ossList');
-  list.innerHTML='';
-  items.forEach(item=>{
-    const card=document.createElement('a');
-    card.href=item.link;
-    card.className='t-card p-3 flex flex-col gap-1.5 focus-ring hover:-translate-y-0.5 hover:ring-1 hover:ring-brand/40';
-    const badgeLabel = item.kind==='PR'? (item.merged?'PR merged':'PR') : item.kind;
-    const badgeTitle = item.kind==='PR' ? `Pull Request${item.merged?' • merged':''}` : item.kind;
-    const meta = item.kind==='Commit'? item.shortSha : item.kind==='PR'? `#${item.number}${item.merged?' • merged':''}` : item.kind==='Issue'? `#${item.number}` : item.kind==='Release'? item.tag : '';
-    const icon = {
-      'Commit':'<svg class="icon-line" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v6m0 6v6"/></svg>',
-      'PR':'<svg class="icon-line" viewBox="0 0 24 24"><path d="M6 3v12"/><circle cx="6" cy="15" r="3"/><path d="M6 6a6 6 0 0 1 6 6v3"/><circle cx="12" cy="15" r="3"/></svg>',
-      'Issue':'<svg class="icon-line" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>',
-      'Release':'<svg class="icon-line" viewBox="0 0 24 24"><path d="M3 3h7l11 11-7 7L3 10V3z"/><path d="M7 7h.01"/></svg>'
-    }[item.kind==='PR'?'PR':item.kind];
-    card.innerHTML=`<div class="flex items-center justify-between text-xs text-zinc-400">
-        <div class="flex items-center gap-2">
-          ${item.avatar ? `<img src="${item.avatar}" alt="" class="w-4 h-4 rounded-full">` : ''}
-          <span class="inline-flex items-center gap-1"><span class="w-2 h-2 rounded-full" style="background:${item.langColor}"></span>${esc(item.repo)}</span>
-        </div>
-        <span class="text-zinc-500">${timeAgo(item.date)}</span>
-      </div>
-      <div class="h-px bg-zinc-800/60"></div>
-      <div class="text-sm text-white clamp-2">${esc(item.message)}</div>
-      <div class="flex items-center justify-between text-xs mt-1">
-        <span class="badge" title="${badgeTitle}">${icon}${badgeLabel}</span>
-        <span class="${item.kind==='Commit'?'copy-sha cursor-pointer text-zinc-400':''}"${item.kind==='Commit'?` data-sha="${item.shortSha}"`:''}>${esc(meta)}</span>
-      </div>`;
-    list.appendChild(card);
-  });
+  list.innerHTML = items.map(renderContrib).join('');
   list.removeAttribute('aria-busy');
 }
 
