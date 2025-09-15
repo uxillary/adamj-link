@@ -46,7 +46,6 @@ function renderContrib(it){
   const repoShort = repoFull.replace(/^.*\//, '');
   const url = it.url || it.link || '#';
   let kind = it.kind || it.type || 'Commit';
-  if(kind === 'PR') kind = it.merged ? 'PR merged' : 'PR';
   const shaFull = it.sha || it.hash || '';
   const shaShort = (it.shortSha || shaFull).slice(0,7);
   const when = it.when || it.time || it.relative || timeAgo(it.date);
@@ -58,19 +57,34 @@ function renderContrib(it){
     else if(it.kind === 'Release') subtitle = it.tag || '';
   }
 
+  const badgeLabel = kind === 'PR' ? (it.merged ? 'PR merged' : 'PR') : kind;
+  const badgeTitle = kind === 'PR' ? `Pull Request${it.merged ? ' • merged' : ''}` : kind;
+  const meta = kind === 'Commit' ? shaShort : kind === 'PR' ? `#${it.number}${it.merged ? ' • merged' : ''}` : kind === 'Issue' ? `#${it.number}` : kind === 'Release' ? (it.tag || '') : '';
+  const icons = {
+    'Commit':'<svg class="icon-line" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v6m0 6v6"/></svg>',
+    'PR':'<svg class="icon-line" viewBox="0 0 24 24"><path d="M6 3v12"/><circle cx="6" cy="15" r="3"/><path d="M6 6a6 6 0 0 1 6 6v3"/><circle cx="12" cy="15" r="3"/></svg>',
+    'Issue':'<svg class="icon-line" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>',
+    'Release':'<svg class="icon-line" viewBox="0 0 24 24"><path d="M3 3h7l11 11-7 7L3 10V3z"/><path d="M7 7h.01"/></svg>'
+  };
+  const icon = icons[kind === 'PR' ? 'PR' : kind] || '';
+
   const clampClass = 'line-clamp-2';
 
   return `
     <article class="oss-card t-card p-4 h-full flex flex-col">
-      <!-- Top row: repo + badge -->
-      <div class="flex items-start justify-between gap-2 min-w-0">
-        <a href="${url}" class="block min-w-0 font-medium text-sm truncate" title="${esc(repoFull)}">
-          ${esc(repoShort)}
-        </a>
-        <span class="shrink-0 text-[11px] leading-5 px-1.5 py-0.5 border border-zinc-800/60 text-zinc-400">
-          ${esc(kind)}
-        </span>
+      <!-- Top row: avatar + repo + time -->
+      <div class="flex items-center justify-between text-xs text-zinc-400 min-w-0">
+        <div class="flex items-center gap-2 min-w-0">
+          ${it.avatar ? `<img src="${it.avatar}" alt="" class="w-4 h-4 rounded-full shrink-0">` : ''}
+          <a href="${url}" class="min-w-0 inline-flex items-center gap-1 truncate" title="${esc(repoFull)}">
+            ${it.langColor ? `<span class="w-2 h-2 rounded-full shrink-0" style="background:${it.langColor}"></span>` : ''}
+            <span class="truncate">${esc(repoShort)}</span>
+          </a>
+        </div>
+        <span class="whitespace-nowrap text-zinc-500">${esc(when)}</span>
       </div>
+
+      <div class="mt-2 h-px bg-zinc-800/60"></div>
 
       <!-- Title / message -->
       <h3 class="mt-2 text-sm text-zinc-200 ${clampClass}">
@@ -83,12 +97,10 @@ function renderContrib(it){
       <!-- Spacer to push meta row down -->
       <div class="mt-auto"></div>
 
-      <!-- Meta row: left hash/status, right time -->
+      <!-- Meta row: badge left, meta right -->
       <div class="pt-2 flex items-center justify-between text-xs text-zinc-500">
-        <div class="flex items-center gap-2">
-          ${shaShort ? `<code class="copy-sha cursor-pointer px-1 py-0.5 bg-zinc-900/40 border border-zinc-800/60" data-sha="${shaFull}">${shaShort}</code>` : ''}
-        </div>
-        <span class="whitespace-nowrap">${esc(when)}</span>
+        <span class="badge inline-flex items-center gap-1 shrink-0" title="${esc(badgeTitle)}">${icon}${esc(badgeLabel)}</span>
+        <span class="${kind==='Commit'?'copy-sha cursor-pointer text-zinc-400':''}"${kind==='Commit'?` data-sha="${shaFull}"`:''}>${esc(meta)}</span>
       </div>
     </article>
   `;
