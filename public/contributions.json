@@ -1,5 +1,31 @@
 [
   {
+    "repo": "uxillary/synthtax",
+    "date": "2025-09-15T13:58:55Z",
+    "kind": "Commit",
+    "message": "add themed interface with random prompt",
+    "sha": "7cdb71c810f96c97151cb8fa158082a2227284e3",
+    "link": "https://github.com/uxillary/synthtax/commit/7cdb71c810f96c97151cb8fa158082a2227284e3",
+    "stars": 0,
+    "language": "Python",
+    "avatar": "https://avatars.githubusercontent.com/u/22217717?v=4",
+    "langColor": "#3572A5",
+    "shortSha": "7cdb71c"
+  },
+  {
+    "repo": "uxillary/synthtax",
+    "date": "2025-09-15T13:58:55Z",
+    "kind": "PR",
+    "merged": true,
+    "number": 10,
+    "message": "enhance UI with themed layout and prompt helpers",
+    "link": "https://github.com/uxillary/synthtax/pull/10",
+    "stars": 0,
+    "language": "Python",
+    "avatar": "https://avatars.githubusercontent.com/u/22217717?v=4",
+    "langColor": "#3572A5"
+  },
+  {
     "repo": "uxillary/reddi",
     "date": "2025-09-14T22:23:58Z",
     "kind": "Commit",
@@ -76,31 +102,5 @@
     "language": "Astro",
     "avatar": "https://avatars.githubusercontent.com/u/22217717?v=4",
     "langColor": "#999"
-  },
-  {
-    "repo": "uxillary/aspartameawareness",
-    "date": "2025-09-14T16:22:37Z",
-    "kind": "Commit",
-    "message": "refine site design and layout",
-    "sha": "58d22845777c5d502c81a6a436078f62123bf754",
-    "link": "https://github.com/uxillary/aspartameawareness/commit/58d22845777c5d502c81a6a436078f62123bf754",
-    "stars": 0,
-    "language": "Astro",
-    "avatar": "https://avatars.githubusercontent.com/u/22217717?v=4",
-    "langColor": "#999",
-    "shortSha": "58d2284"
-  },
-  {
-    "repo": "uxillary/aspartameawareness",
-    "date": "2025-09-14T16:06:54Z",
-    "kind": "Commit",
-    "message": "astro install",
-    "sha": "a58c015ccf8b196cb3151eefaa91a4e65b6757df",
-    "link": "https://github.com/uxillary/aspartameawareness/commit/a58c015ccf8b196cb3151eefaa91a4e65b6757df",
-    "stars": 0,
-    "language": "Astro",
-    "avatar": "https://avatars.githubusercontent.com/u/22217717?v=4",
-    "langColor": "#999",
-    "shortSha": "a58c015"
   }
 ]
