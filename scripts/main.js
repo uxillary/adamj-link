@@ -223,8 +223,39 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
   const progress = container.querySelector('.now-progress');
   const todayMarker = container.querySelector('.now-today');
   const list = container.querySelector('ul');
+  const scrollbar = container.querySelector('.now-scrollbar');
+  const scrollbarThumb = scrollbar ? scrollbar.querySelector('.now-scrollbar-thumb') : null;
+  const mobileQuery = window.matchMedia('(max-width: 639px)');
   const items = Array.from(container.querySelectorAll('[data-step]'));
   const dates = items.map(i => new Date(i.dataset.date));
+
+  const updateScrollbar = () => {
+    if(!scrollbar || !scrollbarThumb) return;
+    const isMobile = mobileQuery.matches;
+    const trackWidth = scrollbar.clientWidth;
+    const viewportWidth = container.clientWidth;
+    const contentWidth = list.scrollWidth;
+    if(!isMobile || trackWidth <= 0){
+      scrollbar.style.opacity = '0';
+      scrollbarThumb.style.transform = 'translateX(0)';
+      scrollbarThumb.style.width = '100%';
+      return;
+    }
+    const maxScroll = Math.max(0, contentWidth - viewportWidth);
+    if(maxScroll <= 0){
+      scrollbar.style.opacity = '0';
+      scrollbarThumb.style.transform = 'translateX(0)';
+      scrollbarThumb.style.width = '100%';
+      return;
+    }
+    const ratio = Math.min(1, viewportWidth / contentWidth);
+    const thumbWidth = Math.max(trackWidth * ratio, 28);
+    const maxThumbOffset = Math.max(0, trackWidth - thumbWidth);
+    const scrollProgress = container.scrollLeft / maxScroll;
+    scrollbarThumb.style.width = thumbWidth + 'px';
+    scrollbarThumb.style.transform = `translateX(${maxThumbOffset * scrollProgress}px)`;
+    scrollbar.style.opacity = '1';
+  };
 
   const setActive = (idx) => {
     items.forEach((item,i)=>{
@@ -233,14 +264,15 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
       if(i===idx){
         item.setAttribute('aria-current','step');
         dot.classList.add('bg-brand','active');
-        title.classList.add('text-white','font-semibold');
+        title.classList.add('text-white','font-semibold','active');
         item.scrollIntoView({inline:'center',block:'nearest',behavior:prefersReduced?'auto':'smooth'});
       }else{
         item.removeAttribute('aria-current');
         dot.classList.remove('bg-brand','active');
-        title.classList.remove('text-white','font-semibold');
+        title.classList.remove('text-white','font-semibold','active');
       }
     });
+    updateScrollbar();
   };
 
   function updateTimelineProgress(){
@@ -275,13 +307,27 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
       if(today >= dates[i]){ activeIdx = i; break; }
     }
     setActive(activeIdx);
+    updateScrollbar();
   }
 
   updateTimelineProgress();
   let resizeTimer;
   window.addEventListener('resize',()=>{
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(updateTimelineProgress,150);
+    resizeTimer = setTimeout(()=>{
+      updateTimelineProgress();
+      updateScrollbar();
+    },150);
+  });
+  mobileQuery.addEventListener('change', updateScrollbar);
+
+  let scrollRaf;
+  container.addEventListener('scroll',()=>{
+    if(scrollRaf) cancelAnimationFrame(scrollRaf);
+    scrollRaf = requestAnimationFrame(()=>{
+      scrollRaf = null;
+      updateScrollbar();
+    });
   });
 
   items.forEach(item=>{
@@ -293,6 +339,7 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
       }
     });
   });
+  updateScrollbar();
 })();
 
 const COUNTERS = [

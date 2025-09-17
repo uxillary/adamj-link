@@ -112,7 +112,7 @@
       <div class="section-head">
         <span class="eyebrow">Now</span>
       </div>
-      <div id="nowTimeline" data-active="auto" class="t-card px-4 py-8 sm:px-5 sm:py-9 relative overflow-x-auto overflow-y-visible [-ms-overflow-style:none] [scrollbar-width:none]">
+      <div id="nowTimeline" data-active="auto" class="t-card px-4 py-8 pb-14 sm:px-5 sm:py-9 sm:pb-12 relative overflow-x-auto overflow-y-visible [-ms-overflow-style:none] [scrollbar-width:none]">
         <span class="hidden sm:block pointer-events-none absolute left-2 top-1/2 -translate-y-1/2 text-zinc-600" aria-hidden="true">
           <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#arrow-left"></use></svg>
         </span>
@@ -132,35 +132,59 @@
           <div class="now-progress absolute left-0 top-1/2 -translate-y-1/2 h-[3px] rounded-full bg-gradient-to-r from-brand to-accent transition-[width] duration-700 ease-out" style="width:0"></div>
           <div class="now-track absolute left-0 top-1/2 -translate-y-1/2 h-px bg-zinc-800/60 w-full"></div>
           <div id="todayMarker" aria-label="Today" class="now-today absolute top-1/2 -translate-y-1/2 transition-[left] duration-700 ease-out" style="left:0">
-            <span class="block size-3 rotate-45 bg-accent rounded-[2px] shadow ring-2 ring-accent/40 animate-pulse"></span>
-            <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-zinc-400">Today</span>
+            <span aria-hidden="true" class="now-today-icon block size-4 md:size-5 rotate-45 relative">
+              <span class="absolute inset-[-8px] rounded-[14px] bg-accent/20 blur-md"></span>
+              <span class="absolute inset-[-3px] rounded-[10px] border border-accent/60"></span>
+              <span class="absolute inset-0 rounded-[7px] bg-gradient-to-br from-brand via-brand/60 to-accent shadow-[0_0_10px_rgba(255,99,71,0.55)]"></span>
+            </span>
+            <span class="now-date absolute -top-10 sm:-top-12 left-1/2 -translate-x-1/2">Today</span>
           </div>
-          <ul role="list" aria-label="Current focus timeline" aria-describedby="nowTimelineDesc nowTimelineHelp" class="flex sm:grid sm:grid-cols-4 gap-6 sm:gap-0 snap-x snap-mandatory sm:overflow-visible w-max sm:w-full">
-            <li role="listitem" tabindex="0" data-step="0" data-date="2025-09-17" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
-            <span class="absolute -top-7 text-xs text-zinc-500">17 Sep</span>
-            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
-            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-200">Reddit game</span>
-            <span class="sr-only">17 Sep — Reddit game</span>
-          </li>
-          <li role="listitem" tabindex="0" data-step="1" data-date="2025-10-02" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
-            <span class="absolute -top-7 text-xs text-zinc-500">2 Oct</span>
-            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
-            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-200">NASA app</span>
-            <span class="sr-only">2 Oct — NASA app</span>
-          </li>
-          <li role="listitem" tabindex="0" data-step="2" data-date="2025-11-01" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
-            <span class="absolute -top-7 text-xs text-zinc-500">Nov</span>
-            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
-            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-200">YouTube project</span>
-            <span class="sr-only">Nov — YouTube project</span>
-          </li>
-          <li role="listitem" tabindex="0" data-step="3" data-date="2026-01-01" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
-            <span class="absolute -top-7 text-xs text-zinc-500">2026</span>
-            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
-            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-200">TBC</span>
-            <span class="sr-only">2026 — TBC</span>
-          </li>
+          <ul role="list" aria-label="Current focus timeline" aria-describedby="nowTimelineDesc nowTimelineHelp" class="flex sm:grid sm:grid-cols-4 gap-6 sm:gap-8 lg:gap-x-12 snap-x snap-mandatory sm:snap-none sm:overflow-visible w-max sm:w-full">
+            <li role="listitem" tabindex="0" data-step="0" data-date="2025-09-17" class="now-item group relative shrink-0 snap-center sm:snap-none w-[200px] sm:w-full grid place-items-center px-4 py-12 sm:py-14 focus-ring">
+              <span class="now-date absolute -top-10 sm:-top-12 left-1/2 -translate-x-1/2">17 Sep</span>
+              <span aria-hidden="true" class="now-tick pointer-events-none absolute top-1/2 -translate-y-1/2 h-10 w-px bg-zinc-700/40"></span>
+              <span class="now-dot relative z-10 size-4 md:size-5 rounded-full bg-zinc-500/60 transition-colors"></span>
+              <span class="now-title absolute -bottom-10 sm:-bottom-12 left-1/2 -translate-x-1/2 px-3 py-1.5 text-sm font-medium text-zinc-200/80">Reddit game</span>
+              <span class="sr-only">17 Sep — Reddit game</span>
+              <div class="now-tooltip" aria-hidden="true">
+                <p>Devvit mini-game with live prompt drops and Reddit-native scoring.</p>
+                <a href="https://uxillary.github.io/reddi" class="tooltip-link">Project notes ↗</a>
+              </div>
+            </li>
+            <li role="listitem" tabindex="0" data-step="1" data-date="2025-10-02" class="now-item group relative shrink-0 snap-center sm:snap-none w-[200px] sm:w-full grid place-items-center px-4 py-12 sm:py-14 focus-ring">
+              <span class="now-date absolute -top-10 sm:-top-12 left-1/2 -translate-x-1/2">2 Oct</span>
+              <span aria-hidden="true" class="now-tick pointer-events-none absolute top-1/2 -translate-y-1/2 h-10 w-px bg-zinc-700/40"></span>
+              <span class="now-dot relative z-10 size-4 md:size-5 rounded-full bg-zinc-500/60 transition-colors"></span>
+              <span class="now-title absolute -bottom-10 sm:-bottom-12 left-1/2 -translate-x-1/2 px-3 py-1.5 text-sm font-medium text-zinc-200/80">NASA app</span>
+              <span class="sr-only">2 Oct — NASA app</span>
+              <div class="now-tooltip" aria-hidden="true">
+                <p>Mission log companion pulling fresh imagery + telemetry from open APIs.</p>
+              </div>
+            </li>
+            <li role="listitem" tabindex="0" data-step="2" data-date="2025-11-01" class="now-item group relative shrink-0 snap-center sm:snap-none w-[200px] sm:w-full grid place-items-center px-4 py-12 sm:py-14 focus-ring">
+              <span class="now-date absolute -top-10 sm:-top-12 left-1/2 -translate-x-1/2">Nov</span>
+              <span aria-hidden="true" class="now-tick pointer-events-none absolute top-1/2 -translate-y-1/2 h-10 w-px bg-zinc-700/40"></span>
+              <span class="now-dot relative z-10 size-4 md:size-5 rounded-full bg-zinc-500/60 transition-colors"></span>
+              <span class="now-title absolute -bottom-10 sm:-bottom-12 left-1/2 -translate-x-1/2 px-3 py-1.5 text-sm font-medium text-zinc-200/80">YouTube project</span>
+              <span class="sr-only">Nov — YouTube project</span>
+              <div class="now-tooltip" aria-hidden="true">
+                <p>Hybrid devlog + design teardown series pre-producing for winter launch.</p>
+              </div>
+            </li>
+            <li role="listitem" tabindex="0" data-step="3" data-date="2026-01-01" class="now-item group relative shrink-0 snap-center sm:snap-none w-[200px] sm:w-full grid place-items-center px-4 py-12 sm:py-14 focus-ring">
+              <span class="now-date absolute -top-10 sm:-top-12 left-1/2 -translate-x-1/2">2026</span>
+              <span aria-hidden="true" class="now-tick pointer-events-none absolute top-1/2 -translate-y-1/2 h-10 w-px bg-zinc-700/40"></span>
+              <span class="now-dot relative z-10 size-4 md:size-5 rounded-full bg-zinc-500/60 transition-colors"></span>
+              <span class="now-title absolute -bottom-10 sm:-bottom-12 left-1/2 -translate-x-1/2 px-3 py-1.5 text-sm font-medium text-zinc-200/80">TBC</span>
+              <span class="sr-only">2026 — TBC</span>
+              <div class="now-tooltip" aria-hidden="true">
+                <p>Open slot for the next flagship collaboration or self-initiated build.</p>
+              </div>
+            </li>
           </ul>
+          <div class="now-scrollbar sm:hidden" aria-hidden="true">
+            <div class="now-scrollbar-thumb"></div>
+          </div>
         </div>
       </div>
     </section>
