@@ -1,5 +1,18 @@
 [
   {
+    "repo": "uxillary/reddi",
+    "date": "2025-09-16T02:26:42Z",
+    "kind": "Commit",
+    "message": "Update vite.client.config.ts",
+    "sha": "6a8d8132149c0b1fdefbd43990d22a64049e2c81",
+    "link": "https://github.com/uxillary/reddi/commit/6a8d8132149c0b1fdefbd43990d22a64049e2c81",
+    "stars": 0,
+    "language": "TypeScript",
+    "avatar": "https://avatars.githubusercontent.com/u/22217717?v=4",
+    "langColor": "#3178c6",
+    "shortSha": "6a8d813"
+  },
+  {
     "repo": "uxillary/aspartameawareness",
     "date": "2025-09-16T01:02:28Z",
     "kind": "Commit",
@@ -89,18 +102,5 @@
     "language": "Python",
     "avatar": "https://avatars.githubusercontent.com/u/22217717?v=4",
     "langColor": "#3572A5"
-  },
-  {
-    "repo": "uxillary/reddi",
-    "date": "2025-09-14T22:23:58Z",
-    "kind": "Commit",
-    "message": "Add bored mood with yawning sprite",
-    "sha": "49d8c0888f7b50b34e236486f10a284e6fe44ea9",
-    "link": "https://github.com/uxillary/reddi/commit/49d8c0888f7b50b34e236486f10a284e6fe44ea9",
-    "stars": 0,
-    "language": "TypeScript",
-    "avatar": "https://avatars.githubusercontent.com/u/22217717?v=4",
-    "langColor": "#3178c6",
-    "shortSha": "49d8c08"
   }
 ]
