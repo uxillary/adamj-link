@@ -1,5 +1,17 @@
 [
   {
+    "repo": "uxillary/maintenance-goblin",
+    "date": "2025-09-17T00:20:59Z",
+    "kind": "Release",
+    "tag": "v0.1.0",
+    "message": "Maintenance Goblin v0.1.0",
+    "link": "https://github.com/uxillary/maintenance-goblin/releases/tag/v0.1.0",
+    "stars": 0,
+    "language": "Python",
+    "avatar": "https://avatars.githubusercontent.com/u/22217717?v=4",
+    "langColor": "#3572A5"
+  },
+  {
     "repo": "uxillary/reddi",
     "date": "2025-09-16T02:26:42Z",
     "kind": "Commit",
@@ -89,18 +101,5 @@
     "avatar": "https://avatars.githubusercontent.com/u/22217717?v=4",
     "langColor": "#3572A5",
     "shortSha": "7cdb71c"
-  },
-  {
-    "repo": "uxillary/synthtax",
-    "date": "2025-09-15T13:58:55Z",
-    "kind": "PR",
-    "merged": true,
-    "number": 10,
-    "message": "enhance UI with themed layout and prompt helpers",
-    "link": "https://github.com/uxillary/synthtax/pull/10",
-    "stars": 0,
-    "language": "Python",
-    "avatar": "https://avatars.githubusercontent.com/u/22217717?v=4",
-    "langColor": "#3572A5"
   }
 ]
