@@ -234,7 +234,18 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
         item.setAttribute('aria-current','step');
         dot.classList.add('bg-brand','active');
         title.classList.add('text-white','font-semibold');
-        item.scrollIntoView({inline:'center',block:'nearest',behavior:prefersReduced?'auto':'smooth'});
+        if(idx >= 0 && container.scrollWidth > container.clientWidth){
+          const targetRect = item.getBoundingClientRect();
+          const containerRect = container.getBoundingClientRect();
+          const offset = targetRect.left - containerRect.left + container.scrollLeft;
+          const center = offset - (container.clientWidth - item.offsetWidth) / 2;
+          const maxScroll = container.scrollWidth - container.clientWidth;
+          const nextScroll = Math.min(Math.max(center, 0), Math.max(maxScroll, 0));
+          container.scrollTo({
+            left: nextScroll,
+            behavior: prefersReduced ? 'auto' : 'smooth'
+          });
+        }
       }else{
         item.removeAttribute('aria-current');
         dot.classList.remove('bg-brand','active');
