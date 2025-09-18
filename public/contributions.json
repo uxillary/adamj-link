@@ -1,5 +1,18 @@
 [
   {
+    "repo": "uxillary/reddi",
+    "date": "2025-09-17T14:25:45Z",
+    "kind": "Commit",
+    "message": "audited",
+    "sha": "a62fb45a18e7058d3ac79837bd315fb0fb61fb01",
+    "link": "https://github.com/uxillary/reddi/commit/a62fb45a18e7058d3ac79837bd315fb0fb61fb01",
+    "stars": 0,
+    "language": "TypeScript",
+    "avatar": "https://avatars.githubusercontent.com/u/22217717?v=4",
+    "langColor": "#3178c6",
+    "shortSha": "a62fb45"
+  },
+  {
     "repo": "uxillary/maintenance-goblin",
     "date": "2025-09-17T00:20:59Z",
     "kind": "Release",
@@ -88,18 +101,5 @@
     "avatar": "https://avatars.githubusercontent.com/u/22217717?v=4",
     "langColor": "#3572A5",
     "shortSha": "f2ce5fd"
-  },
-  {
-    "repo": "uxillary/synthtax",
-    "date": "2025-09-15T13:58:55Z",
-    "kind": "Commit",
-    "message": "add themed interface with random prompt",
-    "sha": "7cdb71c810f96c97151cb8fa158082a2227284e3",
-    "link": "https://github.com/uxillary/synthtax/commit/7cdb71c810f96c97151cb8fa158082a2227284e3",
-    "stars": 0,
-    "language": "Python",
-    "avatar": "https://avatars.githubusercontent.com/u/22217717?v=4",
-    "langColor": "#3572A5",
-    "shortSha": "7cdb71c"
   }
 ]
