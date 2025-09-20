@@ -19,15 +19,27 @@ function cacheWrite(key, items){
   try{ sessionStorage.setItem(key, JSON.stringify({items, t:Date.now()})); }catch{}
 }
 
-const rtf = new Intl.RelativeTimeFormat('en', {numeric:'auto'});
+let rtf;
+try{
+  rtf = new Intl.RelativeTimeFormat('en', {numeric:'auto'});
+}catch{}
+
 function timeAgo(d){
-  let diff = (new Date(d).getTime() - Date.now()) / 1000;
-  const units = [ ['year',31536000], ['month',2592000], ['day',86400], ['hour',3600], ['minute',60], ['second',1] ];
-  for(const [unit, sec] of units){
-    if(Math.abs(diff) >= sec || unit === 'second'){
-      return rtf.format(Math.round(diff/sec), unit);
+  const date = new Date(d);
+  const ts = date.getTime();
+  if(Number.isNaN(ts)) return '';
+
+  if(rtf){
+    let diff = (ts - Date.now()) / 1000;
+    const units = [ ['year',31536000], ['month',2592000], ['day',86400], ['hour',3600], ['minute',60], ['second',1] ];
+    for(const [unit, sec] of units){
+      if(Math.abs(diff) >= sec || unit === 'second'){
+        return rtf.format(Math.round(diff/sec), unit);
+      }
     }
   }
+
+  return date.toLocaleDateString('en-GB', {year:'numeric', month:'short', day:'numeric'});
 }
 function esc(str){ const div = document.createElement('div'); div.textContent = str; return div.innerHTML; }
 
