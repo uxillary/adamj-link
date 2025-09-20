@@ -38,7 +38,7 @@ avoid runtime API calls. A scheduled GitHub Actions workflow refreshes this file
 twice daily. To update manually, run:
 
 ```
-node scripts/update-contribs.js
+node update-contribs.js
 ```
 
 The script fetches the latest events for the configured user and keeps only the
