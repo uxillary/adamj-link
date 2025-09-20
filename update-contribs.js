@@ -99,8 +99,10 @@ async function main(){
     if(i.language && !i.langColor) i.langColor = '#999';
   });
 
+  const generatedAt = new Date().toISOString();
   await fs.writeFile('public/contributions.json', JSON.stringify(items, null, 2) + '\n');
-  console.log(`Wrote ${items.length} items to public/contributions.json`);
+  await fs.writeFile('public/contributions.meta.json', JSON.stringify({ __generatedAt: generatedAt }, null, 2) + '\n');
+  console.log(`Wrote ${items.length} items to public/contributions.json (generated ${generatedAt})`);
 }
 
 main().catch(err=>{

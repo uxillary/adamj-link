@@ -46,7 +46,7 @@ function esc(str){ const div = document.createElement('div'); div.textContent = 
 async function fetchContribs(){
   const cached = cacheRead(OSS_CACHE_KEY);
   if(cached) return cached;
-  const res = await fetch('/public/contributions.json');
+  const res = await fetch(`/public/contributions.json?ts=${Date.now()}`);
   if(!res.ok) throw new Error('fetch failed');
   const items = await res.json();
   cacheWrite(OSS_CACHE_KEY, items);
