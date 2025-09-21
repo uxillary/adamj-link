@@ -14,8 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0            # allow pull/rebase
-          persist-credentials: true # needed to push back
+          fetch-depth: 0
+          persist-credentials: true
 
       - uses: actions/setup-node@v4
         with:
@@ -25,9 +25,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          # make sure we're on the branch, not detached head
           git checkout "${{ github.ref_name }}"
-          # pull first, and autostash if anything touched workspace (safe before add)
           git pull --rebase --autostash
 
       - name: Update contributions
@@ -40,15 +38,13 @@ jobs:
         run: |
           git status
           git --no-pager diff -- public/contributions.json || true
-          git --no-pager diff -- public/contributions.meta.json || true
 
       - name: Commit changes
         run: |
-          git add public/contributions.json public/contributions.meta.json
+          git add public/contributions.json
           if git diff --cached --quiet; then
             echo "No changes"
           else
             git commit -m "chore: update contributions"
-            # push explicitly to the branch name
             git push origin HEAD:${{ github.ref_name }}
           fi
