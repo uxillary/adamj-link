@@ -13,27 +13,42 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0            # allow pull/rebase
+          persist-credentials: true # needed to push back
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # make sure we're on the branch, not detached head
+          git checkout "${{ github.ref_name }}"
+          # pull first, and autostash if anything touched workspace (safe before add)
+          git pull --rebase --autostash
+
       - name: Update contributions
         run: node update-contribs.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TOKEN_KEY: ${{ secrets.TOKEN_KEY }}
+
       - name: Show git status
         run: |
           git status
           git --no-pager diff -- public/contributions.json || true
+          git --no-pager diff -- public/contributions.meta.json || true
+
       - name: Commit changes
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add public/contributions.json public/contributions.meta.json
           if git diff --cached --quiet; then
             echo "No changes"
           else
-            git pull --rebase
             git commit -m "chore: update contributions"
-            git push
+            # push explicitly to the branch name
+            git push origin HEAD:${{ github.ref_name }}
           fi
