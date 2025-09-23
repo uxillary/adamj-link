@@ -271,10 +271,11 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
 
     const firstPos = positions[0] ?? 0;
     const lastPos = positions[positions.length - 1] ?? firstPos;
-    const trackSpan = Math.max(lastPos - firstPos, 0);
+    const trackStart = 0;
+    const trackWidth = Math.max(wrapRect.width, lastPos);
 
-    track.style.left = firstPos + 'px';
-    track.style.width = trackSpan + 'px';
+    track.style.left = trackStart + 'px';
+    track.style.width = trackWidth + 'px';
     progress.style.left = firstPos + 'px';
 
     let markerPos = firstPos;
@@ -299,7 +300,10 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
       }
     }
 
-    const progressWidth = Math.max(markerPos - firstPos, 0);
+    const trackEnd = trackStart + trackWidth;
+    markerPos = Math.min(Math.max(markerPos, trackStart), trackEnd);
+
+    const progressWidth = Math.min(Math.max(markerPos - firstPos, 0), trackEnd - firstPos);
 
     if(prefersReduced){
       progress.style.transition = 'none';
