@@ -225,6 +225,8 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
   const list = container.querySelector('ul');
   const items = Array.from(container.querySelectorAll('[data-step]'));
   const dates = items.map(i => new Date(i.dataset.date));
+  const overrideDate = container.dataset.today ? new Date(container.dataset.today) : null;
+  const hasValidOverride = overrideDate instanceof Date && !Number.isNaN(overrideDate?.getTime());
 
   const setActive = (idx) => {
     items.forEach((item,i)=>{
@@ -255,7 +257,7 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
   };
 
   function updateTimelineProgress(){
-    const today = new Date();
+    const today = hasValidOverride ? new Date(overrideDate) : new Date();
     today.setHours(0,0,0,0);
     const first = dates[0];
     const last = dates[dates.length-1];
