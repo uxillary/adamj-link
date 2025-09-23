@@ -257,32 +257,61 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
   };
 
   function updateTimelineProgress(){
+    if(!items.length) return;
     const today = hasValidOverride ? new Date(overrideDate) : new Date();
     today.setHours(0,0,0,0);
-    const first = dates[0];
-    const last = dates[dates.length-1];
-    let fraction = 0;
-    if(today <= first) fraction = 0;
-    else if(today >= last) fraction = 1;
-    else fraction = (today - first) / (last - first);
-    const trackWidth = list.scrollWidth;
-    track.style.width = trackWidth + 'px';
-    const width = trackWidth * fraction;
+
+    const wrap = list.parentElement;
+    const wrapRect = wrap.getBoundingClientRect();
+    const positions = items.map(item => {
+      const dot = item.querySelector('.now-dot');
+      const sourceRect = (dot ? dot.getBoundingClientRect() : item.getBoundingClientRect());
+      return (sourceRect.left + sourceRect.width / 2) - wrapRect.left;
+    });
+
+    const firstPos = positions[0] ?? 0;
+    const lastPos = positions[positions.length - 1] ?? firstPos;
+    const trackSpan = Math.max(lastPos - firstPos, 0);
+
+    track.style.left = firstPos + 'px';
+    track.style.width = trackSpan + 'px';
+    progress.style.left = firstPos + 'px';
+
+    let markerPos = firstPos;
+    const firstDate = dates[0];
+    const lastDate = dates[dates.length - 1];
+
+    if(today <= firstDate){
+      markerPos = firstPos;
+    }else if(today >= lastDate){
+      markerPos = lastPos;
+    }else{
+      for(let i = 0; i < dates.length - 1; i++){
+        const startDate = dates[i];
+        const endDate = dates[i + 1];
+        if(today >= startDate && today <= endDate){
+          const segmentSpan = Math.max(positions[i + 1] - positions[i], 0);
+          const segmentDuration = endDate - startDate;
+          const dateProgress = segmentDuration === 0 ? 0 : (today - startDate) / segmentDuration;
+          markerPos = positions[i] + (segmentSpan * dateProgress);
+          break;
+        }
+      }
+    }
+
+    const progressWidth = Math.max(markerPos - firstPos, 0);
+
     if(prefersReduced){
       progress.style.transition = 'none';
       todayMarker.style.transition = 'none';
-      progress.style.width = width + 'px';
-      todayMarker.style.left = width + 'px';
     }else{
       progress.style.transition = '';
       todayMarker.style.transition = '';
-      progress.style.width = '0px';
-      todayMarker.style.left = '0px';
-      requestAnimationFrame(()=>{
-        progress.style.width = width + 'px';
-        todayMarker.style.left = width + 'px';
-      });
     }
+
+    progress.style.width = progressWidth + 'px';
+    todayMarker.style.left = markerPos + 'px';
+
     let activeIdx = -1;
     for(let i=dates.length-1;i>=0;i--){
       if(today >= dates[i]){ activeIdx = i; break; }
