@@ -10,7 +10,6 @@ permissions:
 
 jobs:
   build:
-    if: github.repository == 'uxillary/automated'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
