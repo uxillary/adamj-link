@@ -345,14 +345,16 @@
     </section>
 
     <!-- Recent contributions -->
-    <section class="section">
+    <section id="contribs-section" class="section" aria-labelledby="contribs-title">
       <div class="section-head">
-        <h2 class="font-semibold text-xl text-zinc-200 tracking-tight">Recent (public) contributions</h2>
-        <button id="refreshContribs" type="button" class="text-zinc-400 hover:text-brand" aria-label="Refresh contributions">
+        <h2 id="contribs-title" class="font-semibold text-xl text-zinc-200 tracking-tight">Recent (public) contributions</h2>
+        <button id="refreshContribs" type="button" class="text-zinc-400 hover:text-brand focus-ring" aria-label="Refresh contributions">
           <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#refresh"></use></svg>
         </button>
       </div>
-      <div id="ossList" class="mt-4 grid auto-rows-fr grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2" aria-busy="true"></div>
+      <div id="contribs-grid" class="contribs-grid" aria-live="polite">
+        <div class="contribs-skeleton">Loading recent contributions…</div>
+      </div>
       <a href="https://github.com/uxillary" class="block mt-3 text-sm text-zinc-500 hover:text-brand">View all on GitHub →</a>
     </section>
     <!-- Book CTA -->

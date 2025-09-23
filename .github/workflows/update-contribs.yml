@@ -1,4 +1,4 @@
-name: Update GitHub contributions
+name: Update public contributions feed
 
 on:
   schedule:
@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   build:
+    if: github.repository == 'uxillary/automated'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,30 +22,90 @@ jobs:
         with:
           node-version: 20
 
-      - name: Configure git
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout "${{ github.ref_name }}"
-          git pull --rebase --autostash
+      - name: Install deps
+        run: npm i @octokit/core dayjs
 
-      - name: Update contributions
-        run: node update-contribs.js
+      - name: Generate contributions.json
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TOKEN_KEY: ${{ secrets.TOKEN_KEY }}
-
-      - name: Show git status
+          GH_USERNAME: uxillary
+          GH_TOKEN: ${{ secrets.TOKEN_KEY }}
         run: |
-          git status
-          git --no-pager diff -- public/contributions.json || true
+          node - <<'NODE'
+          const { Octokit } = require("@octokit/core");
+          const fs = require("fs");
+          const dayjs = require("dayjs");
+          const relativeTime = require("dayjs/plugin/relativeTime");
+          dayjs.extend(relativeTime);
 
-      - name: Commit changes
+          const GH_USERNAME = process.env.GH_USERNAME;
+          const octokit = new Octokit({ auth: process.env.GH_TOKEN });
+
+          (async () => {
+            const { data: events } = await octokit.request('GET /users/{username}/events/public', {
+              username: GH_USERNAME,
+              per_page: 50
+            });
+
+            const items = [];
+            for (const ev of events) {
+              const type = ev.type;
+              const repoName = ev.repo?.name || '';
+              const repo = repoName.split('/').slice(-1)[0] || repoName || 'repo';
+              let title = '';
+              let url = '';
+              let shortRef = '';
+
+              if (type === 'PushEvent') {
+                const commit = ev.payload?.commits?.slice(-1)[0];
+                title = commit?.message?.split('\n')[0] || 'Commit';
+                shortRef = (ev.payload?.head || '').slice(0, 7);
+                url = `https://github.com/${repoName}/commit/${ev.payload?.head}`;
+              } else if (type === 'IssuesEvent') {
+                title = ev.payload?.issue?.title || 'Issue';
+                shortRef = `#${ev.payload?.issue?.number}`;
+                url = ev.payload?.issue?.html_url;
+              } else if (type === 'PullRequestEvent') {
+                title = ev.payload?.pull_request?.title || 'Pull request';
+                shortRef = `#${ev.payload?.number}`;
+                url = ev.payload?.pull_request?.html_url;
+              } else if (type === 'PullRequestReviewEvent' || type === 'PullRequestReviewCommentEvent') {
+                title = ev.payload?.pull_request?.title || 'PR review';
+                shortRef = `#${ev.payload?.pull_request?.number}`;
+                url = ev.payload?.pull_request?.html_url;
+              } else {
+                title = repo;
+                url = `https://github.com/${repoName}`;
+              }
+
+              items.push({
+                repo,
+                title,
+                type: type.replace('Event', ''),
+                url,
+                shortRef,
+                timeAgo: dayjs(ev.created_at).from(dayjs())
+              });
+
+              if (items.length >= 8) break;
+            }
+
+            const out = {
+              generatedAt: new Date().toISOString(),
+              items
+            };
+
+            fs.writeFileSync('contributions.json', JSON.stringify(out, null, 2));
+          })().catch(e => { console.error(e); process.exit(1); });
+          NODE
+
+      - name: Commit & push
         run: |
-          git add public/contributions.json
-          if git diff --cached --quiet; then
-            echo "No changes"
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add contributions.json
+            git commit -m "chore: update contributions feed"
+            git push
           else
-            git commit -m "chore: update contributions"
-            git push origin HEAD:${{ github.ref_name }}
+            echo "No changes."
           fi

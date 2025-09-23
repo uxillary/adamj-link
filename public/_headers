@@ -1,5 +1,1 @@
-/public/contributions.json
-  Cache-Control: no-store
-
-/public/contributions.meta.json
-  Cache-Control: no-store
+# Headers intentionally left blank; contributions feed now served from uxillary/automated.
