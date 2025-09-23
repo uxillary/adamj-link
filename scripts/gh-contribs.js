@@ -1,4 +1,6 @@
-const CONTRIB_FEED_URL = 'https://raw.githubusercontent.com/uxillary/automated/main/contributions.json';
+const CONTRIB_FEED_URL = '/public/contributions.json';
+
+const IGNORED_TYPES = new Set(['Create', 'Delete']);
 
 async function fetchContributions() {
   const url = `${CONTRIB_FEED_URL}?ts=${Date.now()}`;
@@ -34,6 +36,23 @@ function renderContribGrid(items = []) {
   grid.innerHTML = items.map(renderContribCard).join('');
 }
 
+function normalizeItems(rawItems) {
+  if (!Array.isArray(rawItems)) return [];
+
+  const seen = new Set();
+
+  return rawItems.filter((item) => {
+    if (!item || typeof item !== 'object') return false;
+    if (IGNORED_TYPES.has(item.type)) return false;
+
+    const key = item.url || `${item.repo}:${item.title}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+
+    return true;
+  });
+}
+
 async function initContribs() {
   const grid = document.getElementById('contribs-grid');
   if (!grid) return;
@@ -42,7 +61,7 @@ async function initContribs() {
 
   try {
     const data = await fetchContributions();
-    const items = Array.isArray(data?.items) ? data.items : [];
+    const items = normalizeItems(data?.items);
     renderContribGrid(items);
   } catch (err) {
     console.error('Contribs error:', err);
