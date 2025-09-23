@@ -175,27 +175,37 @@ a:not([class]):hover{ text-decoration-color:#55e6a5 }
 
   @media (min-width:640px){ .section{ margin-top:4rem; margin-bottom:4rem } }
 
-/* Tetris loader animation for GitHub contributions */
-.tetris-loader{
+/* Contributions grid */
+.contribs-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:16px;
+  margin-top:1rem;
+}
+.contribs-skeleton{ opacity:.6; }
+.contrib-card{
+  display:block;
+  border-radius:12px;
+  padding:16px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.06);
+  transition:transform .15s ease, border-color .2s ease, background .2s ease;
+}
+.contrib-card:hover,
+.contrib-card:focus-visible{
+  transform:translateY(-2px);
+  border-color:rgba(255,255,255,.2);
+  background:rgba(255,255,255,.05);
+}
+.contrib-title{
+  font-weight:600;
+  line-height:1.35;
+  margin:8px 0;
+}
+.contrib-meta{
+  opacity:.7;
+  font-size:.9rem;
   display:flex;
-  gap:4px;
-  justify-content:center;
-  align-items:flex-start;
-  height:80px;
-}
-.tetris-loader span{
-  width:12px;
-  height:12px;
-  background:#55e6a5;
-  opacity:0;
-  animation:tetris-fall 1.2s infinite;
-}
-.tetris-loader span:nth-child(2){ animation-delay:.15s; }
-.tetris-loader span:nth-child(3){ animation-delay:.3s; }
-.tetris-loader span:nth-child(4){ animation-delay:.45s; }
-@keyframes tetris-fall{
-  0%{ transform:translateY(-20px); opacity:0; }
-  30%{ opacity:1; }
-  80%{ transform:translateY(0); opacity:1; }
-  100%{ opacity:0; }
+  gap:8px;
+  flex-wrap:wrap;
 }

@@ -31,20 +31,20 @@
 - Add Cloudflare Web Analytics (one script tag)
 - Add `/press` with logo SVG + brand colors
 
-## GitHub contributions cache
+## GitHub contributions feed
 
-Recent GitHub activity is pre-fetched and stored in `public/contributions.json` to
-avoid runtime API calls. A scheduled GitHub Actions workflow refreshes this file
-twice daily. To update manually, run:
+Recent GitHub activity is fetched at runtime from the public feed stored in the
+[`uxillary/automated`](https://github.com/uxillary/automated) repository. The
+frontend fetches `https://raw.githubusercontent.com/uxillary/automated/main/contributions.json`
+with a small cache-buster so new events appear without redeploying this site.
 
-```
-node update-contribs.js
-```
-
-The script fetches the latest events for the configured user and keeps only the
-most recent items. Requests authenticate with a GitHub token from the
-`GITHUB_TOKEN` or `TOKEN_KEY` environment variables (the scheduled workflow uses
-the `TOKEN_KEY` repository secret).
+The automated repository owns the scheduled workflow that keeps
+`contributions.json` up to date. The workflow (`.github/workflows/update-contribs.yml`)
+runs twice daily or on manual dispatch, installs `@octokit/core` + `dayjs`, and
+uses a classic PAT stored as the `TOKEN_KEY` secret to authenticate. It grabs the
+latest public events for `uxillary`, normalises them to the compact feed shape,
+writes `contributions.json`, and commits the change back to the repo. Trigger
+`workflow_dispatch` there to regenerate the feed immediately.
 
 ## Contact form
 
