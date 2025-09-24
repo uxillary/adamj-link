@@ -276,7 +276,7 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
 
     track.style.left = trackStart + 'px';
     track.style.width = trackWidth + 'px';
-    progress.style.left = firstPos + 'px';
+    progress.style.left = trackStart + 'px';
 
     let markerPos = firstPos;
     const firstDate = dates[0];
@@ -303,7 +303,10 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
     const trackEnd = trackStart + trackWidth;
     markerPos = Math.min(Math.max(markerPos, trackStart), trackEnd);
 
-    const progressWidth = Math.min(Math.max(markerPos - firstPos, 0), trackEnd - firstPos);
+    const progressWidth = Math.min(
+      Math.max(markerPos - trackStart, 0),
+      trackEnd - trackStart
+    );
 
     if(prefersReduced){
       progress.style.transition = 'none';
