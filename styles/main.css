@@ -209,3 +209,40 @@ a:not([class]):hover{ text-decoration-color:#55e6a5 }
   gap:8px;
   flex-wrap:wrap;
 }
+
+/* OSS micro-cards */
+.oss-grid{ display:grid; grid-template-columns:repeat(1,minmax(0,1fr)); gap:.5rem }
+@media(min-width:640px){ .oss-grid{ grid-template-columns:repeat(2,minmax(0,1fr)) } }
+@media(min-width:768px){ .oss-grid{ grid-template-columns:repeat(3,minmax(0,1fr)) } }
+@media(min-width:1280px){ .oss-grid{ grid-template-columns:repeat(4,minmax(0,1fr)) } }
+
+.oss-card{
+  display:flex; flex-direction:column; justify-content:space-between;
+  padding:.9rem; border:1px solid var(--border); border-radius:var(--r);
+  background:color-mix(in oklab,var(--surface) 98%,var(--text) 2%);
+  transition:border-color .18s ease, transform .18s ease;
+}
+.dark .oss-card{ background:linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.06)) }
+.oss-card:hover{ border-color:rgba(85,230,165,.55); transform:translateY(-1px) }
+
+.oss-head{ display:flex; gap:.6rem; align-items:center }
+.oss-ava{ width:32px; height:32px; border-radius:9999px; background:#111; overflow:hidden; flex:0 0 32px }
+.oss-dot{ width:6px; height:6px; border-radius:9999px; margin-left:auto; opacity:.9 }
+.oss-repo{ font-weight:600; line-height:1.2 }
+.oss-title{ margin-top:.15rem; color:color-mix(in oklab,var(--text) 72%,var(--surface) 28%); line-height:1.4 }
+
+.oss-pill{
+  align-self:flex-start; margin-top:.5rem;
+  font-size:.68rem; text-transform:uppercase; letter-spacing:.06em;
+  padding:.15rem .4rem; border-radius:6px; border:1px solid var(--border);
+  color:color-mix(in oklab,var(--text) 70%,var(--surface) 30%);
+  background:color-mix(in oklab,var(--surface) 96%,var(--text) 4%);
+}
+
+.oss-meta{
+  display:flex; gap:.6rem; align-items:center; margin-top:.5rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size:.72rem; color:color-mix(in oklab,var(--text) 60%,var(--surface) 40%);
+}
+.oss-meta .sep{ opacity:.4 }
+.oss-sha{ opacity:.8 }

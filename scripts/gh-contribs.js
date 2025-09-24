@@ -1,94 +1,108 @@
-const CONTRIB_FEED_URLS = [
-  'https://uxillary.github.io/automated/contributions.json',
-  '/contributions.json'
-];
+// gh-contribs.js — compact “micro-card” renderer
+(function(){
+  const mount = document.getElementById('ossList');
+  if(!mount) return;
 
-const IGNORED_TYPES = new Set(['Create', 'Delete']);
+  // map provider/repo to a subtle dot color
+  const dot = (repo) => {
+    const r = repo.toLowerCase();
+    if (r.includes('reddi')) return '#60a5fa';
+    if (r.includes('synthtax')) return '#a78bfa';
+    if (r.includes('hex') || r.includes('labs')) return '#55e6a5';
+    return '#55e6a5'; // default brand
+  };
 
-async function fetchContributions() {
-  const ts = Date.now();
+  const pillLabel = (t) => {
+    const m = (t||'').toLowerCase();
+    if (m==='commit') return 'Commit';
+    if (m==='push') return 'Push';
+    if (m==='issue' || m==='issues') return 'Issue';
+    if (m==='pr' || m==='pullrequest') return 'PR';
+    if (m.includes('merged')) return 'PR merged';
+    if (m==='merge') return 'PR merged';
+    if (m==='delete') return 'Delete';
+    if (m==='create') return 'Create';
+    return t || 'Update';
+  };
 
-  for (const baseUrl of CONTRIB_FEED_URLS) {
-    const url = `${baseUrl}?ts=${ts}`;
+  const ago = (ts) => {
+    const d = ts ? new Date(ts) : null;
+    if(!d || isNaN(d)) return '';
+    const s = Math.floor((Date.now()-d.getTime())/1000);
+    const M = Math.floor(s/60), H=Math.floor(M/60), D=Math.floor(H/24);
+    if (D>0) return `${D} day${D>1?'s':''} ago`;
+    if (H>0) return `${H} hour${H>1?'s':''} ago`;
+    if (M>0) return `${M} min${M>1?'s':''} ago`;
+    return 'just now';
+  };
 
-    try {
-      const res = await fetch(url, { cache: 'no-store' });
-      if (!res.ok) throw new Error(`Failed with status ${res.status}`);
-      return await res.json();
-    } catch (err) {
-      console.error('Contribs fetch failed for', baseUrl, err);
+  function skeleton(n=8){
+    mount.setAttribute('aria-busy','true');
+    mount.classList.add('oss-grid');
+    mount.innerHTML = Array.from({length:n}).map(()=>`
+      <div class="oss-card">
+        <div class="oss-head">
+          <div class="oss-ava" style="background:rgba(255,255,255,0.05)"></div>
+          <div class="flex-1">
+            <div class="oss-repo" style="height:12px;background:rgba(255,255,255,.08)"></div>
+            <div class="oss-title" style="height:12px;margin-top:.35rem;background:rgba(255,255,255,.06)"></div>
+          </div>
+        </div>
+        <span class="oss-pill" style="opacity:.6">Loading…</span>
+        <div class="oss-meta"><span class="oss-sha">……</span><span class="sep">•</span><span>…</span></div>
+      </div>
+    `).join('');
+  }
+
+  function render(items){
+    mount.innerHTML = items.map(it=>{
+      const href = it.url || it.link || '#';
+      const avatar = it.avatar || it.userAvatar || 'https://avatars.githubusercontent.com/u/9919?s=32'; // fallback
+      const repo = it.repo || it.repository || it.project || 'repo';
+      const title = it.title || it.message || it.subtitle || '';
+      const type = pillLabel(it.type || it.kind);
+      const hash = (it.shortRef || it.sha || it.id || it.number || '').toString().slice(0,7);
+      const when = it.timeAgo || ago(it.date || it.createdAt || it.timestamp);
+
+      return `
+        <a class="oss-card" href="${href}" rel="noopener noreferrer">
+          <div class="oss-head">
+            <img class="oss-ava" src="${avatar}" alt="" loading="lazy" decoding="async"/>
+            <div class="flex-1 min-w-0">
+              <div class="oss-repo clamp-1">${repo}</div>
+              <div class="oss-title clamp-2">${title}</div>
+            </div>
+            <span class="oss-dot" style="background:${dot(repo)}"></span>
+          </div>
+          <span class="oss-pill">${type}</span>
+          <div class="oss-meta">
+            ${hash ? `<span class="oss-sha">${hash}</span><span class="sep">•</span>`:''}
+            <span>${when}</span>
+          </div>
+        </a>
+      `;
+    }).join('');
+    mount.removeAttribute('aria-busy');
+  }
+
+  const SOURCE = '/public/contributions.json';
+
+  async function load(){
+    skeleton();
+    try{
+      const res = await fetch(SOURCE, { cache: 'reload' });
+      const data = await res.json();
+      const items = Array.isArray(data) ? data : (data.items || []);
+      render(items.slice(0,8));
+    }catch(e){
+      console.error('contribs load failed', e);
+      mount.innerHTML = `<div class="t-card">Couldn’t load contributions.</div>`;
+      mount.removeAttribute('aria-busy');
     }
   }
 
-  throw new Error('All contribution feed URLs failed');
-}
-
-function renderContribCard(item = {}) {
-  const href = item.url || '#';
-  const title = item.title || 'Update';
-  const repo = item.repo || 'repo';
-  const meta = [item.type, item.shortRef, item.timeAgo].filter(Boolean).join(' • ');
-
-  return `
-    <a class="contrib-card" href="${href}" target="_blank" rel="noopener">
-      <div class="contrib-meta">${repo}</div>
-      <div class="contrib-title">${title}</div>
-      <div class="contrib-meta">${meta}</div>
-    </a>
-  `;
-}
-
-function renderContribGrid(items = []) {
-  const grid = document.getElementById('contribs-grid');
-  if (!grid) return;
-
-  if (!items.length) {
-    grid.innerHTML = '<div class="contribs-skeleton">No recent contributions found.</div>';
-    return;
-  }
-
-  grid.innerHTML = items.map(renderContribCard).join('');
-}
-
-function normalizeItems(rawItems) {
-  if (!Array.isArray(rawItems)) return [];
-
-  const seen = new Set();
-
-  return rawItems.filter((item) => {
-    if (!item || typeof item !== 'object') return false;
-    if (IGNORED_TYPES.has(item.type)) return false;
-
-    const key = item.url || `${item.repo}:${item.title}`;
-    if (seen.has(key)) return false;
-    seen.add(key);
-
-    return true;
-  });
-}
-
-async function initContribs() {
-  const grid = document.getElementById('contribs-grid');
-  if (!grid) return;
-
-  grid.innerHTML = '<div class="contribs-skeleton">Loading recent contributions…</div>';
-
-  try {
-    const data = await fetchContributions();
-    const items = normalizeItems(data?.items);
-    renderContribGrid(items);
-  } catch (err) {
-    console.error('Contribs error:', err);
-    renderContribGrid([]);
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  initContribs();
-  const refresh = document.getElementById('refreshContribs');
-  if (refresh) {
-    refresh.addEventListener('click', () => {
-      initContribs();
-    });
-  }
-});
+  // kick off + expose manual refresh (button already exists)
+  load();
+  const btn = document.getElementById('refreshContribs');
+  if(btn) btn.addEventListener('click', load);
+})();
