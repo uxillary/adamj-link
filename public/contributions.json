@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-09-24T10:03:24.647Z",
+  "generatedAt": "2025-09-24T12:23:33.998Z",
   "items": [
     {
       "repo": "synthtax",
@@ -28,25 +28,9 @@
     {
       "repo": "synthtax",
       "title": "Add beat command for auto-generated drum grooves",
-      "type": "PullRequest",
-      "url": "https://github.com/uxillary/synthtax/pull/14",
-      "shortRef": "#14",
-      "timeAgo": "5 days ago"
-    },
-    {
-      "repo": "synthtax",
-      "title": "Add beat command for auto-generated drum grooves",
       "type": "Push",
       "url": "https://github.com/uxillary/synthtax/commit/72f2812c830a43b50d60090293a95d4776f94313",
       "shortRef": "72f2812",
-      "timeAgo": "5 days ago"
-    },
-    {
-      "repo": "synthtax",
-      "title": "synthtax",
-      "type": "Create",
-      "url": "https://github.com/uxillary/synthtax",
-      "shortRef": "",
       "timeAgo": "5 days ago"
     },
     {
@@ -63,6 +47,22 @@
       "type": "Delete",
       "url": "https://github.com/uxillary/reddi",
       "shortRef": "",
+      "timeAgo": "5 days ago"
+    },
+    {
+      "repo": "reddi",
+      "title": "Merge pull request #27 from uxillary/codex/add-link-to-hub-on-main-page",
+      "type": "Push",
+      "url": "https://github.com/uxillary/reddi/commit/ffa0c31506e964654c12ebf9405195f097df2657",
+      "shortRef": "ffa0c31",
+      "timeAgo": "5 days ago"
+    },
+    {
+      "repo": "reddi",
+      "title": "Add Adam's Hub link to docs footer",
+      "type": "PullRequest",
+      "url": "https://github.com/uxillary/reddi/pull/27",
+      "shortRef": "#27",
       "timeAgo": "5 days ago"
     }
   ]
