@@ -1,6 +1,14 @@
 {
-  "generatedAt": "2025-09-24T12:23:33.998Z",
+  "generatedAt": "2025-09-24T12:35:45.778Z",
   "items": [
+    {
+      "repo": "4ttp",
+      "title": "Replace Next.js app with Phaser game design docs",
+      "type": "Push",
+      "url": "https://github.com/uxillary/4ttp/commit/4a34f7d2039faedc9267bdfcb7f127baf19550e5",
+      "shortRef": "4a34f7d",
+      "timeAgo": "39 minutes ago"
+    },
     {
       "repo": "synthtax",
       "title": "synthtax",
@@ -55,14 +63,6 @@
       "type": "Push",
       "url": "https://github.com/uxillary/reddi/commit/ffa0c31506e964654c12ebf9405195f097df2657",
       "shortRef": "ffa0c31",
-      "timeAgo": "5 days ago"
-    },
-    {
-      "repo": "reddi",
-      "title": "Add Adam's Hub link to docs footer",
-      "type": "PullRequest",
-      "url": "https://github.com/uxillary/reddi/pull/27",
-      "shortRef": "#27",
       "timeAgo": "5 days ago"
     }
   ]
