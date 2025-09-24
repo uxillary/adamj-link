@@ -1,12 +1,26 @@
-const CONTRIB_FEED_URL = '/public/contributions.json';
+const CONTRIB_FEED_URLS = [
+  'https://uxillary.github.io/automated/contributions.json',
+  '/contributions.json'
+];
 
 const IGNORED_TYPES = new Set(['Create', 'Delete']);
 
 async function fetchContributions() {
-  const url = `${CONTRIB_FEED_URL}?ts=${Date.now()}`;
-  const res = await fetch(url, { cache: 'no-store' });
-  if (!res.ok) throw new Error('Failed to load contributions.json');
-  return res.json();
+  const ts = Date.now();
+
+  for (const baseUrl of CONTRIB_FEED_URLS) {
+    const url = `${baseUrl}?ts=${ts}`;
+
+    try {
+      const res = await fetch(url, { cache: 'no-store' });
+      if (!res.ok) throw new Error(`Failed with status ${res.status}`);
+      return await res.json();
+    } catch (err) {
+      console.error('Contribs fetch failed for', baseUrl, err);
+    }
+  }
+
+  throw new Error('All contribution feed URLs failed');
 }
 
 function renderContribCard(item = {}) {
