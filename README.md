@@ -35,8 +35,9 @@
 
 Recent GitHub activity is fetched at runtime from the public feed stored in the
 [`uxillary/automated`](https://github.com/uxillary/automated) repository. The
-frontend fetches `https://raw.githubusercontent.com/uxillary/automated/main/contributions.json`
-with a small cache-buster so new events appear without redeploying this site.
+frontend requests `/public/contributions.json` (served from this repository) with
+a small cache-buster so new events appear without redeploying this site, and
+falls back to the hosted feed on GitHub Pages if necessary.
 
 The automated repository owns the scheduled workflow that keeps
 `contributions.json` up to date. The workflow (`.github/workflows/update-contribs.yml`)

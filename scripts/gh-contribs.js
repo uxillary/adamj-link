@@ -1,9 +1,49 @@
 const CONTRIB_FEED_URLS = [
-  'https://uxillary.github.io/automated/contributions.json',
-  '/contributions.json'
+  '/public/contributions.json',
+  'https://uxillary.github.io/automated/contributions.json'
 ];
 
 const IGNORED_TYPES = new Set(['Create', 'Delete']);
+
+const ACCENT_PALETTE = [
+  '#55e6a5',
+  '#60a5fa',
+  '#f97316',
+  '#a78bfa',
+  '#f472b6',
+  '#22d3ee',
+  '#f87171',
+  '#34d399'
+];
+
+function accentFromRepo(repo = '') {
+  if (!repo) return ACCENT_PALETTE[0];
+
+  let hash = 0;
+  for (let i = 0; i < repo.length; i += 1) {
+    hash = (hash << 5) - hash + repo.charCodeAt(i);
+    hash |= 0; // eslint-disable-line no-bitwise
+  }
+
+  const index = Math.abs(hash) % ACCENT_PALETTE.length;
+  return ACCENT_PALETTE[index];
+}
+
+const TYPE_LABELS = {
+  IssueComment: 'Issue comment',
+  PullRequestReviewComment: 'Review comment',
+  PullRequestReview: 'PR review',
+  PullRequest: 'Pull request',
+  Issues: 'Issue opened',
+  PR: 'Pull request',
+  Merge: 'PR merged',
+  Commit: 'Commit'
+};
+
+function formatType(type = '') {
+  if (!type) return '';
+  return TYPE_LABELS[type] || type.replace(/([a-z])([A-Z])/g, '$1 $2');
+}
 
 async function fetchContributions() {
   const ts = Date.now();
@@ -27,13 +67,19 @@ function renderContribCard(item = {}) {
   const href = item.url || '#';
   const title = item.title || 'Update';
   const repo = item.repo || 'repo';
-  const meta = [item.type, item.shortRef, item.timeAgo].filter(Boolean).join(' • ');
+  const accent = item.accent || accentFromRepo(repo);
+  const type = formatType(item.type);
+  const meta = [item.shortRef, item.timeAgo].filter(Boolean).join(' • ');
 
   return `
-    <a class="contrib-card" href="${href}" target="_blank" rel="noopener">
-      <div class="contrib-meta">${repo}</div>
+    <a class="contrib-card" href="${href}" target="_blank" rel="noopener" style="--accent:${accent}">
+      <div class="contrib-card-header">
+        <span class="contrib-indicator" aria-hidden="true"></span>
+        <span class="contrib-repo">${repo}</span>
+        ${type ? `<span class="contrib-type">${type}</span>` : ''}
+      </div>
       <div class="contrib-title">${title}</div>
-      <div class="contrib-meta">${meta}</div>
+      ${meta ? `<div class="contrib-meta">${meta}</div>` : ''}
     </a>
   `;
 }
@@ -64,7 +110,10 @@ function normalizeItems(rawItems) {
     seen.add(key);
 
     return true;
-  });
+  }).map((item) => ({
+    ...item,
+    accent: item.color || accentFromRepo(item.repo)
+  }));
 }
 
 async function initContribs() {
