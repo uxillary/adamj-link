@@ -42,10 +42,11 @@ jobs:
           (async () => {
             const { data: events } = await octokit.request('GET /users/{username}/events/public', {
               username: GH_USERNAME,
-              per_page: 50
+              per_page: 100
             });
 
             const items = [];
+            const seenUrls = new Set();
             for (const ev of events) {
               const type = ev.type;
               const repoName = ev.repo?.name || '';
@@ -75,6 +76,16 @@ jobs:
                 title = repo;
                 url = `https://github.com/${repoName}`;
               }
+
+              if (!url) {
+                continue;
+              }
+
+              if (seenUrls.has(url)) {
+                continue;
+              }
+
+              seenUrls.add(url);
 
               items.push({
                 repo,
