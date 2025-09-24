@@ -63,13 +63,20 @@ a:not([class]):hover{ text-decoration-color:#55e6a5 }
 .spin.spin-anim{ transform: rotate(180deg) }
 
 /* Currently building — glassy feature cards */
-.cb{ counter-reset: item }
+.cb{
+  counter-reset: item;
+  grid-auto-rows: 1fr;
+}
+.cb > li{
+  display:flex;
+}
 .cb-item{
   position: relative;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   background: linear-gradient(to bottom, rgba(255,255,255,.06), rgba(255,255,255,.02));
   border: 1px solid var(--border);
+  height: 100%;
 }
 .dark .cb-item{ background: linear-gradient(to bottom, rgba(0,0,0,.20), rgba(0,0,0,.10)) }
 .cb-item:hover{ border-color: rgba(85,230,165,.55); transform:none; box-shadow:none }
