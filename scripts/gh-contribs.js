@@ -1,7 +1,7 @@
 // gh-contribs.js — compact “micro-card” renderer
 (function(){
   const SOURCE = '/public/contributions.json';
-  const FALLBACK_AVATAR = 'https://avatars.githubusercontent.com/u/2219901?v=4';
+  const FALLBACK_AVATAR = 'https://avatars.githubusercontent.com/u/22217717?v=4';
   const mount = document.getElementById('ossList');
   if(!mount) return;
 
