@@ -133,7 +133,10 @@ a:not([class]):hover{ text-decoration-color:#55e6a5 }
 .soft-hr { height:1px; background:linear-gradient(90deg,transparent,var(--border),transparent); }
 .t-card { border:1px solid var(--border); border-radius:var(--r); padding:1rem; background:color-mix(in oklab,var(--surface) 98%,var(--text) 2%); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); transition: border-color .18s ease, transform .18s ease; }
 .t-card:hover { border-color: rgba(85,230,165,.55); transform: translateY(-1px) scale(1.01); }
-.clamp-2{ display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden }
+.clamp-1,
+.clamp-2{ display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden }
+.clamp-1{ -webkit-line-clamp:1 }
+.clamp-2{ -webkit-line-clamp:2 }
   .badge{ display:inline-flex; align-items:center; gap:.25rem; padding:0 .4rem; border-radius:6px; border:1px solid var(--border); font-size:.65rem; line-height:1.4; color:color-mix(in oklab,var(--text) 70%,var(--surface) 30%); background:color-mix(in oklab,var(--surface) 96%,var(--text) 4%) }
   .badge svg{ width:.75rem; height:.75rem }
 
@@ -208,4 +211,67 @@ a:not([class]):hover{ text-decoration-color:#55e6a5 }
   display:flex;
   gap:8px;
   flex-wrap:wrap;
+}
+
+/* OSS micro-cards */
+.oss-grid{ display:grid; grid-template-columns:repeat(1,minmax(0,1fr)); gap:.6rem }
+@media(min-width:640px){ .oss-grid{ grid-template-columns:repeat(2,minmax(0,1fr)) } }
+@media(min-width:768px){ .oss-grid{ grid-template-columns:repeat(3,minmax(0,1fr)) } }
+@media(min-width:1280px){ .oss-grid{ grid-template-columns:repeat(4,minmax(0,1fr)) } }
+
+.oss-card{
+  display:flex; flex-direction:column; gap:.55rem;
+  padding:.85rem; border:1px solid var(--border); border-radius:var(--r);
+  background:color-mix(in oklab,var(--surface) 98%,var(--text) 2%);
+  transition:border-color .18s ease, transform .18s ease;
+  text-decoration:none; color:inherit;
+}
+.dark .oss-card{ background:linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.06)) }
+.oss-card:hover{ border-color:rgba(85,230,165,.55); transform:translateY(-1px) }
+.oss-card:focus-visible{ outline:2px solid rgba(85,230,165,.55); outline-offset:3px; border-color:rgba(85,230,165,.55) }
+
+.oss-head{ display:flex; gap:.55rem; align-items:center; min-width:0 }
+.oss-ava{ width:32px; height:32px; border-radius:9999px; background:#111; overflow:hidden; flex:0 0 32px; object-fit:cover; box-shadow:0 0 0 1px rgba(0,0,0,.12) }
+.dark .oss-ava{ box-shadow:0 0 0 1px rgba(255,255,255,.08) }
+.oss-dot{ width:6px; height:6px; border-radius:9999px; margin-left:auto; opacity:.9; flex:0 0 6px }
+.oss-repo{ font-weight:600; line-height:1.2; font-size:.88rem }
+.oss-title{ margin-top:.1rem; color:color-mix(in oklab,var(--text) 70%,var(--surface) 30%); line-height:1.3; font-size:.8rem }
+
+.oss-pill{
+  align-self:flex-start; margin-top:.2rem;
+  font-size:.66rem; text-transform:uppercase; letter-spacing:.08em;
+  padding:.18rem .45rem; border-radius:9999px; border:1px solid var(--border);
+  color:color-mix(in oklab,var(--text) 68%,var(--surface) 32%);
+  background:color-mix(in oklab,var(--surface) 96%,var(--text) 4%);
+}
+
+.oss-meta{
+  display:flex; gap:.5rem; align-items:center; margin-top:.15rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size:.7rem; color:color-mix(in oklab,var(--text) 58%,var(--surface) 42%);
+}
+.oss-meta .sep{ opacity:.45 }
+.oss-sha{ opacity:.8 }
+
+.tetris-loader{ display:grid; grid-template-columns:repeat(4,10px); gap:3px }
+.tetris-loader span{
+  width:10px; height:10px; border-radius:3px;
+  background:linear-gradient(135deg,#55e6a5,rgba(85,230,165,.45));
+  animation:tetrisBounce 1.2s ease-in-out infinite;
+}
+.tetris-loader span:nth-child(2){ animation-delay:.1s }
+.tetris-loader span:nth-child(3){ animation-delay:.2s }
+.tetris-loader span:nth-child(4){ animation-delay:.3s }
+.tetris-loader span:nth-child(5){ animation-delay:.4s }
+.tetris-loader span:nth-child(6){ animation-delay:.5s }
+.tetris-loader span:nth-child(7){ animation-delay:.6s }
+.tetris-loader span:nth-child(8){ animation-delay:.7s }
+.tetris-loader span:nth-child(9){ animation-delay:.8s }
+.tetris-loader span:nth-child(10){ animation-delay:.9s }
+.tetris-loader span:nth-child(11){ animation-delay:1s }
+.tetris-loader span:nth-child(12){ animation-delay:1.1s }
+
+@keyframes tetrisBounce{
+  0%,100%{ transform:translateY(0); opacity:.85 }
+  50%{ transform:translateY(-4px); opacity:1 }
 }
