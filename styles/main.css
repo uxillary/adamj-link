@@ -33,6 +33,32 @@ a:not([class]){ text-decoration:underline; text-decoration-color:rgba(85,230,165
 a:not([class]):hover{ text-decoration-color:#55e6a5 }
 ::selection{ background:rgba(85,230,165,.35); color:var(--text) }
 
+/* === Custom Scrollbar Styling === */
+/* Applies site-wide, ties into brand/accent */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #55e6a5, #ff6347);
+  border-radius: 9999px;
+  transition: background .25s, box-shadow .25s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #7cfcc0, #ff7b62);
+  box-shadow: 0 0 6px rgba(85,230,165,.6), 0 0 6px rgba(255,99,71,.5);
+}
+
+/* Firefox support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #55e6a5 transparent;
+}
+
 /* Focus ring */
 .focus-ring:focus{ outline:none; box-shadow:0 0 0 3px var(--ring) }
 
