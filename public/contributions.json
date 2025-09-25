@@ -1,13 +1,53 @@
 {
-  "generatedAt": "2025-09-25T01:16:52.619Z",
+  "generatedAt": "2025-09-25T12:36:38.463Z",
   "items": [
+    {
+      "repo": "4ttp",
+      "title": "Add constants module and enhance UI and game logic",
+      "type": "Push",
+      "url": "https://github.com/uxillary/4ttp/commit/807c5886d567fa5f0ae412440b5a3ba3701dcc04",
+      "shortRef": "807c588",
+      "timeAgo": "15 hours ago"
+    },
+    {
+      "repo": "4ttp",
+      "title": "4ttp",
+      "type": "Delete",
+      "url": "https://github.com/uxillary/4ttp",
+      "shortRef": "",
+      "timeAgo": "17 hours ago"
+    },
+    {
+      "repo": "4ttp",
+      "title": "Merge pull request #2 from uxillary/codex/troubleshoot-blank-screen-issue",
+      "type": "Push",
+      "url": "https://github.com/uxillary/4ttp/commit/f3e782d78cebaa2a728f03eef568296ed9b19dea",
+      "shortRef": "f3e782d",
+      "timeAgo": "17 hours ago"
+    },
+    {
+      "repo": "4ttp",
+      "title": "Fix UI readiness events to restore game rendering",
+      "type": "PullRequest",
+      "url": "https://github.com/uxillary/4ttp/pull/2",
+      "shortRef": "#2",
+      "timeAgo": "17 hours ago"
+    },
+    {
+      "repo": "4ttp",
+      "title": "Fix UI scene readiness handling",
+      "type": "Push",
+      "url": "https://github.com/uxillary/4ttp/commit/fbca14ccedd4ec79a516ddb1b3723b6418c82c79",
+      "shortRef": "fbca14c",
+      "timeAgo": "17 hours ago"
+    },
     {
       "repo": "4ttp",
       "title": "Initial project setup and core game implementation",
       "type": "Push",
       "url": "https://github.com/uxillary/4ttp/commit/d1c900e21273ea36b08615c29d06c4c2f93918ee",
       "shortRef": "d1c900e",
-      "timeAgo": "9 hours ago"
+      "timeAgo": "20 hours ago"
     },
     {
       "repo": "4ttp",
@@ -15,7 +55,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/4ttp/commit/4a34f7d2039faedc9267bdfcb7f127baf19550e5",
       "shortRef": "4a34f7d",
-      "timeAgo": "13 hours ago"
+      "timeAgo": "a day ago"
     },
     {
       "repo": "synthtax",
@@ -23,47 +63,7 @@
       "type": "Delete",
       "url": "https://github.com/uxillary/synthtax",
       "shortRef": "",
-      "timeAgo": "5 days ago"
-    },
-    {
-      "repo": "synthtax",
-      "title": "Merge pull request #14 from uxillary/codex/add-remixing-feature-for-songs",
-      "type": "Push",
-      "url": "https://github.com/uxillary/synthtax/commit/647d94fc58481e4532e62f300b5fc5add4a3b014",
-      "shortRef": "647d94f",
-      "timeAgo": "5 days ago"
-    },
-    {
-      "repo": "synthtax",
-      "title": "Add beat command for auto-generated drum grooves",
-      "type": "PullRequest",
-      "url": "https://github.com/uxillary/synthtax/pull/14",
-      "shortRef": "#14",
-      "timeAgo": "5 days ago"
-    },
-    {
-      "repo": "synthtax",
-      "title": "Add beat command for auto-generated drum grooves",
-      "type": "Push",
-      "url": "https://github.com/uxillary/synthtax/commit/72f2812c830a43b50d60090293a95d4776f94313",
-      "shortRef": "72f2812",
-      "timeAgo": "5 days ago"
-    },
-    {
-      "repo": "reddi",
-      "title": "creating interactive post",
-      "type": "Issues",
-      "url": "https://github.com/uxillary/reddi/issues/28",
-      "shortRef": "#28",
-      "timeAgo": "5 days ago"
-    },
-    {
-      "repo": "reddi",
-      "title": "reddi",
-      "type": "Delete",
-      "url": "https://github.com/uxillary/reddi",
-      "shortRef": "",
-      "timeAgo": "5 days ago"
+      "timeAgo": "6 days ago"
     }
   ]
 }
