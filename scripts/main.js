@@ -190,39 +190,77 @@ toggle.addEventListener('click', () => {
 
   countUp(el, n); // local count first
 
-  const cacheKey = 'aj_views_global';
+  const uniqueToggle = document.getElementById('viewsUniqueToggle');
+  const cacheKeyBase = 'aj_views_global';
   const maxAge = 15 * 60 * 1000;
-  const now = Date.now();
 
-  try {
-    const cached = sessionStorage.getItem(cacheKey);
-    if (cached) {
-      const { v, t } = JSON.parse(cached);
-      if (typeof v === 'number' && now - t < maxAge) {
-        wrap.title = 'Global views';
-        countUp(el, v);
-        return;
-      }
-    }
-  } catch {}
+  const cacheKeyFor = (isUnique) => `${cacheKeyBase}_${isUnique ? 'unique' : 'all'}`;
 
-  document.addEventListener('DOMContentLoaded', async () => {
+  async function fetchViewsCount(){
     const path = encodeURIComponent(location.pathname);
+    const isUnique = uniqueToggle?.checked;
     try {
-      let res = await fetch(`/api/views?path=${path}`, { method: 'POST' });
+      let res = await fetch(`/api/views?path=${path}`, {
+        method: 'POST',
+        headers: { 'x-unique': isUnique ? '1' : '0' }
+      });
       if (!res.ok) {
-        res = await fetch(`/api/views?path=${path}`);
+        const fallbackUrl = `/api/views?path=${path}${isUnique ? '&unique=1' : ''}`;
+        res = await fetch(fallbackUrl);
       }
-      const d = res.ok ? await res.json() : null;
-      if (!d || typeof d.count !== 'number') { el.title = 'Temporarily unavailable'; return; }
-      wrap.title = 'Global views';
-      el.removeAttribute('title');
-      countUp(el, d.count);
-      sessionStorage.setItem(cacheKey, JSON.stringify({ v: d.count, t: Date.now() }));
+      if (!res.ok) return null;
+      const data = await res.json().catch(() => null);
+      return (data && typeof data.count === 'number') ? data.count : null;
     } catch {
-      el.title = 'Temporarily unavailable';
+      return null;
     }
+  }
+
+  async function updateViews({ force = false } = {}){
+    const isUnique = !!uniqueToggle?.checked;
+    const cacheKey = cacheKeyFor(isUnique);
+    const now = Date.now();
+
+    if (!force) {
+      try {
+        const cached = sessionStorage.getItem(cacheKey);
+        if (cached) {
+          const { v, t } = JSON.parse(cached);
+          if (typeof v === 'number' && now - t < maxAge) {
+            wrap.title = isUnique ? 'Unique views' : 'Global views';
+            el.removeAttribute('title');
+            setNumber('views', v);
+            return v;
+          }
+        }
+      } catch {}
+    }
+
+    const value = await fetchViewsCount();
+    if (typeof value === 'number') {
+      wrap.title = isUnique ? 'Unique views' : 'Global views';
+      el.removeAttribute('title');
+      setNumber('views', value);
+      try {
+        sessionStorage.setItem(cacheKey, JSON.stringify({ v: value, t: Date.now() }));
+      } catch {}
+      return value;
+    }
+
+    el.title = 'Temporarily unavailable';
+    wrap.title = 'Temporarily unavailable';
+    return null;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    updateViews();
+    uniqueToggle?.addEventListener('change', async () => {
+      await updateViews({ force: true });
+      updateAsOf();
+    });
   });
+
+  window.__ajUpdateViews = (options) => updateViews(options || {});
 })();
 
 
@@ -471,6 +509,65 @@ const MIRRORS = {
   'blog-counter': 'statBlog'
 };
 
+const SAMPLE_KEY = 'aj_stat_samples_v1';
+let SAMPLE_CACHE = null;
+
+function loadSamples(){
+  if(SAMPLE_CACHE) return SAMPLE_CACHE;
+  if(typeof sessionStorage === 'undefined'){
+    SAMPLE_CACHE = {};
+    return SAMPLE_CACHE;
+  }
+  try{
+    const raw = sessionStorage.getItem(SAMPLE_KEY);
+    SAMPLE_CACHE = raw ? JSON.parse(raw) : {};
+  }catch{
+    SAMPLE_CACHE = {};
+  }
+  return SAMPLE_CACHE;
+}
+
+function saveSamples(obj){
+  SAMPLE_CACHE = obj;
+  if(typeof sessionStorage === 'undefined') return;
+  try{
+    sessionStorage.setItem(SAMPLE_KEY, JSON.stringify(obj));
+  }catch{}
+}
+
+function pushSample(id, value, limit=10){
+  if(!Number.isFinite(value)) return [];
+  const samples = loadSamples();
+  const arr = Array.isArray(samples[id]) ? samples[id] : [];
+  arr.push({ t: Date.now(), v: value });
+  while(arr.length > limit){ arr.shift(); }
+  samples[id] = arr;
+  saveSamples(samples);
+  return arr;
+}
+
+function sparklinePath(values, w=80, h=22){
+  if(!values || values.length < 2) return '';
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const range = Math.max(1, max - min);
+  const step = w / (values.length - 1);
+  let d = '';
+  values.forEach((v, i) => {
+    const x = i * step;
+    const y = h - ((v - min) / range) * h;
+    d += (i ? ' L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1);
+  });
+  return d;
+}
+
+function updateAsOf(){
+  const el = document.getElementById('analyticsAsOf');
+  if(!el) return;
+  const d = new Date();
+  el.textContent = `Updated ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+}
+
 function fmt(n){
   return new Intl.NumberFormat('en-GB').format(n);
 }
@@ -496,8 +593,49 @@ function countUp(el, to, ms=800){
 }
 
 function setNumber(id, value){
+  if(!Number.isFinite(value)) return;
   const el = document.getElementById(id);
-  if(el) countUp(el, value);
+  if(el){
+    countUp(el, value);
+    const container = el.closest('.stat-pill') || el.closest('.stat-link');
+    if(container){
+      const samples = pushSample(id, value);
+      const prev = samples.length > 1 ? samples[samples.length - 2].v : null;
+      const delta = prev == null ? 0 : value - prev;
+
+      let badge = container.querySelector('.stat-delta');
+      if(!badge){
+        badge = document.createElement('span');
+        badge.className = 'stat-delta delta-flat';
+        el.after(badge);
+      }
+
+      if(prev != null){
+        const cls = delta > 0 ? 'delta-up' : delta < 0 ? 'delta-down' : 'delta-flat';
+        badge.className = 'stat-delta ' + cls;
+        const sign = delta > 0 ? '+' : '';
+        badge.textContent = `${sign}${Math.round(delta).toLocaleString('en-GB')}`;
+      }else{
+        badge.className = 'stat-delta delta-flat';
+        badge.textContent = '—';
+      }
+
+      let spark = container.querySelector('.stat-spark');
+      if(!spark){
+        spark = document.createElement('div');
+        spark.className = 'stat-spark';
+        spark.innerHTML = '<svg viewBox="0 0 80 22" aria-hidden="true" focusable="false"><path></path></svg>';
+        spark.setAttribute('aria-hidden', 'true');
+        container.appendChild(spark);
+      }
+      const pathEl = spark.querySelector('path');
+      if(pathEl){
+        const series = samples.map((s) => Number(s.v) || 0);
+        pathEl.setAttribute('d', sparklinePath(series));
+      }
+    }
+    updateAsOf();
+  }
   const mirrorId = MIRRORS[id];
   if(mirrorId){
     const mirrorEl = document.getElementById(mirrorId);
@@ -505,7 +643,7 @@ function setNumber(id, value){
   }
 }
 
-async function refreshCounters(){
+async function refreshCounters(force = false){
   const maxAge = 10 * 60 * 1000;
   const now = Date.now();
   for(const {id, url} of COUNTERS){
@@ -513,7 +651,7 @@ async function refreshCounters(){
     if(!el) continue;
     try{
       const cached = sessionStorage.getItem(id);
-      if(cached){
+      if(cached && !force){
         const {v, t} = JSON.parse(cached);
         if(now - t < maxAge){
           setNumber(id, v);
@@ -526,24 +664,53 @@ async function refreshCounters(){
       const num = parseInt(txt.trim(), 10);
       if(!Number.isFinite(num)) throw new Error('NaN');
       setNumber(id, num);
-      sessionStorage.setItem(id, JSON.stringify({v:num, t:now}));
+      try{
+        sessionStorage.setItem(id, JSON.stringify({v:num, t:now}));
+      }catch{}
       el.removeAttribute('title');
     }catch{
       el.title = 'Temporarily unavailable';
     }
   }
+  updateAsOf();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   const analyticsSection = document.getElementById('views')?.closest('section');
-  if(!analyticsSection) return;
-  const obs = new IntersectionObserver((entries, observer) => {
-    if(entries.some(e => e.isIntersecting)){
-      refreshCounters();
-      observer.disconnect();
-    }
-  }, { threshold:0.3 });
-  obs.observe(analyticsSection);
+  if(analyticsSection){
+    const obs = new IntersectionObserver((entries, observer) => {
+      if(entries.some(e => e.isIntersecting)){
+        refreshCounters();
+        observer.disconnect();
+      }
+    }, { threshold:0.3 });
+    obs.observe(analyticsSection);
+  }
+
+  const refreshBtn = document.getElementById('analyticsRefresh');
+  if(refreshBtn){
+    let refreshing = false;
+    refreshBtn.addEventListener('click', async () => {
+      if(refreshing) return;
+      refreshing = true;
+      refreshBtn.disabled = true;
+      refreshBtn.setAttribute('aria-disabled', 'true');
+      try{
+        const tasks = [refreshCounters(true)];
+        if(typeof window.__ajUpdateViews === 'function'){
+          tasks.push(window.__ajUpdateViews({ force: true }));
+        }
+        await Promise.all(tasks);
+      }catch(err){
+        console.error('Analytics refresh failed:', err);
+      }finally{
+        refreshBtn.disabled = false;
+        refreshBtn.removeAttribute('aria-disabled');
+        refreshing = false;
+        updateAsOf();
+      }
+    });
+  }
 });
 
 // Tabs: Projects showcase

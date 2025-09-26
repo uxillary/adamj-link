@@ -232,17 +232,42 @@ html, body { overflow-x: hidden; }
 
 /* Stat pills */
 .stat-pill{
-  display:grid; grid-template-columns:auto 1fr; column-gap:.5rem; align-items:baseline;
-  padding:.4rem .6rem; border-radius:8px;
-  border:1px solid var(--border); background:color-mix(in oklab,var(--surface) 98%,var(--text) 2%);
+  display:flex;
+  align-items:center;
+  gap:.45rem;
+  flex-wrap:wrap;
+  padding:.4rem .6rem;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:color-mix(in oklab,var(--surface) 98%,var(--text) 2%);
 }
 .dark .stat-pill{ background:linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.05)) }
 .stat-pill .label{ font-size:.75rem; color:color-mix(in oklab,var(--text) 65%,var(--surface) 35%) }
 .stat-pill .value{ font-size:1rem; font-weight:600; color:var(--text); }
 #activity .section-head{ margin-bottom:.75rem }
-#activity .stat-pill{ grid-template-columns:auto auto; column-gap:.4rem }
+#activity .stat-pill{ gap:.4rem }
 #activity .stat-pill .label{ font-size:.72rem }
 #activity .stat-pill .value{ line-height:1 }
+
+/* Stat pill link + focus */
+.stat-link{ text-decoration:none; color:inherit }
+.stat-link:focus-visible{ outline:2px solid rgba(85,230,165,.55); outline-offset:3px; border-color:rgba(85,230,165,.55) }
+
+/* Sparkline container */
+.stat-spark{ height:22px; margin-left:auto; opacity:.9; flex:0 0 auto }
+.stat-spark svg{ display:block; width:80px; height:22px }
+.stat-spark path{ fill:none; stroke:currentColor; stroke-width:1.5; opacity:.6 }
+
+/* Delta badge */
+.stat-delta{
+  font-size:.7rem; padding:.05rem .35rem; border-radius:9999px;
+  border:1px solid var(--border);
+  margin-left:.35rem;
+  font-variant-numeric:tabular-nums;
+}
+.delta-up{ color:#22c55e }
+.delta-down{ color:#f87171 }
+.delta-flat{ color:color-mix(in oklab,var(--text) 70%,var(--surface) 30%) }
 .activity-divider{ margin:.75rem 0 1rem; height:1px; background:linear-gradient(90deg, transparent, var(--border), transparent) }
 #activity .oss-card{ border-color:color-mix(in oklab, var(--border) 92%, transparent) }
 #activity .oss-card:hover{ border-color:rgba(85,230,165,.55) }

@@ -338,29 +338,44 @@
 
       <!-- Counters -->
       <div class="activity-counters grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
-        <div class="stat-pill" title="Local device session views">
+        <a class="stat-pill stat-link" href="#activity" title="Local device session views">
           <span class="label">page views</span>
           <span id="views" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
-        </div>
-        <div class="stat-pill" title="Blog posts total">
+        </a>
+        <a class="stat-pill stat-link" href="https://infinitecurios.blog" title="Blog posts total" rel="noopener noreferrer">
           <span class="label">blog posts</span>
           <span id="blog-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
-        </div>
-        <div class="stat-pill" title="YouTube videos">
+        </a>
+        <a class="stat-pill stat-link" href="https://www.youtube.com/@admjski" title="YouTube videos" rel="noopener noreferrer">
           <span class="label">youtube videos</span>
           <span id="youtube-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
-        </div>
-        <div class="stat-pill" title="Public repos">
+        </a>
+        <a class="stat-pill stat-link" href="https://github.com/uxillary?tab=repositories" title="Public repos" rel="noopener noreferrer">
           <span class="label">public repos</span>
           <span id="repo-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
-        </div>
-        <div class="stat-pill" title="GitHub contributions (2025)">
+        </a>
+        <a class="stat-pill stat-link" href="https://github.com/uxillary" title="GitHub contributions (2025)" rel="noopener noreferrer">
           <span class="label">contributions</span>
           <span id="gh-contributions" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
-        </div>
-        <div class="stat-pill" title="Total subscribers">
+        </a>
+        <a class="stat-pill stat-link" href="https://uxillary.github.io/automated/total-subscribers.txt" title="Total subscribers" rel="noopener noreferrer">
           <span class="label">subscribers</span>
           <span id="subscriber-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
+        </a>
+      </div>
+
+      <div class="flex items-center justify-between mt-2 text-xs text-zinc-500">
+        <div class="flex items-center gap-3">
+          <label class="inline-flex items-center gap-2 cursor-pointer select-none">
+            <input id="viewsUniqueToggle" type="checkbox" class="accent-brand" aria-label="Count unique daily views" />
+            <span>Unique views</span>
+          </label>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="analyticsRefresh" type="button" class="p-1 rounded focus-ring text-zinc-400 hover:text-brand" aria-label="Refresh analytics">
+            <svg width="14" height="14" class="icon-line" aria-hidden="true"><use href="/public/icons.svg#refresh"></use></svg>
+          </button>
+          <div id="analyticsAsOf">Updated just now</div>
         </div>
       </div>
 
