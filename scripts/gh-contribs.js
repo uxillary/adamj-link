@@ -23,31 +23,28 @@
     return t ? t : 'Update';
   };
 
-  const parseRelative = (value) => {
-    if(!value) return '';
-    if(/just now/i.test(value)) return 'just now';
-    const match = String(value).match(/(\d+)\s*(second|sec|minute|min|hour|day|week|month|year)s?/i);
-    if(!match) return value;
-    const amount = parseInt(match[1], 10);
-    const unit = match[2].toLowerCase();
-    const symbol = unit.startsWith('year') ? 'y'
-      : unit.startsWith('month') ? 'mo'
-      : unit.startsWith('week') ? 'w'
-      : unit.startsWith('day') ? 'd'
-      : unit.startsWith('hour') ? 'h'
-      : 'm';
-    return `${amount}${symbol} ago`;
+  const parseRelativeToSeconds = (value) => {
+    if(!value) return null;
+    if(/just now/i.test(value)) return 0;
+    const normalized = String(value).toLowerCase().trim().replace(/about\s+|approximately\s+/g, '');
+    const match = normalized.match(/(?:(\d+)|an?|one)\s*(second|sec|minute|min|hour|day|week|month|year)s?/);
+    if(!match) return null;
+    const amount = match[1] ? parseInt(match[1], 10) : 1;
+    const unit = match[2];
+    const seconds = unit.startsWith('year') ? amount * 365 * 24 * 3600
+      : unit.startsWith('month') ? amount * 30 * 24 * 3600
+      : unit.startsWith('week') ? amount * 7 * 24 * 3600
+      : unit.startsWith('day') ? amount * 24 * 3600
+      : unit.startsWith('hour') ? amount * 3600
+      : unit.startsWith('min') ? amount * 60
+      : amount;
+    return seconds;
   };
 
-  const ago = (item) => {
-    if(item.timeAgo) return parseRelative(item.timeAgo);
-    const ts = item.date || item.createdAt || item.timestamp;
-    if(!ts) return '';
-    const d = new Date(ts);
-    if(Number.isNaN(d.getTime())) return '';
-    const diff = Math.floor((Date.now() - d.getTime()) / 1000);
-    if (diff < 60) return 'just now';
-    const minutes = Math.floor(diff / 60);
+  const formatRelativeFromSeconds = (seconds) => {
+    if(seconds <= 0) return 'just now';
+    if (seconds < 60) return `${Math.floor(seconds)}s ago`;
+    const minutes = Math.floor(seconds / 60);
     if (minutes < 60) return `${minutes}m ago`;
     const hours = Math.floor(minutes / 60);
     if (hours < 24) return `${hours}h ago`;
@@ -59,6 +56,54 @@
     if (months < 12) return `${months}mo ago`;
     const years = Math.floor(days / 365);
     return `${years}y ago`;
+  };
+
+  const formatRelativeLabel = (value) => {
+    if(!value) return '';
+    const seconds = parseRelativeToSeconds(value);
+    if(seconds == null) return value;
+    return formatRelativeFromSeconds(seconds);
+  };
+
+  let baseGeneratedAt = Date.now();
+  let ticker = null;
+
+  const resolveTimestamp = (item) => {
+    if(!item || typeof item !== 'object') return NaN;
+    const direct = item.date || item.createdAt || item.timestamp || item.datetime || item.time || item.occurredAt;
+    if(direct !== undefined){
+      if(typeof direct === 'number' && Number.isFinite(direct)) return direct;
+      const parsed = new Date(direct);
+      const ms = parsed.getTime();
+      if(!Number.isNaN(ms)) return ms;
+    }
+    const seconds = parseRelativeToSeconds(item.timeAgo);
+    if(seconds == null) return NaN;
+    const origin = Number.isFinite(baseGeneratedAt) ? baseGeneratedAt : Date.now();
+    return origin - seconds * 1000;
+  };
+
+  const formatInitialTime = (item, ts) => {
+    if(Number.isFinite(ts)){
+      const seconds = Math.max(0, Math.floor((Date.now() - ts) / 1000));
+      return formatRelativeFromSeconds(seconds);
+    }
+    return formatRelativeLabel(item.timeAgo);
+  };
+
+  const updateTimes = () => {
+    const now = Date.now();
+    mount.querySelectorAll('[data-ts]').forEach((node) => {
+      const ts = Number(node.getAttribute('data-ts'));
+      if(!Number.isFinite(ts)) return;
+      const seconds = Math.max(0, Math.floor((now - ts) / 1000));
+      node.textContent = formatRelativeFromSeconds(seconds);
+    });
+  };
+
+  const ensureTicker = () => {
+    if(ticker) return;
+    ticker = setInterval(updateTimes, 60 * 1000);
   };
 
   const uniqueItems = (items) => {
@@ -101,7 +146,9 @@
       const type = pillLabel(it.type || it.kind);
       const ref = (it.shortRef || it.sha || it.id || it.number || '').toString().trim();
       const hash = ref ? ref.slice(0, 10) : '';
-      const when = ago(it);
+      const ts = resolveTimestamp(it);
+      const when = formatInitialTime(it, ts);
+      const timeAttr = Number.isFinite(ts) ? ` data-ts="${ts}"` : '';
 
       return `
         <a class="oss-card" href="${href}" rel="noopener noreferrer">
@@ -116,12 +163,14 @@
           <span class="oss-pill">${type}</span>
           <div class="oss-meta">
             ${hash ? `<span class="oss-sha">${hash}</span><span class="sep">•</span>` : ''}
-            <span>${when}</span>
+            <span class="oss-time"${timeAttr}>${when}</span>
           </div>
         </a>
       `;
     }).join('');
     mount.removeAttribute('aria-busy');
+    updateTimes();
+    ensureTicker();
   };
 
   async function load(){
@@ -129,6 +178,8 @@
     try{
       const res = await fetch(SOURCE, { cache: 'reload' });
       const data = await res.json();
+      const generatedAt = data && data.generatedAt ? new Date(data.generatedAt).getTime() : Date.now();
+      baseGeneratedAt = Number.isNaN(generatedAt) ? Date.now() : generatedAt;
       const raw = Array.isArray(data) ? data : (data && data.items) || [];
       const items = uniqueItems(raw).slice(0, 8);
       render(items);
