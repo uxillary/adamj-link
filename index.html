@@ -328,48 +328,49 @@
       </div>
     </section>
 
-    <section class="section" id="activity">
-      <div class="t-card p-5 sm:p-6 space-y-6">
-        <div class="flex items-baseline justify-between gap-4">
-          <h2 class="font-semibold text-xl text-zinc-200 tracking-tight">Activity</h2>
-        </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-          <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 border border-zinc-800/60 bg-zinc-900/30" title="Local device session views">
-            <span class="text-xs text-zinc-500">page views</span>
-            <span class="tabular-nums font-semibold dark:text-white text-zinc-900" id="views" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
-          </div>
-          <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 border border-zinc-800/60 bg-zinc-900/30" title="Blog posts total">
-            <span class="text-xs text-zinc-500">blog posts</span>
-            <span class="tabular-nums font-semibold dark:text-white text-zinc-900" id="blog-counter" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
-          </div>
-          <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 border border-zinc-800/60 bg-zinc-900/30" title="YouTube videos">
-            <span class="text-xs text-zinc-500">youtube videos</span>
-            <span class="tabular-nums font-semibold dark:text-white text-zinc-900" id="youtube-counter" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
-          </div>
-          <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 border border-zinc-800/60 bg-zinc-900/30" title="Public repos">
-            <span class="text-xs text-zinc-500">public repos</span>
-            <span class="tabular-nums font-semibold dark:text-white text-zinc-900" id="repo-counter" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
-          </div>
-          <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 border border-zinc-800/60 bg-zinc-900/30" title="GitHub contributions (2025)">
-            <span class="text-xs text-zinc-500">contributions</span>
-            <span class="tabular-nums font-semibold dark:text-white text-zinc-900" id="gh-contributions" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
-          </div>
-          <div class="inline-flex items-baseline gap-2 px-2.5 py-1.5 border border-zinc-800/60 bg-zinc-900/30" title="Total subscribers">
-            <span class="text-xs text-zinc-500">subscribers</span>
-            <span class="tabular-nums font-semibold text-white" id="subscriber-counter" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
-          </div>
-        </div>
-        <div class="flex flex-wrap items-center justify-between gap-2">
-          <h3 class="font-semibold text-sm uppercase tracking-[0.3em] text-zinc-500">Open-source contributions</h3>
-          <button id="refreshContribs" type="button" class="text-zinc-400 hover:text-brand focus-ring" aria-label="Refresh contributions">
-            <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#refresh"></use></svg>
-          </button>
-        </div>
-        <div id="ossList" aria-live="polite">
-          <div class="t-card">Loading recent contributions…</div>
-        </div>
-        <a href="https://github.com/uxillary" class="block text-sm text-zinc-500 hover:text-brand">View all on GitHub →</a>
+    <section class="section" id="activity" aria-labelledby="activity-title">
+      <div class="section-head">
+        <h2 id="activity-title" class="font-semibold text-xl text-zinc-200 tracking-tight">Activity</h2>
+        <button id="refreshContribs" type="button" class="text-zinc-400 hover:text-brand focus-ring" aria-label="Refresh contributions">
+          <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#refresh"></use></svg>
+        </button>
       </div>
+
+      <!-- Counters -->
+      <div class="activity-counters grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+        <div class="stat-pill" title="Local device session views">
+          <span class="label">page views</span>
+          <span id="views" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
+        </div>
+        <div class="stat-pill" title="Blog posts total">
+          <span class="label">blog posts</span>
+          <span id="blog-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
+        </div>
+        <div class="stat-pill" title="YouTube videos">
+          <span class="label">youtube videos</span>
+          <span id="youtube-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
+        </div>
+        <div class="stat-pill" title="Public repos">
+          <span class="label">public repos</span>
+          <span id="repo-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
+        </div>
+        <div class="stat-pill" title="GitHub contributions (2025)">
+          <span class="label">contributions</span>
+          <span id="gh-contributions" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
+        </div>
+        <div class="stat-pill" title="Total subscribers">
+          <span class="label">subscribers</span>
+          <span id="subscriber-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 rounded animate-pulse"></span></span>
+        </div>
+      </div>
+
+      <div class="activity-divider" aria-hidden="true"></div>
+
+      <h3 class="eyebrow mt-4">Open-source contributions</h3>
+      <div id="ossList" class="mt-2" aria-live="polite">
+        <div class="t-card">Loading recent contributions…</div>
+      </div>
+      <a href="https://github.com/uxillary" class="block mt-3 text-sm text-zinc-500 hover:text-brand">View all on GitHub →</a>
     </section>
 
     <section class="section" id="writing">

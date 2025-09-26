@@ -91,4 +91,5 @@ strictly atomic—use Durable Objects if precision is critical.
 
 ## Change log
 
+- 2025-09-27 — Lightened Activity section with frameless layout, stat pills, and refined OSS card styling.
 - 2025-09-26 — Streamlined homepage sections (Projects tabs, Activity rollup, Writing grid, collapsible contact check).
