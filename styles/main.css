@@ -33,31 +33,36 @@ a:not([class]){ text-decoration:underline; text-decoration-color:rgba(85,230,165
 a:not([class]):hover{ text-decoration-color:#55e6a5 }
 ::selection{ background:rgba(85,230,165,.35); color:var(--text) }
 
-/* === Custom Scrollbar Styling === */
-/* Applies site-wide, ties into brand/accent */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+/* === Scoped brand scrollbar (subtle) === */
+/* Apply with .brand-scroll on specific overflow containers only */
+.brand-scroll::-webkit-scrollbar {
+  height: 6px;                 /* horizontal rails only */
+  width: 6px;                  /* in case of vertical use */
   background: transparent;
 }
-::-webkit-scrollbar-track {
+.brand-scroll::-webkit-scrollbar-track {
   background: transparent;
 }
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #55e6a5, #ff6347);
+.brand-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #55e6a5, #ff6347);
   border-radius: 9999px;
-  transition: background .25s, box-shadow .25s;
+  opacity: .6;                 /* dial back intensity */
+  transition: opacity .2s ease, box-shadow .2s ease;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #7cfcc0, #ff7b62);
-  box-shadow: 0 0 6px rgba(85,230,165,.6), 0 0 6px rgba(255,99,71,.5);
+.brand-scroll:hover::-webkit-scrollbar-thumb {
+  opacity: .85;                /* gentle lift on hover */
+  box-shadow: 0 0 4px rgba(85,230,165,.2), 0 0 4px rgba(255,99,71,.15);
 }
 
-/* Firefox support */
-* { 
+/* Firefox (scoped) */
+.brand-scroll {
   scrollbar-width: thin;
   scrollbar-color: #55e6a5 transparent;
+  overscroll-behavior-x: contain; /* stop parent from also scrolling */
 }
+
+/* Prevent page-level horizontal scrollbar altogether */
+html, body { overflow-x: hidden; }
 
 /* Upcoming scroller */
 .upcoming-wrap{
