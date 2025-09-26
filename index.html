@@ -183,25 +183,45 @@
     <!-- Upcoming projects -->
     <section class="section">
       <div class="t-card p-5 sm:p-6">
-        <h2 class="eyebrow">Upcoming projects</h2>
-        <ul class="grid grid-flow-col auto-cols-[minmax(220px,1fr)] gap-4 sm:gap-5 mt-4 overflow-x-auto pb-2">
-          <li class="t-card bg-zinc-900/40 border border-zinc-800/60 p-4 flex flex-col">
-            <span class="text-sm font-medium text-zinc-200">NASA Space Apps Challenge</span>
-            <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Global hackathon tackling NASA and ESA briefs with data-driven prototypes.</p>
-          </li>
-          <li class="t-card bg-zinc-900/40 border border-zinc-800/60 p-4 flex flex-col">
-            <span class="text-sm font-medium text-zinc-200">Chrome AI Challenge</span>
-            <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Exploring on-device AI features, building delightful browser-first experiments.</p>
-          </li>
-          <li class="t-card bg-zinc-900/40 border border-zinc-800/60 p-4 flex flex-col">
-            <span class="text-sm font-medium text-zinc-200">Chroma Awards</span>
-            <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Crafting a vibrant submission blending motion, sound, and playful UX.</p>
-          </li>
-          <li class="t-card bg-zinc-900/40 border border-zinc-800/60 p-4 flex flex-col">
-            <span class="text-sm font-medium text-zinc-200">Meta Horizon</span>
-            <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Building an interactive world that showcases immersive storytelling inside Horizon.</p>
-          </li>
-        </ul>
+        <div class="flex flex-wrap items-center gap-3">
+          <h2 class="eyebrow">Upcoming projects</h2>
+          <span class="text-[0.7rem] uppercase tracking-[0.3em] text-zinc-500 flex items-center gap-1">
+            <svg width="16" height="16" class="icon-line text-brand/80" aria-hidden="true"><use href="/public/icons.svg#arrow-right"></use></svg>
+            drag or scroll ↔
+          </span>
+        </div>
+        <p class="mt-3 text-sm text-zinc-400 leading-relaxed max-w-xl">A rolling lane of builds-in-progress, tuned for future hackathons and immersive drops. Scroll sideways or click-drag to explore the pipeline.</p>
+        <div class="upcoming-wrap mt-5" data-upcoming>
+          <ul class="upcoming-track" data-drag-scroll>
+            <li class="upcoming-card">
+              <div class="t-card bg-zinc-900/40 border border-zinc-800/60 p-4 flex flex-col">
+                <span class="text-sm font-medium text-zinc-200">NASA Space Apps Challenge</span>
+                <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Global hackathon tackling NASA and ESA briefs with data-driven prototypes.</p>
+              </div>
+            </li>
+            <li class="upcoming-card">
+              <div class="t-card bg-zinc-900/40 border border-zinc-800/60 p-4 flex flex-col">
+                <span class="text-sm font-medium text-zinc-200">Chrome AI Challenge</span>
+                <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Exploring on-device AI features, building delightful browser-first experiments.</p>
+              </div>
+            </li>
+            <li class="upcoming-card">
+              <div class="t-card bg-zinc-900/40 border border-zinc-800/60 p-4 flex flex-col">
+                <span class="text-sm font-medium text-zinc-200">Chroma Awards</span>
+                <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Crafting a vibrant submission blending motion, sound, and playful UX.</p>
+              </div>
+            </li>
+            <li class="upcoming-card">
+              <div class="t-card bg-zinc-900/40 border border-zinc-800/60 p-4 flex flex-col">
+                <span class="text-sm font-medium text-zinc-200">Meta Horizon</span>
+                <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Building an interactive world that showcases immersive storytelling inside Horizon.</p>
+              </div>
+            </li>
+          </ul>
+          <div class="upcoming-progress" aria-hidden="true">
+            <span class="upcoming-progress-bar"></span>
+          </div>
+        </div>
       </div>
     </section>
 

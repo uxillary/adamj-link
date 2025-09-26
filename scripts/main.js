@@ -344,6 +344,73 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
   });
 })();
 
+(function(){
+  const wrap = document.querySelector('[data-upcoming]');
+  if(!wrap) return;
+  const scroller = wrap.querySelector('[data-drag-scroll]');
+  if(!scroller) return;
+  const bar = wrap.querySelector('.upcoming-progress-bar');
+  let rafId = null;
+
+  const update = () => {
+    rafId = null;
+    const max = scroller.scrollWidth - scroller.clientWidth;
+    const left = scroller.scrollLeft;
+    const clamped = Math.max(0, Math.min(1, max > 0 ? left / max : 1));
+    wrap.classList.toggle('is-start', left <= 1);
+    wrap.classList.toggle('is-end', left >= max - 1);
+    if(bar){
+      bar.style.setProperty('--progress', max <= 0 ? 1 : clamped);
+    }
+  };
+
+  const requestUpdate = () => {
+    if(rafId !== null) return;
+    rafId = requestAnimationFrame(update);
+  };
+
+  scroller.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', requestUpdate);
+
+  let isDragging = false;
+  let startX = 0;
+  let startScroll = 0;
+
+  scroller.addEventListener('pointerdown', e => {
+    if(e.button !== 0) return;
+    isDragging = true;
+    startX = e.clientX;
+    startScroll = scroller.scrollLeft;
+    scroller.classList.add('is-dragging');
+    scroller.setPointerCapture?.(e.pointerId);
+  });
+
+  const endDrag = e => {
+    if(!isDragging) return;
+    isDragging = false;
+    scroller.classList.remove('is-dragging');
+    scroller.releasePointerCapture?.(e.pointerId);
+  };
+
+  scroller.addEventListener('pointermove', e => {
+    if(!isDragging) return;
+    const dx = e.clientX - startX;
+    scroller.scrollLeft = startScroll - dx;
+  });
+  scroller.addEventListener('pointerup', endDrag);
+  scroller.addEventListener('pointercancel', endDrag);
+
+  scroller.addEventListener('wheel', e => {
+    if(Math.abs(e.deltaY) > Math.abs(e.deltaX)){
+      scroller.scrollLeft += e.deltaY;
+      e.preventDefault();
+      requestUpdate();
+    }
+  }, { passive: false });
+
+  requestUpdate();
+})();
+
 const COUNTERS = [
   { id: 'youtube-counter', url: 'https://uxillary.github.io/automated/video-count.txt' },
   { id: 'repo-counter', url: 'https://uxillary.github.io/automated/repos.txt' },
