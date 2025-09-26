@@ -398,3 +398,72 @@ html, body { overflow-x: hidden; }
   0%,100%{ transform:translateY(0); opacity:.85 }
   50%{ transform:translateY(-4px); opacity:1 }
 }
+
+/* Projects tabs */
+.tab-list{
+  display:inline-flex;
+  gap:0.75rem;
+  border-bottom:1px solid var(--border);
+  padding-bottom:0.4rem;
+}
+
+.tab-btn{
+  position:relative;
+  padding:0.25rem 0.5rem;
+  background:transparent;
+  border:0;
+  color:color-mix(in oklab,var(--text) 75%,var(--surface) 25%);
+  font-size:0.9rem;
+  font-weight:500;
+  cursor:pointer;
+}
+
+.tab-btn::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-0.45rem;
+  height:2px;
+  background:#55e6a5;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .25s ease;
+}
+
+.tab-btn[aria-selected="true"]{
+  color:#55e6a5;
+}
+
+.tab-btn[aria-selected="true"]::after{
+  transform:scaleX(1);
+}
+
+.tab-hidden{ display:none; }
+
+/* Writing layout helper */
+.writing-grid{ align-items:start; }
+@media (min-width:768px){
+  .writing-grid{ grid-template-columns:minmax(0,2fr) minmax(0,1fr); }
+}
+
+/* Contact collapsible */
+#humanChallenge{
+  overflow:hidden;
+  max-height:420px;
+  transition:max-height .32s ease, opacity .24s ease, padding .32s ease, margin .32s ease, border-color .32s ease;
+}
+
+#humanChallenge.is-collapsed{
+  max-height:0;
+  opacity:0;
+  pointer-events:none;
+  padding-block:0;
+  margin-bottom:0;
+  border-color:transparent;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .tab-btn::after{ transition:none; }
+  #humanChallenge{ transition:none; }
+}
