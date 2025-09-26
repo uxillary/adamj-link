@@ -233,7 +233,7 @@ html, body { overflow-x: hidden; }
 /* Stat pills */
 .stat-pill{
   display:grid; grid-template-columns:auto 1fr; column-gap:.5rem; align-items:baseline;
-  padding:.4rem .6rem; border-radius:8px;
+  padding:.4rem .6rem; border-radius:var(--r,0px);
   border:1px solid var(--border); background:color-mix(in oklab,var(--surface) 98%,var(--text) 2%);
 }
 .dark .stat-pill{ background:linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.05)) }
