@@ -449,7 +449,7 @@ html, body { overflow-x: hidden; }
 .tab-hidden{ display:none; }
 
 /* Writing layout helper */
-.writing-grid{ align-items:start; }
+.writing-grid{ align-items:stretch; }
 @media (min-width:768px){
   .writing-grid{ grid-template-columns:minmax(0,2fr) minmax(0,1fr); }
 }
@@ -472,8 +472,16 @@ html, body { overflow-x: hidden; }
 }
 
 /* Writing: sticky sidebar card accent (match post top bar) */
-.writing-book{ position:relative; }
-.writing-book.sticky{ position:sticky; }
+.writing-book{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  min-height:100%;
+}
+.writing-book.sticky{
+  position:sticky;
+}
 .writing-book::before{
   content:"";
   position:absolute;
@@ -483,6 +491,11 @@ html, body { overflow-x: hidden; }
   opacity:.9;
   border-top-left-radius:var(--r);
   border-top-right-radius:var(--r);
+}
+
+.writing-book .book-cta{
+  align-self:flex-start;
+  background:color-mix(in oklab,var(--surface) 85%,transparent);
 }
 
 /* Sticky offset for short viewports */
