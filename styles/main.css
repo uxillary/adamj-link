@@ -86,13 +86,11 @@ html, body { overflow-x: hidden; }
 .upcoming-wrap::before{
   left:0;
   background:linear-gradient(90deg,rgba(10,10,10,.75),rgba(10,10,10,0));
-  box-shadow:inset -1px 0 0 rgba(85,230,165,.18);
   opacity:.6;
 }
 .upcoming-wrap::after{
   right:0;
   background:linear-gradient(270deg,rgba(10,10,10,.75),rgba(10,10,10,0));
-  box-shadow:inset 1px 0 0 rgba(255,99,71,.18);
   opacity:.6;
 }
 :root:not(.dark) .upcoming-wrap::before{
@@ -111,8 +109,8 @@ html, body { overflow-x: hidden; }
   gap:1rem;
   overflow-x:auto;
   scroll-snap-type:x mandatory;
-  scroll-padding-inline:1rem;
-  padding:0 0 1.25rem;
+  scroll-padding-inline:1.5rem;
+  padding:0 1rem 1.25rem;
   margin:0;
   list-style:none;
   cursor:grab;
