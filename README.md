@@ -88,3 +88,8 @@ The API stores counters under `count:<path>` and, when unique mode is on,
 stamps `seen:<path>:<day>:<ipHash>` with a 24 h TTL. Plain IPs are never
 stored; only a salted hash is kept temporarily. KV increments aren't
 strictly atomic—use Durable Objects if precision is critical.
+
+## Change log
+
+- 2025-09-27 — Lightened Activity section with frameless layout, stat pills, and refined OSS card styling.
+- 2025-09-26 — Streamlined homepage sections (Projects tabs, Activity rollup, Writing grid, collapsible contact check).

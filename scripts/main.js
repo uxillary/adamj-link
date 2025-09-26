@@ -24,6 +24,47 @@ toggle.addEventListener('click', () => {
   const btn = form.querySelector('button[type="submit"]');
   const status = document.getElementById('hcStatus');
   const refreshBtn = document.getElementById('hcRefresh');
+  // Contact collapse: reveal challenge when needed
+  const humanChallenge = document.getElementById('humanChallenge');
+  const humanToggle = document.getElementById('humanToggle');
+  const messageField = document.getElementById('cf-message');
+  let challengeShown = false;
+
+  const showChallenge = () => {
+    if (!humanChallenge || challengeShown) return;
+    challengeShown = true;
+    humanChallenge.classList.remove('is-collapsed');
+    humanChallenge.setAttribute('aria-hidden', 'false');
+    if (humanToggle) {
+      humanToggle.setAttribute('aria-expanded', 'true');
+      humanToggle.setAttribute('hidden', 'true');
+    }
+  };
+
+  if (humanChallenge) {
+    humanChallenge.classList.add('is-collapsed');
+    humanChallenge.setAttribute('aria-hidden', 'true');
+    challengeShown = false;
+  }
+
+  if (humanToggle) {
+    humanToggle.setAttribute('aria-expanded', 'false');
+    humanToggle.addEventListener('click', () => {
+      showChallenge();
+      if (humanChallenge) {
+        const focusable = humanChallenge.querySelector('button, [href], input, textarea, [tabindex]:not([tabindex="-1"])');
+        if (focusable) focusable.focus();
+      }
+    });
+  }
+
+  if (messageField) {
+    messageField.addEventListener('focus', showChallenge, { once: true });
+  }
+
+  if (btn) {
+    btn.addEventListener('click', () => { showChallenge(); }, { once: false });
+  }
 
   // Disable submit until solved
   if (btn) {
@@ -52,6 +93,11 @@ toggle.addEventListener('click', () => {
       if (status) status.textContent = 'Swapped the challenge — complete it to enable Send.';
       if (window.humanChallenge && typeof window.humanChallenge.reset === 'function') {
         window.humanChallenge.reset();
+      }
+      if (humanChallenge) {
+        challengeShown = true;
+        humanChallenge.classList.remove('is-collapsed');
+        humanChallenge.setAttribute('aria-hidden', 'false');
       }
     });
   }
@@ -499,3 +545,82 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold:0.3 });
   obs.observe(analyticsSection);
 });
+
+// Tabs: Projects showcase
+(() => {
+  const projects = document.getElementById('projects');
+  if(!projects) return;
+  const tabs = Array.from(projects.querySelectorAll('[role="tab"]'));
+  if(!tabs.length) return;
+
+  const panelFor = (tab) => {
+    const id = tab.getAttribute('aria-controls');
+    return id ? document.getElementById(id) : null;
+  };
+
+  let current = tabs.find(tab => tab.getAttribute('aria-selected') === 'true') || tabs[0];
+
+  const activate = (next, shouldFocus = true) => {
+    if(!next) return;
+    current = next;
+    tabs.forEach(tab => {
+      const selected = tab === next;
+      tab.setAttribute('aria-selected', selected ? 'true' : 'false');
+      if(selected){
+        tab.setAttribute('aria-current', 'true');
+        tab.removeAttribute('tabindex');
+        if(shouldFocus) tab.focus();
+      }else{
+        tab.removeAttribute('aria-current');
+        tab.setAttribute('tabindex', '-1');
+      }
+      const panel = panelFor(tab);
+      if(panel){
+        panel.classList.toggle('tab-hidden', !selected);
+      }
+    });
+  };
+
+  const focusNext = (delta) => {
+    const index = tabs.indexOf(current);
+    const nextIndex = (index + delta + tabs.length) % tabs.length;
+    activate(tabs[nextIndex]);
+  };
+
+  activate(current, false);
+  tabs.forEach(tab => {
+    if(tab !== current){
+      tab.setAttribute('tabindex', '-1');
+      const panel = panelFor(tab);
+      if(panel) panel.classList.add('tab-hidden');
+    }
+    tab.addEventListener('click', () => activate(tab));
+    tab.addEventListener('keydown', (event) => {
+      switch(event.key){
+        case 'ArrowLeft':
+          event.preventDefault();
+          focusNext(-1);
+          break;
+        case 'ArrowRight':
+          event.preventDefault();
+          focusNext(1);
+          break;
+        case 'Home':
+          event.preventDefault();
+          activate(tabs[0]);
+          break;
+        case 'End':
+          event.preventDefault();
+          activate(tabs[tabs.length - 1]);
+          break;
+        case ' ':
+        case 'Enter':
+          event.preventDefault();
+          activate(tab);
+          break;
+        default:
+          break;
+      }
+    });
+  });
+})();
