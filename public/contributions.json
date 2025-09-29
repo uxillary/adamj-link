@@ -1,69 +1,69 @@
 {
-  "generatedAt": "2025-09-28T12:31:31.127Z",
+  "generatedAt": "2025-09-29T01:18:32.181Z",
   "items": [
-    {
-      "repo": "4ttp",
-      "title": "Add constants module and enhance UI and game logic",
-      "type": "Push",
-      "url": "https://github.com/uxillary/4ttp/commit/807c5886d567fa5f0ae412440b5a3ba3701dcc04",
-      "shortRef": "807c588",
-      "timeAgo": "4 days ago"
-    },
     {
       "repo": "4ttp",
       "title": "4ttp",
       "type": "Delete",
       "url": "https://github.com/uxillary/4ttp",
       "shortRef": "",
-      "timeAgo": "4 days ago"
+      "timeAgo": "7 hours ago"
     },
     {
       "repo": "4ttp",
-      "title": "Merge pull request #2 from uxillary/codex/troubleshoot-blank-screen-issue",
+      "title": "Merge pull request #7 from uxillary/codex/fix-auto-activation-of-special-fx",
       "type": "Push",
-      "url": "https://github.com/uxillary/4ttp/commit/f3e782d78cebaa2a728f03eef568296ed9b19dea",
-      "shortRef": "f3e782d",
-      "timeAgo": "4 days ago"
+      "url": "https://github.com/uxillary/4ttp/commit/8ea3e9c14c38c091e0d5b08e4c7ad762cdc0583f",
+      "shortRef": "8ea3e9c",
+      "timeAgo": "7 hours ago"
     },
     {
       "repo": "4ttp",
-      "title": "Fix UI readiness events to restore game rendering",
+      "title": "Add input-driven ability handling and adaptive HUD polish",
       "type": "PullRequest",
-      "url": "https://github.com/uxillary/4ttp/pull/2",
-      "shortRef": "#2",
-      "timeAgo": "4 days ago"
+      "url": "https://github.com/uxillary/4ttp/pull/7",
+      "shortRef": "#7",
+      "timeAgo": "7 hours ago"
     },
     {
       "repo": "4ttp",
-      "title": "Fix UI scene readiness handling",
+      "title": "Refine ability input flow and add responsive HUD polish",
       "type": "Push",
-      "url": "https://github.com/uxillary/4ttp/commit/fbca14ccedd4ec79a516ddb1b3723b6418c82c79",
-      "shortRef": "fbca14c",
-      "timeAgo": "4 days ago"
+      "url": "https://github.com/uxillary/4ttp/commit/aa890aaaf50e0fe0e5089aeebeeec3d05a14f0eb",
+      "shortRef": "aa890aa",
+      "timeAgo": "7 hours ago"
     },
     {
       "repo": "4ttp",
-      "title": "Initial project setup and core game implementation",
+      "title": "Merge pull request #6 from uxillary/codex/implement-ui-and-hud-improvements",
       "type": "Push",
-      "url": "https://github.com/uxillary/4ttp/commit/d1c900e21273ea36b08615c29d06c4c2f93918ee",
-      "shortRef": "d1c900e",
-      "timeAgo": "4 days ago"
+      "url": "https://github.com/uxillary/4ttp/commit/8a3a4f8378350a8a28d6e2973d6cc70cd578613d",
+      "shortRef": "8a3a4f8",
+      "timeAgo": "8 hours ago"
     },
     {
       "repo": "4ttp",
-      "title": "Replace Next.js app with Phaser game design docs",
-      "type": "Push",
-      "url": "https://github.com/uxillary/4ttp/commit/4a34f7d2039faedc9267bdfcb7f127baf19550e5",
-      "shortRef": "4a34f7d",
-      "timeAgo": "4 days ago"
+      "title": "Revamp elemental UI and gameplay feedback",
+      "type": "PullRequest",
+      "url": "https://github.com/uxillary/4ttp/pull/6",
+      "shortRef": "#6",
+      "timeAgo": "8 hours ago"
     },
     {
-      "repo": "synthtax",
-      "title": "synthtax",
-      "type": "Delete",
-      "url": "https://github.com/uxillary/synthtax",
-      "shortRef": "",
-      "timeAgo": "9 days ago"
+      "repo": "4ttp",
+      "title": "Shrink entities and pace elemental reactions",
+      "type": "Push",
+      "url": "https://github.com/uxillary/4ttp/commit/bb39d030baa785fe05f59d2e1a1db4eb24551590",
+      "shortRef": "bb39d03",
+      "timeAgo": "10 hours ago"
+    },
+    {
+      "repo": "4ttp",
+      "title": "Retune entity scale and fix buff input handling",
+      "type": "Push",
+      "url": "https://github.com/uxillary/4ttp/commit/e6105782875dca699635c245a13e86c6ee85245e",
+      "shortRef": "e610578",
+      "timeAgo": "11 hours ago"
     }
   ]
 }
