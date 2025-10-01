@@ -2,6 +2,18 @@
   const list = document.getElementById('blogList');
   if (!list) return;
 
+  const bookCard = document.querySelector('.writing-book');
+
+  const syncBookHeight = () => {
+    if (!bookCard) return;
+    const firstPost = list.querySelector('.post-card');
+    if (!firstPost) return;
+    const { height } = firstPost.getBoundingClientRect();
+    if (height) {
+      bookCard.style.minHeight = `${height}px`;
+    }
+  };
+
   async function loadPosts() {
     list.innerHTML = Array.from({ length: 3 }).map(() => `
       <div class="post-card border border-zinc-800/60 overflow-hidden animate-pulse shrink-0 snap-start">
@@ -13,12 +25,14 @@
         </div>
       </div>
     `).join('');
+    requestAnimationFrame(syncBookHeight);
 
     try {
       const res = await fetch('/api/infinitecurios-latest', { cache: 'reload' });
       const { items } = await res.json();
       if (!items || !items.length) {
         list.innerHTML = '<p class="text-sm text-zinc-500">No posts yet.</p>';
+        if (bookCard) bookCard.style.minHeight = '';
         return;
       }
         list.innerHTML = items.map(it => {
@@ -38,14 +52,24 @@
             </a>
           `;
         }).join('');
+        requestAnimationFrame(syncBookHeight);
     } catch (err) {
       console.error(err);
       list.innerHTML = '<p class="text-sm text-zinc-500">Couldn’t load posts right now.</p>';
+      if (bookCard) bookCard.style.minHeight = '';
     }
   }
 
   const btn = document.getElementById('refreshPosts');
   if (btn) btn.addEventListener('click', loadPosts);
+
+  requestAnimationFrame(syncBookHeight);
+  let resizeFrame;
+  window.addEventListener('resize', () => {
+    if (!bookCard) return;
+    if (resizeFrame) cancelAnimationFrame(resizeFrame);
+    resizeFrame = requestAnimationFrame(syncBookHeight);
+  });
 
   loadPosts();
 })();
