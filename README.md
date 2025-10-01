@@ -33,15 +33,17 @@
 
 ## GitHub contributions feed
 
-Recent GitHub activity is fetched at runtime from the public feed stored in the
-[`uxillary/automated`](https://github.com/uxillary/automated) repository. The
-frontend fetches `https://raw.githubusercontent.com/uxillary/automated/main/contributions.json`
-with a small cache-buster so new events appear without redeploying this site.
+Recent GitHub activity now tries to load directly from the GitHub Events API
+(`https://api.github.com/users/uxillary/events/public`) so the cards update the
+moment new activity lands. If the API is unavailable or rate-limited the client
+falls back to the cached feed stored in the
+[`uxillary/automated`](https://github.com/uxillary/automated) repository via
+`https://raw.githubusercontent.com/uxillary/automated/main/contributions.json`.
 
-The automated repository owns the scheduled workflow that keeps
-`contributions.json` up to date. The workflow (`.github/workflows/update-contribs.yml`)
-runs twice daily or on manual dispatch, installs `@octokit/core` + `dayjs`, and
-uses a classic PAT stored as the `TOKEN_KEY` secret to authenticate. It grabs the
+The automated repository still runs the scheduled workflow that keeps the
+backup JSON fresh. The workflow (`.github/workflows/update-contribs.yml`) runs
+twice daily or on manual dispatch, installs `@octokit/core` + `dayjs`, and uses a
+classic PAT stored as the `TOKEN_KEY` secret to authenticate. It grabs the
 latest public events for `uxillary`, normalises them to the compact feed shape,
 writes `contributions.json`, and commits the change back to the repo. Trigger
 `workflow_dispatch` there to regenerate the feed immediately.

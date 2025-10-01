@@ -1,6 +1,8 @@
 // gh-contribs.js — compact “micro-card” renderer
 (function(){
   const SOURCE = '/public/contributions.json';
+  const GITHUB_USER = 'uxillary';
+  const GITHUB_EVENTS = `https://api.github.com/users/${GITHUB_USER}/events/public`;
   const FALLBACK_AVATAR = 'https://avatars.githubusercontent.com/u/22217717?v=4';
   const mount = document.getElementById('ossList');
   if(!mount) return;
@@ -118,6 +120,227 @@
     });
   };
 
+  const repoLabel = (value = '') => {
+    if(!value) return 'repo';
+    return value.toString().split('/').pop() || value;
+  };
+
+  const clean = (value = '') => value.toString().split('\n')[0].trim();
+
+  const commitHtmlUrl = (repoFullName, sha, apiUrl) => {
+    if(apiUrl && apiUrl.startsWith('https://api.github.com/repos/')){
+      return apiUrl.replace('https://api.github.com/repos/', 'https://github.com/').replace('/commits/', '/commit/');
+    }
+    if(repoFullName && sha){
+      return `https://github.com/${repoFullName}/commit/${sha}`;
+    }
+    return `https://github.com/${repoFullName || GITHUB_USER}`;
+  };
+
+  const normaliseEvents = (events) => {
+    if(!Array.isArray(events)) return [];
+    const items = [];
+    for(const event of events){
+      if(!event || typeof event !== 'object') continue;
+      const repoFullName = event.repo && event.repo.name ? event.repo.name : '';
+      const repo = repoLabel(repoFullName);
+      const createdAt = event.created_at;
+      const avatar = event.actor && event.actor.avatar_url ? event.actor.avatar_url : FALLBACK_AVATAR;
+      const base = { repo, avatar, date: createdAt };
+
+      const pushCommits = () => {
+        const commits = event.payload && Array.isArray(event.payload.commits) ? event.payload.commits : [];
+        if(!commits.length){
+          return [{
+            ...base,
+            title: `Pushed to ${event.payload && event.payload.ref ? event.payload.ref.replace('refs/heads/', '') : repo}`,
+            type: 'Push',
+            url: `https://github.com/${repoFullName}`,
+            shortRef: event.payload && event.payload.head ? event.payload.head.slice(0, 10) : ''
+          }];
+        }
+        return commits.map((commit) => ({
+          ...base,
+          title: clean(commit && commit.message ? commit.message : 'Updated commit'),
+          type: 'Commit',
+          url: commitHtmlUrl(repoFullName, commit && commit.sha, commit && commit.url),
+          shortRef: commit && commit.sha ? commit.sha.slice(0, 10) : ''
+        }));
+      };
+
+      const pullRequest = () => {
+        const pr = event.payload && event.payload.pull_request;
+        if(!pr) return [];
+        const merged = pr.merged || (event.payload.action === 'closed' && pr.merged_at);
+        const type = merged ? 'Merged' : 'PR';
+        return [{
+          ...base,
+          title: clean(pr.title || 'Pull request update'),
+          type,
+          url: pr.html_url || pr.url,
+          shortRef: pr.number != null ? `#${pr.number}` : ''
+        }];
+      };
+
+      const issue = () => {
+        const issue = event.payload && event.payload.issue;
+        if(!issue) return [];
+        const action = event.payload.action;
+        const type = action === 'opened' ? 'Issue' : action === 'closed' ? 'Closed' : 'Issue';
+        return [{
+          ...base,
+          title: clean(issue.title || 'Issue update'),
+          type,
+          url: issue.html_url || issue.url,
+          shortRef: issue.number != null ? `#${issue.number}` : ''
+        }];
+      };
+
+      const issueComment = () => {
+        const issue = event.payload && event.payload.issue;
+        const comment = event.payload && event.payload.comment;
+        if(!issue || !comment) return [];
+        return [{
+          ...base,
+          title: clean(`Commented: ${issue.title || 'Issue'}`),
+          type: 'Comment',
+          url: comment.html_url || issue.html_url || comment.url,
+          shortRef: issue.number != null ? `#${issue.number}` : ''
+        }];
+      };
+
+      const review = () => {
+        const pr = event.payload && event.payload.pull_request;
+        const review = event.payload && event.payload.review;
+        if(!pr) return [];
+        const action = event.payload.action || (review && review.state);
+        const type = action ? `Review ${action}` : 'Review';
+        return [{
+          ...base,
+          title: clean(pr.title || 'Pull request review'),
+          type,
+          url: (review && review.html_url) || pr.html_url || pr.url,
+          shortRef: pr.number != null ? `#${pr.number}` : ''
+        }];
+      };
+
+      const release = () => {
+        const release = event.payload && event.payload.release;
+        if(!release) return [];
+        return [{
+          ...base,
+          title: clean(release.name || release.tag_name || 'Release'),
+          type: 'Release',
+          url: release.html_url || release.url,
+          shortRef: release.tag_name || ''
+        }];
+      };
+
+      const create = () => {
+        const refType = event.payload && event.payload.ref_type;
+        const ref = event.payload && event.payload.ref;
+        if(!refType) return [];
+        return [{
+          ...base,
+          title: ref ? `Created ${refType} ${ref}` : `Created ${refType}`,
+          type: 'Create',
+          url: `https://github.com/${repoFullName}`,
+          shortRef: ref || ''
+        }];
+      };
+
+      const del = () => {
+        const refType = event.payload && event.payload.ref_type;
+        const ref = event.payload && event.payload.ref;
+        if(!refType) return [];
+        return [{
+          ...base,
+          title: ref ? `Deleted ${refType} ${ref}` : `Deleted ${refType}`,
+          type: 'Delete',
+          url: `https://github.com/${repoFullName}`,
+          shortRef: ref || ''
+        }];
+      };
+
+      const fork = () => {
+        const forkee = event.payload && event.payload.forkee;
+        return [{
+          ...base,
+          title: clean(forkee && forkee.full_name ? `Forked to ${forkee.full_name}` : 'Forked repository'),
+          type: 'Fork',
+          url: forkee && forkee.html_url ? forkee.html_url : `https://github.com/${repoFullName}`,
+          shortRef: ''
+        }];
+      };
+
+      const watch = () => [{
+        ...base,
+        title: 'Starred repository',
+        type: 'Star',
+        url: `https://github.com/${repoFullName}`,
+        shortRef: ''
+      }];
+
+      const publicised = () => [{
+        ...base,
+        title: 'Made repository public',
+        type: 'Public',
+        url: `https://github.com/${repoFullName}`,
+        shortRef: ''
+      }];
+
+      const mapping = {
+        PushEvent: pushCommits,
+        PullRequestEvent: pullRequest,
+        IssuesEvent: issue,
+        IssueCommentEvent: issueComment,
+        PullRequestReviewEvent: review,
+        PullRequestReviewCommentEvent: review,
+        ReleaseEvent: release,
+        CreateEvent: create,
+        DeleteEvent: del,
+        ForkEvent: fork,
+        WatchEvent: watch,
+        PublicEvent: publicised
+      };
+
+      const resolver = mapping[event.type];
+      const result = resolver ? resolver() : [];
+      for(const item of result){
+        if(item && typeof item === 'object') items.push(item);
+      }
+
+      if(items.length >= 16) break;
+    }
+    return items;
+  };
+
+  const fetchGitHubContributions = async () => {
+    const res = await fetch(GITHUB_EVENTS, {
+      cache: 'no-store',
+      headers: { 'Accept': 'application/vnd.github+json' }
+    });
+    if(!res.ok) throw new Error(`GitHub API ${res.status}`);
+    const data = await res.json();
+    const items = normaliseEvents(data);
+    if(!items.length) throw new Error('No GitHub events');
+    return {
+      generatedAt: Date.now(),
+      items
+    };
+  };
+
+  const fetchBackupContributions = async () => {
+    const res = await fetch(SOURCE, { cache: 'reload' });
+    const data = await res.json();
+    const generatedAt = data && data.generatedAt ? new Date(data.generatedAt).getTime() : Date.now();
+    const raw = Array.isArray(data) ? data : (data && data.items) || [];
+    return {
+      generatedAt,
+      items: uniqueItems(raw)
+    };
+  };
+
   const loader = () => {
     mount.setAttribute('aria-busy','true');
     mount.classList.add('oss-grid');
@@ -176,13 +399,18 @@
   async function load(){
     loader();
     try{
-      const res = await fetch(SOURCE, { cache: 'reload' });
-      const data = await res.json();
-      const generatedAt = data && data.generatedAt ? new Date(data.generatedAt).getTime() : Date.now();
+      const { generatedAt, items } = await fetchGitHubContributions();
       baseGeneratedAt = Number.isNaN(generatedAt) ? Date.now() : generatedAt;
-      const raw = Array.isArray(data) ? data : (data && data.items) || [];
-      const items = uniqueItems(raw).slice(0, 8);
-      render(items);
+      render(uniqueItems(items).slice(0, 8));
+      return;
+    }catch(err){
+      console.warn('GitHub contributions unavailable, falling back to backup feed.', err);
+    }
+
+    try{
+      const { generatedAt, items } = await fetchBackupContributions();
+      baseGeneratedAt = Number.isNaN(generatedAt) ? Date.now() : generatedAt;
+      render(items.slice(0, 8));
     }catch(e){
       console.error('contribs load failed', e);
       mount.innerHTML = `<div class="t-card">Couldn’t load contributions.</div>`;
