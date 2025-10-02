@@ -1,21 +1,29 @@
 {
-  "generatedAt": "2025-10-02T01:15:02.557Z",
+  "generatedAt": "2025-10-02T12:34:02.080Z",
   "items": [
     {
       "repo": "4ttp",
-      "title": "Clean up gameplay overview docs",
-      "type": "PullRequest",
-      "url": "https://github.com/uxillary/4ttp/pull/9",
-      "shortRef": "#9",
-      "timeAgo": "a day ago"
+      "title": "Improve HUD layout and verbose logging",
+      "type": "Push",
+      "url": "https://github.com/uxillary/4ttp/commit/d5bf8958e646d96fcc6150bcf474e2b3d5c55dda",
+      "shortRef": "d5bf895",
+      "timeAgo": "18 hours ago"
     },
     {
       "repo": "4ttp",
-      "title": "Clean up gameplay overview docs",
+      "title": "Add verbose CLI HUD panel and polish interface layout",
+      "type": "PullRequest",
+      "url": "https://github.com/uxillary/4ttp/pull/11",
+      "shortRef": "#11",
+      "timeAgo": "20 hours ago"
+    },
+    {
+      "repo": "4ttp",
+      "title": "Add verbose CLI HUD panel and polish interface layout",
       "type": "Push",
-      "url": "https://github.com/uxillary/4ttp/commit/283ec87fd9edb6be90ab51fb2a6a86f697535dec",
-      "shortRef": "283ec87",
-      "timeAgo": "a day ago"
+      "url": "https://github.com/uxillary/4ttp/commit/d549011ae3ae97fd4328ab116e515585dbe52672",
+      "shortRef": "d549011",
+      "timeAgo": "20 hours ago"
     },
     {
       "repo": "4ttp",
@@ -23,47 +31,39 @@
       "type": "Create",
       "url": "https://github.com/uxillary/4ttp",
       "shortRef": "",
-      "timeAgo": "a day ago"
+      "timeAgo": "21 hours ago"
     },
     {
       "repo": "4ttp",
-      "title": "Merge pull request #8 from uxillary/codex/analyze-game-code-and-create-documentation",
+      "title": "Merge pull request #10 from uxillary/codex/investigate-shield-auto-activation-issue",
       "type": "Push",
-      "url": "https://github.com/uxillary/4ttp/commit/bbfe067ea89adfc0f7b6f2e2a31890a17036f28d",
-      "shortRef": "bbfe067",
-      "timeAgo": "a day ago"
+      "url": "https://github.com/uxillary/4ttp/commit/04b1ba58c419eb30d0944362672e3d1f92b2bb8e",
+      "shortRef": "04b1ba5",
+      "timeAgo": "21 hours ago"
     },
     {
       "repo": "4ttp",
-      "title": "Add high-level gameplay overview documentation",
+      "title": "Document automatic Earth shield pulses",
       "type": "PullRequest",
-      "url": "https://github.com/uxillary/4ttp/pull/8",
-      "shortRef": "#8",
-      "timeAgo": "a day ago"
+      "url": "https://github.com/uxillary/4ttp/pull/10",
+      "shortRef": "#10",
+      "timeAgo": "21 hours ago"
     },
     {
       "repo": "4ttp",
-      "title": "Add gameplay overview documentation",
+      "title": "Document automatic Earth shield pulses",
       "type": "Push",
-      "url": "https://github.com/uxillary/4ttp/commit/f8e1c8e56565701fd11f8678035da7e08cf57d43",
-      "shortRef": "f8e1c8e",
-      "timeAgo": "a day ago"
+      "url": "https://github.com/uxillary/4ttp/commit/818ad61d264ddcef21e2d543cd23c6824ca73179",
+      "shortRef": "818ad61",
+      "timeAgo": "21 hours ago"
     },
     {
       "repo": "4ttp",
-      "title": "Merge pull request #7 from uxillary/codex/fix-auto-activation-of-special-fx",
+      "title": "Merge pull request #9 from uxillary/codex/tidy-up-gameplay-overlay-and-links",
       "type": "Push",
-      "url": "https://github.com/uxillary/4ttp/commit/8ea3e9c14c38c091e0d5b08e4c7ad762cdc0583f",
-      "shortRef": "8ea3e9c",
-      "timeAgo": "3 days ago"
-    },
-    {
-      "repo": "4ttp",
-      "title": "Add input-driven ability handling and adaptive HUD polish",
-      "type": "PullRequest",
-      "url": "https://github.com/uxillary/4ttp/pull/7",
-      "shortRef": "#7",
-      "timeAgo": "3 days ago"
+      "url": "https://github.com/uxillary/4ttp/commit/0fdb055233be2beae0643de9e5bfcaf8f3c704ec",
+      "shortRef": "0fdb055",
+      "timeAgo": "21 hours ago"
     }
   ]
 }
