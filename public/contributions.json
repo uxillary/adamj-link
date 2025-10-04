@@ -1,13 +1,53 @@
 {
-  "generatedAt": "2025-10-04T01:12:46.488Z",
+  "generatedAt": "2025-10-04T12:30:51.159Z",
   "items": [
+    {
+      "repo": "rc-calc",
+      "title": "Merge pull request #1 from uxillary/codex/implement-hamster-logging-and-visualization",
+      "type": "Push",
+      "url": "https://github.com/uxillary/rc-calc/commit/a7a19418bcf17e8f30413c1d538c45ddd7c06644",
+      "shortRef": "a7a1941",
+      "timeAgo": "13 hours ago"
+    },
+    {
+      "repo": "rc-calc",
+      "title": "Create Vite-based RollerTap upgrade logger UI",
+      "type": "PullRequest",
+      "url": "https://github.com/uxillary/rc-calc/pull/1",
+      "shortRef": "#1",
+      "timeAgo": "13 hours ago"
+    },
+    {
+      "repo": "rc-calc",
+      "title": "feat: add RollerTap upgrade logger app",
+      "type": "Push",
+      "url": "https://github.com/uxillary/rc-calc/commit/ce379979a45a651be32d9caab1e24aff84823ee4",
+      "shortRef": "ce37997",
+      "timeAgo": "14 hours ago"
+    },
+    {
+      "repo": "rc-calc",
+      "title": "rc-calc",
+      "type": "Create",
+      "url": "https://github.com/uxillary/rc-calc",
+      "shortRef": "",
+      "timeAgo": "14 hours ago"
+    },
+    {
+      "repo": "rc-calc",
+      "title": "Create index.html",
+      "type": "Push",
+      "url": "https://github.com/uxillary/rc-calc/commit/48f0fe11f4045aa65479b89ae10560177b04a188",
+      "shortRef": "48f0fe1",
+      "timeAgo": "18 hours ago"
+    },
     {
       "repo": "fezant",
       "title": "fezant",
       "type": "Create",
       "url": "https://github.com/uxillary/fezant",
       "shortRef": "",
-      "timeAgo": "13 hours ago"
+      "timeAgo": "a day ago"
     },
     {
       "repo": "4ttp",
@@ -15,7 +55,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/4ttp/commit/d5bf8958e646d96fcc6150bcf474e2b3d5c55dda",
       "shortRef": "d5bf895",
-      "timeAgo": "2 days ago"
+      "timeAgo": "3 days ago"
     },
     {
       "repo": "4ttp",
@@ -23,47 +63,7 @@
       "type": "PullRequest",
       "url": "https://github.com/uxillary/4ttp/pull/11",
       "shortRef": "#11",
-      "timeAgo": "2 days ago"
-    },
-    {
-      "repo": "4ttp",
-      "title": "Add verbose CLI HUD panel and polish interface layout",
-      "type": "Push",
-      "url": "https://github.com/uxillary/4ttp/commit/d549011ae3ae97fd4328ab116e515585dbe52672",
-      "shortRef": "d549011",
-      "timeAgo": "2 days ago"
-    },
-    {
-      "repo": "4ttp",
-      "title": "4ttp",
-      "type": "Create",
-      "url": "https://github.com/uxillary/4ttp",
-      "shortRef": "",
-      "timeAgo": "2 days ago"
-    },
-    {
-      "repo": "4ttp",
-      "title": "Merge pull request #10 from uxillary/codex/investigate-shield-auto-activation-issue",
-      "type": "Push",
-      "url": "https://github.com/uxillary/4ttp/commit/04b1ba58c419eb30d0944362672e3d1f92b2bb8e",
-      "shortRef": "04b1ba5",
-      "timeAgo": "2 days ago"
-    },
-    {
-      "repo": "4ttp",
-      "title": "Document automatic Earth shield pulses",
-      "type": "PullRequest",
-      "url": "https://github.com/uxillary/4ttp/pull/10",
-      "shortRef": "#10",
-      "timeAgo": "2 days ago"
-    },
-    {
-      "repo": "4ttp",
-      "title": "Document automatic Earth shield pulses",
-      "type": "Push",
-      "url": "https://github.com/uxillary/4ttp/commit/818ad61d264ddcef21e2d543cd23c6824ca73179",
-      "shortRef": "818ad61",
-      "timeAgo": "2 days ago"
+      "timeAgo": "3 days ago"
     }
   ]
 }
