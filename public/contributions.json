@@ -1,69 +1,69 @@
 {
-  "generatedAt": "2025-10-04T12:30:51.159Z",
+  "generatedAt": "2025-10-05T01:23:02.490Z",
   "items": [
     {
-      "repo": "rc-calc",
-      "title": "Merge pull request #1 from uxillary/codex/implement-hamster-logging-and-visualization",
-      "type": "Push",
-      "url": "https://github.com/uxillary/rc-calc/commit/a7a19418bcf17e8f30413c1d538c45ddd7c06644",
-      "shortRef": "a7a1941",
-      "timeAgo": "13 hours ago"
-    },
-    {
-      "repo": "rc-calc",
-      "title": "Create Vite-based RollerTap upgrade logger UI",
-      "type": "PullRequest",
-      "url": "https://github.com/uxillary/rc-calc/pull/1",
-      "shortRef": "#1",
-      "timeAgo": "13 hours ago"
-    },
-    {
-      "repo": "rc-calc",
-      "title": "feat: add RollerTap upgrade logger app",
-      "type": "Push",
-      "url": "https://github.com/uxillary/rc-calc/commit/ce379979a45a651be32d9caab1e24aff84823ee4",
-      "shortRef": "ce37997",
-      "timeAgo": "14 hours ago"
-    },
-    {
-      "repo": "rc-calc",
-      "title": "rc-calc",
-      "type": "Create",
-      "url": "https://github.com/uxillary/rc-calc",
+      "repo": "astro-genesis",
+      "title": "astro-genesis",
+      "type": "Delete",
+      "url": "https://github.com/uxillary/astro-genesis",
       "shortRef": "",
-      "timeAgo": "14 hours ago"
+      "timeAgo": "12 hours ago"
     },
     {
-      "repo": "rc-calc",
-      "title": "Create index.html",
+      "repo": "astro-genesis",
+      "title": "Merge pull request #7 from uxillary/codex/locate-pmc_fetch.py-execution-instructions",
       "type": "Push",
-      "url": "https://github.com/uxillary/rc-calc/commit/48f0fe11f4045aa65479b89ae10560177b04a188",
-      "shortRef": "48f0fe1",
-      "timeAgo": "18 hours ago"
+      "url": "https://github.com/uxillary/astro-genesis/commit/53fe5db68dfecfdef0197b95966ebb28a049b129",
+      "shortRef": "53fe5db",
+      "timeAgo": "12 hours ago"
     },
     {
-      "repo": "fezant",
-      "title": "fezant",
-      "type": "Create",
-      "url": "https://github.com/uxillary/fezant",
-      "shortRef": "",
-      "timeAgo": "a day ago"
-    },
-    {
-      "repo": "4ttp",
-      "title": "Improve HUD layout and verbose logging",
-      "type": "Push",
-      "url": "https://github.com/uxillary/4ttp/commit/d5bf8958e646d96fcc6150bcf474e2b3d5c55dda",
-      "shortRef": "d5bf895",
-      "timeAgo": "3 days ago"
-    },
-    {
-      "repo": "4ttp",
-      "title": "Add verbose CLI HUD panel and polish interface layout",
+      "repo": "astro-genesis",
+      "title": "Document legacy sample data provenance",
       "type": "PullRequest",
-      "url": "https://github.com/uxillary/4ttp/pull/11",
-      "shortRef": "#11",
-      "timeAgo": "3 days ago"
+      "url": "https://github.com/uxillary/astro-genesis/pull/7",
+      "shortRef": "#7",
+      "timeAgo": "12 hours ago"
+    },
+    {
+      "repo": "astro-genesis",
+      "title": "Document origin of legacy sample data",
+      "type": "Push",
+      "url": "https://github.com/uxillary/astro-genesis/commit/ea1a94ecd74f77289fcf33da47ad042b971901d8",
+      "shortRef": "ea1a94e",
+      "timeAgo": "12 hours ago"
+    },
+    {
+      "repo": "astro-genesis",
+      "title": "Merge pull request #6 from uxillary/codex/fix-build-error-for-pwa",
+      "type": "Push",
+      "url": "https://github.com/uxillary/astro-genesis/commit/75d9b4c9b46a568abf96ea1ed313aa4bc2655c4c",
+      "shortRef": "75d9b4c",
+      "timeAgo": "12 hours ago"
+    },
+    {
+      "repo": "astro-genesis",
+      "title": "Add missing Vite entry HTML file to restore build",
+      "type": "PullRequest",
+      "url": "https://github.com/uxillary/astro-genesis/pull/6",
+      "shortRef": "#6",
+      "timeAgo": "12 hours ago"
+    },
+    {
+      "repo": "astro-genesis",
+      "title": "Add Vite entry HTML to fix build",
+      "type": "Push",
+      "url": "https://github.com/uxillary/astro-genesis/commit/00c2c63d7cced3f4c767f517d0677beec98a94da",
+      "shortRef": "00c2c63",
+      "timeAgo": "12 hours ago"
+    },
+    {
+      "repo": "astro-genesis",
+      "title": "Delete Makefile",
+      "type": "Push",
+      "url": "https://github.com/uxillary/astro-genesis/commit/8e734468016c8beadbdbe9e08e2d2bfcdc1a953c",
+      "shortRef": "8e73446",
+      "timeAgo": "12 hours ago"
     }
   ]
 }
