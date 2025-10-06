@@ -1,69 +1,69 @@
 {
-  "generatedAt": "2025-10-05T12:31:09.241Z",
+  "generatedAt": "2025-10-06T01:17:15.967Z",
   "items": [
     {
       "repo": "astro-genesis",
+      "title": "Fix dossier UI build issues",
+      "type": "Push",
+      "url": "https://github.com/uxillary/astro-genesis/commit/195e2d2cd82780c2380f09f176e6852efa029a6b",
+      "shortRef": "195e2d2",
+      "timeAgo": "6 hours ago"
+    },
+    {
+      "repo": "astro-genesis",
+      "title": "Reduce corner rounding on home layout",
+      "type": "PullRequest",
+      "url": "https://github.com/uxillary/astro-genesis/pull/56",
+      "shortRef": "#56",
+      "timeAgo": "6 hours ago"
+    },
+    {
+      "repo": "astro-genesis",
+      "title": "Reduce corner radii on home interface",
+      "type": "Push",
+      "url": "https://github.com/uxillary/astro-genesis/commit/7bf2b55617cf177e5b602eda8860460c2553a635",
+      "shortRef": "7bf2b55",
+      "timeAgo": "6 hours ago"
+    },
+    {
+      "repo": "astro-genesis",
       "title": "astro-genesis",
-      "type": "Delete",
+      "type": "Create",
       "url": "https://github.com/uxillary/astro-genesis",
       "shortRef": "",
-      "timeAgo": "11 hours ago"
+      "timeAgo": "6 hours ago"
     },
     {
       "repo": "astro-genesis",
-      "title": "Merge pull request #31 from uxillary/codex/improve-text-readability-and-hierarchy",
-      "type": "Push",
-      "url": "https://github.com/uxillary/astro-genesis/commit/07a04ca076b94cef0937e5ddf3381e480e60422e",
-      "shortRef": "07a04ca",
-      "timeAgo": "11 hours ago"
-    },
-    {
-      "repo": "astro-genesis",
-      "title": "Improve console typography hierarchy",
+      "title": "Populate dossier detail pages with AI summaries",
       "type": "PullRequest",
-      "url": "https://github.com/uxillary/astro-genesis/pull/31",
-      "shortRef": "#31",
-      "timeAgo": "11 hours ago"
+      "url": "https://github.com/uxillary/astro-genesis/pull/55",
+      "shortRef": "#55",
+      "timeAgo": "6 hours ago"
     },
     {
       "repo": "astro-genesis",
-      "title": "Improve console typography hierarchy",
+      "title": "Populate dossier AI summaries from source data",
       "type": "Push",
-      "url": "https://github.com/uxillary/astro-genesis/commit/6cb2622ca3cdce52d78fdb2b47badfa780fac1c2",
-      "shortRef": "6cb2622",
-      "timeAgo": "12 hours ago"
+      "url": "https://github.com/uxillary/astro-genesis/commit/f36a92a551eec642f54247bbc07b3f2039308f36",
+      "shortRef": "f36a92a",
+      "timeAgo": "6 hours ago"
     },
     {
       "repo": "astro-genesis",
-      "title": "Merge branch 'main' of https://github.com/uxillary/astro-genesis",
-      "type": "Push",
-      "url": "https://github.com/uxillary/astro-genesis/commit/d12a801aebf9b1ec1840f0694b233b9971310434",
-      "shortRef": "d12a801",
-      "timeAgo": "12 hours ago"
-    },
-    {
-      "repo": "astro-genesis",
-      "title": "Merge branch 'main' into codex/suggest-ux-improvements-within-constraints",
-      "type": "Push",
-      "url": "https://github.com/uxillary/astro-genesis/commit/29eaf158333b6a28de41e49c3879498c0c431b9f",
-      "shortRef": "29eaf15",
-      "timeAgo": "12 hours ago"
-    },
-    {
-      "repo": "astro-genesis",
-      "title": "Improve search accessibility and loading feedback",
+      "title": "Reduce rounded corners for sharper panels",
       "type": "PullRequest",
-      "url": "https://github.com/uxillary/astro-genesis/pull/30",
-      "shortRef": "#30",
-      "timeAgo": "12 hours ago"
+      "url": "https://github.com/uxillary/astro-genesis/pull/54",
+      "shortRef": "#54",
+      "timeAgo": "6 hours ago"
     },
     {
       "repo": "astro-genesis",
-      "title": "Improve home console UX and accessibility",
+      "title": "Reduce rounded corners for sharper panels",
       "type": "Push",
-      "url": "https://github.com/uxillary/astro-genesis/commit/77b0bc8333a6dfd81f90390dbace00c698b1dc99",
-      "shortRef": "77b0bc8",
-      "timeAgo": "12 hours ago"
+      "url": "https://github.com/uxillary/astro-genesis/commit/050f9d3c02ace7f47a96c80eee46e4d822f2c25e",
+      "shortRef": "050f9d3",
+      "timeAgo": "6 hours ago"
     }
   ]
 }
