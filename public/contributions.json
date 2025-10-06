@@ -1,69 +1,69 @@
 {
-  "generatedAt": "2025-10-06T01:17:15.967Z",
+  "generatedAt": "2025-10-06T12:36:40.073Z",
   "items": [
     {
-      "repo": "astro-genesis",
-      "title": "Fix dossier UI build issues",
+      "repo": "fezant",
+      "title": "Initial commit for Phaser game project",
       "type": "Push",
-      "url": "https://github.com/uxillary/astro-genesis/commit/195e2d2cd82780c2380f09f176e6852efa029a6b",
-      "shortRef": "195e2d2",
-      "timeAgo": "6 hours ago"
-    },
-    {
-      "repo": "astro-genesis",
-      "title": "Reduce corner rounding on home layout",
-      "type": "PullRequest",
-      "url": "https://github.com/uxillary/astro-genesis/pull/56",
-      "shortRef": "#56",
-      "timeAgo": "6 hours ago"
-    },
-    {
-      "repo": "astro-genesis",
-      "title": "Reduce corner radii on home interface",
-      "type": "Push",
-      "url": "https://github.com/uxillary/astro-genesis/commit/7bf2b55617cf177e5b602eda8860460c2553a635",
-      "shortRef": "7bf2b55",
-      "timeAgo": "6 hours ago"
+      "url": "https://github.com/uxillary/fezant/commit/aba69752bea4773c6fa76af97dfe03f88a33b06e",
+      "shortRef": "aba6975",
+      "timeAgo": "10 hours ago"
     },
     {
       "repo": "astro-genesis",
       "title": "astro-genesis",
-      "type": "Create",
+      "type": "Delete",
       "url": "https://github.com/uxillary/astro-genesis",
       "shortRef": "",
-      "timeAgo": "6 hours ago"
+      "timeAgo": "14 hours ago"
     },
     {
       "repo": "astro-genesis",
-      "title": "Populate dossier detail pages with AI summaries",
-      "type": "PullRequest",
-      "url": "https://github.com/uxillary/astro-genesis/pull/55",
-      "shortRef": "#55",
-      "timeAgo": "6 hours ago"
-    },
-    {
-      "repo": "astro-genesis",
-      "title": "Populate dossier AI summaries from source data",
+      "title": "Merge pull request #64 from uxillary/codex/fix-crosshair-positioning-in-header",
       "type": "Push",
-      "url": "https://github.com/uxillary/astro-genesis/commit/f36a92a551eec642f54247bbc07b3f2039308f36",
-      "shortRef": "f36a92a",
-      "timeAgo": "6 hours ago"
+      "url": "https://github.com/uxillary/astro-genesis/commit/6726df1a53e21fc05e9f72ed45b0b23b8708b66e",
+      "shortRef": "6726df1",
+      "timeAgo": "14 hours ago"
     },
     {
       "repo": "astro-genesis",
-      "title": "Reduce rounded corners for sharper panels",
+      "title": "Limit hero reticle overlay height",
       "type": "PullRequest",
-      "url": "https://github.com/uxillary/astro-genesis/pull/54",
-      "shortRef": "#54",
-      "timeAgo": "6 hours ago"
+      "url": "https://github.com/uxillary/astro-genesis/pull/64",
+      "shortRef": "#64",
+      "timeAgo": "14 hours ago"
     },
     {
       "repo": "astro-genesis",
-      "title": "Reduce rounded corners for sharper panels",
+      "title": "Adjust hero crosshair overlay bounds",
       "type": "Push",
-      "url": "https://github.com/uxillary/astro-genesis/commit/050f9d3c02ace7f47a96c80eee46e4d822f2c25e",
-      "shortRef": "050f9d3",
-      "timeAgo": "6 hours ago"
+      "url": "https://github.com/uxillary/astro-genesis/commit/1f24ab6671befda521b1524b49f83f73759459ef",
+      "shortRef": "1f24ab6",
+      "timeAgo": "14 hours ago"
+    },
+    {
+      "repo": "astro-genesis",
+      "title": "Merge pull request #63 from uxillary/codex/populate-dossier-page-with-ai-summary",
+      "type": "Push",
+      "url": "https://github.com/uxillary/astro-genesis/commit/b3ddd14cddd2b9b8c3a290070fab18cb93c8dd87",
+      "shortRef": "b3ddd14",
+      "timeAgo": "14 hours ago"
+    },
+    {
+      "repo": "astro-genesis",
+      "title": "Populate dossier AI summaries",
+      "type": "PullRequest",
+      "url": "https://github.com/uxillary/astro-genesis/pull/63",
+      "shortRef": "#63",
+      "timeAgo": "14 hours ago"
+    },
+    {
+      "repo": "astro-genesis",
+      "title": "Merge pull request #62 from uxillary/codex/reduce-corner-rounding-on-main-page",
+      "type": "Push",
+      "url": "https://github.com/uxillary/astro-genesis/commit/f6dfddb6071e7f4f814e6f39698d6e4b3a217769",
+      "shortRef": "f6dfddb",
+      "timeAgo": "14 hours ago"
     }
   ]
 }
