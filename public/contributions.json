@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2025-10-08T12:36:24.494Z",
+  "generatedAt": "2025-10-09T01:16:37.997Z",
   "items": [
     {
       "repo": "fezant",
-      "title": "Initial commit for Phaser game project",
+      "title": "Commit",
       "type": "Push",
       "url": "https://github.com/uxillary/fezant/commit/aba69752bea4773c6fa76af97dfe03f88a33b06e",
       "shortRef": "aba6975",
-      "timeAgo": "2 days ago"
+      "timeAgo": "3 days ago"
     },
     {
       "repo": "astro-genesis",
@@ -19,7 +19,7 @@
     },
     {
       "repo": "astro-genesis",
-      "title": "Merge pull request #64 from uxillary/codex/fix-crosshair-positioning-in-header",
+      "title": "Commit",
       "type": "Push",
       "url": "https://github.com/uxillary/astro-genesis/commit/6726df1a53e21fc05e9f72ed45b0b23b8708b66e",
       "shortRef": "6726df1",
@@ -27,15 +27,7 @@
     },
     {
       "repo": "astro-genesis",
-      "title": "Limit hero reticle overlay height",
-      "type": "PullRequest",
-      "url": "https://github.com/uxillary/astro-genesis/pull/64",
-      "shortRef": "#64",
-      "timeAgo": "3 days ago"
-    },
-    {
-      "repo": "astro-genesis",
-      "title": "Adjust hero crosshair overlay bounds",
+      "title": "Commit",
       "type": "Push",
       "url": "https://github.com/uxillary/astro-genesis/commit/1f24ab6671befda521b1524b49f83f73759459ef",
       "shortRef": "1f24ab6",
@@ -43,7 +35,7 @@
     },
     {
       "repo": "astro-genesis",
-      "title": "Merge pull request #63 from uxillary/codex/populate-dossier-page-with-ai-summary",
+      "title": "Commit",
       "type": "Push",
       "url": "https://github.com/uxillary/astro-genesis/commit/b3ddd14cddd2b9b8c3a290070fab18cb93c8dd87",
       "shortRef": "b3ddd14",
@@ -51,18 +43,26 @@
     },
     {
       "repo": "astro-genesis",
-      "title": "Populate dossier AI summaries",
-      "type": "PullRequest",
-      "url": "https://github.com/uxillary/astro-genesis/pull/63",
-      "shortRef": "#63",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/astro-genesis/commit/f6dfddb6071e7f4f814e6f39698d6e4b3a217769",
+      "shortRef": "f6dfddb",
       "timeAgo": "3 days ago"
     },
     {
       "repo": "astro-genesis",
-      "title": "Merge pull request #62 from uxillary/codex/reduce-corner-rounding-on-main-page",
+      "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/astro-genesis/commit/f6dfddb6071e7f4f814e6f39698d6e4b3a217769",
-      "shortRef": "f6dfddb",
+      "url": "https://github.com/uxillary/astro-genesis/commit/54101723f0bdba6234d3796517c205faf77b49de",
+      "shortRef": "5410172",
+      "timeAgo": "3 days ago"
+    },
+    {
+      "repo": "astro-genesis",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/astro-genesis/commit/0bc26fffe55de0d6aaabd57c3c089a2312175dfd",
+      "shortRef": "0bc26ff",
       "timeAgo": "3 days ago"
     }
   ]
