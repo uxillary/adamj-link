@@ -1,10 +1,36 @@
-:root{ --surface:#ffffff; --text:#0a0a0a; --border:rgba(0,0,0,.18); --ring:rgba(85,230,165,.45); --muted:#3f3f46 }
-.dark:root{ --surface:#0a0a0a; --text:#fafafa; --border:rgba(255,255,255,.08); --muted:#d4d4d8 }
+:root{
+  --surface:#ffffff;
+  --text:#0a0a0a;
+  --border:rgba(0,0,0,.18);
+  --ring:rgba(85,230,165,.45);
+  --muted:#3f3f46;
+  --muted-strong:#27272a;
+}
+.dark:root{
+  --surface:#0a0a0a;
+  --text:#fafafa;
+  --border:rgba(255,255,255,.08);
+  --muted:#d4d4d8;
+  --muted-strong:#f4f4f5;
+}
 .border-zinc-800\/60{ border-color:var(--border)!important }
 .bg-black\/20{ background-color:color-mix(in oklab,var(--surface) 85%,#000)!important }
 .bg-zinc-900\/30{ background-color:color-mix(in oklab,var(--surface) 95%,#000)!important }
 
-:root:not(.dark) .text-zinc-300,:root:not(.dark) .text-zinc-400,:root:not(.dark) .text-zinc-400\/90,:root:not(.dark) .text-zinc-500{ color:var(--muted)!important }
+:root:not(.dark) .text-zinc-200,
+:root:not(.dark) .text-zinc-300,
+:root:not(.dark) .text-zinc-400,
+:root:not(.dark) .text-zinc-400\/90,
+:root:not(.dark) .text-zinc-400\/80,
+:root:not(.dark) .text-zinc-500,
+:root:not(.dark) .text-zinc-500\/90,
+:root:not(.dark) .text-zinc-500\/80,
+:root:not(.dark) .text-zinc-500\/70{ color:var(--muted)!important }
+:root:not(.dark) .text-zinc-600,
+:root:not(.dark) .text-zinc-600\/90,
+:root:not(.dark) .text-zinc-700,
+:root:not(.dark) .text-zinc-700\/80,
+:root:not(.dark) .text-zinc-800\/60{ color:var(--muted-strong)!important }
 :root:not(.dark) .text-brand{ color:#047857!important }
 :root:not(.dark) .hover\:text-brand:hover{ color:#047857!important }
 
