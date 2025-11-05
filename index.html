@@ -40,7 +40,7 @@
   <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Apply saved/system theme BEFORE paint to avoid flash -->
   <script src="/scripts/theme.js"></script>
@@ -72,28 +72,32 @@
   }
   </script>
 </head>
-<body class="selection:bg-brand/30 selection:text-white">
+<body class="selection:bg-brand/30 selection:text-white has-ambient">
   <a href="#main" class="skip">Skip to content</a>
+  <div class="ambient-layers" aria-hidden="true">
+    <span class="ambient-pulse"></span>
+    <span class="ambient-slice"></span>
+  </div>
 
   <!-- Header -->
-  <header class="relative sticky top-0 z-30 backdrop-blur-md bg-black/40 dark:bg-black/40 border-b border-zinc-800/60">
+  <header id="siteHeader" class="site-header relative sticky top-0 z-30 backdrop-blur-md bg-black/40 dark:bg-black/40 border-b border-zinc-800/60">
     <div class="grid-bg absolute inset-0 pointer-events-none" id="bgGrid"></div>
     <div class="max-w-6xl mx-auto px-6 py-4 sm:py-5 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2 font-semibold tracking-tight text-lg">
-        <img src="/public/AJ-inverted.png" alt="Adam J logo" class="h-8 w-8" />
-        <span class="hidden sm:inline">Adam<span class="text-brand">J</span></span>
+        <img src="/public/AJ-inverted.png" alt="Adam J logo" class="h-8 w-8 transition-transform duration-300 site-logo" />
+        <span class="hidden sm:inline site-title">Adam<span class="text-brand">J</span></span>
       </a>
       <nav class="flex items-center gap-3" aria-label="Primary">
-        <a href="https://ajstudios.dev" class="hidden sm:inline text-sm px-3 py-1.5 r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 transition focus-ring">Portfolio</a>
-        <a href="https://infinitecurios.blog" class="hidden sm:inline text-sm px-3 py-1.5 r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 transition focus-ring">Blog</a>
-        <a href="https://github.com/uxillary" class="hidden sm:inline text-sm px-3 py-1.5 r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 transition focus-ring">GitHub</a>
+        <a href="https://ajstudios.dev" class="hidden sm:inline btn btn-ghost text-sm">Portfolio</a>
+        <a href="https://infinitecurios.blog" class="hidden sm:inline btn btn-ghost text-sm">Blog</a>
+        <a href="https://github.com/uxillary" class="hidden sm:inline btn btn-ghost text-sm">GitHub</a>
       </nav>
     </div>
   </header>
 
-  <main id="main" class="max-w-5xl mx-auto px-6 space-y-16 sm:space-y-20">
+  <main id="main" class="max-w-5xl mx-auto px-6">
     <!-- Hero -->
-    <section class="section pt-4">
+    <section class="section section-primary reveal pt-4" data-section-label="Hero">
       <h1 class="font-extrabold tracking-tight leading-[1.05] text-[clamp(2.25rem,6vw,3.75rem)]">
         Creative Digital Developer<br/>
         Programming <span class="grad-brand">useful</span> + <span class="grad-accent">fun</span> things.
@@ -103,13 +107,31 @@
 
       </p>
       <div class="mt-6 flex flex-wrap gap-3">
-        <a href="#contact" class="px-5 py-3 r border border-zinc-800/60 hover:border-brand/70 transition focus-ring">Email me</a>
-        <a href="https://ajstudios.dev" class="px-5 py-3 r bg-brand text-black font-semibold hover:opacity-90 transition focus-ring">View Portfolio</a>
+        <a href="#contact" class="btn btn-ghost btn-lg">Email me</a>
+        <a href="https://ajstudios.dev" class="btn btn-solid btn-lg">View Portfolio</a>
+      </div>
+      <div class="micro-badges" aria-label="Credentials">
+        <span class="micro-badge">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3.5L5 7v6.5l7 4 7-4V7l-7-3.5Zm0 2.2 4.5 2.2v4.6L12 14.8l-4.5-2.3V7.9Z"/></svg>
+          Google Cloud Innovator
+        </span>
+        <span class="micro-badge">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.6c-3 .6-3.6-1.3-3.6-1.3-.5-1.3-1.1-1.6-1.1-1.6-.9-.7.1-.7.1-.7 1.1.1 1.8 1 1.8 1 1 .1 1.2 2.2 3.2 1.6.1-.7.4-1.1.6-1.4-2.4-.3-4.8-1.2-4.8-5.2 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.5 10.5 0 0 1 5.6 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4-2.4 4.9-4.8 5.2.4.3.7 1 .7 2v3c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/></svg>
+          GitHub Developer
+        </span>
+        <span class="micro-badge">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.6 3c-1.3 0-2.5.6-3.6 1.7C9.9 3.6 8.7 3 7.4 3 4.4 3 2 5.6 2 8.8c0 3 2.3 5.4 5.1 7.8 2 1.6 3.9 2.9 4.9 4 .3.2.7.4 1 .4.4 0 .7-.1 1-.4 1-1.1 2.9-2.4 4.9-4 2.8-2.3 5.1-4.8 5.1-7.8C23 5.6 20.6 3 17.6 3c-1.3 0-2.5.6-3.6 1.7C16 4 15.3 3 14.6 3Z"/></svg>
+          Reddit Developer
+        </span>
+        <span class="micro-badge">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m19.6 9.7 1-4.7H6.2L5 11.3h11.7l-.5 2.2h-8.6l-.4 1.7h8.6l-.5 2.2H4.6L3.4 19h14c.7 0 1.2-.4 1.4-1.1l2.1-8.2Z"/></svg>
+          Amazon Associate
+        </span>
       </div>
     </section>
 
     <!-- NOW section -->
-    <section class="section">
+    <section class="section section-alt reveal" data-section-label="Now">
       <div class="section-head">
         <h2 class="eyebrow">Now</h2>
       </div>
@@ -178,8 +200,8 @@
       </div>
     </section>
 
-    <div class="soft-hr"></div>
-    <section class="section" id="projects">
+    <div class="glow-divider" aria-hidden="true"></div>
+    <section class="section reveal" id="projects" data-section-label="Projects">
       <div class="section-head">
         <h2 class="font-semibold text-l text-zinc-400 tracking-tight">Projects</h2>
       </div>
@@ -322,7 +344,7 @@
       </div>
     </section>
 
-    <section class="section" id="activity" aria-labelledby="activity-title">
+    <section class="section section-alt reveal" id="activity" aria-labelledby="activity-title" data-section-label="Activity">
       <div class="section-head">
         <h2 id="activity-title" class="font-semibold text-l text-zinc-400 tracking-tight">Activity</h2>
         <button id="refreshContribs" type="button" class="text-zinc-400 hover:text-brand focus-ring" aria-label="Refresh contributions">
@@ -367,7 +389,7 @@
       <a href="https://github.com/uxillary" class="block mt-3 text-sm text-zinc-500 hover:text-brand">View all on GitHub →</a>
     </section>
 
-    <section class="section" id="writing">
+    <section class="section reveal" id="writing" data-section-label="Writing">
       <div class="section-head">
         <div>
           <h2 class="font-semibold text-l text-zinc-500 tracking-tight mb-2">Writing</h2>
@@ -422,7 +444,7 @@
 
     <!-- Contact -->
 
-    <section id="contact" class="section mb-32">
+    <section id="contact" class="section section-alt reveal mb-32" data-section-label="Contact">
       <div class="t-card p-5 sm:p-6">
         <h2 class="font-semibold text-l mb-2 text-zinc-400">Contact</h2>
         <form id="contactForm" class="flex flex-col space-y-3">
@@ -456,7 +478,7 @@
             </div>
             <div id="hcMount" class="mt-2"></div>
           </div>
-          <button type="submit" class="px-4 py-2 bg-brand text-black font-semibold hover:opacity-90 transition focus-ring">Send</button>
+          <button type="submit" class="btn btn-solid w-full sm:w-auto">Send</button>
           <p id="cf-status" class="text-sm mt-2" aria-live="polite"></p>
         </form>
       </div>
@@ -501,6 +523,34 @@
       </div>
     </div>
   </footer>
+
+  <div id="systemHud" class="system-hud" role="status" aria-live="polite">
+    <div class="hud-item">
+      <span class="hud-label">Local</span>
+      <span id="hudTime" class="hud-value">--:--</span>
+    </div>
+    <div class="hud-item">
+      <span class="hud-label">Theme</span>
+      <span id="hudTheme" class="hud-value">Dark</span>
+    </div>
+    <div class="hud-item">
+      <span class="hud-label">Section</span>
+      <span id="hudSection" class="hud-value">Hero</span>
+    </div>
+  </div>
+
+  <div id="consoleOverlay" class="console-overlay" aria-hidden="true">
+    <div class="console-shell" role="dialog" aria-modal="true" aria-labelledby="consoleTitle">
+      <header class="console-head">
+        <span id="consoleTitle">System console</span>
+        <button type="button" id="consoleClose" class="console-close" aria-label="Close console">×</button>
+      </header>
+      <pre id="consoleLog" class="console-log" aria-live="polite"></pre>
+      <div class="console-hint">Press <kbd>~</kbd> again or <kbd>Esc</kbd> to hide.</div>
+    </div>
+  </div>
+
+  <div id="cursorTrail" class="cursor-trail" aria-hidden="true"></div>
 
   <!-- Radius toggle UI -->
     <div id="radiusUI" class="fixed bottom-4 right-4 flex flex-col gap-2 z-40">

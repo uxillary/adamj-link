@@ -4,16 +4,24 @@ document.getElementById('y').textContent = new Date().getFullYear();
 // Theme toggle with flair (fade + icon spin)
 const toggle = document.getElementById('themeToggle');
 const icon = document.getElementById('themeIcon');
-icon.textContent = document.documentElement.classList.contains('dark') ? '☾' : '☀';
-toggle.addEventListener('click', () => {
-  icon.classList.add('spin-anim');
-  setTimeout(() => icon.classList.remove('spin-anim'), 400);
+const docEl = document.documentElement;
+if(toggle && icon){
+  const setThemeIcon = () => { icon.textContent = docEl.classList.contains('dark') ? '☾' : '☀'; };
+  const emitThemeChange = (mode) => document.dispatchEvent(new CustomEvent('theme:change', { detail: { theme: mode } }));
+  setThemeIcon();
+  emitThemeChange(docEl.classList.contains('dark') ? 'dark' : 'light');
 
-  const isDark = document.documentElement.classList.toggle('dark');
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  toggle.addEventListener('click', () => {
+    icon.classList.add('spin-anim');
+    setTimeout(() => icon.classList.remove('spin-anim'), 400);
 
-  icon.textContent = isDark ? '☾' : '☀';
-});
+    const isDark = docEl.classList.toggle('dark');
+    const mode = isDark ? 'dark' : 'light';
+    localStorage.setItem('theme', mode);
+    setThemeIcon();
+    emitThemeChange(mode);
+  });
+}
 
 // Contact form handling
 (function(){
@@ -622,5 +630,250 @@ document.addEventListener('DOMContentLoaded', () => {
           break;
       }
     });
+  });
+})();
+
+// Header scroll micro-interaction
+(() => {
+  const header = document.getElementById('siteHeader');
+  if(!header) return;
+  let lastState = null;
+  const update = () => {
+    const scrolled = window.scrollY > 12;
+    if(scrolled !== lastState){
+      header.classList.toggle('scrolled', scrolled);
+      lastState = scrolled;
+    }
+  };
+  update();
+  window.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+})();
+
+// Section reveal animations
+(() => {
+  const elements = Array.from(document.querySelectorAll('.reveal'));
+  if(!elements.length) return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(prefersReduced){
+    elements.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.22, rootMargin:'0px 0px -10%' });
+  elements.forEach(el => io.observe(el));
+})();
+
+// Gradient cursor trail
+(() => {
+  const trail = document.getElementById('cursorTrail');
+  if(!trail) return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const pointerFine = window.matchMedia('(pointer: fine)');
+  if(prefersReduced.matches || !pointerFine.matches) return;
+
+  let rafId = null;
+  let targetX = window.innerWidth / 2;
+  let targetY = window.innerHeight / 2;
+  let currentX = targetX;
+  let currentY = targetY;
+  let active = false;
+
+  const step = () => {
+    currentX += (targetX - currentX) * 0.18;
+    currentY += (targetY - currentY) * 0.18;
+    trail.style.left = `${currentX}px`;
+    trail.style.top = `${currentY}px`;
+    if(Math.abs(targetX - currentX) > 0.5 || Math.abs(targetY - currentY) > 0.5){
+      rafId = requestAnimationFrame(step);
+    }else{
+      rafId = null;
+    }
+  };
+
+  const queue = (x, y) => {
+    targetX = x;
+    targetY = y;
+    if(rafId === null) rafId = requestAnimationFrame(step);
+  };
+
+  const onMove = (event) => {
+    if(event.pointerType && event.pointerType !== 'mouse') return;
+    if(prefersReduced.matches) return;
+    if(!active){
+      active = true;
+      trail.classList.add('is-active');
+      currentX = event.clientX;
+      currentY = event.clientY;
+      trail.style.left = `${currentX}px`;
+      trail.style.top = `${currentY}px`;
+    }
+    queue(event.clientX, event.clientY);
+  };
+
+  const deactivate = () => {
+    if(!active) return;
+    active = false;
+    trail.classList.remove('is-active');
+  };
+
+  window.addEventListener('pointermove', onMove, { passive: true });
+  window.addEventListener('pointerleave', deactivate);
+  document.addEventListener('visibilitychange', () => { if(document.hidden) deactivate(); });
+  prefersReduced.addEventListener?.('change', (event) => { if(event.matches) deactivate(); });
+})();
+
+// Floating HUD (time, theme, section)
+(() => {
+  const hud = document.getElementById('systemHud');
+  const timeEl = document.getElementById('hudTime');
+  const themeEl = document.getElementById('hudTheme');
+  const sectionEl = document.getElementById('hudSection');
+  if(!hud || !timeEl || !themeEl || !sectionEl) return;
+
+  const formatTime = () => new Intl.DateTimeFormat(undefined, { hour:'2-digit', minute:'2-digit' }).format(new Date());
+  const updateTime = () => { timeEl.textContent = formatTime(); };
+  updateTime();
+  setInterval(updateTime, 60 * 1000);
+
+  const applyTheme = (mode) => {
+    themeEl.textContent = mode === 'light' ? 'Light' : 'Dark';
+  };
+  applyTheme(docEl.classList.contains('dark') ? 'dark' : 'light');
+  document.addEventListener('theme:change', (event) => {
+    applyTheme(event.detail?.theme || (docEl.classList.contains('dark') ? 'dark' : 'light'));
+  });
+  const schemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  schemeQuery.addEventListener?.('change', () => {
+    applyTheme(docEl.classList.contains('dark') ? 'dark' : 'light');
+  });
+  const classObserver = new MutationObserver(() => {
+    applyTheme(docEl.classList.contains('dark') ? 'dark' : 'light');
+  });
+  classObserver.observe(docEl, { attributes:true, attributeFilter:['class'] });
+
+  const sections = Array.from(document.querySelectorAll('[data-section-label]')).map(el => ({
+    el,
+    label: el.dataset.sectionLabel || el.getAttribute('id') || el.querySelector('h2,h3,h1')?.textContent?.trim() || 'Section'
+  }));
+
+  if(sections.length){
+    let ticking = false;
+    let lastLabel = '';
+    const chooseSection = () => {
+      let next = sections[0];
+      let bestScore = Number.POSITIVE_INFINITY;
+      const focusPoint = window.innerHeight * 0.35;
+      sections.forEach(section => {
+        const rect = section.el.getBoundingClientRect();
+        if(rect.bottom < 80 || rect.top > window.innerHeight * 0.85) return;
+        const distance = Math.abs(rect.top - focusPoint);
+        if(distance < bestScore){
+          bestScore = distance;
+          next = section;
+        }
+      });
+      if(next && next.label !== lastLabel){
+        sectionEl.textContent = next.label;
+        lastLabel = next.label;
+      }
+    };
+    const onScroll = () => {
+      if(ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        chooseSection();
+        ticking = false;
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    chooseSection();
+  }
+})();
+
+// AI-flavoured console overlay
+(() => {
+  const overlay = document.getElementById('consoleOverlay');
+  const logEl = document.getElementById('consoleLog');
+  const closeBtn = document.getElementById('consoleClose');
+  if(!overlay || !logEl) return;
+
+  const sectionLabels = Array.from(document.querySelectorAll('[data-section-label]')).map(el => el.dataset.sectionLabel).filter(Boolean);
+  const badges = ['Google Cloud Innovator','GitHub Developer','Reddit Developer','Amazon Associate'];
+  const states = ['ready','synced','ok','cached','complete','updated'];
+  const metrics = ['latency','glow','depth','parallax','signal','gradient'];
+  const random = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+  const buildLog = () => {
+    const now = new Date();
+    const header = `[${now.toLocaleTimeString(undefined, { hour:'2-digit', minute:'2-digit', second:'2-digit' })}] initializing system shell...`;
+    const lines = [header];
+    const count = 6 + Math.floor(Math.random() * 5);
+    for(let i = 0; i < count; i++){
+      const metric = random(metrics);
+      const value = (Math.random() * 0.8 + 0.2).toFixed(2);
+      const ms = Math.floor(Math.random() * 70) + 20;
+      const badge = random(badges);
+      const section = sectionLabels.length ? random(sectionLabels) : 'Hero';
+      const state = random(states);
+      const templates = [
+        `sparkline.${metric} :: ${state} (${value})`,
+        `hud.sync(section="${section}", t+${ms}ms)`,
+        `badge.emit("${badge}") // ${state}`,
+        `cursor.trail(alpha=${value}, ease=${(Math.random() * 0.2 + 0.6).toFixed(2)})`,
+        `grid.parallax(offset=${(Math.random() * 4).toFixed(1)}px)`,
+        `timeline.gradient → ${Math.round(Math.random() * 100)}%`,
+        `cards.glowPulse(amplitude=${(Math.random() * 0.4 + 0.4).toFixed(2)})`
+      ];
+      lines.push(`> ${random(templates)}`);
+    }
+    lines.push('// log stream complete');
+    return lines.join('\n');
+  };
+
+  let isOpen = false;
+  const openConsole = () => {
+    if(isOpen) return;
+    isOpen = true;
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('console-open');
+    logEl.textContent = buildLog();
+    logEl.scrollTop = logEl.scrollHeight;
+    requestAnimationFrame(() => closeBtn?.focus());
+  };
+  const closeConsole = () => {
+    if(!isOpen) return;
+    isOpen = false;
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('console-open');
+  };
+  const toggleConsole = () => (isOpen ? closeConsole() : openConsole());
+
+  document.addEventListener('keydown', (event) => {
+    if(event.key === '`' || event.key === '~'){
+      const target = document.activeElement;
+      if(target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) return;
+      event.preventDefault();
+      toggleConsole();
+    }else if(event.key === 'Escape' && isOpen){
+      closeConsole();
+    }
+  });
+
+  closeBtn?.addEventListener('click', (event) => {
+    event.preventDefault();
+    closeConsole();
+  });
+
+  overlay.addEventListener('click', (event) => {
+    if(event.target === overlay) closeConsole();
   });
 })();
