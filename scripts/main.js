@@ -161,21 +161,11 @@ toggle.addEventListener('click', () => {
   });
 })();
 
-// Ultra-subtle grid parallax (background-position)
+// Static grid backdrop for calmer header
 (function(){
   const el = document.getElementById('bgGrid');
   if (!el) return;
-  let lastY = window.scrollY;
-  const onScroll = () => {
-    const y = window.scrollY;
-    // Move 1px per 100px scroll — extremely subtle
-    const offset = Math.round((y / 100));
-    // Shift diagonally a touch
-    el.style.backgroundPosition = `${offset}px ${offset}px`;
-    lastY = y;
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  el.style.backgroundPosition = '0 0';
 })();
 
 // Tiny analytics:
