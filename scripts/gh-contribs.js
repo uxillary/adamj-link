@@ -5,13 +5,7 @@
   const mount = document.getElementById('ossList');
   if(!mount) return;
 
-  const dot = (repo = '') => {
-    const r = repo.toLowerCase();
-    if (r.includes('hex') || r.includes('labs')) return '#55e6a5';
-    if (r.includes('infinitecurios')) return '#60a5fa';
-    if (r.includes('synthtax')) return '#a78bfa';
-    return '#ff6b6b';
-  };
+  const dot = () => '#55e6a5';
 
   const pillLabel = (t) => {
     const m = (t || '').toLowerCase();

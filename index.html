@@ -76,103 +76,78 @@
   <a href="#main" class="skip">Skip to content</a>
 
   <!-- Header -->
-  <header class="relative sticky top-0 z-30 backdrop-blur-md bg-black/40 dark:bg-black/40 border-b border-zinc-800/60">
-    <div class="grid-bg absolute inset-0 pointer-events-none" id="bgGrid"></div>
-    <div class="max-w-6xl mx-auto px-6 py-4 sm:py-5 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2 font-semibold tracking-tight text-lg">
-        <img src="/public/AJ-inverted.png" alt="Adam J logo" class="h-8 w-8" />
-        <span class="hidden sm:inline">Adam<span class="text-brand">J</span></span>
+  <header class="site-header" id="bgGrid">
+    <div class="site-header__inner">
+      <a href="/" class="site-logo">
+        <img src="/public/AJ-inverted.png" alt="Adam J logo" class="site-logo__mark" />
+        <span class="site-logo__text">Adam J</span>
       </a>
-      <nav class="flex items-center gap-3" aria-label="Primary">
-        <a href="https://ajstudios.dev" class="hidden sm:inline text-sm px-3 py-1.5 r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 transition focus-ring">Portfolio</a>
-        <a href="https://infinitecurios.blog" class="hidden sm:inline text-sm px-3 py-1.5 r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 transition focus-ring">Blog</a>
-        <a href="https://github.com/uxillary" class="hidden sm:inline text-sm px-3 py-1.5 r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 transition focus-ring">GitHub</a>
+      <nav class="site-nav hidden sm:flex" aria-label="Primary">
+        <a href="https://ajstudios.dev" class="site-nav__link">Portfolio</a>
+        <a href="https://infinitecurios.blog" class="site-nav__link">Blog</a>
+        <a href="https://github.com/uxillary" class="site-nav__link">GitHub</a>
       </nav>
     </div>
   </header>
 
   <main id="main" class="max-w-5xl mx-auto px-6 space-y-16 sm:space-y-20">
     <!-- Hero -->
-    <section class="section pt-4">
-      <h1 class="font-extrabold tracking-tight leading-[1.05] text-[clamp(2.25rem,6vw,3.75rem)]">
-        Creative Digital Developer<br/>
-        Programming <span class="grad-brand">useful</span> + <span class="grad-accent">fun</span> things.
-      </h1>
-      <p class="mt-4 max-w-xl dark:text-zinc-300 text-zinc-600 leading-relaxed">
-        Websites, tools, QoL, Multimedia, Clean UX, cohesive branding<br> - ideas to MVP, with fast deployment.
-
-      </p>
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a href="#contact" class="px-5 py-3 r border border-zinc-800/60 hover:border-brand/70 transition focus-ring">Email me</a>
-        <a href="https://ajstudios.dev" class="px-5 py-3 r bg-brand text-black font-semibold hover:opacity-90 transition focus-ring">View Portfolio</a>
+    <section class="section hero">
+      <p class="hero-kicker">Adam Johnston</p>
+      <h1 class="hero-title">Creative Digital Developer</h1>
+      <p class="hero-subtitle">Websites, tools, QoL, multimedia — ideas to MVP with clean UX, cohesive branding, and dependable delivery.</p>
+      <div class="hero-actions">
+        <a href="https://ajstudios.dev" class="btn btn--primary">View portfolio</a>
+        <a href="#contact" class="btn btn--secondary">Email me</a>
       </div>
     </section>
 
     <!-- NOW section -->
     <section class="section">
       <div class="section-head">
-        <h2 class="eyebrow">Now</h2>
+        <h2 class="section-title">Now</h2>
       </div>
-      <div id="nowTimeline" data-active="auto" data-today="2025-10-17" class="brand-scroll t-card px-4 py-8 sm:px-5 sm:py-9 relative overflow-x-auto overflow-y-hidden">
-        <span class="hidden sm:block pointer-events-none absolute left-2 top-1/2 -translate-y-1/2 text-zinc-600" aria-hidden="true">
-          <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#arrow-left"></use></svg>
-        </span>
-        <span class="hidden sm:block pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-zinc-600" aria-hidden="true">
-          <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#arrow-right"></use></svg>
-        </span>
+      <div id="nowTimeline" data-active="auto" data-today="2025-10-17" class="now-timeline">
         <p id="nowTimelineDesc" class="sr-only">Timeline showing key focus points across 2025–2026.</p>
         <span id="nowTimelineHelp" class="sr-only">Use left and right keys or click to set the active step</span>
-        <div class="now-ticks hidden sm:flex absolute left-0 right-0 top-1/2 -translate-y-1/2 justify-between" aria-hidden="true">
-          <span class="w-px h-2 bg-zinc-700/20"></span>
-          <span class="w-px h-2 bg-zinc-700/20"></span>
-          <span class="w-px h-2 bg-zinc-700/20"></span>
-          <span class="w-px h-2 bg-zinc-700/20"></span>
-          <span class="w-px h-2 bg-zinc-700/20"></span>
-        </div>
-        <div class="relative w-max sm:w-full">
-          <div class="now-progress absolute left-0 top-1/2 -translate-y-1/2 h-[3px] rounded-full bg-gradient-to-r from-brand to-accent transition-[width] duration-700 ease-out" style="width:0"></div>
-          <div class="now-track absolute left-0 top-1/2 -translate-y-1/2 h-px bg-zinc-800/60 w-full"></div>
-          <div id="todayMarker" aria-label="Today" class="now-today absolute top-1/2 -translate-y-1/2 transition-[left] duration-700 ease-out" style="left:0">
-            <span class="block size-3 rotate-45 bg-accent rounded-[2px] shadow ring-2 ring-accent/40 animate-pulse"></span>
-            <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-zinc-400">Today</span>
+        <div class="now-inner">
+          <div class="now-progress" style="width:0"></div>
+          <div class="now-track"></div>
+          <div id="todayMarker" aria-label="Today" class="now-today" style="left:0">
+            <span class="now-today-dot" aria-hidden="true"></span>
+            <span class="now-today-label">Today</span>
           </div>
-          <ul role="list" aria-label="Current focus timeline" aria-describedby="nowTimelineDesc nowTimelineHelp" class="flex sm:grid sm:grid-cols-5 gap-6 sm:gap-0 snap-x snap-mandatory sm:overflow-visible w-max sm:w-full">
-            <li role="listitem" tabindex="0" data-step="0" data-date="2025-09-19" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
-            <span class="absolute -top-7 text-xs text-zinc-500">19 Sep</span>
-            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
-            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-200">Reddit Hack</span>
-            <span class="sr-only">19 Sep — Reddit Hack</span>
-          </li>
-          <li role="listitem" tabindex="0" data-step="1" data-date="2025-10-02" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
-            <span class="absolute -top-7 text-xs text-zinc-500">02 Oct</span>
-            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
-            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-200">NASA app</span>
-            <span class="sr-only">2 Oct — NASA app</span>
-          </li>
-          <li role="listitem" tabindex="0" data-step="2" data-date="2025-10-31" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
-            <span class="absolute -top-7 text-xs text-zinc-500">31 Oct</span>
-            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
-            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-200">Meta Horizon</span>
-            <span class="sr-only">31 Oct — Meta Horizon</span>
-          </li>
-          <li role="listitem" tabindex="0" data-step="3" data-date="2025-11-01" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
-            <span class="absolute -top-7 text-xs text-zinc-500">01 Nov</span>
-            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
-            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-200">Chrome AI</span>
-            <span class="sr-only">1 Nov — Chrome AI</span>
-          </li>
-          <li role="listitem" tabindex="0" data-step="4" data-date="2025-11-04" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
-            <span class="absolute -top-7 text-xs text-zinc-500">04 Nov</span>
-            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
-            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-200">Chroma Awards</span>
-            <span class="sr-only">4 Nov — Chroma Awards</span>
-          </li>
-          <!-- <li role="listitem" tabindex="0" data-step="5" data-date="2026-01-01" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
-            <span class="absolute -top-7 text-xs text-zinc-500">2026</span>
-            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
-            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-200"></span>
-            <span class="sr-only">2026 — TBC</span> -->
-          </li>
+          <ul role="list" aria-label="Current focus timeline" aria-describedby="nowTimelineDesc nowTimelineHelp" class="now-list">
+            <li role="listitem" tabindex="0" data-step="0" data-date="2025-09-19" class="now-item">
+              <span class="now-date">19 Sep</span>
+              <span class="now-dot"></span>
+              <span class="now-title">Reddit Hack</span>
+              <span class="sr-only">19 Sep — Reddit Hack</span>
+            </li>
+            <li role="listitem" tabindex="0" data-step="1" data-date="2025-10-02" class="now-item">
+              <span class="now-date">02 Oct</span>
+              <span class="now-dot"></span>
+              <span class="now-title">NASA app</span>
+              <span class="sr-only">2 Oct — NASA app</span>
+            </li>
+            <li role="listitem" tabindex="0" data-step="2" data-date="2025-10-31" class="now-item">
+              <span class="now-date">31 Oct</span>
+              <span class="now-dot"></span>
+              <span class="now-title">Meta Horizon</span>
+              <span class="sr-only">31 Oct — Meta Horizon</span>
+            </li>
+            <li role="listitem" tabindex="0" data-step="3" data-date="2025-11-01" class="now-item">
+              <span class="now-date">01 Nov</span>
+              <span class="now-dot"></span>
+              <span class="now-title">Chrome AI</span>
+              <span class="sr-only">1 Nov — Chrome AI</span>
+            </li>
+            <li role="listitem" tabindex="0" data-step="4" data-date="2025-11-04" class="now-item">
+              <span class="now-date">04 Nov</span>
+              <span class="now-dot"></span>
+              <span class="now-title">Chroma Awards</span>
+              <span class="sr-only">4 Nov — Chroma Awards</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -181,37 +156,28 @@
     <div class="soft-hr"></div>
     <section class="section" id="projects">
       <div class="section-head">
-        <h2 class="font-semibold text-l text-zinc-400 tracking-tight">Projects</h2>
+        <h2 class="section-title">Projects</h2>
       </div>
       <div class="space-y-10">
-        <div class="t-card p-5 sm:p-6">
-          <div class="flex flex-wrap items-center gap-3">
+        <div class="section-surface">
+          <div class="section-surface__head">
             <span class="eyebrow">Upcoming projects</span>
-            <span class="text-[0.7rem] uppercase tracking-[0.3em] text-zinc-500 flex items-center gap-1">
-              <svg width="16" height="16" class="icon-line text-brand/80" aria-hidden="true"><use href="/public/icons.svg#arrow-right"></use></svg>
-              scroll ↔
-            </span>
+            <span class="section-hint">Scroll ↔</span>
           </div>
-          <p class="mt-3 text-sm text-zinc-500 leading-relaxed max-w-xl">Some of my builds-in-progress, tuned for future hackathons and immersive drops. Scroll or click-drag to explore.</p>
-          <div class="upcoming-wrap mt-5" data-upcoming>
+          <p class="section-intro">Some of my builds-in-progress, tuned for future hackathons and immersive drops. Scroll or click-drag to explore.</p>
+          <div class="upcoming-wrap" data-upcoming>
             <ul class="upcoming-track" data-drag-scroll>
               <li class="upcoming-card">
-                <div class="t-card bg-zinc-900/40 border border-zinc-800/60 p-4 flex flex-col">
-                  <span class="text-sm font-medium text-zinc-200">Chrome AI</span>
-                  <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Exploring on-device AI features, building delightful browser-first experiments.</p>
-                </div>
+                <span class="upcoming-title">Chrome AI</span>
+                <p class="upcoming-copy">Exploring on-device AI features, building delightful browser-first experiments.</p>
               </li>
               <li class="upcoming-card">
-                <div class="t-card bg-zinc-900/40 border border-zinc-800/60 p-4 flex flex-col">
-                  <span class="text-sm font-medium text-zinc-200">Chroma Awards</span>
-                  <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Crafting a vibrant submission blending motion, sound, and playful UX.</p>
-                </div>
+                <span class="upcoming-title">Chroma Awards</span>
+                <p class="upcoming-copy">Crafting a vibrant submission blending motion, sound, and playful UX.</p>
               </li>
               <li class="upcoming-card">
-                <div class="t-card bg-zinc-900/40 border border-zinc-800/60 p-4 flex flex-col">
-                  <span class="text-sm font-medium text-zinc-200">Meta Horizon</span>
-                  <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Building an interactive world that showcases immersive storytelling inside Horizon.</p>
-                </div>
+                <span class="upcoming-title">Meta Horizon</span>
+                <p class="upcoming-copy">Building an interactive world that showcases immersive storytelling inside Horizon.</p>
               </li>
             </ul>
             <div class="upcoming-progress" aria-hidden="true">
@@ -219,102 +185,90 @@
             </div>
           </div>
         </div>
-        <div class="t-card p-5 sm:p-6 space-y-6">
-          <div class="flex flex-wrap items-center justify-between gap-4">
-            <span class="eyebrow text-zinc-400">Showcase</span>
+        <div class="section-surface space-y-6">
+          <div class="section-surface__head">
+            <span class="eyebrow">Showcase</span>
             <div class="tab-list" role="tablist" aria-label="Project showcase">
-              <button type="button" id="projects-tab-featured" class="tab-btn focus-ring" role="tab" aria-selected="true" aria-current="true" aria-controls="projects-panel-featured">Featured builds</button>
-              <button type="button" id="projects-tab-portfolio" class="tab-btn focus-ring" role="tab" aria-selected="false" aria-controls="projects-panel-portfolio">Portfolio</button>
+              <button type="button" id="projects-tab-featured" class="tab-btn" role="tab" aria-selected="true" aria-current="true" aria-controls="projects-panel-featured">Featured builds</button>
+              <button type="button" id="projects-tab-portfolio" class="tab-btn" role="tab" aria-selected="false" aria-controls="projects-panel-portfolio">Portfolio</button>
             </div>
           </div>
           <div id="projects-panel-featured" class="space-y-5" role="tabpanel" aria-labelledby="projects-tab-featured">
-            <ul class="brand-scroll cb grid sm:grid-cols-3 gap-5 sm:gap-6 overflow-x-auto snap-x sm:overflow-visible">
-              <li class="shrink-0 snap-start">
-                <div class="t-card p-5 sm:p-6 cb-item flex flex-col">
-                  <div class="w-12 h-12 mb-4 rounded bg-zinc-800/60 flex items-center justify-center text-[0.65rem] uppercase tracking-wide text-zinc-400" aria-hidden="true">4ttp</div>
+            <ul class="cb-list">
+              <li>
+                <div class="cb-item">
+                  <div class="cb-thumb" aria-hidden="true">4ttp</div>
                   <span class="sr-only">4ttp logo placeholder</span>
-                  <h3 class="font-medium">4ttp</h3>
-                  <p class="mt-1 text-sm text-zinc-200 leading-relaxed flex-grow">Browser-based simulation of balance and chaos. Control elemental-tech factions, intervene with abilities.</p>
-                  <a href="https://4ttp.pages.dev" class="mt-3 text-sm text-brand hover:underline">Play online ↗</a>
+                  <h3 class="cb-title">4ttp</h3>
+                  <p class="cb-summary">Browser-based simulation of balance and chaos. Control elemental-tech factions, intervene with abilities.</p>
+                  <a href="https://4ttp.pages.dev" class="cb-link">Play online ↗</a>
                 </div>
               </li>
-              <li class="shrink-0 snap-start">
-                <div class="t-card p-5 sm:p-6 cb-item flex flex-col">
-                  <img src="/public/codex-assist.png" alt="codex assist logo" class="w-12 h-12 mb-4" loading="lazy" decoding="async" />
-                  <h3 class="font-medium">Codex assist</h3>
-                  <p class="mt-1 text-sm text-zinc-200 leading-relaxed flex-grow">Local AI coding tool that connects to OpenAI with smart prompt handling.</p>
-                  <a href="https://github.com/uxillary/codex-assist" class="mt-3 text-sm text-brand hover:underline">Learn more ↗</a>
+              <li>
+                <div class="cb-item">
+                  <img src="/public/codex-assist.png" alt="codex assist logo" class="cb-thumb" loading="lazy" decoding="async" />
+                  <h3 class="cb-title">Codex assist</h3>
+                  <p class="cb-summary">Local AI coding tool that connects to OpenAI with smart prompt handling.</p>
+                  <a href="https://github.com/uxillary/codex-assist" class="cb-link">Learn more ↗</a>
                 </div>
               </li>
-              <li class="shrink-0 snap-start">
-                <div class="t-card p-5 sm:p-6 cb-item flex flex-col">
-                  <img src="/public/synthtax-preview.png" alt="Synthtax preview" class="w-12 h-12 mb-4" loading="lazy" decoding="async" />
-                  <h3 class="font-medium">Synthtax</h3>
-                  <p class="mt-1 text-sm text-zinc-200 leading-relaxed flex-grow">Code-first music mix engine — render with Python (pydub), prompt with AI.</p>
-                  <a href="https://github.com/uxillary/synthtax" class="mt-3 text-sm text-brand hover:underline">Learn more ↗</a>
+              <li>
+                <div class="cb-item">
+                  <img src="/public/synthtax-preview.png" alt="Synthtax preview" class="cb-thumb" loading="lazy" decoding="async" />
+                  <h3 class="cb-title">Synthtax</h3>
+                  <p class="cb-summary">Code-first music mix engine — render with Python (pydub), prompt with AI.</p>
+                  <a href="https://github.com/uxillary/synthtax" class="cb-link">Learn more ↗</a>
                 </div>
               </li>
             </ul>
           </div>
           <div id="projects-panel-portfolio" class="space-y-6" role="tabpanel" aria-labelledby="projects-tab-portfolio">
-            <div class="grid md:grid-cols-2 gap-6 sm:gap-7">
-              <a href="https://hexlabs.app" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
-                <div class="aspect-[16/9] bg-zinc-900/40 relative">
-                  <img src="/public/hex-labs-card.png" width="1600" height="900" alt="Hex Labs" class="w-full h-full object-cover brightness-90 group-hover:brightness-100 transition" loading="lazy" decoding="async" />
-                  <div class="absolute inset-0 bg-black/10"></div>
+            <div class="portfolio-grid">
+              <a href="https://hexlabs.app" class="portfolio-tile">
+                <div class="portfolio-media">
+                  <img src="/public/hex-labs-card.png" width="1600" height="900" alt="Hex Labs" loading="lazy" decoding="async" />
                 </div>
-                <div class="p-4">
-                  <div class="flex items-center justify-between mb-1">
-                    <h3 class="font-semibold">hexlabs.app</h3>
+                <div class="portfolio-body">
+                  <div class="portfolio-header">
+                    <h3>hexlabs.app</h3>
                     <span class="badge">App</span>
                   </div>
-                  <p class="text-sm text-zinc-200 leading-relaxed">Learning environment/ web app including remapping tools, designed to modernize legacy tuning software.</p>
+                  <p>Learning environment/ web app including remapping tools, designed to modernize legacy tuning software.</p>
                 </div>
               </a>
-              <a href="https://infinitecurios.blog" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
-                <div class="aspect-[16/9] bg-zinc-900/40 relative">
-                  <img src="/public/infinitecurios-card.png" width="1600" height="900" alt="Infinite Curios" class="w-full h-full object-cover brightness-90 group-hover:brightness-100 transition" loading="lazy" decoding="async" />
-                  <div class="absolute inset-0 bg-black/10"></div>
+              <a href="https://infinitecurios.blog" class="portfolio-tile">
+                <div class="portfolio-media">
+                  <img src="/public/infinitecurios-card.png" width="1600" height="900" alt="Infinite Curios" loading="lazy" decoding="async" />
                 </div>
-                <div class="p-4">
-                  <div class="flex items-center justify-between mb-1">
-                    <h3 class="font-semibold">infinitecurios.blog</h3>
+                <div class="portfolio-body">
+                  <div class="portfolio-header">
+                    <h3>infinitecurios.blog</h3>
                     <span class="badge">Blog</span>
                   </div>
-                  <p class="text-sm text-zinc-200 leading-relaxed">General blog - exploring tech, design, and creativity. Including everyday, free web tools.</p>
+                  <p>General blog - exploring tech, design, and creativity. Including everyday, free web tools.</p>
                 </div>
               </a>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-5">
-              <a href="https://aspartameawareness.org" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
-                <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
-                  <h4 class="font-medium text-sm">aspartame-awareness.org</h4>
-                  <span class="badge ml-auto">Campaign</span>
-                </div>
+            <div class="portfolio-list">
+              <a href="https://aspartameawareness.org" class="portfolio-chip">
+                <span>aspartame-awareness.org</span>
+                <span class="badge">Campaign</span>
               </a>
-              <a href="https://404cache.net" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
-                <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
-                  <h4 class="font-medium text-sm">404cache.net</h4>
-                  <span class="badge ml-auto">Tool</span>
-                </div>
+              <a href="https://404cache.net" class="portfolio-chip">
+                <span>404cache.net</span>
+                <span class="badge">Tool</span>
               </a>
-              <a href="https://github.com/uxillary/maintenance-goblin" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
-                <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
-                  <h4 class="font-medium text-sm">Maintenance goblin</h4>
-                  <span class="badge ml-auto">Tool</span>
-                </div>
+              <a href="https://github.com/uxillary/maintenance-goblin" class="portfolio-chip">
+                <span>Maintenance goblin</span>
+                <span class="badge">Tool</span>
               </a>
-              <a href="https://uxillary.github.io/font-size-tweak/" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
-                <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
-                  <h4 class="font-medium text-sm">Font size tweak</h4>
-                  <span class="badge ml-auto">Tool</span>
-                </div>
+              <a href="https://uxillary.github.io/font-size-tweak/" class="portfolio-chip">
+                <span>Font size tweak</span>
+                <span class="badge">Tool</span>
               </a>
-              <a href="https://github.com/uxillary/greg-ai" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
-                <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
-                  <h4 class="font-medium text-sm">Greg AI</h4>
-                  <span class="badge ml-auto">AI</span>
-                </div>
+              <a href="https://github.com/uxillary/greg-ai" class="portfolio-chip">
+                <span>Greg AI</span>
+                <span class="badge">AI</span>
               </a>
             </div>
           </div>
@@ -324,8 +278,8 @@
 
     <section class="section" id="activity" aria-labelledby="activity-title">
       <div class="section-head">
-        <h2 id="activity-title" class="font-semibold text-l text-zinc-400 tracking-tight">Activity</h2>
-        <button id="refreshContribs" type="button" class="text-zinc-400 hover:text-brand focus-ring" aria-label="Refresh contributions">
+        <h2 id="activity-title" class="section-title">Activity</h2>
+        <button id="refreshContribs" type="button" class="icon-button" aria-label="Refresh contributions">
           <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#refresh"></use></svg>
         </button>
       </div>
@@ -364,20 +318,20 @@
       <div id="ossList" class="mt-2" aria-live="polite">
         <div class="t-card">Loading recent contributions…</div>
       </div>
-      <a href="https://github.com/uxillary" class="block mt-3 text-sm text-zinc-500 hover:text-brand">View all on GitHub →</a>
+      <a href="https://github.com/uxillary" class="section-link">View all on GitHub →</a>
     </section>
 
     <section class="section" id="writing">
       <div class="section-head">
         <div>
-          <h2 class="font-semibold text-l text-zinc-500 tracking-tight mb-2">Writing</h2>
+          <h2 class="section-title">Writing</h2>
           <div class="eyebrow">Latest posts</div>
         </div>
-        <div class="flex items-center gap-3">
-          <button id="refreshPosts" type="button" class="text-zinc-400 hover:text-brand focus-ring" aria-label="Refresh posts">
+        <div class="section-head__actions">
+          <button id="refreshPosts" type="button" class="icon-button" aria-label="Refresh posts">
             <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#refresh"></use></svg>
           </button>
-          <a class="text-sm text-zinc-400 hover:text-brand" href="https://infinitecurios.blog">All posts →</a>
+          <a class="section-link" href="https://infinitecurios.blog">All posts →</a>
         </div>
       </div>
 
@@ -392,27 +346,24 @@
 
         <!-- Book: sticky sidebar -->
         <aside class="md:col-span-1 h-full">
-          <div class="t-card p-4 sm:p-5 h-full writing-book sticky top-20">
-            <div class="flex items-center justify-between">
-              <h3 class="font-medium text-zinc-100">Get Optimized</h3>
+          <div class="writing-book">
+            <div class="writing-book__header">
+              <h3>Get Optimized</h3>
               <span class="badge">Book</span>
             </div>
-            <div class="mt-3 flex items-start gap-4">
+            <div class="writing-book__content">
               <img src="/public/3d-cover-sm.png" width="400" height="600" alt="Cover of Get Optimized — SEO Guide"
-                   class="w-16 sm:w-24 shrink-0" loading="lazy" decoding="async" />
-              <p class="text-sm text-zinc-300 leading-relaxed">
-                Comprehensive guide to SEO with real-world examples.
-              </p>
+                   class="writing-book__cover" loading="lazy" decoding="async" />
+              <p>Comprehensive guide to SEO with real-world examples.</p>
             </div>
-            <ul class="mt-3 list-disc list-inside text-sm text-zinc-400 space-y-1">
+            <ul class="writing-book__list">
               <li>Boost search visibility</li>
               <li>Practical checklists</li>
             </ul>
-            <blockquote class="mt-2 text-xs text-zinc-500 italic">
+            <blockquote class="writing-book__quote">
               "Visibility, Relevance, and Ranking in an AI World"
             </blockquote>
-            <a href="https://www.amazon.co.uk/dp/B0F9B2MN62"
-               class="inline-flex items-center gap-2 mt-4 px-3 py-1.5 text-sm r border border-brand/60 text-brand font-medium hover:bg-brand/10 transition focus-ring book-cta">
+            <a href="https://www.amazon.co.uk/dp/B0F9B2MN62" class="btn btn--primary writing-book__cta">
               Buy book
             </a>
           </div>
@@ -423,97 +374,88 @@
     <!-- Contact -->
 
     <section id="contact" class="section mb-32">
-      <div class="t-card p-5 sm:p-6">
-        <h2 class="font-semibold text-l mb-2 text-zinc-400">Contact</h2>
-        <form id="contactForm" class="flex flex-col space-y-3">
-          <div>
-            <label for="cf-name" class="block text-xs text-zinc-600">Name</label>
-            <input id="cf-name" name="name" type="text" required placeholder="Name" aria-invalid="false" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70" />
+      <div class="contact-card">
+        <h2>Contact</h2>
+        <form id="contactForm" class="contact-form">
+          <div class="form-field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" required placeholder="Name" aria-invalid="false" class="form-input" />
           </div>
-          <div>
-            <label for="cf-email" class="block text-xs text-zinc-600">Email</label>
-            <input id="cf-email" name="email" type="email" required placeholder="Email" aria-invalid="false" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70" />
+          <div class="form-field">
+            <label for="cf-email">Email</label>
+            <input id="cf-email" name="email" type="email" required placeholder="Email" aria-invalid="false" class="form-input" />
           </div>
-          <div>
-            <label for="cf-message" class="block text-xs text-zinc-600">Message</label>
-            <textarea id="cf-message" name="message" rows="3" required placeholder="Message" aria-invalid="false" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70"></textarea>
+          <div class="form-field">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="3" required placeholder="Message" aria-invalid="false" class="form-input"></textarea>
           </div>
-          <button type="button" id="humanToggle" class="self-start inline-flex items-center gap-2 text-sm text-brand hover:text-brand/80 focus-ring" aria-controls="humanChallenge" aria-expanded="false">
-            <span>Verify you’re human</span>
+          <button type="button" id="humanToggle" class="link-button" aria-controls="humanChallenge" aria-expanded="false">
+            Verify you’re human
           </button>
           <!-- Human challenge -->
-          <div id="humanChallenge" class="t-card p-3 mb-2 border border-zinc-800/40 bg-zinc-900/20">
-            <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <div id="humanChallenge" class="human-challenge">
+            <div class="human-challenge__row">
               <div>
-                <div class="eyebrow">Human check</div>
-                <p id="hcStatus" class="text-sm text-zinc-400/90">Complete a quick branded challenge to enable Send.</p>
+                <span class="eyebrow">Human check</span>
+                <p id="hcStatus" class="human-challenge__status">Complete a quick branded challenge to enable Send.</p>
               </div>
-              <div class="flex items-center gap-2">
-                <button id="hcRefresh" type="button" class="text-zinc-400 hover:text-brand focus-ring" aria-label="New challenge">
-                  <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#refresh"></use></svg>
-                </button>
-              </div>
+              <button id="hcRefresh" type="button" class="icon-button" aria-label="New challenge">
+                <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#refresh"></use></svg>
+              </button>
             </div>
-            <div id="hcMount" class="mt-2"></div>
+            <div id="hcMount" class="human-challenge__mount"></div>
           </div>
-          <button type="submit" class="px-4 py-2 bg-brand text-black font-semibold hover:opacity-90 transition focus-ring">Send</button>
-          <p id="cf-status" class="text-sm mt-2" aria-live="polite"></p>
+          <button type="submit" class="btn btn--primary">Send</button>
+          <p id="cf-status" class="form-status" aria-live="polite"></p>
         </form>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer class="relative mt-20 before:content-[''] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-zinc-800/60 before:to-transparent">
-    <div class="max-w-6xl mx-auto px-6 py-8 text-sm text-zinc-500 space-y-6">
-      <nav class="flex flex-col items-center gap-3 w-max mx-auto sm:w-full sm:flex-row sm:flex-wrap sm:justify-center" aria-label="Social links">
-        <a href="mailto:hello@ajstudios.dev" class="inline-flex w-full sm:w-auto justify-center items-center gap-2 px-4 py-2 r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group">
-          <svg class="icon-line transition-transform group-hover:scale-110" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg>
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__primary">
+        <a href="mailto:hello@ajstudios.dev" class="site-footer__email">
           <span>adam@ajstudios.dev</span>
         </a>
-        <div class="flex flex-wrap justify-center gap-3">
-          <a aria-label="X (Twitter)" href="https://x.com/admjski" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group">
-            <svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#x"></use></svg>
+        <div class="site-footer__icons" aria-label="Social links">
+          <a aria-label="X (Twitter)" href="https://x.com/admjski" class="site-footer__icon">
+            <svg width="18" height="18" aria-hidden="true"><use href="/public/icons.svg#x"></use></svg>
           </a>
-          <a aria-label="GitHub" href="https://github.com/uxillary" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group">
-            <svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#github"></use></svg>
+          <a aria-label="GitHub" href="https://github.com/uxillary" class="site-footer__icon">
+            <svg width="18" height="18" aria-hidden="true"><use href="/public/icons.svg#github"></use></svg>
           </a>
-          <a aria-label="Devpost" href="https://devpost.com/uxillary" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group">
-            <svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#devpost"></use></svg>
+          <a aria-label="Devpost" href="https://devpost.com/uxillary" class="site-footer__icon">
+            <svg width="18" height="18" aria-hidden="true"><use href="/public/icons.svg#devpost"></use></svg>
           </a>
-          <a aria-label="YouTube" href="https://www.youtube.com/@admjski" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group">
-            <svg class="transition-transform group-hover:scale-110" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.8 8s-.2-1.5-.8-2.2c-.8-.9-1.7-.9-2.1-1-2.9-.2-7.1-.2-7.1-.2h-.1s-4.2 0-7.1.2c-.4 0-1.3 0-2.1 1C2.4 6.5 2.2 8 2.2 8S2 9.6 2 11.1v1.7c0 1.5.2 3.1.2 3.1s.2 1.5.8 2.2c.8.9 1.8.9 2.2 1 1.6.1 6.9.2 6.9.2s4.2 0 7.1-.2c.4 0 1.3 0 2.1-1 .6-.7.8-2.2.8-2.2s.2-1.5.2-3.1v-1.7c0-1.5-.2-3.1-.2-3.1zM9.9 14.7V9.3l5.7 2.7-5.7 2.7z"/></svg>
+          <a aria-label="YouTube" href="https://www.youtube.com/@admjski" class="site-footer__icon">
+            <svg width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M21.8 8s-.2-1.5-.8-2.2c-.8-.9-1.7-.9-2.1-1-2.9-.2-7.1-.2-7.1-.2h-.1s-4.2 0-7.1.2c-.4 0-1.3 0-2.1 1C2.4 6.5 2.2 8 2.2 8S2 9.6 2 11.1v1.7c0 1.5.2 3.1.2 3.1s.2 1.5.8 2.2c.8.9 1.8.9 2.2 1 1.6.1 6.9.2 6.9.2s4.2 0 7.1-.2c.4 0 1.3 0 2.1-1 .6-.7.8-2.2.8-2.2s.2-1.5.2-3.1v-1.7c0-1.5-.2-3.1-.2-3.1zM9.9 14.7V9.3l5.7 2.7-5.7 2.7z"/></svg>
           </a>
-          <a aria-label="Instagram" href="https://instagram.com/admjski" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group">
-            <svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#instagram"></use></svg>
-          </a>
-          <a aria-label="Facebook" href="https://facebook.com/admjski" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group">
-            <svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#facebook"></use></svg>
-          </a>
-          <a aria-label="Buy Me A Coffee" href="https://buymeacoffee.com/admjski" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group">
-            <svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#buymeacoffee"></use></svg>
+          <a aria-label="Instagram" href="https://instagram.com/admjski" class="site-footer__icon">
+            <svg width="18" height="18" aria-hidden="true"><use href="/public/icons.svg#instagram"></use></svg>
           </a>
         </div>
-      </nav>
-      <div class="flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between text-sm text-zinc-700">
+      </div>
+      <div class="site-footer__meta">
         <span>© <span id="y"></span> Adam C Johnston — Fife, Scotland, UK</span>
-        <a href="/privacy.html" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">Privacy</a>
+        <a href="/privacy.html">Privacy</a>
       </div>
     </div>
   </footer>
 
   <!-- Radius toggle UI -->
-    <div id="radiusUI" class="fixed bottom-4 right-4 flex flex-col gap-2 z-40">
-      <button id="scrollTop" type="button" class="w-8 h-8 flex items-center justify-center r border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Scroll to top">
-        <svg width="16" height="16" class="icon-line"><path d="M8 4l4 8H4l4-8z"/></svg>
-      </button>
-      <button id="themeToggle" class="w-8 h-8 flex items-center justify-center r border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Toggle theme">
-        <span id="themeIcon" class="spin">☾</span>
-      </button>
-      <button data-radius="soft" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring rounded-full" aria-label="Soft radius">
-        <svg width="16" height="16" class="icon-line"><circle cx="8" cy="8" r="5"/></svg>
-      </button>
-    <button data-radius="square" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Square radius">
+  <div id="radiusUI" class="radius-ui">
+    <button id="scrollTop" type="button" class="radius-ui__button" aria-label="Scroll to top">
+      <svg width="16" height="16" class="icon-line"><path d="M8 4l4 8H4l4-8z"/></svg>
+    </button>
+    <button id="themeToggle" class="radius-ui__button" aria-label="Toggle theme">
+      <span id="themeIcon" class="spin">☾</span>
+    </button>
+    <button data-radius="soft" class="radius-ui__button" aria-label="Soft radius">
+      <svg width="16" height="16" class="icon-line"><circle cx="8" cy="8" r="5"/></svg>
+    </button>
+    <button data-radius="square" class="radius-ui__button" aria-label="Square radius">
       <svg width="16" height="16" class="icon-line"><rect x="3" y="3" width="10" height="10" rx="0"/></svg>
     </button>
   </div>
