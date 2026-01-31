@@ -55,7 +55,7 @@
         requestAnimationFrame(syncBookHeight);
     } catch (err) {
       console.error(err);
-      list.innerHTML = '<p class="text-sm text-zinc-500">Couldn’t load posts right now.</p>';
+      list.innerHTML = '<p class="text-sm text-zinc-500">Posts unavailable.</p>';
       if (bookCard) bookCard.style.minHeight = '';
     }
   }
