@@ -93,88 +93,16 @@
 
   <main id="main" class="max-w-5xl mx-auto px-6 space-y-16 sm:space-y-20">
     <!-- Hero -->
-    <section class="section pt-4">
+    <section class="section pt-4 hero">
       <h1 class="font-extrabold tracking-tight leading-[1.05] text-[clamp(2.25rem,6vw,3.75rem)]">
-        Creative Digital Developer<br/>
-        Programming <span class="grad-brand">useful</span> + <span class="grad-accent">fun</span> things.
+        Seasoned Web Developer 🤌
       </h1>
       <p class="mt-4 max-w-xl dark:text-zinc-300 text-zinc-600 leading-relaxed">
-        Websites, tools, QoL, Multimedia, Clean UX, cohesive branding<br> - ideas to MVP, with fast deployment.
-
+        Websites, tools, and playful UX — shipped fast, built clean.
       </p>
       <div class="mt-6 flex flex-wrap gap-3">
         <a href="#contact" class="px-5 py-3 r border border-zinc-800/60 hover:border-brand/70 transition focus-ring">Email me</a>
-        <a href="https://ajstudios.dev" class="px-5 py-3 r bg-brand text-black font-semibold hover:opacity-90 transition focus-ring">View Portfolio</a>
-      </div>
-    </section>
-
-    <!-- NOW section -->
-    <section class="section">
-      <div class="section-head">
-        <h2 class="eyebrow">Now</h2>
-      </div>
-      <div id="nowTimeline" data-active="auto" data-today="2025-10-17" class="brand-scroll t-card px-4 py-8 sm:px-5 sm:py-9 relative overflow-x-auto overflow-y-hidden">
-        <span class="hidden sm:block pointer-events-none absolute left-2 top-1/2 -translate-y-1/2 text-zinc-600" aria-hidden="true">
-          <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#arrow-left"></use></svg>
-        </span>
-        <span class="hidden sm:block pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-zinc-600" aria-hidden="true">
-          <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#arrow-right"></use></svg>
-        </span>
-        <p id="nowTimelineDesc" class="sr-only">Timeline showing key focus points across 2025–2026.</p>
-        <span id="nowTimelineHelp" class="sr-only">Use left and right keys or click to set the active step</span>
-        <div class="now-ticks hidden sm:flex absolute left-0 right-0 top-1/2 -translate-y-1/2 justify-between" aria-hidden="true">
-          <span class="w-px h-2 bg-zinc-700/20"></span>
-          <span class="w-px h-2 bg-zinc-700/20"></span>
-          <span class="w-px h-2 bg-zinc-700/20"></span>
-          <span class="w-px h-2 bg-zinc-700/20"></span>
-          <span class="w-px h-2 bg-zinc-700/20"></span>
-        </div>
-        <div class="relative w-max sm:w-full">
-          <div class="now-progress absolute left-0 top-1/2 -translate-y-1/2 h-[3px] rounded-full bg-gradient-to-r from-brand to-accent transition-[width] duration-700 ease-out" style="width:0"></div>
-          <div class="now-track absolute left-0 top-1/2 -translate-y-1/2 h-px bg-zinc-800/60 w-full"></div>
-          <div id="todayMarker" aria-label="Today" class="now-today absolute top-1/2 -translate-y-1/2 transition-[left] duration-700 ease-out" style="left:0">
-            <span class="block size-3 rotate-45 bg-accent rounded-[2px] shadow ring-2 ring-accent/40 animate-pulse"></span>
-            <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-xs text-zinc-400">Today</span>
-          </div>
-          <ul role="list" aria-label="Current focus timeline" aria-describedby="nowTimelineDesc nowTimelineHelp" class="flex sm:grid sm:grid-cols-5 gap-6 sm:gap-0 snap-x snap-mandatory sm:overflow-visible w-max sm:w-full">
-            <li role="listitem" tabindex="0" data-step="0" data-date="2025-09-19" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
-            <span class="absolute -top-7 text-xs text-zinc-500">19 Sep</span>
-            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
-            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-200">Reddit Hack</span>
-            <span class="sr-only">19 Sep — Reddit Hack</span>
-          </li>
-          <li role="listitem" tabindex="0" data-step="1" data-date="2025-10-02" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
-            <span class="absolute -top-7 text-xs text-zinc-500">02 Oct</span>
-            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
-            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-200">NASA app</span>
-            <span class="sr-only">2 Oct — NASA app</span>
-          </li>
-          <li role="listitem" tabindex="0" data-step="2" data-date="2025-10-31" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
-            <span class="absolute -top-7 text-xs text-zinc-500">31 Oct</span>
-            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
-            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-200">Meta Horizon</span>
-            <span class="sr-only">31 Oct — Meta Horizon</span>
-          </li>
-          <li role="listitem" tabindex="0" data-step="3" data-date="2025-11-01" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
-            <span class="absolute -top-7 text-xs text-zinc-500">01 Nov</span>
-            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
-            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-200">Chrome AI</span>
-            <span class="sr-only">1 Nov — Chrome AI</span>
-          </li>
-          <li role="listitem" tabindex="0" data-step="4" data-date="2025-11-04" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
-            <span class="absolute -top-7 text-xs text-zinc-500">04 Nov</span>
-            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
-            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-200">Chroma Awards</span>
-            <span class="sr-only">4 Nov — Chroma Awards</span>
-          </li>
-          <!-- <li role="listitem" tabindex="0" data-step="5" data-date="2026-01-01" class="now-item relative shrink-0 snap-center sm:snap-none w-[180px] sm:w-auto grid place-items-center focus-ring">
-            <span class="absolute -top-7 text-xs text-zinc-500">2026</span>
-            <span class="now-dot relative size-3 rounded-full bg-zinc-500/60 transition-colors"></span>
-            <span class="now-title absolute -bottom-7 text-sm font-medium text-zinc-200"></span>
-            <span class="sr-only">2026 — TBC</span> -->
-          </li>
-          </ul>
-        </div>
+        <a href="https://ajstudios.dev" class="px-5 py-3 r btn-primary font-semibold focus-ring">View Portfolio</a>
       </div>
     </section>
 
@@ -192,25 +120,25 @@
               scroll ↔
             </span>
           </div>
-          <p class="mt-3 text-sm text-zinc-500 leading-relaxed max-w-xl">Some of my builds-in-progress, tuned for future hackathons and immersive drops. Scroll or click-drag to explore.</p>
+          <p class="mt-3 text-sm text-zinc-500 leading-relaxed max-w-xl">Builds-in-progress for upcoming drops and hackathons.</p>
           <div class="upcoming-wrap mt-5" data-upcoming>
             <ul class="upcoming-track" data-drag-scroll>
               <li class="upcoming-card">
                 <div class="t-card bg-zinc-900/40 border border-zinc-800/60 p-4 flex flex-col">
                   <span class="text-sm font-medium text-zinc-200">Chrome AI</span>
-                  <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Exploring on-device AI features, building delightful browser-first experiments.</p>
+                  <p class="mt-2 text-sm text-zinc-400 leading-relaxed">On-device AI experiments with browser-first interactions.</p>
                 </div>
               </li>
               <li class="upcoming-card">
                 <div class="t-card bg-zinc-900/40 border border-zinc-800/60 p-4 flex flex-col">
                   <span class="text-sm font-medium text-zinc-200">Chroma Awards</span>
-                  <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Crafting a vibrant submission blending motion, sound, and playful UX.</p>
+                  <p class="mt-2 text-sm text-zinc-400 leading-relaxed">A vibrant entry mixing motion, sound, and playful UX.</p>
                 </div>
               </li>
               <li class="upcoming-card">
                 <div class="t-card bg-zinc-900/40 border border-zinc-800/60 p-4 flex flex-col">
                   <span class="text-sm font-medium text-zinc-200">Meta Horizon</span>
-                  <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Building an interactive world that showcases immersive storytelling inside Horizon.</p>
+                  <p class="mt-2 text-sm text-zinc-400 leading-relaxed">An interactive world for immersive storytelling in Horizon.</p>
                 </div>
               </li>
             </ul>
@@ -268,7 +196,7 @@
                     <h3 class="font-semibold">hexlabs.app</h3>
                     <span class="badge">App</span>
                   </div>
-                  <p class="text-sm text-zinc-200 leading-relaxed">Learning environment/ web app including remapping tools, designed to modernize legacy tuning software.</p>
+                  <p class="text-sm text-zinc-200 leading-relaxed">Learning environment with remapping tools to modernize legacy tuning flows.</p>
                 </div>
               </a>
               <a href="https://infinitecurios.blog" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
@@ -281,7 +209,7 @@
                     <h3 class="font-semibold">infinitecurios.blog</h3>
                     <span class="badge">Blog</span>
                   </div>
-                  <p class="text-sm text-zinc-200 leading-relaxed">General blog - exploring tech, design, and creativity. Including everyday, free web tools.</p>
+                  <p class="text-sm text-zinc-200 leading-relaxed">Essays on tech, design, and creativity plus free web tools.</p>
                 </div>
               </a>
             </div>
@@ -524,9 +452,6 @@
   <script src="/scripts/gh-contribs.js"></script>
 </body>
 </html>
-
-
-
 
 
 
