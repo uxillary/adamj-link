@@ -23,6 +23,20 @@
     return t ? t : 'Update';
   };
 
+  const escapeHtml = (value) => String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+
+  const safeHref = (value) => {
+    if(!value) return '#';
+    const href = String(value).trim();
+    if(/^https?:\/\//i.test(href)) return href;
+    return '#';
+  };
+
   const parseRelativeToSeconds = (value) => {
     if(!value) return null;
     if(/just now/i.test(value)) return 0;
@@ -139,31 +153,44 @@
     }
 
     mount.innerHTML = items.map((it) => {
-      const href = it.url || it.link || '#';
-      const avatar = it.avatar || it.userAvatar || FALLBACK_AVATAR;
+      const href = safeHref(it.url || it.link || '#');
+      const avatar = safeHref(it.avatar || it.userAvatar || FALLBACK_AVATAR);
       const repo = it.repo || it.repository || it.project || 'repo';
       const title = it.title || it.message || it.subtitle || '';
       const type = pillLabel(it.type || it.kind);
       const ref = (it.shortRef || it.sha || it.id || it.number || '').toString().trim();
       const hash = ref ? ref.slice(0, 10) : '';
+      const summary = (it.summary || `${type}${ref ? ` ${ref}` : ''}`).trim();
+      const repoDescription = it.repoMeta && it.repoMeta.description ? it.repoMeta.description : '';
+      const commitMeta = it.commitMeta && typeof it.commitMeta === 'object' ? it.commitMeta : null;
+      const statsParts = [];
+      if(commitMeta){
+        if(Number.isFinite(commitMeta.additions)) statsParts.push(`+${commitMeta.additions}`);
+        if(Number.isFinite(commitMeta.deletions)) statsParts.push(`−${commitMeta.deletions}`);
+        if(Number.isFinite(commitMeta.filesChanged)) statsParts.push(`${commitMeta.filesChanged} file${commitMeta.filesChanged === 1 ? '' : 's'}`);
+      }
+      const statsHint = statsParts.join(' • ');
       const ts = resolveTimestamp(it);
       const when = formatInitialTime(it, ts);
       const timeAttr = Number.isFinite(ts) ? ` data-ts="${ts}"` : '';
 
       return `
-        <a class="oss-card" href="${href}" rel="noopener noreferrer">
+        <a class="oss-card" href="${escapeHtml(href)}" rel="noopener noreferrer">
           <div class="oss-head">
-            <img class="oss-ava" src="${avatar}" alt="" loading="lazy" decoding="async" />
+            <img class="oss-ava" src="${escapeHtml(avatar)}" alt="" loading="lazy" decoding="async" />
             <div class="flex-1 min-w-0">
-              <div class="oss-repo clamp-1">${repo}</div>
-              <div class="oss-title clamp-2">${title}</div>
+              <div class="oss-repo clamp-1">${escapeHtml(repo)}</div>
+              <div class="oss-title clamp-2">${escapeHtml(title)}</div>
+              <div class="oss-summary clamp-1 text-xs opacity-80">${escapeHtml(summary)}</div>
+              ${repoDescription ? `<div class="oss-desc clamp-2 text-[11px] opacity-65">${escapeHtml(repoDescription)}</div>` : ''}
             </div>
             <span class="oss-dot" style="background:${dot(repo)}"></span>
           </div>
-          <span class="oss-pill">${type}</span>
+          <span class="oss-pill">${escapeHtml(type)}</span>
           <div class="oss-meta">
-            ${hash ? `<span class="oss-sha">${hash}</span><span class="sep">•</span>` : ''}
-            <span class="oss-time"${timeAttr}>${when}</span>
+            ${hash ? `<span class="oss-sha">${escapeHtml(hash)}</span><span class="sep">•</span>` : ''}
+            ${statsHint ? `<span class="oss-stats">${escapeHtml(statsHint)}</span><span class="sep">•</span>` : ''}
+            <span class="oss-time"${timeAttr}>${escapeHtml(when)}</span>
           </div>
         </a>
       `;
