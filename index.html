@@ -91,18 +91,18 @@
     </div>
   </header>
 
-  <main id="main" class="max-w-5xl mx-auto px-6 space-y-16 sm:space-y-20">
+  <main id="main" class="max-w-5xl mx-auto px-6 space-y-20 sm:space-y-28">
     <!-- Hero -->
-    <section class="section pt-4 hero">
-      <h1 class="font-extrabold tracking-tight leading-[1.05] text-[clamp(2.25rem,6vw,3.75rem)]">
+    <section class="section pt-6 hero">
+      <h1 class="font-extrabold tracking-tight leading-[0.98] text-[clamp(2.8rem,7vw,5rem)]">
         Seasoned Web Developer 🤌
       </h1>
-      <p class="mt-4 max-w-xl dark:text-zinc-300 text-zinc-600 leading-relaxed">
+      <p class="mt-6 max-w-2xl dark:text-zinc-300 text-zinc-600 leading-relaxed text-[1.06rem]">
         Websites, tools, and playful UX — shipped fast, built clean.
       </p>
       <div class="mt-6 flex flex-wrap gap-3">
-        <a href="#contact" class="px-5 py-3 r border border-zinc-800/60 hover:border-brand/70 transition focus-ring">Email me</a>
         <a href="https://ajstudios.dev" class="px-5 py-3 r btn-primary font-semibold focus-ring">View Portfolio</a>
+        <a href="#contact" class="px-1 py-3 text-sm sm:text-base hero-link focus-ring">Email me</a>
       </div>
     </section>
 
@@ -111,8 +111,8 @@
       <div class="section-head">
         <h2 class="font-semibold text-l text-zinc-400 tracking-tight">Projects</h2>
       </div>
-      <div class="space-y-10">
-        <div class="t-card p-5 sm:p-6">
+      <div class="space-y-14">
+        <div>
           <div class="flex flex-wrap items-center gap-3">
             <span class="eyebrow">Upcoming projects</span>
             <span class="text-[0.7rem] uppercase tracking-[0.3em] text-zinc-500 flex items-center gap-1">
@@ -124,20 +124,23 @@
           <div class="upcoming-wrap mt-5" data-upcoming>
             <ul class="upcoming-track" data-drag-scroll>
               <li class="upcoming-card">
-                <div class="t-card bg-zinc-900/40 border border-zinc-800/60 p-4 flex flex-col">
-                  <span class="text-sm font-medium text-zinc-200">Chrome AI</span>
+                <div class="upcoming-item p-4 sm:p-5 flex flex-col">
+                  <span class="upcoming-meta">Hackathon</span>
+                  <span class="text-base font-medium text-zinc-100 mt-2">Chrome AI</span>
                   <p class="mt-2 text-sm text-zinc-400 leading-relaxed">On-device AI experiments with browser-first interactions.</p>
                 </div>
               </li>
               <li class="upcoming-card">
-                <div class="t-card bg-zinc-900/40 border border-zinc-800/60 p-4 flex flex-col">
-                  <span class="text-sm font-medium text-zinc-200">Chroma Awards</span>
+                <div class="upcoming-item p-4 sm:p-5 flex flex-col">
+                  <span class="upcoming-meta">Drop</span>
+                  <span class="text-base font-medium text-zinc-100 mt-2">Chroma Awards</span>
                   <p class="mt-2 text-sm text-zinc-400 leading-relaxed">A vibrant entry mixing motion, sound, and playful UX.</p>
                 </div>
               </li>
               <li class="upcoming-card">
-                <div class="t-card bg-zinc-900/40 border border-zinc-800/60 p-4 flex flex-col">
-                  <span class="text-sm font-medium text-zinc-200">Meta Horizon</span>
+                <div class="upcoming-item p-4 sm:p-5 flex flex-col">
+                  <span class="upcoming-meta">Prototype</span>
+                  <span class="text-base font-medium text-zinc-100 mt-2">Meta Horizon</span>
                   <p class="mt-2 text-sm text-zinc-400 leading-relaxed">An interactive world for immersive storytelling in Horizon.</p>
                 </div>
               </li>
@@ -147,86 +150,118 @@
             </div>
           </div>
         </div>
-        <div class="t-card p-5 sm:p-6 space-y-6">
+        <div class="space-y-7">
           <div class="flex flex-wrap items-center justify-between gap-4">
             <span class="eyebrow text-zinc-400">Showcase</span>
           </div>
           <div class="space-y-6">
             <div class="grid md:grid-cols-2 gap-6 sm:gap-7">
-              <a href="https://hexlabs.app" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
+              <a href="https://hexlabs.app" class="featured-project overflow-hidden block group transition">
                 <div class="aspect-[16/9] bg-zinc-900/40 relative">
-                  <img src="/public/hex-labs-card.png" width="1600" height="900" alt="Hex Labs" class="w-full h-full object-cover brightness-90 group-hover:brightness-100 transition" loading="lazy" decoding="async" />
-                  <div class="absolute inset-0 bg-black/10"></div>
+                  <img src="/public/hex-labs-card.png" width="1600" height="900" alt="Hex Labs" class="w-full h-full object-cover brightness-90 transition" loading="lazy" decoding="async" />
+                  <div class="absolute inset-0 bg-black/35 featured-fade"></div>
                 </div>
-                <div class="p-4">
+                <div class="p-4 sm:p-5 featured-copy">
                   <div class="flex items-center justify-between mb-1">
-                    <h3 class="font-semibold">hexlabs.app</h3>
+                    <h3 class="font-semibold text-lg">hexlabs.app</h3>
                     <span class="badge">App</span>
                   </div>
                   <p class="text-sm text-zinc-200 leading-relaxed">Learning environment with remapping tools to modernize legacy tuning flows.</p>
                 </div>
               </a>
-              <a href="https://404cache.net" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
+              <a href="https://404cache.net" class="featured-project overflow-hidden block group transition">
                 <div class="aspect-[16/9] bg-zinc-900/40 relative">
-                  <img src="/public/infinitecurios-card.png" width="1600" height="900" alt="Infinite Curios" class="w-full h-full object-cover brightness-90 group-hover:brightness-100 transition" loading="lazy" decoding="async" />
-                  <div class="absolute inset-0 bg-black/10"></div>
+                  <img src="/public/infinitecurios-card.png" width="1600" height="900" alt="Infinite Curios" class="w-full h-full object-cover brightness-90 transition" loading="lazy" decoding="async" />
+                  <div class="absolute inset-0 bg-black/35 featured-fade"></div>
                 </div>
-                <div class="p-4">
+                <div class="p-4 sm:p-5 featured-copy">
                   <div class="flex items-center justify-between mb-1">
-                    <h3 class="font-semibold">404cache.net</h3>
+                    <h3 class="font-semibold text-lg">404cache.net</h3>
                     <span class="badge">Blog</span>
                   </div>
                   <p class="text-sm text-zinc-200 leading-relaxed">Essays on tech, design, and creativity plus free web tools.</p>
                 </div>
               </a>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-5">
-              <a href="https://4ttp.pages.dev" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
-                <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
-                  <h4 class="font-medium text-sm">4ttp</h4>
-                  <span class="badge ml-auto">Game</span>
+            <div class="more-projects" aria-label="More projects">
+              <a href="https://4ttp.pages.dev" class="project-list-item group">
+                <div>
+                  <h4 class="font-medium text-sm sm:text-base">4ttp</h4>
+                  <p class="text-sm text-zinc-500 mt-1">Fast-paced browser game experiment.</p>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="badge">Game</span>
+                  <span class="project-arrow">↗</span>
                 </div>
               </a>
-              <a href="https://github.com/uxillary/codex-assist" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
-                <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
-                  <h4 class="font-medium text-sm">Codex assist</h4>
-                  <span class="badge ml-auto">AI</span>
+              <a href="https://github.com/uxillary/codex-assist" class="project-list-item group">
+                <div>
+                  <h4 class="font-medium text-sm sm:text-base">Codex assist</h4>
+                  <p class="text-sm text-zinc-500 mt-1">Helpers and workflow tools for Codex projects.</p>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="badge">AI</span>
+                  <span class="project-arrow">↗</span>
                 </div>
               </a>
-              <a href="https://github.com/uxillary/synthtax" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
-                <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
-                  <h4 class="font-medium text-sm">Synthtax</h4>
-                  <span class="badge ml-auto">Music</span>
+              <a href="https://github.com/uxillary/synthtax" class="project-list-item group">
+                <div>
+                  <h4 class="font-medium text-sm sm:text-base">Synthtax</h4>
+                  <p class="text-sm text-zinc-500 mt-1">Music-forward code experiments and playful synthesis ideas.</p>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="badge">Music</span>
+                  <span class="project-arrow">↗</span>
                 </div>
               </a>
-              <a href="https://aspartameawareness.org" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
-                <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
-                  <h4 class="font-medium text-sm">aspartame-awareness.org</h4>
-                  <span class="badge ml-auto">Campaign</span>
+              <a href="https://aspartameawareness.org" class="project-list-item group">
+                <div>
+                  <h4 class="font-medium text-sm sm:text-base">aspartame-awareness.org</h4>
+                  <p class="text-sm text-zinc-500 mt-1">Awareness campaign site with focused public messaging.</p>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="badge">Campaign</span>
+                  <span class="project-arrow">↗</span>
                 </div>
               </a>
-              <a href="https://404cache.pages.dev/" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
-                <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
-                  <h4 class="font-medium text-sm">Stock Market game</h4>
-                  <span class="badge ml-auto">Tool</span>
+              <a href="https://404cache.pages.dev/" class="project-list-item group">
+                <div>
+                  <h4 class="font-medium text-sm sm:text-base">Stock Market game</h4>
+                  <p class="text-sm text-zinc-500 mt-1">Interactive simulation for quick learning through play.</p>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="badge">Tool</span>
+                  <span class="project-arrow">↗</span>
                 </div>
               </a>
-              <a href="https://github.com/uxillary/maintenance-goblin" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
-                <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
-                  <h4 class="font-medium text-sm">Maintenance goblin</h4>
-                  <span class="badge ml-auto">Tool</span>
+              <a href="https://github.com/uxillary/maintenance-goblin" class="project-list-item group">
+                <div>
+                  <h4 class="font-medium text-sm sm:text-base">Maintenance goblin</h4>
+                  <p class="text-sm text-zinc-500 mt-1">Automation scripts that tidy repetitive project maintenance.</p>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="badge">Tool</span>
+                  <span class="project-arrow">↗</span>
                 </div>
               </a>
-              <a href="https://uxillary.github.io/font-size-tweak/" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
-                <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
-                  <h4 class="font-medium text-sm">Font size tweak</h4>
-                  <span class="badge ml-auto">Tool</span>
+              <a href="https://uxillary.github.io/font-size-tweak/" class="project-list-item group">
+                <div>
+                  <h4 class="font-medium text-sm sm:text-base">Font size tweak</h4>
+                  <p class="text-sm text-zinc-500 mt-1">Quick utility to improve readability and text hierarchy.</p>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="badge">Tool</span>
+                  <span class="project-arrow">↗</span>
                 </div>
               </a>
-              <a href="https://github.com/uxillary/greg-ai" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
-                <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
-                  <h4 class="font-medium text-sm">Greg AI</h4>
-                  <span class="badge ml-auto">AI</span>
+              <a href="https://github.com/uxillary/greg-ai" class="project-list-item group">
+                <div>
+                  <h4 class="font-medium text-sm sm:text-base">Greg AI</h4>
+                  <p class="text-sm text-zinc-500 mt-1">AI assistant experiments with personality and utility layers.</p>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="badge">AI</span>
+                  <span class="project-arrow">↗</span>
                 </div>
               </a>
             </div>
@@ -237,14 +272,14 @@
 
     <section class="section" id="activity" aria-labelledby="activity-title">
       <div class="section-head">
-        <h2 id="activity-title" class="font-semibold text-l text-zinc-400 tracking-tight">Activity</h2>
+        <h2 id="activity-title" class="font-semibold text-l text-zinc-400 tracking-tight">Studio Metrics</h2>
         <button id="refreshContribs" type="button" class="text-zinc-400 hover:text-brand focus-ring" aria-label="Refresh contributions">
           <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#refresh"></use></svg>
         </button>
       </div>
 
       <!-- Counters -->
-      <div class="activity-counters grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+      <div class="activity-counters grid grid-cols-2 sm:grid-cols-3 gap-5 sm:gap-7">
         <div class="stat-pill" title="Local device session views">
           <span class="label">page views</span>
           <span id="views" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
@@ -437,6 +472,5 @@
   <script src="/scripts/gh-contribs.js"></script>
 </body>
 </html>
-
 
 
