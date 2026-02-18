@@ -27,7 +27,7 @@ jobs:
       - name: Generate contributions.json
         env:
           GH_USERNAME: uxillary
-          GH_TOKEN: ${{ secrets.TOKEN_KEY }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           node - <<'NODE'
           const { Octokit } = require("@octokit/core");
@@ -39,63 +39,159 @@ jobs:
           const GH_USERNAME = process.env.GH_USERNAME;
           const octokit = new Octokit({ auth: process.env.GH_TOKEN });
 
+          const titleCase = (value = '') => {
+            const text = String(value || '').trim();
+            if (!text) return '';
+            return text.charAt(0).toUpperCase() + text.slice(1);
+          };
+
+          const parseRepoName = (repoName = '') => {
+            const parts = String(repoName || '').split('/');
+            if (parts.length < 2) return null;
+            const [owner, ...rest] = parts;
+            const repo = rest.join('/');
+            if (!owner || !repo) return null;
+            return { owner, repo };
+          };
+
           (async () => {
             const { data: events } = await octokit.request('GET /users/{username}/events/public', {
               username: GH_USERNAME,
               per_page: 100
             });
 
-            const items = [];
+            const repoMetaCache = new Map();
             const seenUrls = new Set();
+            const items = [];
+
+            const getRepoMeta = async (repoName) => {
+              if (!repoName) return null;
+              if (repoMetaCache.has(repoName)) return repoMetaCache.get(repoName);
+
+              const parsed = parseRepoName(repoName);
+              if (!parsed) {
+                repoMetaCache.set(repoName, null);
+                return null;
+              }
+
+              try {
+                const { data } = await octokit.request('GET /repos/{owner}/{repo}', parsed);
+                const meta = {
+                  description: data?.description || '',
+                  language: data?.language || null,
+                  stars: typeof data?.stargazers_count === 'number' ? data.stargazers_count : null
+                };
+                repoMetaCache.set(repoName, meta);
+                return meta;
+              } catch (error) {
+                repoMetaCache.set(repoName, null);
+                return null;
+              }
+            };
+
+            const getCommitMeta = async (repoName, sha) => {
+              if (!repoName || !sha) return null;
+              const parsed = parseRepoName(repoName);
+              if (!parsed) return null;
+
+              try {
+                const { data } = await octokit.request('GET /repos/{owner}/{repo}/commits/{ref}', {
+                  ...parsed,
+                  ref: sha
+                });
+                return {
+                  additions: typeof data?.stats?.additions === 'number' ? data.stats.additions : null,
+                  deletions: typeof data?.stats?.deletions === 'number' ? data.stats.deletions : null,
+                  filesChanged: Array.isArray(data?.files) ? data.files.length : null
+                };
+              } catch (error) {
+                return null;
+              }
+            };
+
             for (const ev of events) {
               const type = ev.type;
               const repoName = ev.repo?.name || '';
               const repo = repoName.split('/').slice(-1)[0] || repoName || 'repo';
               let title = '';
+              let summary = type.replace('Event', '');
               let url = '';
               let shortRef = '';
+              let commitMeta = null;
 
               if (type === 'PushEvent') {
-                const commit = ev.payload?.commits?.slice(-1)[0];
+                const commits = Array.isArray(ev.payload?.commits) ? ev.payload.commits : [];
+                const commit = commits.slice(-1)[0] || null;
+                const sha = commit?.sha || ev.payload?.head || '';
+                const commitCount = commits.length || 1;
+
                 title = commit?.message?.split('\n')[0] || 'Commit';
-                shortRef = (ev.payload?.head || '').slice(0, 7);
-                url = `https://github.com/${repoName}/commit/${ev.payload?.head}`;
+                summary = `Pushed ${commitCount} commit${commitCount === 1 ? '' : 's'}`;
+                shortRef = sha.slice(0, 7);
+                url = sha ? `https://github.com/${repoName}/commit/${sha}` : '';
+                commitMeta = await getCommitMeta(repoName, sha);
               } else if (type === 'IssuesEvent') {
+                const action = titleCase(ev.payload?.action || 'updated');
+                const issueNumber = ev.payload?.issue?.number;
                 title = ev.payload?.issue?.title || 'Issue';
-                shortRef = `#${ev.payload?.issue?.number}`;
+                summary = `${action} issue${issueNumber ? ` #${issueNumber}` : ''}`;
+                shortRef = issueNumber ? `#${issueNumber}` : '';
                 url = ev.payload?.issue?.html_url;
               } else if (type === 'PullRequestEvent') {
+                const action = ev.payload?.pull_request?.merged ? 'Merged' : titleCase(ev.payload?.action || 'updated');
+                const prNumber = ev.payload?.pull_request?.number || ev.payload?.number;
                 title = ev.payload?.pull_request?.title || 'Pull request';
-                shortRef = `#${ev.payload?.number}`;
+                summary = `${action} PR${prNumber ? ` #${prNumber}` : ''}`;
+                shortRef = prNumber ? `#${prNumber}` : '';
                 url = ev.payload?.pull_request?.html_url;
+              } else if (type === 'CreateEvent') {
+                const refType = ev.payload?.ref_type;
+                title = ev.payload?.ref || repo;
+                summary = refType ? `Created ${refType}` : 'Created';
+                url = `https://github.com/${repoName}`;
+              } else if (type === 'DeleteEvent') {
+                const refType = ev.payload?.ref_type;
+                if (!refType) {
+                  continue;
+                }
+                title = ev.payload?.ref || repo;
+                summary = `Deleted ${refType}`;
+                url = `https://github.com/${repoName}`;
               } else if (type === 'PullRequestReviewEvent' || type === 'PullRequestReviewCommentEvent') {
                 title = ev.payload?.pull_request?.title || 'PR review';
-                shortRef = `#${ev.payload?.pull_request?.number}`;
+                shortRef = `#${ev.payload?.pull_request?.number || ''}`.replace(/#$/, '');
                 url = ev.payload?.pull_request?.html_url;
               } else {
                 title = repo;
                 url = `https://github.com/${repoName}`;
               }
 
-              if (!url) {
-                continue;
-              }
-
-              if (seenUrls.has(url)) {
+              if (!url || seenUrls.has(url)) {
                 continue;
               }
 
               seenUrls.add(url);
 
-              items.push({
+              const item = {
                 repo,
                 title,
                 type: type.replace('Event', ''),
                 url,
                 shortRef,
-                timeAgo: dayjs(ev.created_at).from(dayjs())
-              });
+                timeAgo: dayjs(ev.created_at).from(dayjs()),
+                summary
+              };
 
+              const repoMeta = await getRepoMeta(repoName);
+              if (repoMeta) {
+                item.repoMeta = repoMeta;
+              }
+
+              if (commitMeta) {
+                item.commitMeta = commitMeta;
+              }
+
+              items.push(item);
               if (items.length >= 8) break;
             }
 
