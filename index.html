@@ -150,41 +150,8 @@
         <div class="t-card p-5 sm:p-6 space-y-6">
           <div class="flex flex-wrap items-center justify-between gap-4">
             <span class="eyebrow text-zinc-400">Showcase</span>
-            <div class="tab-list" role="tablist" aria-label="Project showcase">
-              <button type="button" id="projects-tab-featured" class="tab-btn focus-ring" role="tab" aria-selected="true" aria-current="true" aria-controls="projects-panel-featured">Featured builds</button>
-              <button type="button" id="projects-tab-portfolio" class="tab-btn focus-ring" role="tab" aria-selected="false" aria-controls="projects-panel-portfolio">Portfolio</button>
-            </div>
           </div>
-          <div id="projects-panel-featured" class="space-y-5" role="tabpanel" aria-labelledby="projects-tab-featured">
-            <ul class="brand-scroll cb grid sm:grid-cols-3 gap-5 sm:gap-6 overflow-x-auto snap-x sm:overflow-visible">
-              <li class="shrink-0 snap-start">
-                <div class="t-card p-5 sm:p-6 cb-item flex flex-col">
-                  <div class="w-12 h-12 mb-4 rounded bg-zinc-800/60 flex items-center justify-center text-[0.65rem] uppercase tracking-wide text-zinc-400" aria-hidden="true">4ttp</div>
-                  <span class="sr-only">4ttp logo placeholder</span>
-                  <h3 class="font-medium">4ttp</h3>
-                  <p class="mt-1 text-sm text-zinc-200 leading-relaxed flex-grow">Browser-based simulation of balance and chaos. Control elemental-tech factions, intervene with abilities.</p>
-                  <a href="https://4ttp.pages.dev" class="mt-3 text-sm text-brand hover:underline">Play online ↗</a>
-                </div>
-              </li>
-              <li class="shrink-0 snap-start">
-                <div class="t-card p-5 sm:p-6 cb-item flex flex-col">
-                  <img src="/public/codex-assist.png" alt="codex assist logo" class="w-12 h-12 mb-4" loading="lazy" decoding="async" />
-                  <h3 class="font-medium">Codex assist</h3>
-                  <p class="mt-1 text-sm text-zinc-200 leading-relaxed flex-grow">Local AI coding tool that connects to OpenAI with smart prompt handling.</p>
-                  <a href="https://github.com/uxillary/codex-assist" class="mt-3 text-sm text-brand hover:underline">Learn more ↗</a>
-                </div>
-              </li>
-              <li class="shrink-0 snap-start">
-                <div class="t-card p-5 sm:p-6 cb-item flex flex-col">
-                  <img src="/public/synthtax-preview.png" alt="Synthtax preview" class="w-12 h-12 mb-4" loading="lazy" decoding="async" />
-                  <h3 class="font-medium">Synthtax</h3>
-                  <p class="mt-1 text-sm text-zinc-200 leading-relaxed flex-grow">Code-first music mix engine — render with Python (pydub), prompt with AI.</p>
-                  <a href="https://github.com/uxillary/synthtax" class="mt-3 text-sm text-brand hover:underline">Learn more ↗</a>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div id="projects-panel-portfolio" class="space-y-6" role="tabpanel" aria-labelledby="projects-tab-portfolio">
+          <div class="space-y-6">
             <div class="grid md:grid-cols-2 gap-6 sm:gap-7">
               <a href="https://hexlabs.app" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
                 <div class="aspect-[16/9] bg-zinc-900/40 relative">
@@ -213,7 +180,25 @@
                 </div>
               </a>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-5">
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-5">
+              <a href="https://4ttp.pages.dev" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
+                <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
+                  <h4 class="font-medium text-sm">4ttp</h4>
+                  <span class="badge ml-auto">Game</span>
+                </div>
+              </a>
+              <a href="https://github.com/uxillary/codex-assist" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
+                <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
+                  <h4 class="font-medium text-sm">Codex assist</h4>
+                  <span class="badge ml-auto">AI</span>
+                </div>
+              </a>
+              <a href="https://github.com/uxillary/synthtax" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
+                <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
+                  <h4 class="font-medium text-sm">Synthtax</h4>
+                  <span class="badge ml-auto">Music</span>
+                </div>
+              </a>
               <a href="https://aspartameawareness.org" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
                 <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
                   <h4 class="font-medium text-sm">aspartame-awareness.org</h4>
@@ -222,7 +207,7 @@
               </a>
               <a href="https://404cache.pages.dev/" class="t-card p-0 overflow-hidden block group hover:-translate-y-1 hover:shadow-brand/20 transition">
                 <div class="aspect-[16/9] bg-gradient-to-br from-brand/10 to-brand/0 flex items-end p-2 gap-2">
-                  <h4 class="font-medium text-sm">404cache.net</h4>
+                  <h4 class="font-medium text-sm">Stock Market game</h4>
                   <span class="badge ml-auto">Tool</span>
                 </div>
               </a>
@@ -452,7 +437,6 @@
   <script src="/scripts/gh-contribs.js"></script>
 </body>
 </html>
-
 
 
 
