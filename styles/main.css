@@ -673,6 +673,11 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
   overflow-wrap:anywhere;
   word-break:break-word;
 }
+.upcoming-item p{
+  width:60%;
+  font-size:.82rem;
+  line-height:1.45;
+}
 .upcoming-item::before{
   content:"";
   position:absolute;
