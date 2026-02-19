@@ -663,7 +663,13 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
   background:rgba(255,255,255,.015);
   border-left:1px solid rgba(85,230,165,.7);
   min-height:100%;
+  min-width:0;
   transition:background-color .2s ease;
+}
+.upcoming-item > *{
+  min-width:0;
+  overflow-wrap:anywhere;
+  word-break:break-word;
 }
 .upcoming-item::before{
   content:"";
