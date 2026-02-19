@@ -232,7 +232,7 @@ html, body { overflow-x: hidden; }
 /* Skip link */
 .skip{ position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden }
 .skip:focus{ left:1rem; top:1rem; width:auto; height:auto; background:var(--surface); color:var(--text);
-  padding:.5rem .75rem; border-radius:.5rem; z-index:50; border:1px solid var(--border) }
+  padding:.5rem .75rem; border-radius:var(--r); z-index:50; border:1px solid var(--border) }
 
 /* Theme toggle spin */
 .spin{ transition: transform .4s ease }
@@ -262,7 +262,7 @@ html, body { overflow-x: hidden; }
   position: absolute; inset: -1px auto auto -1px;
   width: 24px; height: 24px; display: grid; place-items: center;
   background: rgba(85,230,165,.3); color: #55e6a5; font-weight: 700; font-size: 12px;
-  border-radius:0;
+  border-radius:var(--r);
 }
 .cb-top{
   position:absolute; left:0; right:0; top:0; height:1px;
@@ -336,7 +336,7 @@ html, body { overflow-x: hidden; }
 .clamp-2{ display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden }
 .clamp-1{ -webkit-line-clamp:1 }
 .clamp-2{ -webkit-line-clamp:2 }
-  .badge{ display:inline-flex; align-items:center; gap:.25rem; padding:0 .45rem; border-radius:2px; border:1px solid rgba(255,255,255,.12); font-size:.65rem; line-height:1.4; color:color-mix(in oklab,var(--text) 78%,var(--surface) 22%); background:rgba(255,255,255,.02) }
+  .badge{ display:inline-flex; align-items:center; gap:.25rem; padding:0 .45rem; border-radius:var(--r); border:1px solid rgba(255,255,255,.12); font-size:.65rem; line-height:1.4; color:color-mix(in oklab,var(--text) 78%,var(--surface) 22%); background:rgba(255,255,255,.02) }
   .badge svg{ width:.75rem; height:.75rem }
 
   .post-card{
@@ -387,7 +387,7 @@ html, body { overflow-x: hidden; }
 .contribs-skeleton{ opacity:.6; }
 .contrib-card{
   display:block;
-  border-radius:12px;
+  border-radius:var(--r);
   padding:16px;
   background:rgba(255,255,255,.03);
   border:1px solid rgba(255,255,255,.06);
@@ -744,7 +744,7 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
 
 .oss-card{
   border:0;
-  border-radius:2px;
+  border-radius:var(--r);
   background:rgba(255,255,255,.03);
   transition:transform .16s ease, background-color .2s ease;
 }
