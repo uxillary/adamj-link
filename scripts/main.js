@@ -178,6 +178,54 @@ toggle.addEventListener('click', () => {
   onScroll();
 })();
 
+
+// Section reveal animations for smoother page flow
+(function(){
+  const sections = Array.from(document.querySelectorAll('.section'));
+  if (!sections.length) return;
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealTargets = [
+    '.section-head',
+    '.featured-project',
+    '.project-list-item',
+    '.stat-pill',
+    '.oss-card',
+    '.post-card',
+    '.writing-book',
+    '.t-card'
+  ];
+
+  sections.forEach(section => {
+    section.classList.add('reveal-ready');
+    const items = section.querySelectorAll(revealTargets.join(','));
+    items.forEach((item, index) => {
+      item.classList.add('reveal-item');
+      item.style.setProperty('--reveal-delay', `${Math.min(index * 70, 420)}ms`);
+    });
+  });
+
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    sections.forEach(section => {
+      section.classList.add('reveal-in');
+      section.querySelectorAll('.reveal-item').forEach(item => item.classList.add('reveal-in'));
+    });
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const section = entry.target;
+      section.classList.add('reveal-in');
+      section.querySelectorAll('.reveal-item').forEach(item => item.classList.add('reveal-in'));
+      obs.unobserve(section);
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+  sections.forEach(section => observer.observe(section));
+})();
+
 // Tiny analytics:
 // 1) Page views — global with local fallback
 (function(){

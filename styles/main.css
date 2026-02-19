@@ -628,9 +628,9 @@ header.sticky{
   border-color:rgba(255,255,255,.08)!important;
 }
 
-main{padding-top:1rem;padding-bottom:3rem}
-.section{ margin-top:4.5rem; margin-bottom:4.5rem; }
-.section > * + * { margin-top:1rem; }
+main{padding-top:1.5rem;padding-bottom:4rem}
+.section{ margin-top:5.5rem; margin-bottom:5.5rem; }
+.section > * + * { margin-top:1.35rem; }
 
 a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease, transform .18s ease }
 .hero-link{
@@ -753,6 +753,44 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
 
 @media (min-width:640px){ .section{ margin-top:5.25rem; margin-bottom:5.25rem } }
 
+@media (min-width:640px){ .section{ margin-top:6.5rem; margin-bottom:6.5rem } }
+
+.section.reveal-ready,
+.section .reveal-item{
+  opacity:0;
+  transform:translateY(22px);
+}
+
+.section.reveal-in,
+.section .reveal-item.reveal-in{
+  opacity:1;
+  transform:translateY(0);
+  transition:opacity .65s ease, transform .65s cubic-bezier(.2,.8,.2,1);
+}
+
+.section .reveal-item.reveal-in{
+  transition-delay:var(--reveal-delay, 0ms);
+}
+
+.featured-project,
+.project-list-item,
+.stat-pill,
+.post-card,
+.writing-book,
+.t-card,
+.oss-card{
+  transition:transform .24s ease, box-shadow .24s ease, background-color .24s ease;
+}
+
+.featured-project:hover,
+.post-card:hover,
+.writing-book:hover,
+.t-card:hover,
+.oss-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 28px -22px rgba(85,230,165,.5);
+}
+
 #blogList > p{
   border:1px dashed var(--border);
   padding:0.85rem 1rem;
@@ -771,10 +809,18 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
     width:2.5rem;
     height:2.5rem;
   }
-  .section{ margin-top:2.5rem; margin-bottom:2.5rem; }
+  .section{ margin-top:3.35rem; margin-bottom:3.35rem; }
 }
 
 @media (prefers-reduced-motion: reduce){
   .tab-btn::after{ transition:none; }
   #humanChallenge{ transition:none; }
+  .section.reveal-ready,
+  .section .reveal-item,
+  .section.reveal-in,
+  .section .reveal-item.reveal-in{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
 }
