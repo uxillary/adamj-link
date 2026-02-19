@@ -656,14 +656,16 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
 .upcoming-wrap{ margin:0; padding:0 0 2rem; --edge-size:36px; }
 .upcoming-wrap::before,
 .upcoming-wrap::after{ bottom:2rem; }
-.upcoming-track{ gap:.9rem; }
-.upcoming-card{ min-width:min(82vw, 320px); }
+.upcoming-track{ gap:1.2rem; padding:0 1.1rem 1.35rem; }
+.upcoming-card{ min-width:min(88vw, 380px); }
 .upcoming-item{
   position:relative;
   background:rgba(255,255,255,.015);
   border-left:1px solid rgba(85,230,165,.7);
   min-height:100%;
   min-width:0;
+  box-sizing:border-box;
+  padding:1.1rem 1.35rem 1.25rem;
   transition:background-color .2s ease;
 }
 .upcoming-item > *{
