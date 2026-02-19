@@ -458,8 +458,12 @@
 
   <!-- Radius toggle UI -->
     <div id="radiusUI" class="fixed bottom-4 right-4 flex flex-col gap-2 z-40">
-      <button id="scrollTop" type="button" class="w-8 h-8 flex items-center justify-center r border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Scroll to top">
-        <svg width="16" height="16" class="icon-line"><path d="M8 4l4 8H4l4-8z"/></svg>
+      <button id="scrollTop" type="button" class="w-8 h-8 flex items-center justify-center r border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-brand focus-ring" aria-label="Scroll to top" title="Back to top">
+        <svg width="16" height="16" class="icon-line" aria-hidden="true">
+          <path d="M8 12V4"/>
+          <path d="M4.75 7.25L8 4l3.25 3.25"/>
+          <path d="M4.25 13.5h7.5"/>
+        </svg>
       </button>
       <button id="themeToggle" class="w-8 h-8 flex items-center justify-center r border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Toggle theme">
         <span id="themeIcon" class="spin">☾</span>
@@ -476,4 +480,3 @@
   <script src="/scripts/gh-contribs.js"></script>
 </body>
 </html>
-
