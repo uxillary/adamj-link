@@ -131,8 +131,8 @@ Add `robots.txt`, `sitemap.txt`, `404.html`, OG image wiring, tiny JS for year +
 
 ## Links
 
-- Primary site: <https://ajstudios.dev>  
-- Blog: <https://ajstudios.dev/blog>  
+- Primary site: <https://adamj.link>  
+- Blog: <https://404cache.net>  
 - GitHub: <https://github.com/uxillary>
 - YouTube: <https://youtube.com/@admjski>  
 - Email: <hello@ajstudios.dev>
