@@ -235,19 +235,31 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
 (function(){
   const ui = document.getElementById('radiusUI');
   if(!ui) return;
-  const buttons = ui.querySelectorAll('button[data-radius]');
+  const button = document.getElementById('radiusToggle');
+  const softIcon = document.getElementById('radiusIconSoft');
+  const squareIcon = document.getElementById('radiusIconSquare');
+  if(!button || !softIcon || !squareIcon) return;
+
   const update = () => {
     const current = document.documentElement.getAttribute('data-radius');
-    buttons.forEach(btn => {
-      const active = btn.dataset.radius === current;
-      btn.classList.toggle('bg-brand', active);
-      btn.classList.toggle('text-black', active);
-    });
+    const isSoft = current === 'soft';
+    button.classList.toggle('rounded-full', isSoft);
+    button.classList.toggle('r', !isSoft);
+    button.classList.toggle('bg-brand/25', isSoft);
+    button.classList.toggle('border-brand/80', isSoft);
+    button.classList.toggle('text-white', isSoft);
+    softIcon.classList.toggle('hidden', !isSoft);
+    squareIcon.classList.toggle('hidden', isSoft);
+    button.setAttribute('aria-label', isSoft ? 'Switch to square corners' : 'Switch to rounded corners');
+    button.setAttribute('aria-pressed', String(isSoft));
   };
-  buttons.forEach(btn => btn.addEventListener('click', () => {
-    setRadius(btn.dataset.radius);
+
+  button.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-radius');
+    setRadius(current === 'soft' ? 'square' : 'soft');
     update();
-  }));
+  });
+
   update();
 })();
 
