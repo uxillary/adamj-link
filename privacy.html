@@ -1,102 +1,96 @@
 <!doctype html>
-<html lang="en" class="dark" data-radius="square">
+<html lang="en-GB" class="dark" data-radius="square">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy Policy — Adam J</title>
-  <meta name="description" content="Privacy policy for adamj.link" />
+  <meta name="description" content="Privacy policy for adamj.link covering analytics, local storage, contact form processing, and data retention." />
+  <meta name="robots" content="index,follow" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="content-language" content="en-GB" />
+  <link rel="canonical" href="https://adamj.link/privacy.html" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9Z8TDRRCE4"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  <meta property="og:title" content="Privacy Policy — Adam J" />
+  <meta property="og:description" content="How adamj.link handles analytics, contact requests, cookies, and browser storage." />
+  <meta property="og:image" content="https://adamj.link/public/og.jpg" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://adamj.link/privacy.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Privacy Policy — Adam J" />
+  <meta name="twitter:description" content="How adamj.link handles analytics, contact requests, cookies, and browser storage." />
+  <meta name="twitter:image" content="https://adamj.link/public/og.jpg" />
 
-    gtag('config', 'G-9Z8TDRRCE4');
-  </script>
-
-  <!-- Favicons -->
   <link rel="shortcut icon" href="/public/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/public/favicon/apple-icon-180x180.png" />
   <link rel="manifest" href="/public/favicon/manifest.json" />
-  <meta name="msapplication-TileColor" content="#0a0a0a" />
-  <meta name="msapplication-config" content="/public/favicon/browserconfig.xml" />
 
-  <!-- Color scheme & theme colors -->
   <meta name="color-scheme" content="dark light">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
 
-  <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Apply saved/system theme BEFORE paint to avoid flash -->
   <script src="/scripts/theme.js"></script>
-
-  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="/scripts/tailwind-config.js"></script>
-
   <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body class="selection:bg-brand/30 selection:text-white">
   <a href="#main" class="skip">Skip to content</a>
 
-  <main id="main" class="max-w-3xl mx-auto px-6 py-16">
-    <nav aria-label="Breadcrumb">
-      <a href="/" class="text-sm underline decoration-brand/20 underline-offset-4 hover:decoration-brand">&larr; Back home</a>
-    </nav>
+  <header class="relative sticky top-0 z-30 backdrop-blur-md bg-black/40 dark:bg-black/40 border-b border-zinc-800/60">
+    <div class="max-w-6xl mx-auto px-7 py-4 sm:py-5 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3 font-semibold tracking-[-0.01em] text-lg">
+        <img src="/public/AJ-inverted.png" alt="Adam J logo" class="h-8 w-8" />
+        <span class="hidden sm:inline"><span class="text-zinc-500">//</span> <span class="text-zinc-200">Adam</span><span class="text-brand">J</span></span>
+      </a>
+    </div>
+  </header>
 
-    <header class="mt-12 space-y-4">
-      <h1 class="text-4xl font-extrabold grad-brand">Privacy Policy</h1>
-      <p class="max-w-prose dark:text-zinc-300 text-zinc-600">This page explains what information is collected when you visit this site and how it is used.</p>
-    </header>
-
-    <section class="section">
-      <h2 class="text-2xl font-semibold">Data collection</h2>
-      <p class="dark:text-zinc-300 text-zinc-600">Server logs may store your IP address, browser details, and pages visited. Logs are used for security and are automatically purged.</p>
+  <main id="main" class="max-w-5xl mx-auto px-6 py-10 space-y-8">
+    <section class="t-card p-5 sm:p-6">
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Privacy Policy</h1>
+      <p class="mt-3 text-zinc-400">This policy explains what data is processed on adamj.link and why.</p>
     </section>
 
-    <section class="section">
-      <h2 class="text-2xl font-semibold">Analytics</h2>
-      <p class="dark:text-zinc-300 text-zinc-600">Google Analytics 4 is used to understand how the site is performing. This service records page views, approximate location, device details, and similar usage metrics tied to a pseudonymous identifier. The information helps improve the site and is not sold.</p>
-      <p class="dark:text-zinc-300 text-zinc-600">You can opt out by using Google's browser add-on, adjusting your ad personalization settings, or blocking analytics cookies in your browser.</p>
-    </section>
+    <section class="t-card p-5 sm:p-6 space-y-4">
+      <h2 class="text-2xl font-semibold">Owner and contact</h2>
+      <p class="text-zinc-300">This website is operated by Adam Johnston. Questions can be sent to <a href="mailto:adam@ajstudios.dev" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">adam@ajstudios.dev</a> or <a href="mailto:hello@ajstudios.dev" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">hello@ajstudios.dev</a>.</p>
 
-    <section class="section">
-      <h2 class="text-2xl font-semibold">Contact</h2>
-      <p class="dark:text-zinc-300 text-zinc-600">If you email or otherwise contact Adam, your details will be used only to respond to your message.</p>
-    </section>
+      <h2 class="text-2xl font-semibold pt-2">Analytics</h2>
+      <p class="text-zinc-300">Google Analytics (gtag.js, GA4) is used to measure visits and page usage. This may include page views, approximate location, browser/device information, and engagement events using pseudonymous identifiers.</p>
 
-    <section class="section">
-      <h2 class="text-2xl font-semibold">Local storage &amp; cookies</h2>
-      <p class="dark:text-zinc-300 text-zinc-600">This site uses your browser's localStorage and sessionStorage to remember settings like your theme and to cache basic page-view counts.</p>
-      <p class="dark:text-zinc-300 text-zinc-600">Google Analytics may store cookies to recognise returning visitors and measure engagement. You can clear or block these cookies at any time via your browser settings.</p>
-    </section>
+      <h2 class="text-2xl font-semibold pt-2">Cookies and local storage</h2>
+      <p class="text-zinc-300">The site stores preference data in localStorage/sessionStorage to remember theme, corner radius style, and a local view counter cache. Google Analytics may also set cookies for measurement.</p>
 
-    <section class="section">
-      <h2 class="text-2xl font-semibold">Data retention</h2>
-      <p class="dark:text-zinc-300 text-zinc-600">Logs and any direct communications are kept only as long as needed to operate the site or respond to you, then removed.</p>
-    </section>
+      <h2 class="text-2xl font-semibold pt-2">Contact form processing</h2>
+      <p class="text-zinc-300">Messages submitted through the contact form are sent to the <code>/api/contact</code> endpoint and forwarded by email so Adam can reply. Form data is used only for handling your enquiry.</p>
 
-    <section class="section">
-      <h2 class="text-2xl font-semibold">Third-party links</h2>
-      <p class="dark:text-zinc-300 text-zinc-600">This site may include links to external pages. Once you leave adamj.link, their own privacy policies apply.</p>
-    </section>
+      <h2 class="text-2xl font-semibold pt-2">Data retention</h2>
+      <p class="text-zinc-300">Contact messages are retained only as long as needed to respond and maintain a practical communication record. Operational logs are kept for short-term reliability and security needs, then removed.</p>
 
-    <section class="section">
-      <h2 class="text-2xl font-semibold">Updates</h2>
-      <p class="dark:text-zinc-300 text-zinc-600">This policy may change over time. Check this page for the latest version. Questions? Email <a href="mailto:adam@ajstudios.dev" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">adam@ajstudios.dev</a>.</p>
+      <h2 class="text-2xl font-semibold pt-2">Content classification note</h2>
+      <p class="text-zinc-300">This site contains no adult content.</p>
+
+      <p class="text-sm text-zinc-500 pt-2">Last updated: 20 February 2026</p>
     </section>
   </main>
 
-  <footer class="mt-16 border-t border-zinc-800/60 py-8 text-center text-sm text-zinc-700">
-    <span>© <span id="y"></span> Adam C Johnston — Fife, Scotland, UK</span>
+  <footer class="mt-16 border-t border-zinc-800/60 py-8">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between text-sm text-zinc-700">
+      <span>© <span id="y"></span> Adam C Johnston — Fife, Scotland, UK</span>
+      <div class="flex flex-wrap gap-3 sm:gap-4">
+        <a href="/about.html" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">About</a>
+        <a href="/contact.html" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">Contact</a>
+        <a href="/privacy.html" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">Privacy</a>
+        <a href="/terms.html" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">Terms</a>
+        <a href="/site-info.html" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">Site Info</a>
+      </div>
+    </div>
   </footer>
 
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>

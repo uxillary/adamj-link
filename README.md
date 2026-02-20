@@ -91,5 +91,12 @@ strictly atomic—use Durable Objects if precision is critical.
 
 ## Change log
 
+- 2026-02-20 — Added trust/legitimacy pages (`about`, `contact`, `privacy`, `terms`, `site-info`), XML sitemap, robots update, and footer legal links to improve classifier transparency.
 - 2025-09-27 — Lightened Activity section with frameless layout, stat pills, and refined OSS card styling.
 - 2025-09-26 — Streamlined homepage sections (Projects tabs, Activity rollup, Writing grid, collapsible contact check).
+
+## Legitimacy resources
+
+- Public pages: `/about.html`, `/contact.html`, `/privacy.html`, `/terms.html`, `/site-info.html`
+- Crawler support: `/robots.txt` + `/sitemap.xml`
+- Recategorization checklist: `docs/legitimacy-checklist.md`

@@ -27,20 +27,28 @@ export const onRequestPost = async ({ request, env }) => {
     });
   }
 
-  const res = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${apiKey}`,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      from,
-      to,
-      subject: `Message from adamj.link`,
-      reply_to: email,
-      text: `From: ${name} <${email}>\n\n${message}`
-    })
-  });
+  let res;
+  try {
+    res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from,
+        to,
+        subject: `Message from adamj.link`,
+        reply_to: email,
+        text: `From: ${name} <${email}>\n\n${message}`
+      })
+    });
+  } catch {
+    return new Response(JSON.stringify({ error: 'Email service unavailable' }), {
+      status: 502,
+      headers: { 'content-type': 'application/json' }
+    });
+  }
 
   if (!res.ok) {
     return new Response(JSON.stringify({ error: 'Email send failed' }), {
@@ -53,4 +61,3 @@ export const onRequestPost = async ({ request, env }) => {
     headers: { 'content-type': 'application/json' }
   });
 };
-

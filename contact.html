@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en-GB" class="dark" data-radius="square">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Adam J</title>
+  <meta name="description" content="Contact Adam Johnston via the secure contact form on adamj.link." />
+  <meta name="robots" content="index,follow" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="content-language" content="en-GB" />
+  <link rel="canonical" href="https://adamj.link/contact.html" />
+  <meta property="og:title" content="Contact — Adam J" />
+  <meta property="og:description" content="Send a message to Adam Johnston via the contact form on adamj.link." />
+  <meta property="og:image" content="https://adamj.link/public/og.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://adamj.link/contact.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact — Adam J" />
+  <meta name="twitter:description" content="Send a message to Adam Johnston via the contact form on adamj.link." />
+  <meta name="twitter:image" content="https://adamj.link/public/og.jpg" />
+
+  <link rel="shortcut icon" href="/public/favicon.ico" sizes="any" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="/scripts/theme.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/scripts/tailwind-config.js"></script>
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body class="selection:bg-brand/30 selection:text-white">
+  <main class="max-w-5xl mx-auto px-6 py-10 space-y-8">
+    <section class="t-card p-5 sm:p-6">
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Contact</h1>
+      <p class="mt-3 text-zinc-300">Use the form below to get in touch. Typical reply window: 24–48 hours.</p>
+      <p class="mt-2 text-zinc-400">Email: <a href="mailto:adam@ajstudios.dev" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">adam@ajstudios.dev</a>. Spam prevention is enabled via a lightweight human challenge.</p>
+    </section>
+
+    <section id="contact" class="section mb-20">
+      <div class="t-card p-5 sm:p-6">
+        <h2 class="font-semibold text-l mb-2 text-zinc-400">Send a message</h2>
+        <form id="contactForm" class="flex flex-col space-y-3">
+          <div>
+            <label for="cf-name" class="block text-xs text-zinc-600">Name</label>
+            <input id="cf-name" name="name" type="text" required placeholder="Name" aria-invalid="false" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70" />
+          </div>
+          <div>
+            <label for="cf-email" class="block text-xs text-zinc-600">Email</label>
+            <input id="cf-email" name="email" type="email" required placeholder="Email" aria-invalid="false" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70" />
+          </div>
+          <div>
+            <label for="cf-message" class="block text-xs text-zinc-600">Message</label>
+            <textarea id="cf-message" name="message" rows="3" required placeholder="Message" aria-invalid="false" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70"></textarea>
+          </div>
+          <button type="button" id="humanToggle" class="self-start inline-flex items-center gap-2 text-sm text-brand hover:text-brand/80 focus-ring" aria-controls="humanChallenge" aria-expanded="false">
+            <span>Verify you’re human</span>
+          </button>
+          <div id="humanChallenge" class="t-card p-3 mb-2 border border-zinc-800/40 bg-zinc-900/20">
+            <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <div class="eyebrow">Human check</div>
+                <p id="hcStatus" class="text-sm text-zinc-400/90">Complete a quick branded challenge to enable Send.</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <button id="hcRefresh" type="button" class="text-zinc-400 hover:text-brand focus-ring" aria-label="New challenge">
+                  <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#refresh"></use></svg>
+                </button>
+              </div>
+            </div>
+            <div id="hcMount" class="mt-2"></div>
+          </div>
+          <button type="submit" class="px-4 py-2 bg-brand text-black font-semibold hover:opacity-90 transition focus-ring">Send</button>
+          <p id="cf-status" class="text-sm mt-2" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-16 border-t border-zinc-800/60 py-8">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between text-sm text-zinc-700">
+      <span>© <span id="y"></span> Adam C Johnston — Fife, Scotland, UK</span>
+      <div class="flex flex-wrap gap-3 sm:gap-4">
+        <a href="/about.html" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">About</a>
+        <a href="/contact.html" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">Contact</a>
+        <a href="/privacy.html" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">Privacy</a>
+        <a href="/terms.html" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">Terms</a>
+        <a href="/site-info.html" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">Site Info</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="radiusUI" class="fixed bottom-4 right-4 flex flex-col gap-2 z-40">
+    <button id="scrollTop" type="button" class="w-8 h-8 flex items-center justify-center r border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-brand focus-ring" aria-label="Scroll to top" title="Back to top">
+      <svg width="16" height="16" class="icon-line" aria-hidden="true">
+        <path d="M8 12V4"/><path d="M4.75 7.25L8 4l3.25 3.25"/><path d="M4.25 13.5h7.5"/>
+      </svg>
+    </button>
+    <button id="themeToggle" class="w-8 h-8 flex items-center justify-center r border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Toggle theme"><span id="themeIcon" class="spin">☾</span></button>
+    <button id="radiusToggle" type="button" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Toggle corner style" aria-pressed="false">
+      <svg id="radiusIconSoft" width="16" height="16" class="icon-line hidden" aria-hidden="true"><circle cx="8" cy="8" r="5"/></svg>
+      <svg id="radiusIconSquare" width="16" height="16" class="icon-line hidden" aria-hidden="true"><rect x="3" y="3" width="10" height="10" rx="0"/></svg>
+    </button>
+  </div>
+
+  <script src="/scripts/main.js"></script>
+  <script src="/scripts/human-challenge.js"></script>
+</body>
+</html>
