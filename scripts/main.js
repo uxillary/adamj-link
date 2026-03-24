@@ -506,3 +506,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 })();
+
+// Section + element reveal animation
+(() => {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const sections = Array.from(document.querySelectorAll('main .section'));
+  if(!sections.length) return;
+
+  sections.forEach(section => {
+    section.setAttribute('data-animate', '');
+    const revealItems = section.querySelectorAll(
+      '.featured-project, .project-list-item, .stat-pill, #blogList > a, .oss-card, .upcoming-card, .t-card'
+    );
+    if(revealItems.length){
+      section.setAttribute('data-animate-group', '');
+      revealItems.forEach(item => item.setAttribute('data-animate', ''));
+    }
+  });
+
+  if(prefersReduced){
+    sections.forEach(section => section.classList.add('is-revealed'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if(!entry.isIntersecting) return;
+      entry.target.classList.add('is-revealed');
+      obs.unobserve(entry.target);
+    });
+  }, {
+    rootMargin: '0px 0px -10% 0px',
+    threshold: 0.14
+  });
+
+  document.querySelectorAll('[data-animate]').forEach(node => observer.observe(node));
+})();
