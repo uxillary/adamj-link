@@ -1,6 +1,10 @@
 // gh-contribs.js — compact “micro-card” renderer
 (function(){
-  const SOURCE = '/public/contributions.json';
+  const SOURCES = [
+    '/public/contributions.json',
+    'https://raw.githubusercontent.com/uxillary/automated/main/contributions.json'
+  ];
+  const GITHUB_EVENTS_SOURCE = 'https://api.github.com/users/uxillary/events/public';
   const FALLBACK_AVATAR = 'https://avatars.githubusercontent.com/u/22217717?v=4';
   const mount = document.getElementById('ossList');
   if(!mount) return;
@@ -132,6 +136,102 @@
     });
   };
 
+  const normalizeEvents = (events) => {
+    if(!Array.isArray(events)) return [];
+    return events.map((event) => {
+      if(!event || typeof event !== 'object') return null;
+      const payload = event.payload && typeof event.payload === 'object' ? event.payload : {};
+      const repo = event.repo && event.repo.name ? event.repo.name : 'uxillary';
+      const createdAt = event.created_at;
+      const avatar = event.actor && event.actor.avatar_url ? event.actor.avatar_url : FALLBACK_AVATAR;
+      const base = {
+        repo,
+        avatar,
+        date: createdAt,
+        id: event.id
+      };
+
+      if(event.type === 'PushEvent'){
+        const commits = Array.isArray(payload.commits) ? payload.commits : [];
+        const first = commits[0] || {};
+        const sha = first.sha || '';
+        const shortRef = sha ? sha.slice(0, 7) : '';
+        const compareUrl = payload.compare || '';
+        const commitUrl = sha && repo ? `https://github.com/${repo}/commit/${sha}` : '';
+        return {
+          ...base,
+          type: 'Commit',
+          title: first.message || `Pushed ${commits.length || 1} commit${commits.length === 1 ? '' : 's'}`,
+          summary: commits.length > 1 ? `${commits.length} commits pushed` : 'Commit pushed',
+          shortRef,
+          url: commitUrl || compareUrl || `https://github.com/${repo}`
+        };
+      }
+
+      if(event.type === 'PullRequestEvent' && payload.pull_request){
+        return {
+          ...base,
+          type: payload.action === 'closed' && payload.pull_request.merged_at ? 'Merged' : 'PR',
+          title: payload.pull_request.title || 'Pull request update',
+          summary: `#${payload.number || payload.pull_request.number || ''} ${payload.action || 'updated'}`.trim(),
+          number: payload.pull_request.number,
+          url: payload.pull_request.html_url || `https://github.com/${repo}/pulls`
+        };
+      }
+
+      if(event.type === 'IssuesEvent' && payload.issue){
+        return {
+          ...base,
+          type: 'Issue',
+          title: payload.issue.title || 'Issue activity',
+          summary: `#${payload.issue.number || ''} ${payload.action || 'updated'}`.trim(),
+          number: payload.issue.number,
+          url: payload.issue.html_url || `https://github.com/${repo}/issues`
+        };
+      }
+
+      if(event.type === 'IssueCommentEvent' && payload.issue){
+        return {
+          ...base,
+          type: 'Issue',
+          title: payload.issue.title || 'Issue comment',
+          summary: `Commented on #${payload.issue.number || ''}`.trim(),
+          number: payload.issue.number,
+          url: payload.issue.html_url || `https://github.com/${repo}/issues`
+        };
+      }
+
+      if(event.type === 'CreateEvent'){
+        const refType = payload.ref_type || 'branch';
+        return {
+          ...base,
+          type: 'Update',
+          title: `Created ${refType}${payload.ref ? ` ${payload.ref}` : ''}`,
+          summary: `New ${refType} in ${repo}`,
+          url: `https://github.com/${repo}`
+        };
+      }
+
+      if(event.type === 'ReleaseEvent' && payload.release){
+        return {
+          ...base,
+          type: 'Update',
+          title: payload.release.name || payload.release.tag_name || 'Published a release',
+          summary: payload.action || 'released',
+          url: payload.release.html_url || `https://github.com/${repo}/releases`
+        };
+      }
+
+      return {
+        ...base,
+        type: 'Update',
+        title: event.type.replace(/Event$/, ''),
+        summary: 'Public activity update',
+        url: `https://github.com/${repo}`
+      };
+    }).filter(Boolean);
+  };
+
   const loader = () => {
     mount.setAttribute('aria-busy','true');
     mount.classList.add('oss-grid');
@@ -200,15 +300,51 @@
     ensureTicker();
   };
 
+  const fetchFeed = async () => {
+    const cacheBust = `cb=${Date.now()}`;
+    for (const source of SOURCES) {
+      const url = source.includes('?') ? `${source}&${cacheBust}` : `${source}?${cacheBust}`;
+      try {
+        const res = await fetch(url, { cache: 'no-store' });
+        if(!res.ok) continue;
+        const data = await res.json();
+        const generatedAt = data && data.generatedAt ? new Date(data.generatedAt).getTime() : Date.now();
+        const raw = Array.isArray(data) ? data : (data && data.items) || [];
+        const items = uniqueItems(raw).slice(0, 8);
+        if(items.length){
+          return {
+            generatedAt: Number.isNaN(generatedAt) ? Date.now() : generatedAt,
+            items
+          };
+        }
+      } catch (error) {
+        console.warn(`contribs source failed: ${source}`, error);
+      }
+    }
+    try {
+      const res = await fetch(GITHUB_EVENTS_SOURCE, {
+        headers: { 'Accept': 'application/vnd.github+json' },
+        cache: 'no-store'
+      });
+      if(res.ok){
+        const events = await res.json();
+        const items = uniqueItems(normalizeEvents(events)).slice(0, 8);
+        if(items.length){
+          return { generatedAt: Date.now(), items };
+        }
+      }
+    } catch (error) {
+      console.warn('contribs source failed: github events api', error);
+    }
+    return { generatedAt: Date.now(), items: [] };
+  };
+
   async function load(){
     loader();
     try{
-      const res = await fetch(SOURCE, { cache: 'reload' });
-      const data = await res.json();
-      const generatedAt = data && data.generatedAt ? new Date(data.generatedAt).getTime() : Date.now();
-      baseGeneratedAt = Number.isNaN(generatedAt) ? Date.now() : generatedAt;
-      const raw = Array.isArray(data) ? data : (data && data.items) || [];
-      const items = uniqueItems(raw).slice(0, 8);
+      const data = await fetchFeed();
+      baseGeneratedAt = data.generatedAt;
+      const items = data.items;
       render(items);
     }catch(e){
       console.error('contribs load failed', e);
