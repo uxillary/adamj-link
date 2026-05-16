@@ -700,8 +700,20 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
 .featured-project{ background:rgba(255,255,255,.015); }
 .featured-project img{ transition:transform .5s ease; }
 .featured-project:hover img{ transform:scale(1.03); }
+.project-thumb-preview{ overflow:hidden; }
+.project-preview-gif{
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .32s ease, transform .5s ease;
+}
+.project-card:hover .project-preview-gif,
+.project-card:focus-visible .project-preview-gif,
+.project-card:focus-within .project-preview-gif{ opacity:1; }
 .featured-fade{ transition:background .28s ease; }
 .featured-project:hover .featured-fade{ background:linear-gradient(to top, rgba(0,0,0,.6), rgba(0,0,0,.18)); }
+@media (prefers-reduced-motion: reduce){
+  .project-preview-gif{ display:none; }
+}
 .featured-copy h3{ display:inline-block; position:relative; }
 .featured-copy h3::after{
   content:"";
