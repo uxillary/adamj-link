@@ -428,6 +428,28 @@ document.addEventListener('DOMContentLoaded', () => {
   obs.observe(analyticsSection);
 });
 
+
+// Project GIF previews: keep animated GIF files unloaded until hover.
+(() => {
+  const previews = document.querySelectorAll('.project-card .project-preview-gif[data-gif-src]');
+  if (!previews.length) return;
+
+  previews.forEach((preview) => {
+    const card = preview.closest('.project-card');
+    const gifSrc = preview.dataset.gifSrc;
+    const stillSrc = preview.getAttribute('src') || '';
+    if (!card || !gifSrc) return;
+
+    card.addEventListener('pointerenter', () => {
+      preview.src = gifSrc;
+    });
+
+    card.addEventListener('pointerleave', () => {
+      preview.src = stillSrc;
+    });
+  });
+})();
+
 // Tabs: Projects showcase
 (() => {
   const projects = document.getElementById('projects');
