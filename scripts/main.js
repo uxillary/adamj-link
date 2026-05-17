@@ -429,10 +429,46 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Project GIF previews: keep animated GIF files unloaded until hover.
+// Project GIF previews: cache heavy animations last, then play them on hover.
 (() => {
-  const previews = document.querySelectorAll('.project-card .project-preview-gif[data-gif-src]');
-  if (!previews.length) return;
+  const previews = Array.from(document.querySelectorAll('.project-card .project-preview-gif[data-gif-src]'));
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!previews.length || reduceMotion.matches) return;
+
+  const gifCache = new Map();
+
+  const markLoaded = (gifSrc) => {
+    const record = gifCache.get(gifSrc);
+    if (record) record.loaded = true;
+  };
+
+  const preloadGif = (gifSrc) => {
+    if (gifCache.has(gifSrc)) return gifCache.get(gifSrc);
+
+    const loader = new Image();
+    const record = { loaded: false, image: loader };
+    gifCache.set(gifSrc, record);
+
+    loader.decoding = 'async';
+    if ('fetchPriority' in loader) loader.fetchPriority = 'low';
+    loader.onload = () => markLoaded(gifSrc);
+    loader.onerror = () => { gifCache.delete(gifSrc); };
+    loader.src = gifSrc;
+
+    return record;
+  };
+
+  const warmGifCacheLast = () => {
+    const warm = () => previews.forEach((preview) => preloadGif(preview.dataset.gifSrc));
+
+    window.setTimeout(() => {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(warm, { timeout: 3000 });
+      } else {
+        warm();
+      }
+    }, 1200);
+  };
 
   previews.forEach((preview) => {
     const card = preview.closest('.project-card');
@@ -440,14 +476,44 @@ document.addEventListener('DOMContentLoaded', () => {
     const stillSrc = preview.getAttribute('src') || '';
     if (!card || !gifSrc) return;
 
+    if ('fetchPriority' in preview) preview.fetchPriority = 'low';
+
+    let isHovering = false;
+
     card.addEventListener('pointerenter', () => {
-      preview.src = gifSrc;
+      isHovering = true;
+      const record = preloadGif(gifSrc);
+
+      card.classList.toggle('is-gif-loading', !record.loaded);
+      card.classList.toggle('is-gif-ready', record.loaded);
+
+      if (record.loaded) {
+        preview.src = gifSrc;
+        return;
+      }
+
+      record.image.onload = () => {
+        markLoaded(gifSrc);
+        if (!isHovering) return;
+
+        card.classList.remove('is-gif-loading');
+        card.classList.add('is-gif-ready');
+        preview.src = gifSrc;
+      };
     });
 
     card.addEventListener('pointerleave', () => {
+      isHovering = false;
       preview.src = stillSrc;
+      card.classList.remove('is-gif-loading', 'is-gif-ready');
     });
   });
+
+  if (document.readyState === 'complete') {
+    warmGifCacheLast();
+  } else {
+    window.addEventListener('load', warmGifCacheLast, { once: true });
+  }
 })();
 
 // Tabs: Projects showcase
