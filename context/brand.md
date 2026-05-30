@@ -5,17 +5,13 @@
 If the site was a person:
 
 Examples:
+
 - creative
 - technical
 - intelligent
-- approachable
 - experimental
 - thoughtful
-- understated
-- obsessive
-- futuristic
-
-Your answer:
+- understated, "quietly confident, the site speaks for itself"
 
 ---
 
@@ -24,15 +20,16 @@ Your answer:
 What visual words describe the project?
 
 Examples:
+
 - premium
-- modern
-- cyberpunk
+- new-cyberpunk inspired
 - editorial
 - minimalist
 - technical
 - futuristic
 - hacker-inspired
 - clean
+- developer showcase
 
 Your answer:
 
@@ -41,6 +38,7 @@ Your answer:
 ## Colour Philosophy
 
 Current colours:
+
 - #55e6a5
 - #ff6347
 
@@ -57,6 +55,7 @@ Your answer:
 How should typography feel?
 
 Examples:
+
 - confident
 - modern
 - technical
@@ -74,6 +73,7 @@ Your answer:
 What should UI components feel like?
 
 Examples:
+
 - handcrafted
 - intentional
 - refined
@@ -90,6 +90,7 @@ Your answer:
 What brands/sites/products inspire the feeling?
 
 Examples:
+
 - Apple
 - Stripe
 - Linear
@@ -106,6 +107,7 @@ Your answer:
 ## Things To Avoid
 
 Examples:
+
 - bootstrap look
 - generic Tailwind look
 - crypto bro branding
@@ -113,6 +115,7 @@ Examples:
 - corporate gradients
 - excessive glassmorphism
 - childish UI
+- overuse of common web design themes
 
 Your answer:
 
@@ -123,13 +126,24 @@ Your answer:
 Single words that should describe the brand:
 
 Examples:
+
 - alive
-- technical
+- technical but interpretal
 - polished
 - intentional
 - memorable
 - trustworthy
-- experimental
 - curious
 
 Your answer:
+
+## Exploratory
+
+Themes to replace the existying "cyberpunk" trend which is getting tired and played out
+
+"Retro-futuristic operating system"
+"Tech-noir terminal"
+"Classified research interface"
+"Corporate sci-fi"
+"Digital archaeology"
+"Premium hacker aesthetic"
