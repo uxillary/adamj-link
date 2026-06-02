@@ -1,102 +1,173 @@
-# adamj.link — ultra-light landing
+# adamj.link
 
-## Quick start
-- Static site, no build step. Tailwind via CDN.
-- Edit `index.html`, commit, push → Cloudflare Pages deploy.
+Personal web hub for Adam Johnston: a static-first identity site that brings together projects, writing, GitHub activity, contact, and trust/legitimacy pages.
 
-## Domain
-- Connect repo to Cloudflare Pages (Framework preset: None, no build, output dir `/`).
-- Add `adamj.link` as custom domain in Pages.
+The site has moved beyond the original ultra-light landing page. It is now a living portfolio and activity surface for Adam's wider internet ecosystem, with a handcrafted visual direction, live-ish data, and Cloudflare Pages Functions for the small dynamic pieces.
 
-## Assets
-- Put images in `/public`:
-  - `hexlabs-shot.jpg`, `infinitecurios-shot.jpg` (1600×900)
-  - `seo-book.png` (transparent ~600px height)
-  - `og.jpg` (1200×630 or 1600×840)
+## Current Stage
 
-## Tuning
-- Theme toggle persists in `localStorage`.
-- Global corner radius:
-  - `<html data-radius="soft|sharp|square">`
-  - or run `setRadius('sharp')` in devtools (persists).
+- Main public entry point: `index.html`
+- Supporting legitimacy pages: `about.html`, `contact.html`, `privacy.html`, `terms.html`, `site-info.html`
+- Deployment target: Cloudflare Pages
+- Build system: none
+- Styling: Tailwind CDN plus `styles/main.css`
+- Client scripts: plain JavaScript in `scripts/`
+- Serverless APIs: Cloudflare Pages Functions in `functions/api/`
 
-## Checklist (DoD)
-- Lighthouse: 100 desktop / >95 mobile
-- No console errors
-- Keyboard navigation & skip link OK
-- OG preview renders (Discord/Twitter/Slack)
-- `_headers` active (response headers visible)
+## Homepage Experience
 
-## Nice-to-haves (optional)
-- Add Cloudflare Web Analytics (one script tag)
-- Add `/press` with logo SVG + brand colors
+The homepage currently includes:
 
-## GitHub contributions feed
+- A dark, technical portfolio hero for Adam J as a creative digital developer.
+- Project sections for upcoming work and shipped/showcase projects.
+- Hover-loaded project GIF previews for heavier media.
+- Studio metrics including page views, external counters, GitHub contributions, and subscriber-style stats.
+- Recent GitHub activity from `public/contributions.json`.
+- Writing cards sourced through the `404cache.net` RSS proxy.
+- A contact form with a small branded human-verification challenge.
+- Theme, scroll-to-top, and corner-radius controls.
+- Structured data, Open Graph metadata, sitemap, robots, favicons, and crawler-support pages.
 
-Recent GitHub activity is fetched at runtime from the public feed stored in the
-[`uxillary/automated`](https://github.com/uxillary/automated) repository. The
-frontend fetches `https://raw.githubusercontent.com/uxillary/automated/main/contributions.json`
-with a small cache-buster so new events appear without redeploying this site.
+## Key Systems
 
-The automated repository owns the scheduled workflow that keeps
-`contributions.json` up to date. The workflow (`.github/workflows/update-contribs.yml`)
-runs twice daily or on manual dispatch, installs `@octokit/core` + `dayjs`, and
-uses a classic PAT stored as the `TOKEN_KEY` secret to authenticate. It grabs the
-latest public events for `uxillary`, normalises them to the compact feed shape,
-writes `contributions.json`, and commits the change back to the repo. Trigger
-`workflow_dispatch` there to regenerate the feed immediately.
+### Contact Form
 
-## Contact form
+The homepage contact form posts to:
 
-The contact form posts to `/api/contact` and uses [Resend](https://resend.com/) to send
-emails. Configure these environment variables in the Cloudflare Pages project:
-
-- `RESEND_API_KEY` – API key for Resend
-- `CONTACT_FROM` – verified sender address
-- `CONTACT_TO` – destination email address
-
-## Tiny analytics
-
-Page views are counted globally using Cloudflare KV. Bind a namespace named
-`VIEWS_KV` to the Pages project:
-
-1. Cloudflare Dashboard → **Pages** → your project
-2. Settings → Functions → KV namespaces → **Bind** `VIEWS_KV`
-
-For local development, `wrangler.toml` can include:
-
-```toml
-[[kv_namespaces]]
-binding = "VIEWS_KV"
-id = "dummy"
-preview_id = "dummy"
+```text
+/api/contact
 ```
 
-Optional environment variables:
+It sends email through Resend. Configure these Cloudflare Pages environment variables:
 
-- `UNIQUE_VIEWS=1` – count one view per IP per 24h
-- `IP_SALT=<random string>` – salt used to hash IP addresses
-
-API examples:
-
-```sh
-curl -X POST 'https://adamj.link/api/views?path=/'
-curl 'https://adamj.link/api/views?path=/'
+```text
+RESEND_API_KEY
+CONTACT_FROM
+CONTACT_TO
 ```
 
-The API stores counters under `count:<path>` and, when unique mode is on,
-stamps `seen:<path>:<day>:<ipHash>` with a 24 h TTL. Plain IPs are never
-stored; only a salted hash is kept temporarily. KV increments aren't
-strictly atomic—use Durable Objects if precision is critical.
+The frontend challenge in `scripts/human-challenge.js` gates the submit button before the request is sent.
 
-## Change log
+### Page Views
 
-- 2026-02-20 — Added trust/legitimacy pages (`about`, `contact`, `privacy`, `terms`, `site-info`), XML sitemap, robots update, and footer legal links to improve classifier transparency.
-- 2025-09-27 — Lightened Activity section with frameless layout, stat pills, and refined OSS card styling.
-- 2025-09-26 — Streamlined homepage sections (Projects tabs, Activity rollup, Writing grid, collapsible contact check).
+Global page views are handled by:
 
-## Legitimacy resources
+```text
+/api/views
+```
 
-- Public pages: `/about.html`, `/contact.html`, `/privacy.html`, `/terms.html`, `/site-info.html`
-- Crawler support: `/robots.txt` + `/sitemap.xml`
-- Recategorization checklist: `docs/legitimacy-checklist.md`
+The function uses a Cloudflare KV namespace bound as:
+
+```text
+VIEWS_KV
+```
+
+Optional variables:
+
+```text
+UNIQUE_VIEWS=1
+IP_SALT=<random string>
+```
+
+When unique view mode is enabled, the function stores only salted temporary IP hashes, not raw IP addresses.
+
+### Writing Feed
+
+The writing section fetches:
+
+```text
+/api/infinitecurios-latest
+```
+
+That function proxies the RSS feed from:
+
+```text
+https://404cache.net/feed.xml
+```
+
+It returns the latest posts as JSON and rewrites legacy `infinitecurios.blog` links to `404cache.net`.
+
+### GitHub Activity
+
+Recent contribution cards are read from:
+
+```text
+public/contributions.json
+```
+
+The frontend renderer lives in:
+
+```text
+scripts/gh-contribs.js
+```
+
+The JSON file is generated outside this site and committed as static data, so the homepage can display recent activity without requiring a server-side GitHub token at request time.
+
+## Repository Map
+
+```text
+.
+├── index.html                  # Main one-page experience
+├── about.html                  # Public identity/trust page
+├── contact.html                # Standalone contact/trust page
+├── privacy.html                # Privacy policy
+├── terms.html                  # Terms
+├── site-info.html              # Classifier/legitimacy information
+├── functions/api/              # Cloudflare Pages Functions
+├── scripts/                    # Browser-side behaviour
+├── styles/main.css             # Custom visual system
+├── public/                     # Images, icons, favicons, GIF previews, static data
+├── docs/                       # Operational notes
+└── context/                    # Project direction, brand, architecture, roadmap notes
+```
+
+## Local Development
+
+This is a static site, so most visual work can be checked by opening `index.html` directly or serving the repository root with any simple static server.
+
+Cloudflare Pages Functions require a Pages-compatible local runtime if you need to test `/api/contact`, `/api/views`, or `/api/infinitecurios-latest` locally.
+
+## Deployment
+
+Cloudflare Pages settings:
+
+```text
+Framework preset: None
+Build command: empty
+Build output directory: /
+```
+
+Required production bindings and environment variables:
+
+```text
+VIEWS_KV
+RESEND_API_KEY
+CONTACT_FROM
+CONTACT_TO
+```
+
+Optional production variables:
+
+```text
+UNIQUE_VIEWS
+IP_SALT
+```
+
+## Maintenance Notes
+
+- Keep `public/contributions.json` fresh when GitHub activity should change on the homepage.
+- Update `sitemap.xml` when adding or removing public pages.
+- Keep trust and classifier-support pages aligned with the live site: `about.html`, `contact.html`, `privacy.html`, `terms.html`, and `site-info.html`.
+- Large GIF previews in `public/gifs/` are intentionally lazy-loaded after the core page experience.
+- Project direction and design intent live in `context/vision.md`, `context/ux-direction.md`, `context/brand.md`, and `context/architecture.md`.
+
+## Legitimacy Resources
+
+If the domain is misclassified by network filters, use:
+
+- `site-info.html`
+- `docs/legitimacy-checklist.md`
+- `robots.txt`
+- `sitemap.xml`
+
+The intended category is portfolio / technology / business. The site is a personal creative developer hub and does not host adult, malware, gambling, or deceptive content.
