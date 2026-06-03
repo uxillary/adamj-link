@@ -4,8 +4,6 @@
 
 If the site was a person:
 
-Examples:
-
 - creative
 - technical
 - intelligent
@@ -19,19 +17,14 @@ Examples:
 
 What visual words describe the project?
 
-Examples:
-
 - premium
 - new-cyberpunk inspired
-- editorial
 - minimalist
 - technical
 - futuristic
-- hacker-inspired
+- pro hacker-inspired
 - clean
 - developer showcase
-
-Your answer:
 
 ---
 
@@ -44,9 +37,14 @@ Current colours:
 
 Why do these colours fit?
 
+I love the colour combo of greens/oranges
+it reflects my personality, a complementary technical point of view
+it reminds me of John Wick 4, that movie uses these colours lighting all the way through
+aquamarine/greeen/turquoise is quite simply my favourite colour. Think copper and then oxidised copper.
+
 What emotions should colours convey?
 
-Your answer:
+concise professionalism, intentional and accurate
 
 ---
 
@@ -54,17 +52,12 @@ Your answer:
 
 How should typography feel?
 
-Examples:
-
 - confident
 - modern
-- technical
-- editorial
 - readable
 - precise
 - clean
-
-Your answer:
+- intentional
 
 ---
 
@@ -72,16 +65,10 @@ Your answer:
 
 What should UI components feel like?
 
-Examples:
-
-- handcrafted
 - intentional
 - refined
 - responsive
-- understated
-- futuristic
-
-Your answer:
+- understated 
 
 ---
 
@@ -89,18 +76,12 @@ Your answer:
 
 What brands/sites/products inspire the feeling?
 
-Examples:
-
-- Apple
-- Stripe
 - Linear
 - GitHub
 - DOOM UAC
-- sci-fi interfaces
-- old internet culture
-- terminal aesthetics
-
-Your answer:
+- sci-fi interfaces (not old cringey)
+- post crypto internet
+- new cyber terminal aesthetics
 
 ---
 
