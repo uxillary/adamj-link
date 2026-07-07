@@ -350,7 +350,13 @@
 
       <div class="activity-divider" aria-hidden="true"></div>
 
-      <h3 class="eyebrow mt-6 mb-2">Recent contributions</h3>
+      <div class="activity-build-head mt-6 mb-2">
+        <h3 class="eyebrow mb-0">Build Updates</h3>
+        <div class="view-toggle" role="group" aria-label="Contribution view mode">
+          <button id="simpleViewBtn" type="button" class="view-toggle-btn is-active" data-view="simple" aria-pressed="true">Simple View</button>
+          <button id="devViewBtn" type="button" class="view-toggle-btn" data-view="dev" aria-pressed="false">Dev View</button>
+        </div>
+      </div>
       <div id="ossList" class="mt-2" aria-live="polite">
         <div class="t-card">Loading recent contributions…</div>
       </div>

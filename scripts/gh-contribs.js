@@ -2,8 +2,12 @@
 (function(){
   const SOURCE = '/public/contributions.json';
   const FALLBACK_AVATAR = 'https://avatars.githubusercontent.com/u/22217717?v=4';
+  const VIEW_KEY = 'contribViewMode';
   const mount = document.getElementById('ossList');
   if(!mount) return;
+
+  const simpleBtn = document.getElementById('simpleViewBtn');
+  const devBtn = document.getElementById('devViewBtn');
 
   const dot = (repo = '') => {
     const r = repo.toLowerCase();
@@ -11,16 +15,6 @@
     if (r.includes('infinitecurios')) return '#60a5fa';
     if (r.includes('synthtax')) return '#a78bfa';
     return '#ff6b6b';
-  };
-
-  const pillLabel = (t) => {
-    const m = (t || '').toLowerCase();
-    if (m === 'commit') return 'Commit';
-    if (m === 'push') return 'Push';
-    if (m === 'issue' || m === 'issues') return 'Issue';
-    if (m === 'pr' || m === 'pullrequest' || m === 'pull_request') return 'PR';
-    if (m.includes('merge') || m === 'merged') return 'Merged';
-    return t ? t : 'Update';
   };
 
   const escapeHtml = (value) => String(value ?? '')
@@ -35,6 +29,35 @@
     const href = String(value).trim();
     if(/^https?:\/\//i.test(href)) return href;
     return '#';
+  };
+
+  const normalizeType = (value = '') => String(value).toLowerCase().replace(/[_\-\s]/g, '');
+  const friendlyLabel = (type = '', text = '') => {
+    const t = normalizeType(type);
+    const hay = `${type} ${text}`.toLowerCase();
+    if (hay.includes('deleted branch') || hay.includes('delete branch')) return 'Cleaned Up';
+    if (t.includes('merge') || hay.includes('merged')) return 'Merged Changes';
+    if (t.includes('issue') || hay.includes('issue')) return 'Issue / Fix';
+    if (t.includes('pullrequest') || t === 'pr' || /\bpull request\b|\bpr\b/.test(hay)) return 'Feature Review';
+    if (t.includes('push') || t.includes('commit') || hay.includes('commit') || hay.includes('push')) return 'Code Update';
+    return 'Project Update';
+  };
+
+  const cleanSummary = (raw = '') => {
+    if(!raw) return '';
+    let text = String(raw).trim().replace(/^['"`]|['"`]$/g, '');
+    text = text.replace(/^(feat|fix|chore|docs|style|refactor|perf|test|build|ci)(\([^)]+\))?:\s*/i, '');
+    text = text.replace(/\b(ultra-light|wip|tmp|misc)\b/gi, '').replace(/\s{2,}/g, ' ').trim();
+    if(!text) return '';
+    text = text.replace(/\blanding\b/gi, 'landing page');
+    text = text.replace(/^[a-z]/, (m) => m.toUpperCase());
+    if(!/[.!?]$/.test(text)){
+      text = /(add|update|improve|polish|refactor|clean|merge|fix)/i.test(text)
+        ? `${text}.`
+        : `Updated ${text.toLowerCase()}.`;
+    }
+    if(/\bpolish(ed|ing)?\b/i.test(text) && /landing page/i.test(text)) return 'Polished the landing page experience.';
+    return text;
   };
 
   const parseRelativeToSeconds = (value) => {
@@ -72,54 +95,47 @@
     return `${years}y ago`;
   };
 
-  const formatRelativeLabel = (value) => {
-    if(!value) return '';
-    const seconds = parseRelativeToSeconds(value);
-    if(seconds == null) return value;
-    return formatRelativeFromSeconds(seconds);
-  };
-
   let baseGeneratedAt = Date.now();
   let ticker = null;
+  let currentView = localStorage.getItem(VIEW_KEY) === 'dev' ? 'dev' : 'simple';
+
+  const setView = (next) => {
+    currentView = next === 'dev' ? 'dev' : 'simple';
+    mount.setAttribute('data-view', currentView);
+    localStorage.setItem(VIEW_KEY, currentView);
+    if(simpleBtn) {
+      const on = currentView === 'simple';
+      simpleBtn.classList.toggle('is-active', on);
+      simpleBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+    if(devBtn) {
+      const on = currentView === 'dev';
+      devBtn.classList.toggle('is-active', on);
+      devBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+  };
 
   const resolveTimestamp = (item) => {
-    if(!item || typeof item !== 'object') return NaN;
     const direct = item.date || item.createdAt || item.timestamp || item.datetime || item.time || item.occurredAt;
     if(direct !== undefined){
       if(typeof direct === 'number' && Number.isFinite(direct)) return direct;
-      const parsed = new Date(direct);
-      const ms = parsed.getTime();
+      const ms = new Date(direct).getTime();
       if(!Number.isNaN(ms)) return ms;
     }
     const seconds = parseRelativeToSeconds(item.timeAgo);
     if(seconds == null) return NaN;
-    const origin = Number.isFinite(baseGeneratedAt) ? baseGeneratedAt : Date.now();
-    return origin - seconds * 1000;
-  };
-
-  const formatInitialTime = (item, ts) => {
-    if(Number.isFinite(ts)){
-      const seconds = Math.max(0, Math.floor((Date.now() - ts) / 1000));
-      return formatRelativeFromSeconds(seconds);
-    }
-    return formatRelativeLabel(item.timeAgo);
+    return (Number.isFinite(baseGeneratedAt) ? baseGeneratedAt : Date.now()) - seconds * 1000;
   };
 
   const updateTimes = () => {
     const now = Date.now();
     mount.querySelectorAll('[data-ts]').forEach((node) => {
       const ts = Number(node.getAttribute('data-ts'));
-      if(!Number.isFinite(ts)) return;
-      const seconds = Math.max(0, Math.floor((now - ts) / 1000));
-      node.textContent = formatRelativeFromSeconds(seconds);
+      if(Number.isFinite(ts)) node.textContent = formatRelativeFromSeconds(Math.max(0, Math.floor((now - ts) / 1000)));
     });
   };
 
-  const ensureTicker = () => {
-    if(ticker) return;
-    ticker = setInterval(updateTimes, 60 * 1000);
-  };
-
+  const ensureTicker = () => { if(!ticker) ticker = setInterval(updateTimes, 60 * 1000); };
   const uniqueItems = (items) => {
     if(!Array.isArray(items)) return [];
     const seen = new Set();
@@ -135,33 +151,26 @@
   const loader = () => {
     mount.setAttribute('aria-busy','true');
     mount.classList.add('oss-grid');
-    mount.innerHTML = `
-      <div class="t-card flex items-center justify-center min-h-[140px]">
-        <div class="tetris-loader" role="status" aria-label="Loading contributions">
-          ${Array.from({ length: 12 }).map(() => '<span></span>').join('')}
-        </div>
-      </div>
-    `;
+    mount.innerHTML = `<div class="t-card flex items-center justify-center min-h-[140px]"><div class="tetris-loader" role="status" aria-label="Loading contributions">${Array.from({ length: 12 }).map(() => '<span></span>').join('')}</div></div>`;
   };
 
   const render = (items) => {
     mount.classList.add('oss-grid');
     if(!items.length){
-      mount.innerHTML = `<div class="t-card">No recent contributions found.</div>`;
+      mount.innerHTML = `<div class="t-card">No recent build updates found.</div>`;
       mount.removeAttribute('aria-busy');
       return;
     }
-
     mount.innerHTML = items.map((it) => {
       const href = safeHref(it.url || it.link || '#');
       const avatar = safeHref(it.avatar || it.userAvatar || FALLBACK_AVATAR);
-      const repo = it.repo || it.repository || it.project || 'repo';
-      const title = it.title || it.message || it.subtitle || '';
-      const type = pillLabel(it.type || it.kind);
+      const repo = it.repo || it.repository || it.project || 'project';
+      const rawType = it.type || it.kind || 'update';
+      const sourceText = it.title || it.message || it.subtitle || it.summary || '';
+      const label = friendlyLabel(rawType, sourceText);
+      const summary = cleanSummary(sourceText || it.summary || label);
       const ref = (it.shortRef || it.sha || it.id || it.number || '').toString().trim();
       const hash = ref ? ref.slice(0, 10) : '';
-      const summary = (it.summary || `${type}${ref ? ` ${ref}` : ''}`).trim();
-      const repoDescription = it.repoMeta && it.repoMeta.description ? it.repoMeta.description : '';
       const commitMeta = it.commitMeta && typeof it.commitMeta === 'object' ? it.commitMeta : null;
       const statsParts = [];
       if(commitMeta){
@@ -169,31 +178,11 @@
         if(Number.isFinite(commitMeta.deletions)) statsParts.push(`−${commitMeta.deletions}`);
         if(Number.isFinite(commitMeta.filesChanged)) statsParts.push(`${commitMeta.filesChanged} file${commitMeta.filesChanged === 1 ? '' : 's'}`);
       }
-      const statsHint = statsParts.join(' • ');
       const ts = resolveTimestamp(it);
-      const when = formatInitialTime(it, ts);
+      const when = Number.isFinite(ts) ? formatRelativeFromSeconds(Math.max(0, Math.floor((Date.now() - ts) / 1000))) : (it.timeAgo || 'recently');
       const timeAttr = Number.isFinite(ts) ? ` data-ts="${ts}"` : '';
 
-      return `
-        <a class="oss-card" href="${escapeHtml(href)}" rel="noopener noreferrer">
-          <div class="oss-head">
-            <img class="oss-ava" src="${escapeHtml(avatar)}" alt="" loading="lazy" decoding="async" />
-            <div class="flex-1 min-w-0">
-              <div class="oss-repo clamp-1">${escapeHtml(repo)}</div>
-              <div class="oss-title clamp-2">${escapeHtml(title)}</div>
-              <div class="oss-summary clamp-1 text-xs opacity-80">${escapeHtml(summary)}</div>
-              ${repoDescription ? `<div class="oss-desc clamp-2 text-[11px] opacity-65">${escapeHtml(repoDescription)}</div>` : ''}
-            </div>
-            <span class="oss-dot" style="background:${dot(repo)}"></span>
-          </div>
-          <span class="oss-pill">${escapeHtml(type)}</span>
-          <div class="oss-meta">
-            ${hash ? `<span class="oss-sha">${escapeHtml(hash)}</span><span class="sep">•</span>` : ''}
-            ${statsHint ? `<span class="oss-stats">${escapeHtml(statsHint)}</span><span class="sep">•</span>` : ''}
-            <span class="oss-time"${timeAttr}>${escapeHtml(when)}</span>
-          </div>
-        </a>
-      `;
+      return `<a class="oss-card" href="${escapeHtml(href)}" rel="noopener noreferrer"><div class="oss-head"><img class="oss-ava" src="${escapeHtml(avatar)}" alt="" loading="lazy" decoding="async" /><div class="flex-1 min-w-0"><div class="oss-repo clamp-1">${escapeHtml(repo)}</div><div class="oss-title clamp-2">${escapeHtml(label)}</div><div class="oss-summary clamp-2">${escapeHtml(summary || 'Project update made.')}</div></div><span class="oss-dot" style="background:${dot(repo)}"></span></div><div class="oss-meta"><span class="oss-time"${timeAttr}>${escapeHtml(when)}</span></div>${hash || statsParts.length ? `<div class="oss-devline"><span class="oss-dev-title">Dev details</span>${hash ? `<span class="oss-sha">#${escapeHtml(hash)}</span>` : ''}<span class="oss-raw-type">${escapeHtml(String(rawType))}</span></div>` : ''}${statsParts.length ? `<div class="oss-stats-row">${escapeHtml(statsParts.join(' • '))}</div>` : ''}</a>`;
     }).join('');
     mount.removeAttribute('aria-busy');
     updateTimes();
@@ -208,8 +197,7 @@
       const generatedAt = data && data.generatedAt ? new Date(data.generatedAt).getTime() : Date.now();
       baseGeneratedAt = Number.isNaN(generatedAt) ? Date.now() : generatedAt;
       const raw = Array.isArray(data) ? data : (data && data.items) || [];
-      const items = uniqueItems(raw).slice(0, 8);
-      render(items);
+      render(uniqueItems(raw).slice(0, 8));
     }catch(e){
       console.error('contribs load failed', e);
       mount.innerHTML = `<div class="t-card">Couldn’t load contributions.</div>`;
@@ -217,6 +205,10 @@
     }
   }
 
+  if(simpleBtn) simpleBtn.addEventListener('click', () => setView('simple'));
+  if(devBtn) devBtn.addEventListener('click', () => setView('dev'));
+
+  setView(currentView);
   load();
   const btn = document.getElementById('refreshContribs');
   if(btn) btn.addEventListener('click', load);

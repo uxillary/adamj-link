@@ -886,3 +886,21 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
     transition:none;
   }
 }
+
+.activity-build-head{ display:flex; align-items:center; justify-content:space-between; gap:.75rem; flex-wrap:wrap; }
+.view-toggle{ display:inline-flex; gap:.35rem; border:1px solid var(--border); border-radius:999px; padding:.2rem; background:rgba(255,255,255,.02); }
+.view-toggle-btn{ font-size:.68rem; letter-spacing:.06em; text-transform:uppercase; padding:.3rem .55rem; border-radius:999px; color:color-mix(in oklab,var(--text) 60%,var(--surface) 40%); }
+.view-toggle-btn.is-active{ background:rgba(85,230,165,.14); color:color-mix(in oklab,var(--text) 90%,var(--surface) 10%); }
+
+.oss-summary{ font-size:.76rem; color:color-mix(in oklab,var(--text) 62%,var(--surface) 38%); line-height:1.35; }
+.oss-devline,.oss-stats-row{ font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.66rem; color:color-mix(in oklab,var(--text) 52%,var(--surface) 48%); display:flex; flex-wrap:wrap; gap:.45rem; }
+.oss-dev-title{ opacity:.72; text-transform:uppercase; letter-spacing:.08em; }
+.oss-stats-row{ border-top:1px solid color-mix(in oklab,var(--border) 82%,transparent); padding-top:.35rem; margin-top:.1rem; }
+
+#ossList[data-view="simple"] .oss-devline,
+#ossList[data-view="simple"] .oss-stats-row{ display:none; }
+
+@media (max-width:640px){
+  .oss-card{ padding:.8rem; }
+  .oss-meta{ font-size:.68rem; }
+}
