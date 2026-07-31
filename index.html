@@ -409,49 +409,75 @@
       </div>
     </section>
 
-    <section class="section" id="activity" aria-labelledby="activity-title">
-      <div class="section-head">
-        <h2 id="activity-title" class="font-semibold text-l text-zinc-400 tracking-tight">Studio Metrics</h2>
-        <button id="refreshContribs" type="button" class="text-zinc-400 hover:text-brand focus-ring" aria-label="Refresh contributions">
-          <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#refresh"></use></svg>
-        </button>
+    <section class="section activity-section" id="activity" aria-labelledby="activity-title">
+      <div class="activity-head">
+        <div>
+          <p class="eyebrow">Activity</p>
+          <h2 id="activity-title">Public signals from the workspace.</h2>
+        </div>
+        <p>Real counters and recent GitHub work, pulled from the existing lightweight data systems behind the site.</p>
       </div>
 
-      <!-- Counters -->
-      <div class="activity-counters grid grid-cols-2 sm:grid-cols-3 gap-5 sm:gap-7">
-        <div class="stat-pill" title="Local device session views">
-          <span class="label">page views</span>
-          <span id="views" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
+      <div class="activity-panel">
+        <div class="activity-panel-head">
+          <div>
+            <span class="activity-kicker">Signal counters</span>
+            <h3>Live-ish proof points</h3>
+          </div>
+          <span class="activity-source-note">Cloudflare KV + generated files</span>
         </div>
-        <div class="stat-pill" title="Blog posts total">
-          <span class="label">blog posts</span>
-          <span id="blog-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
-        </div>
-        <div class="stat-pill" title="YouTube videos">
-          <span class="label">youtube videos</span>
-          <span id="youtube-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
-        </div>
-        <div class="stat-pill" title="Public repos">
-          <span class="label">public repos</span>
-          <span id="repo-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
-        </div>
-        <div class="stat-pill" title="GitHub contributions (2025)">
-          <span class="label">contributions</span>
-          <span id="gh-contributions" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
-        </div>
-        <div class="stat-pill" title="Total subscribers">
-          <span class="label">subscribers</span>
-          <span id="subscriber-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
+
+        <div class="activity-counters">
+          <div class="stat-pill" title="Global views from Cloudflare KV with local fallback">
+            <span class="label">page views</span>
+            <span id="views" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
+            <span class="stat-source">KV</span>
+          </div>
+          <div class="stat-pill" title="Blog posts total from generated files">
+            <span class="label">blog posts</span>
+            <span id="blog-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
+            <span class="stat-source">Generated</span>
+          </div>
+          <div class="stat-pill" title="YouTube video count from generated files">
+            <span class="label">youtube videos</span>
+            <span id="youtube-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
+            <span class="stat-source">Generated</span>
+          </div>
+          <div class="stat-pill" title="Public GitHub repository count from generated files">
+            <span class="label">public repos</span>
+            <span id="repo-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
+            <span class="stat-source">GitHub</span>
+          </div>
+          <div class="stat-pill" title="GitHub contributions from generated files">
+            <span class="label">contributions</span>
+            <span id="gh-contributions" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
+            <span class="stat-source">GitHub</span>
+          </div>
+          <div class="stat-pill" title="Total subscribers from generated files">
+            <span class="label">subscribers</span>
+            <span id="subscriber-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
+            <span class="stat-source">Generated</span>
+          </div>
         </div>
       </div>
 
-      <div class="activity-divider" aria-hidden="true"></div>
+      <div class="activity-log">
+        <div class="activity-panel-head">
+          <div>
+            <span class="activity-kicker">Repository log</span>
+            <h3>Recent GitHub activity</h3>
+          </div>
+          <button id="refreshContribs" type="button" class="activity-refresh focus-ring" aria-label="Refresh contributions">
+            <svg width="16" height="16" class="icon-line" aria-hidden="true"><use href="/public/icons.svg#refresh"></use></svg>
+            <span>Refresh</span>
+          </button>
+        </div>
 
-      <h3 class="eyebrow mt-6 mb-2">Recent contributions</h3>
-      <div id="ossList" class="mt-2" aria-live="polite">
-        <div class="t-card">Loading recent contributions…</div>
+        <div id="ossList" class="mt-2" aria-live="polite">
+          <div class="t-card">Loading recent contributions…</div>
+        </div>
+        <a href="https://github.com/uxillary" class="activity-link">View all on GitHub →</a>
       </div>
-      <a href="https://github.com/uxillary" class="block mt-3 text-sm text-zinc-500 hover:text-brand">View all on GitHub →</a>
     </section>
 
     <section class="section" id="writing">
