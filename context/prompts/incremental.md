@@ -1,6 +1,6 @@
 Read /context before making changes.
 
-Do not redesign or rewrite the site globally.
+For all context markdown files, they are a general direction and point of view. Do not redesign or rewrite the site globally.
 
 Use the context only to guide small, incremental improvements.
 
