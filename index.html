@@ -118,16 +118,42 @@
 
   <main id="main" class="max-w-5xl mx-auto px-6 space-y-24 sm:space-y-36">
     <!-- Hero -->
-    <section class="section pt-6 hero">
-      <h1 class="font-extrabold tracking-tight leading-[0.98] text-[clamp(2.8rem,7vw,5rem)]">
-        Creative digital developer.
-      </h1>
-      <p class="mt-6 max-w-2xl dark:text-zinc-300 text-zinc-600 leading-relaxed text-[1.06rem]">
-        Specialist in websites, apps, tools and other digital media.
-      </p>
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a href="https://ajstudios.online" class="px-5 py-3 r btn-primary font-semibold focus-ring">View Portfolio</a>
-        <a href="#contact" class="px-1 py-3 text-sm sm:text-base hero-link focus-ring">Email me</a>
+    <section class="section pt-6 hero" aria-labelledby="hero-title">
+      <div class="hero-shell">
+        <div class="hero-copy">
+          <p class="hero-kicker">adamj.link / personal workspace</p>
+          <h1 id="hero-title" class="hero-title">
+            Creative developer building useful digital systems.
+          </h1>
+          <p class="hero-description">
+            A living hub for websites, tools, writing and experiments shaped around clean UX, real activity and practical craft.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a href="https://ajstudios.online" class="px-5 py-3 r btn-primary font-semibold focus-ring">View Portfolio</a>
+            <a href="#contact" class="px-1 py-3 text-sm sm:text-base hero-link focus-ring">Email me</a>
+          </div>
+        </div>
+
+        <aside class="hero-status" aria-label="Workspace status">
+          <div class="hero-status-top">
+            <span class="hero-status-dot" aria-hidden="true"></span>
+            <span>Workspace online</span>
+          </div>
+          <dl class="hero-status-grid">
+            <div>
+              <dt>Mode</dt>
+              <dd>Build / research</dd>
+            </div>
+            <div>
+              <dt>Focus</dt>
+              <dd>Web tools</dd>
+            </div>
+            <div>
+              <dt>Signal</dt>
+              <dd>Active projects</dd>
+            </div>
+          </dl>
+        </aside>
       </div>
     </section>
 
