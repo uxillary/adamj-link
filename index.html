@@ -195,20 +195,27 @@
       </div>
     </section>
 
-    <section class="section" id="projects">
-      <div class="section-head">
-        <h2 class="font-semibold text-l text-zinc-400 tracking-tight">Projects</h2>
-      </div>
-      <div class="space-y-14">
+    <section class="section projects-section" id="projects" aria-labelledby="projects-title">
+      <div class="projects-head">
         <div>
-          <div class="flex flex-wrap items-center gap-3">
-            <span class="eyebrow">Upcoming projects</span>
-            <span class="text-[0.7rem] uppercase tracking-[0.3em] text-zinc-500 flex items-center gap-1">
-              <svg width="16" height="16" class="icon-line text-brand/80" aria-hidden="true"><use href="/public/icons.svg#arrow-right"></use></svg>
-              scroll ↔
+          <p class="eyebrow">Project workspace</p>
+          <h2 id="projects-title">Built, shipping, and in motion.</h2>
+        </div>
+        <p>Selected work across public builds, practical tools, experiments, and project systems.</p>
+      </div>
+      <div class="projects-body">
+        <div class="project-lane project-lane-upcoming">
+          <div class="project-lane-head">
+            <div>
+              <span class="project-lane-kicker">Queue</span>
+              <h3>Upcoming projects</h3>
+            </div>
+            <span class="project-scroll-cue">
+              <svg width="16" height="16" class="icon-line" aria-hidden="true"><use href="/public/icons.svg#arrow-right"></use></svg>
+              scroll
             </span>
           </div>
-          <p class="mt-3 text-sm text-zinc-500 leading-relaxed max-w-xl">Builds-in-progress for upcoming drops and hackathons.</p>
+          <p class="project-lane-copy">Builds-in-progress for upcoming drops and hackathons.</p>
           <div class="upcoming-wrap mt-5" data-upcoming>
             <ul class="upcoming-track" data-drag-scroll>
               <li class="upcoming-card">
@@ -252,12 +259,16 @@
             </div>
           </div>
         </div>
-        <div class="space-y-7">
-          <div class="flex flex-wrap items-center justify-between gap-4">
-            <span class="eyebrow text-zinc-400">Showcase</span>
+
+        <div class="project-lane">
+          <div class="project-lane-head">
+            <div>
+              <span class="project-lane-kicker">Showcase</span>
+              <h3>Primary surfaces</h3>
+            </div>
           </div>
-          <div class="space-y-6">
-            <div class="grid md:grid-cols-2 gap-6 sm:gap-7">
+          <div class="project-showcase">
+            <div class="featured-projects-grid">
               <a href="https://404cache.net" class="featured-project project-card overflow-hidden block group transition">
                 <div class="project-thumb-preview aspect-[16/9] bg-zinc-900/40 relative">
                   <img src="/public/404cache.png" width="1600" height="900" alt="404cache.net" class="w-full h-full object-cover brightness-90 transition" loading="lazy" decoding="async" />
@@ -267,12 +278,18 @@
                   </div>
                   <div class="absolute inset-0 bg-black/35 featured-fade"></div>
                 </div>
-                <div class="p-4 sm:p-5 featured-copy">
-                  <div class="flex items-center justify-between mb-1">
-                    <h3 class="font-semibold text-lg">404cache.net</h3>
+                <div class="featured-copy">
+                  <div class="project-card-top">
+                    <span class="project-number">01</span>
                     <span class="badge">Blog</span>
                   </div>
+                  <h4>404cache.net</h4>
                   <p class="text-sm text-zinc-200 leading-relaxed">Blog posts on tech, design, and creativity plus various useful web tools.</p>
+                  <div class="project-meta-row" aria-label="404cache.net project details">
+                    <span>Status: Live</span>
+                    <span>Role: Writing / tools</span>
+                    <span>Action: Visit site</span>
+                  </div>
                 </div>
               </a>
               <a href="https://hexlabs.app" class="featured-project project-card overflow-hidden block group transition">
@@ -284,22 +301,33 @@
                   </div>
                   <div class="absolute inset-0 bg-black/35 featured-fade"></div>
                 </div>
-                <div class="p-4 sm:p-5 featured-copy">
-                  <div class="flex items-center justify-between mb-1">
-                    <h3 class="font-semibold text-lg">hexlabs.app</h3>
+                <div class="featured-copy">
+                  <div class="project-card-top">
+                    <span class="project-number">02</span>
                     <span class="badge">Web</span>
                   </div>
+                  <h4>hexlabs.app</h4>
                   <p class="text-sm text-zinc-200 leading-relaxed">Learning environment with various ECU remapping tools to modernize legacy tuning methods.</p>
+                  <div class="project-meta-row" aria-label="hexlabs.app project details">
+                    <span>Status: Live</span>
+                    <span>Role: Web / tools</span>
+                    <span>Action: Visit app</span>
+                  </div>
                 </div>
               </a>
             </div>
             <div class="more-projects" aria-label="More projects">
+              <div class="project-index-head">
+                <span class="project-lane-kicker">Index</span>
+                <span>More shipped and experimental work</span>
+              </div>
               <a href="https://github.com/uxillary/codex-assist" class="project-list-item group">
                 <div>
+                  <span class="project-list-status">Tool / Windows</span>
                   <h4 class="font-medium text-sm sm:text-base">Codex Assist</h4>
                   <p class="text-sm text-zinc-500 mt-1">A Python GUI powered by OpenAI's GPT models, with smart token management.</p>
                 </div>
-                <div class="flex items-center gap-4">
+                <div class="project-list-meta">
                   <span class="badge">AI</span>
                   <span class="badge">Windows</span>
                   <span class="project-arrow">↗ &nbsp;</span>
@@ -307,30 +335,33 @@
               </a>
               <a href="https://github.com/uxillary/synthtax" class="project-list-item group">
                 <div>
+                  <span class="project-list-status">Experiment / Music</span>
                   <h4 class="font-medium text-sm sm:text-base">Synthtax</h4>
                   <p class="text-sm text-zinc-500 mt-1">Experimental music and sound design application.</p>
                 </div>
-                <div class="flex items-center gap-4">
+                <div class="project-list-meta">
                   <span class="badge">Music</span>
                   <span class="project-arrow">↗ &nbsp;</span>
                 </div>
               </a>
               <a href="https://aspartameawareness.org" class="project-list-item group">
                 <div>
+                  <span class="project-list-status">Campaign / Web</span>
                   <h4 class="font-medium text-sm sm:text-base">aspartameawareness.org</h4>
                   <p class="text-sm text-zinc-500 mt-1">E951 Sweetener awareness campaign site to educate about aspartame's health risks.</p>
                 </div>
-                <div class="flex items-center gap-4">
+                <div class="project-list-meta">
                   <span class="badge">Web</span>
                   <span class="project-arrow">↗ &nbsp;</span>
                 </div>
               </a>
               <a href="https://404cache.pages.dev/" class="project-list-item group">
                 <div>
+                  <span class="project-list-status">Game / Web</span>
                   <h4 class="font-medium text-sm sm:text-base">Virtual stock market</h4>
                   <p class="text-sm text-zinc-500 mt-1">Interactive stock exchange simulation, booster packs, minigames.</p>
                 </div>
-                <div class="flex items-center gap-4">
+                <div class="project-list-meta">
                   <span class="badge">Game</span>
                   <span class="badge">Web</span>
                   <span class="project-arrow">↗ &nbsp;</span>
@@ -338,10 +369,11 @@
               </a>
               <a href="https://github.com/uxillary/maintenance-goblin" class="project-list-item group">
                 <div>
+                  <span class="project-list-status">Tool / Windows</span>
                   <h4 class="font-medium text-sm sm:text-base">Maintenance Goblin</h4>
                   <p class="text-sm text-zinc-500 mt-1">Windows application that streamlines repetitive maintenance tasks.</p>
                 </div>
-                <div class="flex items-center gap-4">
+                <div class="project-list-meta">
                   <span class="badge">Tool</span>
                   <span class="badge">Windows</span>
                   <span class="project-arrow">↗ &nbsp;</span>
@@ -349,10 +381,11 @@
               </a>
               <a href="https://uxillary.github.io/font-size-tweak/" class="project-list-item group">
                 <div>
+                  <span class="project-list-status">Tool / Windows</span>
                   <h4 class="font-medium text-sm sm:text-base">Font size tweak</h4>
                   <p class="text-sm text-zinc-500 mt-1">Windows utility to improve readability and text hierarchy by adjusting font sizes.</p>
                 </div>
-                <div class="flex items-center gap-4">
+                <div class="project-list-meta">
                   <span class="badge">Tool</span>
                   <span class="badge">Windows</span>
                   <span class="project-arrow">↗ &nbsp;</span>
@@ -360,10 +393,11 @@
               </a>
               <a href="https://github.com/uxillary/greg-ai" class="project-list-item group">
                 <div>
+                  <span class="project-list-status">Experiment / AI</span>
                   <h4 class="font-medium text-sm sm:text-base">Gregg AI</h4>
                   <p class="text-sm text-zinc-500 mt-1">AI personality, trained using TacoTron voice synthesis, Python and publicly available LLM's.</p>
                 </div>
-                <div class="flex items-center gap-4">
+                <div class="project-list-meta">
                   <span class="badge">AI</span>
                   <span class="badge">Python</span>
                   <span class="project-arrow">↗ &nbsp;</span>
