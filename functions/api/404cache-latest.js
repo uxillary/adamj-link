@@ -1,7 +1,6 @@
 export const onRequestGet = async ({ request }) => {
-  const FEED_URL = "https://404cache.net/feed.xml";
-  const LEGACY_HOST = "infinitecurios.blog";
-  const CURRENT_HOST = "404cache.net";
+  const FEED_URL = "https://404cache.pages.dev/feed.xml";
+  const CURRENT_HOST = "404cache.pages.dev";
   const cache = caches.default;
   const cacheKey = new Request(new URL(request.url).toString(), request);
   const cached = await cache.match(cacheKey);
@@ -31,7 +30,7 @@ export const onRequestGet = async ({ request }) => {
       .slice(0, 180);
 
     const url = new URL(link);
-    if (url.hostname === LEGACY_HOST || url.hostname === `www.${LEGACY_HOST}`) {
+    if (url.hostname !== CURRENT_HOST) {
       url.hostname = CURRENT_HOST;
       url.protocol = "https:";
     }

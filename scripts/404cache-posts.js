@@ -28,7 +28,7 @@
     requestAnimationFrame(syncBookHeight);
 
     try {
-      const res = await fetch('/api/infinitecurios-latest', { cache: 'reload' });
+      const res = await fetch('/api/404cache-latest', { cache: 'reload' });
       const { items } = await res.json();
       if (!items || !items.length) {
         list.innerHTML = '<p class="text-sm text-zinc-500">No posts yet.</p>';
@@ -42,7 +42,7 @@
           const cat = it.category ? `<span class="post-tag mt-3 w-fit self-start px-2 py-0.5 text-[0.65rem] uppercase tracking-wide">${it.category}</span>` : '';
           return `
             <a href="${it.link}" class="post-card border border-zinc-800/60 overflow-hidden flex flex-col shrink-0 snap-start" data-tag="${tag}">
-              <div class="aspect-[16/9] bg-no-repeat bg-cover bg-center" style="background-image: linear-gradient(to bottom right, rgba(39,39,42,0.4), rgba(24,24,27,0.4)), url('/public/infinitecurios-shadow-sm.png');"></div>
+              <div class="aspect-[16/9] bg-no-repeat bg-cover bg-center" style="background-image: linear-gradient(to bottom right, rgba(39,39,42,0.4), rgba(24,24,27,0.4)), url('/public/404cache-shadow-sm.png');"></div>
               <div class="p-4 flex flex-col">
                 <span class="mb-2 inline-block px-2 py-0.5 border border-zinc-800/60 text-[0.65rem] uppercase tracking-wide text-zinc-400">${date}</span>
                 <h3 class="text-lg font-semibold leading-tight">${it.title}</h3>

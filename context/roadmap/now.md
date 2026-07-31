@@ -24,7 +24,7 @@ The goal is to create a living digital operating system that showcases my work, 
 
 - adamj.link
 - Hex Labs
-- Infinite Curios
+- 404cache
 - AJ Studios
 - Codex Assist
 
