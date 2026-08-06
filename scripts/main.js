@@ -30,11 +30,17 @@ toggle.addEventListener('click', () => {
   const messageField = document.getElementById('cf-message');
   let challengeShown = false;
 
+  const setChallengeCollapsed = (collapsed) => {
+    if (!humanChallenge) return;
+    humanChallenge.classList.toggle('is-collapsed', collapsed);
+    humanChallenge.setAttribute('aria-hidden', collapsed ? 'true' : 'false');
+    humanChallenge.inert = collapsed;
+  };
+
   const showChallenge = () => {
     if (!humanChallenge || challengeShown) return;
     challengeShown = true;
-    humanChallenge.classList.remove('is-collapsed');
-    humanChallenge.setAttribute('aria-hidden', 'false');
+    setChallengeCollapsed(false);
     if (humanToggle) {
       humanToggle.setAttribute('aria-expanded', 'true');
       humanToggle.setAttribute('hidden', 'true');
@@ -42,8 +48,7 @@ toggle.addEventListener('click', () => {
   };
 
   if (humanChallenge) {
-    humanChallenge.classList.add('is-collapsed');
-    humanChallenge.setAttribute('aria-hidden', 'true');
+    setChallengeCollapsed(true);
     challengeShown = false;
   }
 
@@ -96,8 +101,7 @@ toggle.addEventListener('click', () => {
       }
       if (humanChallenge) {
         challengeShown = true;
-        humanChallenge.classList.remove('is-collapsed');
-        humanChallenge.setAttribute('aria-hidden', 'false');
+        setChallengeCollapsed(false);
       }
     });
   }
@@ -143,7 +147,7 @@ toggle.addEventListener('click', () => {
       });
       const result = await res.json().catch(()=>({}));
       if(res.ok && result.success){
-        form.innerHTML = '<p class="text-green-500">Thanks! I\u2019ll reply within 24\u201348h.</p>';
+        form.innerHTML = '<p class="text-green-500">Thanks — your message has been sent.</p>';
       }else{
         throw new Error(result.error || 'Failed to send. Please try again later.');
       }

@@ -275,26 +275,6 @@ html, body { overflow-x: hidden; }
 /* Line icons matching the logo vibe */
 .icon-line{ stroke: currentColor; stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; fill:none }
 
-/* Stat pills */
-.stat-pill{
-  display:grid; grid-template-columns:auto 1fr; column-gap:.5rem; align-items:baseline;
-  padding:.4rem .6rem; border-radius:var(--r,0px);
-  border:1px solid var(--border); background:color-mix(in oklab,var(--surface) 98%,var(--text) 2%);
-}
-.dark .stat-pill{ background:linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.05)) }
-.stat-pill .label{ font-size:.75rem; color:color-mix(in oklab,var(--text) 65%,var(--surface) 35%) }
-.stat-pill .value{ font-size:1rem; font-weight:600; color:var(--text); }
-#activity .section-head{ margin-bottom:.75rem }
-#activity .stat-pill{ grid-template-columns:auto auto; column-gap:.4rem }
-#activity .stat-pill .label{ font-size:.72rem }
-#activity .stat-pill .value{ line-height:1 }
-.activity-divider{ margin:.75rem 0 1rem; height:1px; background:linear-gradient(90deg, transparent, var(--border), transparent) }
-#activity .oss-card{ border-color:color-mix(in oklab, var(--border) 92%, transparent) }
-#activity .oss-card:hover{ border-color:rgba(85,230,165,.55) }
-#activity .oss-grid{ gap:.75rem }
-#activity .oss-meta{ color:color-mix(in oklab, var(--text) 55%, var(--surface) 45%) }
-.section { margin-top: 3rem; margin-bottom: 3rem; }
-.section > * + * { margin-top: 1.25rem; }
 .section-head { display:flex; align-items:flex-end; justify-content:space-between; gap:.75rem; }
 .section-head h2{
   position:relative;
@@ -375,8 +355,6 @@ html, body { overflow-x: hidden; }
   .post-card[data-tag="wellness"] { --accent:#a78bfa; }
   .post-card[data-tag="news"]     { --accent:#f87171; }
 
-  @media (min-width:640px){ .section{ margin-top:3.75rem; margin-bottom:3.75rem } }
-
 /* Contributions grid */
 .contribs-grid{
   display:grid;
@@ -417,17 +395,6 @@ html, body { overflow-x: hidden; }
 @media(min-width:640px){ .oss-grid{ grid-template-columns:repeat(2,minmax(0,1fr)) } }
 @media(min-width:768px){ .oss-grid{ grid-template-columns:repeat(3,minmax(0,1fr)) } }
 @media(min-width:1280px){ .oss-grid{ grid-template-columns:repeat(4,minmax(0,1fr)) } }
-
-.oss-card{
-  display:flex; flex-direction:column; gap:.55rem;
-  padding:.85rem; border:1px solid var(--border); border-radius:var(--r);
-  background:color-mix(in oklab,var(--surface) 98%,var(--text) 2%);
-  transition:border-color .18s ease, transform .18s ease;
-  text-decoration:none; color:inherit;
-}
-.dark .oss-card{ background:linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.06)) }
-.oss-card:hover{ border-color:rgba(85,230,165,.55); transform:translateY(-1px) }
-.oss-card:focus-visible{ outline:2px solid rgba(85,230,165,.55); outline-offset:3px; border-color:rgba(85,230,165,.55) }
 
 .oss-head{ display:flex; gap:.55rem; align-items:center; min-width:0 }
 .oss-ava{ width:32px; height:32px; border-radius:9999px; background:#111; overflow:hidden; flex:0 0 32px; object-fit:cover; box-shadow:0 0 0 1px rgba(0,0,0,.12) }
@@ -1163,6 +1130,14 @@ html, body { overflow-x: hidden; }
   font-size:clamp(2.65rem,7vw,5.2rem);
   font-weight:800;
   line-height:.98;
+  letter-spacing:-.01em;
+}
+
+.hero-subtitle{
+  margin:1em 0;
+  color:var(--text-strong);
+  font-size:1.17em;
+  font-weight:700;
   letter-spacing:-.01em;
 }
 
@@ -1933,10 +1908,16 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
 }
 
 .oss-card{
+  display:flex;
+  flex-direction:column;
+  gap:.55rem;
+  padding:.85rem;
   border:0;
   border-left:1px solid rgba(255,255,255,.12);
   border-radius:var(--r);
   background:linear-gradient(90deg,rgba(255,255,255,.035),rgba(255,255,255,.015));
+  color:inherit;
+  text-decoration:none;
   transition:transform .16s ease, background-color .2s ease, border-color .2s ease;
 }
 .oss-card:hover{
@@ -2179,6 +2160,13 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
     height:2.5rem;
   }
   .section{ margin-top:3.2rem; margin-bottom:3.2rem; }
+  .hero{ margin-bottom:3.2rem; }
+  .now-section{ margin-top:2.25rem; }
+  .projects-section,
+  .activity-section,
+  .writing-section,
+  .contact-section{ margin-top:3.2rem; }
+  .site-footer{ margin-top:3.5rem; }
 }
 
 /* Scroll reveal motion */
