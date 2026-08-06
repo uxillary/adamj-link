@@ -23,7 +23,7 @@ The homepage currently includes:
 - Hover-loaded project GIF previews for heavier media.
 - Studio metrics including page views, external counters, GitHub contributions, and subscriber-style stats.
 - Recent GitHub activity from `public/contributions.json`.
-- Writing cards sourced through the `infinite-curios.pages.dev` RSS proxy.
+- Writing cards sourced through the `404cache.pages.dev` RSS proxy.
 - A contact form with a small branded human-verification challenge.
 - Theme, scroll-to-top, and corner-radius controls.
 - Structured data, Open Graph metadata, sitemap, robots, favicons, and crawler-support pages.
@@ -76,16 +76,16 @@ When unique view mode is enabled, the function stores only salted temporary IP h
 The writing section fetches:
 
 ```text
-/api/infinitecurios-latest
+/api/404cache-latest
 ```
 
 That function proxies the RSS feed from:
 
 ```text
-https://infinite-curios.pages.dev/feed.xml
+https://404cache.pages.dev/feed.xml
 ```
 
-It returns the latest posts as JSON and rewrites legacy `infinitecurios.blog`, `404cache.blog`, and `404cache.net` links to `infinite-curios.pages.dev`.
+It returns the latest posts as JSON and rewrites legacy links to `404cache.pages.dev`.
 
 ### GitHub Activity
 
@@ -125,7 +125,7 @@ The JSON file is generated outside this site and committed as static data, so th
 
 This is a static site, so most visual work can be checked by opening `index.html` directly or serving the repository root with any simple static server.
 
-Cloudflare Pages Functions require a Pages-compatible local runtime if you need to test `/api/contact`, `/api/views`, or `/api/infinitecurios-latest` locally.
+Cloudflare Pages Functions require a Pages-compatible local runtime if you need to test `/api/contact`, `/api/views`, or `/api/404cache-latest` locally.
 
 ## Deployment
 
