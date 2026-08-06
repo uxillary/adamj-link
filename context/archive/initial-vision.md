@@ -42,7 +42,7 @@ Place in `/public`:
 
 - `/public/og.jpg` — 1200×630 (or 1600×840), dark background with AJ mark.
 - `/public/hexlabs-shot.jpg` — 1600×900.
-- `/public/infinitecurios-shot.jpg` — 1600×900.
+- `/public/404cache-shot.jpg` — 1600×900.
 - `/public/seo-book.png` — transparent, ~600px height.
 - `/public/favicon/` — PNG/ICO favicons.
 - `/public/icons.svg` — SVG sprite containing: `x`, `linkedin`, `instagram`, `github`, `mail`.
@@ -58,7 +58,7 @@ Place in `/public`:
 └─ public/
    ├─ og.jpg
    ├─ hexlabs-shot.jpg
-   ├─ infinitecurios-shot.jpg
+   ├─ 404cache-shot.jpg
    ├─ seo-book.png
    ├─ favicon/               # favicon assets
    └─ icons.svg              # <symbol id="x">…</symbol> etc.
@@ -132,7 +132,7 @@ Add `robots.txt`, `sitemap.txt`, `404.html`, OG image wiring, tiny JS for year +
 ## Links
 
 - Primary site: <https://adamj.link>  
-- Blog: <https://404cache.net>  
+- Blog: <https://404cache.pages.dev>
 - GitHub: <https://github.com/uxillary>
 - YouTube: <https://youtube.com/@admjski>  
 - Email: <hello@ajstudios.dev>

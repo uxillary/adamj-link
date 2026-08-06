@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The Writing section displays the latest content from Infinite Curios.
+The Writing section displays the latest content from 404cache.
 
 This system is independent from the blog counter.
 
@@ -14,7 +14,7 @@ Frontend
 
 ↓
 
-/api/infinitecurios-latest
+/api/404cache-latest
 
 ↓
 
