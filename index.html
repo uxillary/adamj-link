@@ -58,7 +58,7 @@
   <script src="/scripts/tailwind-config.js"></script>
 
   <link rel="preload" as="image" href="/public/hex-labs-card.png" />
-  <link rel="preload" as="image" href="/public/404cache-card.png" />
+  <link rel="preload" as="image" href="/public/infinitecurios-card.png" />
 
   <link rel="stylesheet" href="/styles/main.css">
 
@@ -110,115 +110,42 @@
       </a>
       <nav class="flex items-center gap-6" aria-label="Primary">
         <a href="https://ajstudios.online" class="hidden sm:inline group relative text-sm uppercase tracking-wide text-zinc-400 hover:text-white transition-colors duration-200 focus-ring">Portfolio<span class="absolute left-0 -bottom-1 h-px w-0 bg-brand transition-[width] duration-200 ease-out group-hover:w-full"></span></a>
-        <a href="https://404cache.pages.dev" class="hidden sm:inline group relative text-sm uppercase tracking-wide text-zinc-400 hover:text-white transition-colors duration-200 focus-ring">Blog<span class="absolute left-0 -bottom-1 h-px w-0 bg-brand transition-[width] duration-200 ease-out group-hover:w-full"></span></a>
+        <a href="https://infinite-curios.pages.dev" class="hidden sm:inline group relative text-sm uppercase tracking-wide text-zinc-400 hover:text-white transition-colors duration-200 focus-ring">Blog<span class="absolute left-0 -bottom-1 h-px w-0 bg-brand transition-[width] duration-200 ease-out group-hover:w-full"></span></a>
         <a href="https://github.com/uxillary" class="hidden sm:inline group relative text-sm uppercase tracking-wide text-zinc-400 hover:text-white transition-colors duration-200 focus-ring">GitHub<span class="absolute left-0 -bottom-1 h-px w-0 bg-brand transition-[width] duration-200 ease-out group-hover:w-full"></span></a>
       </nav>
     </div>
   </header>
 
-  <main id="main" class="max-w-5xl mx-auto px-6">
+  <main id="main" class="max-w-5xl mx-auto px-6 space-y-24 sm:space-y-36">
     <!-- Hero -->
-    <section class="section pt-6 hero" aria-labelledby="hero-title">
-      <div class="hero-shell">
-        <div class="hero-copy">
-          <p class="hero-kicker">adamj.link / personal workspace</p>
-          <h1 id="hero-title" class="hero-title">
-            Creative Digital Developer
-          </h1>
-          <p class="hero-subtitle">
-            building technical systems and interactive media.
-          </p>
-          <p class="hero-description">
-            A living hub for websites, tools, writing and experiments shaped around clean UX, real activity and practical craft.
-          </p>
-          <div class="hero-actions" aria-label="Primary actions">
-            <a href="https://ajstudios.online" class="px-5 py-3 r btn-primary font-semibold focus-ring">View Portfolio</a>
-            <a href="#contact" class="px-1 py-3 text-sm sm:text-base hero-link focus-ring">Email me</a>
-          </div>
-        </div>
-
-        <aside class="hero-status" aria-label="Workspace status">
-          <div class="hero-status-top">
-            <span class="hero-status-dot" aria-hidden="true"></span>
-            <span>Workspace online</span>
-          </div>
-          <dl class="hero-status-grid">
-            <div>
-              <dt>Mode</dt>
-              <dd>Build / research</dd>
-            </div>
-            <div>
-              <dt>Focus</dt>
-              <dd>Web tools</dd>
-            </div>
-            <div>
-              <dt>Signal</dt>
-              <dd>Active projects</dd>
-            </div>
-          </dl>
-        </aside>
+    <section class="section pt-6 hero">
+      <h1 class="font-extrabold tracking-tight leading-[0.98] text-[clamp(2.8rem,7vw,5rem)]">
+        Creative digital developer.
+      </h1>
+      <p class="mt-6 max-w-2xl dark:text-zinc-300 text-zinc-600 leading-relaxed text-[1.06rem]">
+        Specialist in websites, apps, tools and other digital media.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="https://ajstudios.online" class="px-5 py-3 r btn-primary font-semibold focus-ring">View Portfolio</a>
+        <a href="#contact" class="px-1 py-3 text-sm sm:text-base hero-link focus-ring">Email me</a>
       </div>
     </section>
 
     <div class="soft-hr"></div>
-
-    <section class="section now-section" id="now" aria-labelledby="now-title">
-      <div class="now-shell">
-        <div class="now-intro">
-          <p class="eyebrow">Now</p>
-          <h2 id="now-title">Active focus</h2>
-          <p>
-            Current work is centred on shipping useful web tools, tightening the personal hub, and turning real project activity into a clearer public surface.
-          </p>
-        </div>
-
-        <div class="now-stack" aria-label="Current focus areas">
-          <article class="now-item">
-            <span class="now-index" aria-hidden="true">01</span>
-            <div>
-              <h3>Refining adamj.link</h3>
-              <p>Improving the site as a living workspace: clearer sections, stronger hierarchy, and less traditional portfolio framing.</p>
-            </div>
-          </article>
-          <article class="now-item">
-            <span class="now-index" aria-hidden="true">02</span>
-            <div>
-              <h3>Building project systems</h3>
-              <p>Developing tools and experiments across web, automation, creative software, tutorials and practical UX.</p>
-            </div>
-          </article>
-          <article class="now-item">
-            <span class="now-index" aria-hidden="true">03</span>
-            <div>
-              <h3>Publishing useful work</h3>
-              <p>Connecting projects, writing, GitHub activity, and contact routes into one maintained identity hub.</p>
-            </div>
-          </article>
-        </div>
+    <section class="section" id="projects">
+      <div class="section-head">
+        <h2 class="font-semibold text-l text-zinc-400 tracking-tight">Projects</h2>
       </div>
-    </section>
-
-    <section class="section projects-section" id="projects" aria-labelledby="projects-title">
-      <div class="projects-head">
+      <div class="space-y-14">
         <div>
-          <p class="eyebrow">Project workspace</p>
-          <h2 id="projects-title">Built, shipping, and in motion.</h2>
-        </div>
-        <p>Selected work across public builds, practical tools, experiments, and project systems.</p>
-      </div>
-      <div class="projects-body">
-        <div class="project-lane project-lane-upcoming">
-          <div class="project-lane-head">
-            <div>
-              <span class="project-lane-kicker">Queue</span>
-              <h3>Upcoming projects</h3>
-            </div>
-            <span class="project-scroll-cue">
-              <svg width="16" height="16" class="icon-line" aria-hidden="true"><use href="/public/icons.svg#arrow-right"></use></svg>
-              scroll
+          <div class="flex flex-wrap items-center gap-3">
+            <span class="eyebrow">Upcoming projects</span>
+            <span class="text-[0.7rem] uppercase tracking-[0.3em] text-zinc-500 flex items-center gap-1">
+              <svg width="16" height="16" class="icon-line text-brand/80" aria-hidden="true"><use href="/public/icons.svg#arrow-right"></use></svg>
+              scroll ↔
             </span>
           </div>
-          <p class="project-lane-copy">Builds-in-progress for upcoming drops and hackathons.</p>
+          <p class="mt-3 text-sm text-zinc-500 leading-relaxed max-w-xl">Builds-in-progress for upcoming drops and hackathons.</p>
           <div class="upcoming-wrap mt-5" data-upcoming>
             <ul class="upcoming-track" data-drag-scroll>
               <li class="upcoming-card">
@@ -262,40 +189,30 @@
             </div>
           </div>
         </div>
-
-        <div class="project-lane">
-          <div class="project-lane-head">
-            <div>
-              <span class="project-lane-kicker">Showcase</span>
-              <h3>Primary surfaces</h3>
-            </div>
+        <div class="space-y-7">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <span class="eyebrow text-zinc-400">Showcase</span>
           </div>
-          <div class="project-showcase">
-            <div class="featured-projects-grid">
-              <a href="https://404cache.pages.dev" class="featured-project project-card overflow-hidden block group transition">
+          <div class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-6 sm:gap-7">
+              <a href="https://infinite-curios.pages.dev" class="featured-project project-card overflow-hidden block group transition">
                 <div class="project-thumb-preview aspect-[16/9] bg-zinc-900/40 relative">
-                  <img src="/public/404cache.png" width="1600" height="900" alt="404cache.pages.dev" class="w-full h-full object-cover brightness-90 transition" loading="lazy" decoding="async" />
+                  <img src="/public/404cache.png" width="1600" height="900" alt="Infinite Curios" class="w-full h-full object-cover brightness-90 transition" loading="lazy" decoding="async" />
                   <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-gif-src="/public/gifs/404cache.gif" width="1600" height="900" alt="" class="project-preview-gif absolute inset-0 w-full h-full object-cover brightness-90" loading="lazy" decoding="async" aria-hidden="true" />
                   <div class="project-gif-loader absolute inset-0 flex items-center justify-center" aria-hidden="true">
                     <span class="project-gif-loader-chip">warming cache</span>
                   </div>
                   <div class="absolute inset-0 bg-black/35 featured-fade"></div>
                 </div>
-                <div class="featured-copy">
-                  <div class="project-card-top">
-                    <span class="project-number">01</span>
+                <div class="p-4 sm:p-5 featured-copy">
+                  <div class="flex items-center justify-between mb-1">
+                    <h3 class="font-semibold text-lg">Infinite Curios</h3>
                     <span class="badge">Blog</span>
                   </div>
-                  <h4>404cache.pages.dev</h4>
                   <p class="text-sm text-zinc-200 leading-relaxed">Blog posts on tech, design, and creativity plus various useful web tools.</p>
-                  <div class="project-meta-row" aria-label="404cache.pages.dev project details">
-                    <span>Status: Live</span>
-                    <span>Role: Writing / tools</span>
-                    <span>Action: Visit site</span>
-                  </div>
                 </div>
               </a>
-              <a href="https://hexlabs.pages.dev" class="featured-project project-card overflow-hidden block group transition">
+              <a href="https://hexlabs.app" class="featured-project project-card overflow-hidden block group transition">
                 <div class="project-thumb-preview aspect-[16/9] bg-zinc-900/40 relative">
                   <img src="/public/hex-labs-card.png" width="1600" height="900" alt="Hex Labs" class="w-full h-full object-cover brightness-90 transition" loading="lazy" decoding="async" />
                   <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-gif-src="/public/gifs/hexlabs.gif" width="1600" height="900" alt="" class="project-preview-gif absolute inset-0 w-full h-full object-cover brightness-90" loading="lazy" decoding="async" aria-hidden="true" />
@@ -304,33 +221,22 @@
                   </div>
                   <div class="absolute inset-0 bg-black/35 featured-fade"></div>
                 </div>
-                <div class="featured-copy">
-                  <div class="project-card-top">
-                    <span class="project-number">02</span>
+                <div class="p-4 sm:p-5 featured-copy">
+                  <div class="flex items-center justify-between mb-1">
+                    <h3 class="font-semibold text-lg">hexlabs.app</h3>
                     <span class="badge">Web</span>
                   </div>
-                  <h4>hexlabs.pages.dev</h4>
                   <p class="text-sm text-zinc-200 leading-relaxed">Learning environment with various ECU remapping tools to modernize legacy tuning methods.</p>
-                  <div class="project-meta-row" aria-label="hexlabs.pages.dev project details">
-                    <span>Status: Live</span>
-                    <span>Role: Web / tools</span>
-                    <span>Action: Visit app</span>
-                  </div>
                 </div>
               </a>
             </div>
             <div class="more-projects" aria-label="More projects">
-              <div class="project-index-head">
-                <span class="project-lane-kicker">Index</span>
-                <span>More shipped and experimental work</span>
-              </div>
               <a href="https://github.com/uxillary/codex-assist" class="project-list-item group">
                 <div>
-                  <span class="project-list-status">Tool / Windows</span>
                   <h4 class="font-medium text-sm sm:text-base">Codex Assist</h4>
                   <p class="text-sm text-zinc-500 mt-1">A Python GUI powered by OpenAI's GPT models, with smart token management.</p>
                 </div>
-                <div class="project-list-meta">
+                <div class="flex items-center gap-4">
                   <span class="badge">AI</span>
                   <span class="badge">Windows</span>
                   <span class="project-arrow">↗ &nbsp;</span>
@@ -338,33 +244,30 @@
               </a>
               <a href="https://github.com/uxillary/synthtax" class="project-list-item group">
                 <div>
-                  <span class="project-list-status">Experiment / Music</span>
                   <h4 class="font-medium text-sm sm:text-base">Synthtax</h4>
                   <p class="text-sm text-zinc-500 mt-1">Experimental music and sound design application.</p>
                 </div>
-                <div class="project-list-meta">
+                <div class="flex items-center gap-4">
                   <span class="badge">Music</span>
                   <span class="project-arrow">↗ &nbsp;</span>
                 </div>
               </a>
               <a href="https://aspartameawareness.org" class="project-list-item group">
                 <div>
-                  <span class="project-list-status">Campaign / Web</span>
                   <h4 class="font-medium text-sm sm:text-base">aspartameawareness.org</h4>
                   <p class="text-sm text-zinc-500 mt-1">E951 Sweetener awareness campaign site to educate about aspartame's health risks.</p>
                 </div>
-                <div class="project-list-meta">
+                <div class="flex items-center gap-4">
                   <span class="badge">Web</span>
                   <span class="project-arrow">↗ &nbsp;</span>
                 </div>
               </a>
               <a href="https://404cache.pages.dev/" class="project-list-item group">
                 <div>
-                  <span class="project-list-status">Game / Web</span>
                   <h4 class="font-medium text-sm sm:text-base">Virtual stock market</h4>
                   <p class="text-sm text-zinc-500 mt-1">Interactive stock exchange simulation, booster packs, minigames.</p>
                 </div>
-                <div class="project-list-meta">
+                <div class="flex items-center gap-4">
                   <span class="badge">Game</span>
                   <span class="badge">Web</span>
                   <span class="project-arrow">↗ &nbsp;</span>
@@ -372,11 +275,10 @@
               </a>
               <a href="https://github.com/uxillary/maintenance-goblin" class="project-list-item group">
                 <div>
-                  <span class="project-list-status">Tool / Windows</span>
                   <h4 class="font-medium text-sm sm:text-base">Maintenance Goblin</h4>
                   <p class="text-sm text-zinc-500 mt-1">Windows application that streamlines repetitive maintenance tasks.</p>
                 </div>
-                <div class="project-list-meta">
+                <div class="flex items-center gap-4">
                   <span class="badge">Tool</span>
                   <span class="badge">Windows</span>
                   <span class="project-arrow">↗ &nbsp;</span>
@@ -384,11 +286,10 @@
               </a>
               <a href="https://uxillary.github.io/font-size-tweak/" class="project-list-item group">
                 <div>
-                  <span class="project-list-status">Tool / Windows</span>
                   <h4 class="font-medium text-sm sm:text-base">Font size tweak</h4>
                   <p class="text-sm text-zinc-500 mt-1">Windows utility to improve readability and text hierarchy by adjusting font sizes.</p>
                 </div>
-                <div class="project-list-meta">
+                <div class="flex items-center gap-4">
                   <span class="badge">Tool</span>
                   <span class="badge">Windows</span>
                   <span class="project-arrow">↗ &nbsp;</span>
@@ -396,11 +297,10 @@
               </a>
               <a href="https://github.com/uxillary/greg-ai" class="project-list-item group">
                 <div>
-                  <span class="project-list-status">Experiment / AI</span>
                   <h4 class="font-medium text-sm sm:text-base">Gregg AI</h4>
                   <p class="text-sm text-zinc-500 mt-1">AI personality, trained using TacoTron voice synthesis, Python and publicly available LLM's.</p>
                 </div>
-                <div class="project-list-meta">
+                <div class="flex items-center gap-4">
                   <span class="badge">AI</span>
                   <span class="badge">Python</span>
                   <span class="project-arrow">↗ &nbsp;</span>
@@ -412,128 +312,97 @@
       </div>
     </section>
 
-    <section class="section activity-section" id="activity" aria-labelledby="activity-title">
-      <div class="activity-head">
-        <div>
-          <p class="eyebrow">Activity</p>
-          <h2 id="activity-title">Public signals from the workspace.</h2>
-        </div>
-        <p>Real counters and recent GitHub work, pulled from the existing lightweight data systems behind the site.</p>
+    <section class="section" id="activity" aria-labelledby="activity-title">
+      <div class="section-head">
+        <h2 id="activity-title" class="font-semibold text-l text-zinc-400 tracking-tight">Studio Metrics</h2>
+        <button id="refreshContribs" type="button" class="text-zinc-400 hover:text-brand focus-ring" aria-label="Refresh contributions">
+          <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#refresh"></use></svg>
+        </button>
       </div>
 
-      <div class="activity-panel">
-        <div class="activity-panel-head">
-          <div>
-            <span class="activity-kicker">Signal counters</span>
-            <h3>Public proof points</h3>
-          </div>
-          <span class="activity-source-note">Cloudflare KV + generated files</span>
+      <!-- Counters -->
+      <div class="activity-counters grid grid-cols-2 sm:grid-cols-3 gap-5 sm:gap-7">
+        <div class="stat-pill" title="Local device session views">
+          <span class="label">page views</span>
+          <span id="views" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
         </div>
-
-        <div class="activity-counters">
-          <div class="stat-pill" title="Global views from Cloudflare KV with local fallback">
-            <span class="label">page views</span>
-            <span id="views" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
-            <span class="stat-source">KV</span>
-          </div>
-          <div class="stat-pill" title="Blog posts total from generated files">
-            <span class="label">blog posts</span>
-            <span id="blog-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
-            <span class="stat-source">Generated</span>
-          </div>
-          <div class="stat-pill" title="YouTube video count from generated files">
-            <span class="label">youtube videos</span>
-            <span id="youtube-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
-            <span class="stat-source">Generated</span>
-          </div>
-          <div class="stat-pill" title="Public GitHub repository count from generated files">
-            <span class="label">public repos</span>
-            <span id="repo-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
-            <span class="stat-source">GitHub</span>
-          </div>
-          <div class="stat-pill" title="GitHub contributions from generated files">
-            <span class="label">contributions</span>
-            <span id="gh-contributions" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
-            <span class="stat-source">GitHub</span>
-          </div>
-          <div class="stat-pill" title="Total subscribers from generated files">
-            <span class="label">subscribers</span>
-            <span id="subscriber-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
-            <span class="stat-source">Generated</span>
-          </div>
+        <div class="stat-pill" title="Blog posts total">
+          <span class="label">blog posts</span>
+          <span id="blog-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
+        </div>
+        <div class="stat-pill" title="YouTube videos">
+          <span class="label">youtube videos</span>
+          <span id="youtube-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
+        </div>
+        <div class="stat-pill" title="Public repos">
+          <span class="label">public repos</span>
+          <span id="repo-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
+        </div>
+        <div class="stat-pill" title="GitHub contributions (2025)">
+          <span class="label">contributions</span>
+          <span id="gh-contributions" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
+        </div>
+        <div class="stat-pill" title="Total subscribers">
+          <span class="label">subscribers</span>
+          <span id="subscriber-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
         </div>
       </div>
 
-      <div class="activity-log">
-        <div class="activity-panel-head">
-          <div>
-            <span class="activity-kicker">Repository log</span>
-            <h3>Recent GitHub activity</h3>
-          </div>
-          <button id="refreshContribs" type="button" class="activity-refresh focus-ring" aria-label="Refresh contributions">
-            <svg width="16" height="16" class="icon-line" aria-hidden="true"><use href="/public/icons.svg#refresh"></use></svg>
-            <span>Refresh</span>
-          </button>
-        </div>
+      <div class="activity-divider" aria-hidden="true"></div>
 
-        <div id="ossList" class="mt-2" aria-live="polite">
-          <div class="t-card">Loading recent contributions…</div>
-        </div>
-        <a href="https://github.com/uxillary" class="activity-link">View all on GitHub →</a>
+      <h3 class="eyebrow mt-6 mb-2">Recent contributions</h3>
+      <div id="ossList" class="mt-2" aria-live="polite">
+        <div class="t-card">Loading recent contributions…</div>
       </div>
+      <a href="https://github.com/uxillary" class="block mt-3 text-sm text-zinc-500 hover:text-brand">View all on GitHub →</a>
     </section>
 
-    <section class="section writing-section" id="writing" aria-labelledby="writing-title">
-      <div class="writing-head">
+    <section class="section" id="writing">
+      <div class="section-head">
         <div>
-          <p class="eyebrow">Writing</p>
-          <h2 id="writing-title">Latest notes from the editorial layer.</h2>
+          <h2 class="font-semibold text-l text-zinc-500 tracking-tight mb-2">Writing</h2>
+          <div class="eyebrow">Latest posts</div>
         </div>
-        <div class="writing-actions">
-          <button id="refreshPosts" type="button" class="writing-refresh focus-ring" aria-label="Refresh posts">
-            <svg width="16" height="16" class="icon-line" aria-hidden="true"><use href="/public/icons.svg#refresh"></use></svg>
-            <span>Refresh</span>
+        <div class="flex items-center gap-3">
+          <button id="refreshPosts" type="button" class="text-zinc-400 hover:text-brand focus-ring" aria-label="Refresh posts">
+            <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#refresh"></use></svg>
           </button>
-          <a class="writing-link" href="https://404cache.pages.dev">All posts →</a>
+          <a class="text-sm text-zinc-400 hover:text-brand" href="https://infinite-curios.pages.dev">All posts →</a>
         </div>
       </div>
 
-      <div class="writing-grid">
+      <div class="writing-grid grid gap-6 md:grid-cols-3">
         <!-- Posts: span 2 -->
-        <div class="writing-posts">
-          <div class="writing-panel-head">
-            <span class="writing-kicker">404cache feed</span>
-            <span>Latest posts</span>
-          </div>
+        <div class="md:col-span-2">
           <div id="blogList"
-               class="writing-post-list">
+               class="grid gap-6 md:grid-cols-3
+                      [grid-auto-rows:1fr]">
           </div>
         </div>
 
-        <!-- Book: secondary editorial artifact -->
-        <aside class="writing-aside" aria-labelledby="book-title">
-          <div class="writing-book">
-            <div class="writing-book-head">
-              <span class="writing-kicker">Featured book</span>
+        <!-- Book: sticky sidebar -->
+        <aside class="md:col-span-1 h-full">
+          <div class="t-card p-4 sm:p-5 h-full writing-book sticky top-20">
+            <div class="flex items-center justify-between">
+              <h3 class="font-medium text-zinc-100">Get Optimized</h3>
               <span class="badge">Book</span>
             </div>
-            <h3 id="book-title">Get Optimized</h3>
-            <div class="writing-book-body">
+            <div class="mt-3 flex items-start gap-4">
               <img src="/public/3d-cover-sm.png" width="400" height="600" alt="Cover of Get Optimized — SEO Guide"
                    class="w-16 sm:w-24 shrink-0" loading="lazy" decoding="async" />
               <p class="text-sm text-zinc-300 leading-relaxed">
                 Comprehensive guide to SEO with real-world examples.
               </p>
             </div>
-            <ul class="writing-book-list">
+            <ul class="mt-3 list-disc list-inside text-sm text-zinc-400 space-y-1">
               <li>Boost search visibility</li>
               <li>Practical checklists</li>
             </ul>
-            <blockquote>
+            <blockquote class="mt-2 text-xs text-zinc-500 italic">
               "Visibility, Relevance, and Ranking in an AI World"
             </blockquote>
             <a href="https://www.amazon.co.uk/dp/B0F9B2MN62"
-               class="book-cta focus-ring">
+               class="inline-flex items-center gap-2 mt-4 px-3 py-1.5 text-sm r border border-brand/60 text-brand font-medium hover:bg-brand/10 transition focus-ring book-cta">
               Buy book
             </a>
           </div>
@@ -543,141 +412,105 @@
 
     <!-- Contact -->
 
-    <section id="contact" class="section contact-section mb-32" aria-labelledby="contact-title">
-      <div class="contact-head">
-        <div>
-          <p class="eyebrow">Contact</p>
-          <h2 id="contact-title">Open a direct line.</h2>
-        </div>
-        <p>Send a concise note about a project, collaboration, question, or useful idea.</p>
-      </div>
-
-      <div class="contact-shell">
-        <div class="contact-intro">
-          <span class="contact-kicker">Message protocol</span>
-          <ul>
-            <li>Write the context</li>
-            <li>Pass the human check</li>
-            <li>Send through the site API</li>
-          </ul>
-        </div>
-
-        <form id="contactForm" class="contact-form">
-          <div class="contact-fields">
-            <div class="contact-field">
-              <label for="cf-name">Name</label>
-              <input id="cf-name" name="name" type="text" required placeholder="Name" aria-invalid="false" />
-            </div>
-            <div class="contact-field">
-              <label for="cf-email">Email</label>
-              <input id="cf-email" name="email" type="email" required placeholder="Email" aria-invalid="false" />
-            </div>
-            <div class="contact-field contact-field-message">
-              <label for="cf-message">Message</label>
-              <textarea id="cf-message" name="message" rows="3" required placeholder="Message" aria-invalid="false"></textarea>
-            </div>
+    <section id="contact" class="section mb-32">
+      <div class="t-card p-5 sm:p-6">
+        <h2 class="font-semibold text-l mb-2 text-zinc-400">Contact</h2>
+        <form id="contactForm" class="flex flex-col space-y-3">
+          <div>
+            <label for="cf-name" class="block text-xs text-zinc-600">Name</label>
+            <input id="cf-name" name="name" type="text" required placeholder="Name" aria-invalid="false" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70" />
           </div>
-
-          <div class="contact-verification">
-            <div class="contact-verification-head">
+          <div>
+            <label for="cf-email" class="block text-xs text-zinc-600">Email</label>
+            <input id="cf-email" name="email" type="email" required placeholder="Email" aria-invalid="false" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70" />
+          </div>
+          <div>
+            <label for="cf-message" class="block text-xs text-zinc-600">Message</label>
+            <textarea id="cf-message" name="message" rows="3" required placeholder="Message" aria-invalid="false" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70"></textarea>
+          </div>
+          <button type="button" id="humanToggle" class="self-start inline-flex items-center gap-2 text-sm text-brand hover:text-brand/80 focus-ring" aria-controls="humanChallenge" aria-expanded="false">
+            <span>Verify you’re human</span>
+          </button>
+          <!-- Human challenge -->
+          <div id="humanChallenge" class="t-card p-3 mb-2 border border-zinc-800/40 bg-zinc-900/20">
+            <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <span class="contact-kicker">Verification</span>
-                <p>Complete the lightweight check before sending.</p>
+                <div class="eyebrow">Human check</div>
+                <p id="hcStatus" class="text-sm text-zinc-400/90">Complete a quick branded challenge to enable Send.</p>
               </div>
-              <button type="button" id="humanToggle" class="human-toggle focus-ring" aria-controls="humanChallenge" aria-expanded="false">
-                <span>Verify human</span>
-              </button>
-            </div>
-            <!-- Human challenge -->
-            <div id="humanChallenge" class="human-challenge">
-              <div class="human-challenge-head">
-                <div>
-                  <div class="eyebrow">Human check</div>
-                  <p id="hcStatus">Complete a quick branded challenge to enable Send.</p>
-                </div>
-                <div class="flex items-center gap-2">
-                  <button id="hcRefresh" type="button" class="human-refresh focus-ring" aria-label="New challenge">
-                    <svg width="16" height="16" class="icon-line" aria-hidden="true"><use href="/public/icons.svg#refresh"></use></svg>
-                  </button>
-                </div>
+              <div class="flex items-center gap-2">
+                <button id="hcRefresh" type="button" class="text-zinc-400 hover:text-brand focus-ring" aria-label="New challenge">
+                  <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#refresh"></use></svg>
+                </button>
               </div>
-              <div id="hcMount" class="human-mount"></div>
             </div>
+            <div id="hcMount" class="mt-2"></div>
           </div>
-
-          <div class="contact-submit-row">
-            <button type="submit" class="contact-submit focus-ring">Send</button>
-            <p id="cf-status" class="contact-status" aria-live="polite"></p>
-          </div>
+          <button type="submit" class="px-4 py-2 bg-brand text-black font-semibold hover:opacity-90 transition focus-ring">Send</button>
+          <p id="cf-status" class="text-sm mt-2" aria-live="polite"></p>
         </form>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer class="site-footer">
-    <div class="footer-shell">
-      <div class="footer-primary">
-        <div>
-          <p class="footer-kicker">Direct contact</p>
-          <a href="mailto:mail@adamj.link" class="footer-email focus-ring group">
-            <svg class="icon-line transition-transform group-hover:scale-110" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg>
-            <span>mail@adamj.link</span>
+  <footer class="relative mt-20 before:content-[''] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-zinc-800/60 before:to-transparent">
+    <div class="max-w-6xl mx-auto px-6 py-8 text-sm text-zinc-500 space-y-6">
+      <nav class="flex flex-col items-center gap-3 w-max mx-auto sm:w-full sm:flex-row sm:flex-wrap sm:justify-center" aria-label="Social links">
+        <a href="mailto:hello@ajstudios.online" class="inline-flex w-full sm:w-auto justify-center items-center gap-2 px-4 py-2 r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group">
+          <svg class="icon-line transition-transform group-hover:scale-110" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg>
+          <span>adam@ajstudios.online</span>
+        </a>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a aria-label="X (Twitter)" href="https://x.com/admjski" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group">
+            <svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#x"></use></svg>
+          </a>
+          <a aria-label="GitHub" href="https://github.com/uxillary" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group">
+            <svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#github"></use></svg>
+          </a>
+          <a aria-label="Devpost" href="https://devpost.com/uxillary" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group">
+            <svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#devpost"></use></svg>
+          </a>
+          <a aria-label="YouTube" href="https://www.youtube.com/@admjski" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group">
+            <svg class="transition-transform group-hover:scale-110" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.8 8s-.2-1.5-.8-2.2c-.8-.9-1.7-.9-2.1-1-2.9-.2-7.1-.2-7.1-.2h-.1s-4.2 0-7.1.2c-.4 0-1.3 0-2.1 1C2.4 6.5 2.2 8 2.2 8S2 9.6 2 11.1v1.7c0 1.5.2 3.1.2 3.1s.2 1.5.8 2.2c.8.9 1.8.9 2.2 1 1.6.1 6.9.2 6.9.2s4.2 0 7.1-.2c.4 0 1.3 0 2.1-1 .6-.7.8-2.2.8-2.2s.2-1.5.2-3.1v-1.7c0-1.5-.2-3.1-.2-3.1zM9.9 14.7V9.3l5.7 2.7-5.7 2.7z"/></svg>
+          </a>
+          <a aria-label="Instagram" href="https://instagram.com/admjski" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group">
+            <svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#instagram"></use></svg>
+          </a>
+          <a aria-label="Facebook" href="https://facebook.com/admjski" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group">
+            <svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#facebook"></use></svg>
+          </a>
+          <a aria-label="Buy Me A Coffee" href="https://buymeacoffee.com/admjski" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group">
+            <svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#buymeacoffee"></use></svg>
           </a>
         </div>
-        <nav class="footer-social" aria-label="Social links">
-          <span class="footer-kicker">Social</span>
-          <div class="footer-icon-row">
-            <a aria-label="X (Twitter)" href="https://x.com/admjski" class="footer-icon-link focus-ring group">
-              <svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#x"></use></svg>
-            </a>
-            <a aria-label="GitHub" href="https://github.com/uxillary" class="footer-icon-link focus-ring group">
-              <svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#github"></use></svg>
-            </a>
-            <a aria-label="Devpost" href="https://devpost.com/uxillary" class="footer-icon-link focus-ring group">
-              <svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#devpost"></use></svg>
-            </a>
-            <a aria-label="YouTube" href="https://www.youtube.com/@admjski" class="footer-icon-link focus-ring group">
-              <svg class="transition-transform group-hover:scale-110" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.8 8s-.2-1.5-.8-2.2c-.8-.9-1.7-.9-2.1-1-2.9-.2-7.1-.2-7.1-.2h-.1s-4.2 0-7.1.2c-.4 0-1.3 0-2.1 1C2.4 6.5 2.2 8 2.2 8S2 9.6 2 11.1v1.7c0 1.5.2 3.1.2 3.1s.2 1.5.8 2.2c.8.9 1.8.9 2.2 1 1.6.1 6.9.2 6.9.2s4.2 0 7.1-.2c.4 0 1.3 0 2.1-1 .6-.7.8-2.2.8-2.2s.2-1.5.2-3.1v-1.7c0-1.5-.2-3.1-.2-3.1zM9.9 14.7V9.3l5.7 2.7-5.7 2.7z"/></svg>
-            </a>
-            <a aria-label="Instagram" href="https://instagram.com/admjski" class="footer-icon-link focus-ring group">
-              <svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#instagram"></use></svg>
-            </a>
-            <a aria-label="Facebook" href="https://facebook.com/admjski" class="footer-icon-link focus-ring group">
-              <svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#facebook"></use></svg>
-            </a>
-            <a aria-label="Buy Me A Coffee" href="https://buymeacoffee.com/admjski" class="footer-icon-link focus-ring group">
-              <svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#buymeacoffee"></use></svg>
-            </a>
-          </div>
-        </nav>
-      </div>
-      <div class="footer-secondary">
+      </nav>
+      <div class="flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between text-sm text-zinc-700">
         <span>© <span id="y"></span> Adam C Johnston — Fife, Scotland, UK</span>
-        <nav class="footer-legal" aria-label="Footer links">
-          <a href="/about.html">About</a>
-          <a href="/contact.html">Contact</a>
-          <a href="/privacy.html">Privacy</a>
-          <a href="/terms.html">Terms</a>
-          <a href="/site-info.html">Site Info</a>
-        </nav>
+        <div class="flex flex-wrap gap-3 sm:gap-4">
+          <a href="/about.html" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">About</a>
+          <a href="/contact.html" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">Contact</a>
+          <a href="/privacy.html" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">Privacy</a>
+          <a href="/terms.html" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">Terms</a>
+          <a href="/site-info.html" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">Site Info</a>
+        </div>
       </div>
     </div>
   </footer>
 
   <!-- Radius toggle UI -->
-    <div id="radiusUI" class="utility-controls fixed bottom-4 right-4 flex flex-col gap-2 z-40">
-      <button id="scrollTop" type="button" class="utility-control r focus-ring" aria-label="Scroll to top" title="Back to top">
+    <div id="radiusUI" class="fixed bottom-4 right-4 flex flex-col gap-2 z-40">
+      <button id="scrollTop" type="button" class="w-8 h-8 flex items-center justify-center r border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-brand focus-ring" aria-label="Scroll to top" title="Back to top">
         <svg width="16" height="16" class="icon-line" aria-hidden="true">
           <path d="M8 12V4"/>
           <path d="M4.75 7.25L8 4l3.25 3.25"/>
           <path d="M4.25 13.5h7.5"/>
         </svg>
       </button>
-      <button id="themeToggle" class="utility-control r focus-ring" aria-label="Toggle theme">
+      <button id="themeToggle" class="w-8 h-8 flex items-center justify-center r border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Toggle theme">
         <span id="themeIcon" class="spin">☾</span>
       </button>
-      <button id="radiusToggle" type="button" class="utility-control focus-ring" aria-label="Toggle corner style" aria-pressed="false">
+      <button id="radiusToggle" type="button" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Toggle corner style" aria-pressed="false">
         <svg id="radiusIconSoft" width="16" height="16" class="icon-line hidden" aria-hidden="true"><circle cx="8" cy="8" r="5"/></svg>
         <svg id="radiusIconSquare" width="16" height="16" class="icon-line hidden" aria-hidden="true"><rect x="3" y="3" width="10" height="10" rx="0"/></svg>
       </button>
@@ -685,7 +518,7 @@
 
   <script src="/scripts/main.js"></script>
   <script src="/scripts/human-challenge.js"></script>
-  <script src="/scripts/404cache-posts.js"></script>
+  <script src="/scripts/infinitecurios-posts.js"></script>
   <script src="/scripts/gh-contribs.js"></script>
 </body>
 </html>
