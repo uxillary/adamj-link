@@ -1,122 +1,13 @@
 {
-  "generatedAt": "2026-07-31T13:59:40.099Z",
+  "generatedAt": "2026-08-06T14:01:48.460Z",
   "items": [
     {
-      "repo": "ajdigitalservices",
-      "title": "codex/improve-website-trust-and-conversion-features",
-      "type": "Delete",
-      "url": "https://github.com/uxillary/ajdigitalservices",
-      "shortRef": "",
-      "timeAgo": "21 days ago",
-      "summary": "Deleted branch",
-      "repoMeta": {
-        "description": "local tech support business",
-        "language": "JavaScript",
-        "stars": 0
-      }
-    },
-    {
-      "repo": "ajdigitalservices",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/ajdigitalservices/commit/f930cef1f43ff6d756bd1fbe8a8c9ea2fb161954",
-      "shortRef": "f930cef",
-      "timeAgo": "21 days ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "local tech support business",
-        "language": "JavaScript",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 144,
-        "deletions": 53,
-        "filesChanged": 2
-      }
-    },
-    {
-      "repo": "ajdigitalservices",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/ajdigitalservices/commit/f4192fcef4c84864553a1c418f8f12f6157ddae3",
-      "shortRef": "f4192fc",
-      "timeAgo": "22 days ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "local tech support business",
-        "language": "JavaScript",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 144,
-        "deletions": 53,
-        "filesChanged": 2
-      }
-    },
-    {
-      "repo": "ajdigitalservices",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/ajdigitalservices/commit/b2add09bfa4495991954edb294ca3ba71aba1602",
-      "shortRef": "b2add09",
-      "timeAgo": "24 days ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "local tech support business",
-        "language": "JavaScript",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 9,
-        "deletions": 0,
-        "filesChanged": 1
-      }
-    },
-    {
-      "repo": "ajdigitalservices",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/ajdigitalservices/commit/bf996ca89116dd46195800ea6fecc1ee96b0506b",
-      "shortRef": "bf996ca",
-      "timeAgo": "24 days ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "local tech support business",
-        "language": "JavaScript",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 2261,
-        "deletions": 0,
-        "filesChanged": 10
-      }
-    },
-    {
-      "repo": "ajdigitalservices",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/ajdigitalservices/commit/33936b1513603d1c99e82dedfbf74c6fb9f18ce0",
-      "shortRef": "33936b1",
-      "timeAgo": "25 days ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "local tech support business",
-        "language": "JavaScript",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 2261,
-        "deletions": 0,
-        "filesChanged": 10
-      }
-    },
-    {
       "repo": "adamj-link",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/adamj-link/commit/c33ecd045d24969c0ec167e9063aa1429df39cf8",
-      "shortRef": "c33ecd0",
-      "timeAgo": "25 days ago",
+      "url": "https://github.com/uxillary/adamj-link/commit/1313a38a1d8b1e685f242fad2a362ce66fcc2830",
+      "shortRef": "1313a38",
+      "timeAgo": "2 minutes ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "ultra-light polished landing for Adam J",
@@ -124,23 +15,142 @@
         "stars": 0
       },
       "commitMeta": {
-        "additions": 93,
-        "deletions": 77,
-        "filesChanged": 3
+        "additions": 41,
+        "deletions": 46,
+        "filesChanged": 4
       }
     },
     {
       "repo": "adamj-link",
-      "title": "codex/improve-github-activity-card-readability",
-      "type": "Create",
-      "url": "https://github.com/uxillary/adamj-link",
-      "shortRef": "",
-      "timeAgo": "25 days ago",
-      "summary": "Created branch",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/adamj-link/commit/f71bb4019ab8d53d1cccc1ba06ddebb4881c12e6",
+      "shortRef": "f71bb40",
+      "timeAgo": "6 days ago",
+      "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "ultra-light polished landing for Adam J",
         "language": "HTML",
         "stars": 0
+      },
+      "commitMeta": {
+        "additions": 33,
+        "deletions": 34,
+        "filesChanged": 13
+      }
+    },
+    {
+      "repo": "adamj-link",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/adamj-link/commit/e90c7fb97198f222468c33c12f01ce834110050d",
+      "shortRef": "e90c7fb",
+      "timeAgo": "6 days ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 219,
+        "deletions": 41,
+        "filesChanged": 2
+      }
+    },
+    {
+      "repo": "adamj-link",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/adamj-link/commit/60eab5aa5a5cb2254f9d3758eb8d21a8a98675ff",
+      "shortRef": "60eab5a",
+      "timeAgo": "6 days ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 644,
+        "deletions": 74,
+        "filesChanged": 2
+      }
+    },
+    {
+      "repo": "adamj-link",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/adamj-link/commit/7f0553019b71f002197e25c4fdc0569ff1517c6c",
+      "shortRef": "7f05530",
+      "timeAgo": "6 days ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 254,
+        "deletions": 51,
+        "filesChanged": 2
+      }
+    },
+    {
+      "repo": "adamj-link",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/adamj-link/commit/c5c0b0167670195a2b49e0ad1641420d0b3510ef",
+      "shortRef": "c5c0b01",
+      "timeAgo": "6 days ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 312,
+        "deletions": 49,
+        "filesChanged": 2
+      }
+    },
+    {
+      "repo": "adamj-link",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/adamj-link/commit/df774db4384f2538b16fffbdaa33452ceb698563",
+      "shortRef": "df774db",
+      "timeAgo": "6 days ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 131,
+        "deletions": 0,
+        "filesChanged": 2
+      }
+    },
+    {
+      "repo": "adamj-link",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/adamj-link/commit/5a6ecca7774f70384582a992bc2cf20db626d283",
+      "shortRef": "5a6ecca",
+      "timeAgo": "6 days ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 161,
+        "deletions": 10,
+        "filesChanged": 2
       }
     }
   ]
