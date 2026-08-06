@@ -23,7 +23,7 @@ The homepage currently includes:
 - Hover-loaded project GIF previews for heavier media.
 - Studio metrics including page views, external counters, GitHub contributions, and subscriber-style stats.
 - Recent GitHub activity from `public/contributions.json`.
-- Writing cards sourced through the `404cache.net` RSS proxy.
+- Writing cards sourced through the `infinite-curios.pages.dev` RSS proxy.
 - A contact form with a small branded human-verification challenge.
 - Theme, scroll-to-top, and corner-radius controls.
 - Structured data, Open Graph metadata, sitemap, robots, favicons, and crawler-support pages.
@@ -82,10 +82,10 @@ The writing section fetches:
 That function proxies the RSS feed from:
 
 ```text
-https://404cache.net/feed.xml
+https://infinite-curios.pages.dev/feed.xml
 ```
 
-It returns the latest posts as JSON and rewrites legacy `infinitecurios.blog` links to `404cache.net`.
+It returns the latest posts as JSON and rewrites legacy `infinitecurios.blog`, `404cache.blog`, and `404cache.net` links to `infinite-curios.pages.dev`.
 
 ### GitHub Activity
 
