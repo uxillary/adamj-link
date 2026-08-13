@@ -28,7 +28,8 @@
     requestAnimationFrame(syncBookHeight);
 
     try {
-      const res = await fetch('/api/404cache-latest', { cache: 'reload' });
+      const res = await fetch('/api/infinite-curios-latest', { cache: 'reload' });
+      if (!res.ok) throw new Error(`Posts request failed with status ${res.status}`);
       const { items } = await res.json();
       if (!items || !items.length) {
         list.innerHTML = '<p class="text-sm text-zinc-500">No posts yet.</p>';

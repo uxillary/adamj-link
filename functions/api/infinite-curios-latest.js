@@ -1,6 +1,6 @@
 export const onRequestGet = async ({ request }) => {
-  const FEED_URL = "https://404cache.pages.dev/feed.xml";
-  const CURRENT_HOST = "404cache.pages.dev";
+  const FEED_URL = "https://infinite-curios.pages.dev/feed.xml";
+  const CURRENT_HOST = "infinite-curios.pages.dev";
   const cache = caches.default;
   const cacheKey = new Request(new URL(request.url).toString(), request);
   const cached = await cache.match(cacheKey);

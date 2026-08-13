@@ -14,7 +14,7 @@ Frontend
 
 ↓
 
-/api/404cache-latest
+/api/infinite-curios-latest
 
 ↓
 
