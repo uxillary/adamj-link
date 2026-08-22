@@ -34,6 +34,8 @@
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+
   <!-- OG / Twitter -->
   <meta property="og:title" content="Adam J — Creative Digital Developer" />
   <meta property="og:description" content="Playful, useful, forward-thinking projects. Portfolio, blog, GitHub." />
@@ -126,7 +128,7 @@
             Creative Digital Developer
           </h1>
           <p class="hero-subtitle">
-            building technical systems and interactive media.
+            building web apps &amp; interactive media.
           </p>
           <p class="hero-description">
             a living hub for my stats, sites, programs, writing, media and other dev experiments.
@@ -140,27 +142,44 @@
         <aside class="hero-status" aria-label="Workspace status">
           <div class="hero-status-top">
             <span class="hero-status-dot" aria-hidden="true"></span>
-            <span>Workspace online</span>
+            <span>online</span>
           </div>
           <dl class="hero-status-grid">
             <div>
               <dt>Mode</dt>
-              <dd>build / research</dd>
+              <dd>build &amp; upgrade</dd>
             </div>
             <div>
               <dt>Focus</dt>
               <dd>web development</dd>
             </div>
             <div>
-              <dt>contact</dt>
-              <dd>07396 961 595</dd>
+              <dt>CONTACT</dt>
+              <dd class="flex items-center gap-2 mt-1">
+
+                <!-- Call -->
+                <a href="tel:+447396961595"
+                  aria-label="Call"
+                  class="contact-icon">
+                  <i class="fa-solid fa-phone"></i>
+                </a>
+
+                <a href="https://wa.me/447396961595"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp"
+                  class="contact-icon">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+                <span class="ml-1">07396 961 595</span>
+
+              </dd>
             </div>
           </dl>
         </aside>
       </div>
     </section>
-
-    <div class="soft-hr"></div>
 
     <section class="section now-section" id="now" aria-labelledby="now-title">
       <div class="now-shell">
@@ -168,7 +187,7 @@
           <p class="eyebrow">Now</p>
           <h2 id="now-title">Active focus</h2>
           <p>
-            Currently tightening the personal hub, making project activity clearer and a better workspace for myself, and hopefully a more useful resource for others.
+            Currently polishing this hub, making project activity clearer, a better workspace for myself, and hopefully a more useful resource for others.
           </p>
           <p>
             2026 plan is to publish tutorials and tools alongside ajdigitalservices. The aim is to enable users to build their own  websites/ applications. The tutorials should improve their confidence in using dev products such as Github and Cloudflare,  integrated with AI to enhance the development process and most importantly enable them to maintain post setup.
@@ -187,7 +206,7 @@
             <span class="now-index" aria-hidden="true">02</span>
             <div>
               <h3>Building project systems</h3>
-              <p>Developing tools and experiments across web, automation, creative software, tutorials and practical UX.</p>
+              <p>Developing tools and experiments across web, automation, creative software, tutorials, practical UX and accessibility apps.</p>
             </div>
           </article>
           <article class="now-item">
@@ -207,7 +226,7 @@
           <p class="eyebrow">Project workspace</p>
           <h2 id="projects-title">Built, shipping, and in motion.</h2>
         </div>
-        <p>Selected work across public builds, practical tools, experiments, and project systems.</p>
+        <p>Selected work across releases, open source projects, practical tools, experimental systems.</p>
       </div>
       <div class="projects-body">
         <div class="project-lane project-lane-upcoming">
@@ -419,16 +438,16 @@
       <div class="activity-head">
         <div>
           <p class="eyebrow">Activity</p>
-          <h2 id="activity-title">Public signals from the workspace.</h2>
+          <h2 id="activity-title">Some of my online stats and activity.</h2>
         </div>
-        <p>Real counters and recent GitHub work, pulled from the existing lightweight data systems behind the site.</p>
+        <p>Just to show what i've been up to.</p>
       </div>
 
       <div class="activity-panel">
         <div class="activity-panel-head">
           <div>
-            <span class="activity-kicker">Signal counters</span>
-            <h3>Public proof points</h3>
+            <span class="activity-kicker">Public Stats</span>
+            <h3>and counting ...</h3>
           </div>
           <span class="activity-source-note">Cloudflare KV + generated files</span>
         </div>
@@ -442,12 +461,12 @@
           <div class="stat-pill" title="Blog posts total from generated files">
             <span class="label">blog posts</span>
             <span id="blog-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
-            <span class="stat-source">Generated</span>
+            <span class="stat-source">Published</span>
           </div>
           <div class="stat-pill" title="YouTube video count from generated files">
             <span class="label">youtube videos</span>
             <span id="youtube-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
-            <span class="stat-source">Generated</span>
+            <span class="stat-source">Published</span>
           </div>
           <div class="stat-pill" title="Public GitHub repository count from generated files">
             <span class="label">public repos</span>
@@ -462,7 +481,7 @@
           <div class="stat-pill" title="Total subscribers from generated files">
             <span class="label">subscribers</span>
             <span id="subscriber-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
-            <span class="stat-source">Generated</span>
+            <span class="stat-source">YouTube</span>
           </div>
         </div>
       </div>
@@ -490,7 +509,7 @@
       <div class="writing-head">
         <div>
           <p class="eyebrow">Writing</p>
-          <h2 id="writing-title">Latest notes from the editorial layer.</h2>
+          <h2 id="writing-title">Stuff i've published that might be worth reading.</h2>
         </div>
         <div class="writing-actions">
           <button id="refreshPosts" type="button" class="writing-refresh focus-ring" aria-label="Refresh posts">
@@ -505,7 +524,7 @@
         <!-- Posts: span 2 -->
         <div class="writing-posts">
           <div class="writing-panel-head">
-            <span class="writing-kicker">Infinite Curios feed</span>
+            <span class="writing-kicker">Blog feed</span>
             <span>Latest posts</span>
           </div>
           <div id="blogList"
