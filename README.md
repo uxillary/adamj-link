@@ -19,8 +19,7 @@ The site has moved beyond the original ultra-light landing page. It is now a liv
 The homepage currently includes:
 
 - A dark, technical portfolio hero for Adam J as a creative digital developer.
-- Project sections for upcoming work and shipped/showcase projects.
-- Hover-loaded project GIF previews for heavier media.
+- A filterable editorial index for selected work with on-demand desktop previews, followed by the upcoming build queue.
 - Studio metrics including page views, external counters, GitHub contributions, and subscriber-style stats.
 - Recent GitHub activity from `public/contributions.json`.
 - Writing cards sourced through the `infinite-curios.pages.dev` RSS proxy.
@@ -116,7 +115,7 @@ The JSON file is generated outside this site and committed as static data, so th
 ├── functions/api/              # Cloudflare Pages Functions
 ├── scripts/                    # Browser-side behaviour
 ├── styles/main.css             # Custom visual system
-├── public/                     # Images, icons, favicons, GIF previews, static data
+├── public/                     # Images, icons, favicons, and static data
 ├── docs/                       # Operational notes
 └── context/                    # Project direction, brand, architecture, roadmap notes
 ```
