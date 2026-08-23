@@ -278,7 +278,8 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
 
 const UPCOMING_PROJECTS = [
   { title: 'Digital World', type: 'GAME / PLATFORM', status: 'ACTIVE', stage: 'BUILD', description: 'Persistent browser-based world built around profiles, progression, collectibles, cards, badges, mini-games, community features and a player-driven economy.' },
-  { title: 'Pure Scottish', type: 'PUBLISHING', status: 'IN PROGRESS', stage: 'DESIGN', description: 'Illustrated Scottish slang book combining language, humour and visual design, being prepared for print/KDP.' },
+  { title: 'Pure Scottish', type: 'PUBLISHING', status: 'IN PROGRESS', stage: 'BUILD', description: 'Illustrated Scottish slang book combining language, humour and visual design, being prepared for print/KDP.' },
+  { title: 'EP_01', type: 'MUSIC / AUDIO', status: 'IN PROGRESS', stage: 'BUILD', description: 'Dark-pop electronic project blending processed vocals, cyber/trance textures and pop-culture energy into a connected series of tracks.' },
   { title: 'AJ Digital Services', type: 'SERVICE', status: 'PLANNED', stage: 'DESIGN', description: 'Local digital and technology support service designed to make everyday tech easier and more approachable.' },
   { title: 'Hex Colour Book', type: 'PUBLISHING', status: 'QUEUED', stage: 'IDEA', description: 'Visual book concept exploring hexadecimal colour through design, reference and creative presentation.' },
   { title: 'GitHub XP Tracker', type: 'DEV TOOL', status: 'EXPERIMENT', stage: 'IDEA', description: 'Gamified developer dashboard that turns GitHub activity, commits and contributions into XP, levels and progression.' }
