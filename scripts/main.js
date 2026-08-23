@@ -276,71 +276,44 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
   });
 })();
 
-(function(){
-  const wrap = document.querySelector('[data-upcoming]');
-  if(!wrap) return;
-  const scroller = wrap.querySelector('[data-drag-scroll]');
-  if(!scroller) return;
-  const bar = wrap.querySelector('.upcoming-progress-bar');
-  let rafId = null;
+const UPCOMING_PROJECTS = [
+  { title: 'Digital World', type: 'GAME / PLATFORM', status: 'ACTIVE', stage: 'BUILD', description: 'Persistent browser-based world built around profiles, progression, collectibles, cards, badges, mini-games, community features and a player-driven economy.' },
+  { title: 'Pure Scottish', type: 'PUBLISHING', status: 'IN PROGRESS', stage: 'DESIGN', description: 'Illustrated Scottish slang book combining language, humour and visual design, being prepared for print/KDP.' },
+  { title: 'AJ Digital Services', type: 'SERVICE', status: 'PLANNED', stage: 'DESIGN', description: 'Local digital and technology support service designed to make everyday tech easier and more approachable.' },
+  { title: 'Hex Colour Book', type: 'PUBLISHING', status: 'QUEUED', stage: 'IDEA', description: 'Visual book concept exploring hexadecimal colour through design, reference and creative presentation.' },
+  { title: 'GitHub XP Tracker', type: 'DEV TOOL', status: 'EXPERIMENT', stage: 'IDEA', description: 'Gamified developer dashboard that turns GitHub activity, commits and contributions into XP, levels and progression.' }
+];
 
-  const update = () => {
-    rafId = null;
-    const max = scroller.scrollWidth - scroller.clientWidth;
-    const left = scroller.scrollLeft;
-    const clamped = Math.max(0, Math.min(1, max > 0 ? left / max : 1));
-    wrap.classList.toggle('is-start', left <= 1);
-    wrap.classList.toggle('is-end', left >= max - 1);
-    if(bar){
-      bar.style.setProperty('--progress', max <= 0 ? 1 : clamped);
-    }
-  };
+(function renderBuildQueue(){
+  const queue = document.getElementById('buildQueue');
+  if(!queue) return;
+  const count = document.getElementById('projectQueueCount');
+  if(count) count.textContent = `${UPCOMING_PROJECTS.length} projects`;
+  const stages = ['IDEA', 'DESIGN', 'BUILD', 'TEST', 'SHIP'];
 
-  const requestUpdate = () => {
-    if(rafId !== null) return;
-    rafId = requestAnimationFrame(update);
-  };
-
-  scroller.addEventListener('scroll', requestUpdate, { passive: true });
-  window.addEventListener('resize', requestUpdate);
-
-  let isDragging = false;
-  let startX = 0;
-  let startScroll = 0;
-
-  scroller.addEventListener('pointerdown', e => {
-    if(e.button !== 0) return;
-    isDragging = true;
-    startX = e.clientX;
-    startScroll = scroller.scrollLeft;
-    scroller.classList.add('is-dragging');
-    scroller.setPointerCapture?.(e.pointerId);
-  });
-
-  const endDrag = e => {
-    if(!isDragging) return;
-    isDragging = false;
-    scroller.classList.remove('is-dragging');
-    scroller.releasePointerCapture?.(e.pointerId);
-  };
-
-  scroller.addEventListener('pointermove', e => {
-    if(!isDragging) return;
-    const dx = e.clientX - startX;
-    scroller.scrollLeft = startScroll - dx;
-  });
-  scroller.addEventListener('pointerup', endDrag);
-  scroller.addEventListener('pointercancel', endDrag);
-
-  scroller.addEventListener('wheel', e => {
-    if(Math.abs(e.deltaY) > Math.abs(e.deltaX)){
-      scroller.scrollLeft += e.deltaY;
-      e.preventDefault();
-      requestUpdate();
-    }
-  }, { passive: false });
-
-  requestUpdate();
+  queue.innerHTML = UPCOMING_PROJECTS.map((project, index) => {
+    const currentStage = stages.indexOf(project.stage);
+    const segments = stages.map((stage, stageIndex) =>
+      `<span class="build-stage-segment${stageIndex <= currentStage ? ' is-reached' : ''}${stageIndex === currentStage ? ' is-current' : ''}" aria-hidden="true"></span>`
+    ).join('');
+    const active = project.status === 'ACTIVE';
+    return `<li class="build-row r${active ? ' is-active' : ''}" tabindex="0">
+      <span class="build-queue-number" aria-label="Queue position ${index + 1}">${String(index + 1).padStart(2, '0')}</span>
+      <div class="build-project">
+        <div class="build-project-meta">
+          <span class="build-status"><span class="build-status-dot" aria-hidden="true"></span>${project.status}</span>
+          <span>${project.type}</span>
+        </div>
+        <h4>${project.title}</h4>
+        <p>${project.description}</p>
+      </div>
+      <div class="build-stage" aria-label="Current project stage: ${project.stage}">
+        <div class="build-stage-heading"><span>Stage</span><strong>${project.stage}</strong></div>
+        <div class="build-stage-track">${segments}</div>
+        <div class="build-stage-labels" aria-hidden="true"><span>Idea</span><span>Ship</span></div>
+      </div>
+    </li>`;
+  }).join('');
 })();
 
 const COUNTERS = [
@@ -608,7 +581,7 @@ document.addEventListener('DOMContentLoaded', () => {
   sections.forEach(section => {
     section.setAttribute('data-animate', '');
     const revealItems = section.querySelectorAll(
-      '.featured-project, .project-list-item, .stat-pill, #blogList > a, .oss-card, .upcoming-card, .t-card'
+      '.featured-project, .project-list-item, .stat-pill, #blogList > a, .oss-card, .build-row, .t-card'
     );
     if(revealItems.length){
       section.setAttribute('data-animate-group', '');

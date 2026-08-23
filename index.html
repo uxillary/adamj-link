@@ -227,54 +227,10 @@
               <span class="project-lane-kicker">Queue</span>
               <h3>Upcoming projects</h3>
             </div>
-            <span class="project-scroll-cue">
-              <svg width="16" height="16" class="icon-line" aria-hidden="true"><use href="/public/icons.svg#arrow-right"></use></svg>
-              scroll
-            </span>
+            <span class="project-queue-count" id="projectQueueCount"></span>
           </div>
-          <p class="project-lane-copy">Builds-in-progress for upcoming drops and hackathons.</p>
-          <div class="upcoming-wrap mt-5" data-upcoming>
-            <ul class="upcoming-track" data-drag-scroll>
-              <li class="upcoming-card">
-                <div class="upcoming-item p-4 sm:p-5 flex flex-col">
-                  <span class="upcoming-meta">Upcoming</span>
-                  <span class="text-base font-medium text-zinc-100 mt-2">zenplay</span>
-                  <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Bringing ad-free, ultra accessibility to your classic gameplay experiences.</p>
-                </div>
-              </li>
-              <li class="upcoming-card">
-                <div class="upcoming-item p-4 sm:p-5 flex flex-col">
-                  <span class="upcoming-meta">Upcoming</span>
-                  <span class="text-base font-medium text-zinc-100 mt-2">Spyder</span>
-                  <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Web and branding catalogue experience for users to curate their personal site.</p>
-                </div>
-              </li>
-              <li class="upcoming-card">
-                <div class="upcoming-item p-4 sm:p-5 flex flex-col">
-                  <span class="upcoming-meta">Hackathon</span>
-                  <span class="text-base font-medium text-zinc-100 mt-2">Chrome AI</span>
-                  <p class="mt-2 text-sm text-zinc-400 leading-relaxed">On-device AI experiments with browser-first interactions.</p>
-                </div>
-              </li>
-              <li class="upcoming-card">
-                <div class="upcoming-item p-4 sm:p-5 flex flex-col">
-                  <span class="upcoming-meta">Drop</span>
-                  <span class="text-base font-medium text-zinc-100 mt-2">Chroma Awards</span>
-                  <p class="mt-2 text-sm text-zinc-400 leading-relaxed">A vibrant entry mixing motion, sound, and playful UX.</p>
-                </div>
-              </li>
-              <li class="upcoming-card">
-                <div class="upcoming-item p-4 sm:p-5 flex flex-col">
-                  <span class="upcoming-meta">Prototype</span>
-                  <span class="text-base font-medium text-zinc-100 mt-2">Meta Horizon</span>
-                  <p class="mt-2 text-sm text-zinc-400 leading-relaxed">An interactive world for immersive storytelling in Horizon.</p>
-                </div>
-              </li>
-            </ul>
-            <div class="upcoming-progress" aria-hidden="true">
-              <span class="upcoming-progress-bar"></span>
-            </div>
-          </div>
+          <p class="project-lane-copy">Ideas moving through the build queue — from early experiments to things approaching release.</p>
+          <ol class="build-queue" id="buildQueue" aria-label="Upcoming project build queue"></ol>
         </div>
 
         <div class="project-lane">
