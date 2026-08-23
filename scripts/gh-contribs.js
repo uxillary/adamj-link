@@ -1,4 +1,4 @@
-// gh-contribs.js — compact “micro-card” renderer
+// gh-contribs.js — compact activity log renderer
 (function(){
   const SOURCE = '/public/contributions.json';
   const FALLBACK_AVATAR = 'https://avatars.githubusercontent.com/u/22217717?v=4';
@@ -134,9 +134,10 @@
 
   const loader = () => {
     mount.setAttribute('aria-busy','true');
-    mount.classList.add('oss-grid');
+    mount.classList.remove('oss-grid');
+    mount.classList.add('oss-log');
     mount.innerHTML = `
-      <div class="t-card flex items-center justify-center min-h-[140px]">
+      <div class="oss-state">
         <div class="tetris-loader" role="status" aria-label="Loading contributions">
           ${Array.from({ length: 12 }).map(() => '<span></span>').join('')}
         </div>
@@ -145,9 +146,10 @@
   };
 
   const render = (items) => {
-    mount.classList.add('oss-grid');
+    mount.classList.remove('oss-grid');
+    mount.classList.add('oss-log');
     if(!items.length){
-      mount.innerHTML = `<div class="t-card">No recent contributions found.</div>`;
+      mount.innerHTML = `<div class="oss-state">No recent contributions found.</div>`;
       mount.removeAttribute('aria-busy');
       return;
     }
@@ -175,22 +177,22 @@
       const timeAttr = Number.isFinite(ts) ? ` data-ts="${ts}"` : '';
 
       return `
-        <a class="oss-card" href="${escapeHtml(href)}" rel="noopener noreferrer">
-          <div class="oss-head">
-            <img class="oss-ava" src="${escapeHtml(avatar)}" alt="" loading="lazy" decoding="async" />
-            <div class="flex-1 min-w-0">
-              <div class="oss-repo clamp-1">${escapeHtml(repo)}</div>
-              <div class="oss-title clamp-2">${escapeHtml(title)}</div>
-              <div class="oss-summary clamp-1 text-xs opacity-80">${escapeHtml(summary)}</div>
-              ${repoDescription ? `<div class="oss-desc clamp-2 text-[11px] opacity-65">${escapeHtml(repoDescription)}</div>` : ''}
+        <a class="oss-row" href="${escapeHtml(href)}" rel="noopener noreferrer">
+          <span class="oss-dot" style="background:${dot(repo)}" aria-hidden="true"></span>
+          <span class="oss-time"${timeAttr}>${escapeHtml(when)}</span>
+          <div class="oss-entry">
+            <div class="oss-head">
+              <img class="oss-ava" src="${escapeHtml(avatar)}" alt="" loading="lazy" decoding="async" onerror="this.hidden=true" />
+              <span class="oss-repo clamp-1">${escapeHtml(repo)}</span>
+              <span class="oss-pill">${escapeHtml(type)}</span>
             </div>
-            <span class="oss-dot" style="background:${dot(repo)}"></span>
+            <div class="oss-title clamp-2">${escapeHtml(title)}</div>
+            <div class="oss-summary clamp-1">${escapeHtml(summary)}</div>
+            ${repoDescription ? `<div class="oss-desc clamp-1">${escapeHtml(repoDescription)}</div>` : ''}
           </div>
-          <span class="oss-pill">${escapeHtml(type)}</span>
           <div class="oss-meta">
-            ${hash ? `<span class="oss-sha">${escapeHtml(hash)}</span><span class="sep">•</span>` : ''}
-            ${statsHint ? `<span class="oss-stats">${escapeHtml(statsHint)}</span><span class="sep">•</span>` : ''}
-            <span class="oss-time"${timeAttr}>${escapeHtml(when)}</span>
+            ${hash ? `<span class="oss-sha">${escapeHtml(hash)}</span>` : ''}
+            ${statsHint ? `<span class="oss-stats">${escapeHtml(statsHint)}</span>` : ''}
           </div>
         </a>
       `;
@@ -212,7 +214,9 @@
       render(items);
     }catch(e){
       console.error('contribs load failed', e);
-      mount.innerHTML = `<div class="t-card">Couldn’t load contributions.</div>`;
+      mount.classList.remove('oss-grid');
+      mount.classList.add('oss-log');
+      mount.innerHTML = `<div class="oss-state">Couldn’t load contributions.</div>`;
       mount.removeAttribute('aria-busy');
     }
   }
