@@ -1159,8 +1159,8 @@ html, body { overflow-x: hidden; }
 
 .hero-status{
   position:relative;
-  border-left:1px solid rgba(85,230,165,.5);
-  padding:1rem 0 0 1rem;
+  border-top:1px solid rgba(85,230,165,.45);
+  padding:1rem 0 0;
   color:var(--text-soft);
 }
 
@@ -1185,8 +1185,8 @@ html, body { overflow-x: hidden; }
 
 .hero-status-grid{
   display:grid;
-  grid-template-columns:1fr;
-  gap:.85rem;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1rem 1.4rem;
   margin-top:1.1rem;
 }
 
@@ -1209,6 +1209,77 @@ html, body { overflow-x: hidden; }
   line-height:1.35;
 }
 
+.hero-contact{
+  grid-column:1 / -1;
+  padding-top:1rem;
+  border-top:1px solid var(--border);
+}
+
+.hero-contact-actions{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:.45rem;
+  margin-top:.55rem!important;
+}
+
+.hero-contact-action{
+  display:grid;
+  grid-template-columns:1.15rem minmax(0,1fr);
+  gap:.7rem;
+  align-items:start;
+  min-width:0;
+  padding:.65rem .7rem;
+  border:1px solid var(--border);
+  color:var(--text-soft);
+  text-decoration:none;
+}
+
+.hero-contact-action:hover{
+  border-color:rgba(85,230,165,.65);
+  background:rgba(85,230,165,.055);
+  color:#55e6a5;
+}
+
+.hero-contact-action:focus-visible{
+  outline:2px solid #55e6a5;
+  outline-offset:2px;
+  border-color:#55e6a5;
+}
+
+.hero-contact-icon{
+  width:1.05rem;
+  height:1.05rem;
+  margin-top:.15rem;
+  color:#55e6a5;
+}
+
+.hero-contact-action span{
+  min-width:0;
+}
+
+.hero-contact-action strong,
+.hero-contact-action small{
+  display:block;
+}
+
+.hero-contact-action strong{
+  color:var(--text-strong);
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.06em;
+  line-height:1.35;
+  text-transform:uppercase;
+}
+
+.hero-contact-action small{
+  margin-top:.15rem;
+  overflow-wrap:anywhere;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:.72rem;
+  line-height:1.45;
+}
+
 @media (min-width:768px){
   .hero-shell{
     grid-template-columns:minmax(0,1fr) minmax(220px,280px);
@@ -1217,6 +1288,13 @@ html, body { overflow-x: hidden; }
 
   .hero-status{
     margin-bottom:.5rem;
+  }
+}
+
+@media (min-width:1024px){
+  .hero-shell{
+    grid-template-columns:minmax(0,1fr) minmax(310px,360px);
+    gap:3.5rem;
   }
 }
 
@@ -1232,6 +1310,14 @@ html, body { overflow-x: hidden; }
 
   .hero-actions a{
     min-height:44px;
+  }
+
+  .hero-status-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero-contact{
+    grid-column:auto;
   }
 }
 
