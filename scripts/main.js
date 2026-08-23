@@ -406,172 +406,84 @@ document.addEventListener('DOMContentLoaded', () => {
   obs.observe(analyticsSection);
 });
 
-
-// Project GIF previews: cache heavy animations last, then play them on hover.
+// Project filters and on-demand desktop previews. The complete index remains usable without JS.
 (() => {
-  const previews = Array.from(document.querySelectorAll('.project-card .project-preview-gif[data-gif-src]'));
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (!previews.length || reduceMotion.matches) return;
+  const filters = document.getElementById('projectFilters');
+  const summary = document.getElementById('projectsSummary');
+  const index = document.querySelector('.project-index');
+  const preview = document.getElementById('projectPreview');
+  if(!filters || !summary || !index) return;
 
-  const gifCache = new Map();
+  const rows = Array.from(index.children).filter(row => row.matches('[data-project-tags]'));
+  const buttons = Array.from(filters.querySelectorAll('[data-project-filter]'));
+  const total = rows.length;
+  const live = rows.filter(row => row.dataset.projectStatus === 'live').length;
+  const categoryCount = buttons.filter(button => button.dataset.projectFilter !== 'all').length;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const pad = value => String(value).padStart(2, '0');
 
-  const markLoaded = (gifSrc) => {
-    const record = gifCache.get(gifSrc);
-    if (record) record.loaded = true;
+  const updateSummary = (visible, filter) => {
+    summary.textContent = filter === 'all'
+      ? `${pad(total)} projects · ${pad(live)} live · ${pad(categoryCount)} categories`
+      : `${pad(visible)} / ${pad(total)} projects · ${filter}`;
   };
 
-  const preloadGif = (gifSrc) => {
-    if (gifCache.has(gifSrc)) return gifCache.get(gifSrc);
-
-    const loader = new Image();
-    const record = { loaded: false, image: loader };
-    gifCache.set(gifSrc, record);
-
-    loader.decoding = 'async';
-    if ('fetchPriority' in loader) loader.fetchPriority = 'low';
-    loader.onload = () => markLoaded(gifSrc);
-    loader.onerror = () => { gifCache.delete(gifSrc); };
-    loader.src = gifSrc;
-
-    return record;
-  };
-
-  const warmGifCacheLast = () => {
-    const warm = () => previews.forEach((preview) => preloadGif(preview.dataset.gifSrc));
-
-    window.setTimeout(() => {
-      if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(warm, { timeout: 3000 });
-      } else {
-        warm();
+  const hidePreview = () => preview?.classList.remove('is-visible');
+  const applyFilter = filter => {
+    let visible = 0;
+    hidePreview();
+    rows.forEach(row => {
+      const matches = filter === 'all' || row.dataset.projectTags.split(/\s+/).includes(filter);
+      row.hidden = !matches;
+      if(matches){
+        visible += 1;
+        if(!reduceMotion && row.animate){
+          row.animate([{ opacity:0 }, { opacity:1 }], { duration:160, easing:'ease-out' });
+        }
       }
-    }, 1200);
+    });
+    buttons.forEach(button => {
+      const active = button.dataset.projectFilter === filter;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+    updateSummary(visible, filter);
   };
 
-  previews.forEach((preview) => {
-    const card = preview.closest('.project-card');
-    const gifSrc = preview.dataset.gifSrc;
-    const stillSrc = preview.getAttribute('src') || '';
-    if (!card || !gifSrc) return;
+  filters.hidden = false;
+  updateSummary(total, 'all');
+  buttons.forEach(button => button.addEventListener('click', () => {
+    applyFilter(button.dataset.projectFilter || 'all');
+  }));
 
-    if ('fetchPriority' in preview) preview.fetchPriority = 'low';
+  if(!preview) return;
+  const image = preview.querySelector('img');
+  const label = preview.querySelector('span');
+  const canPreview = window.matchMedia('(min-width: 801px)');
 
-    let isHovering = false;
+  const showPreview = link => {
+    const source = link.dataset.projectPreview;
+    if(!source || !image || !label || !canPreview.matches) return;
+    if(image.getAttribute('src') !== source) image.setAttribute('src', source);
+    label.textContent = link.dataset.projectPreviewLabel || 'Project preview';
+    const rect = link.getBoundingClientRect();
+    const previewHeight = Math.max(280, Math.min(window.innerWidth * .24, 340)) * 9 / 16;
+    const top = Math.max(16, Math.min(window.innerHeight - previewHeight - 16, rect.top + rect.height / 2 - previewHeight / 2));
+    preview.style.setProperty('--preview-top', `${top}px`);
+    preview.classList.add('is-visible');
+  };
 
-    card.addEventListener('pointerenter', () => {
-      isHovering = true;
-      const record = preloadGif(gifSrc);
-
-      card.classList.toggle('is-gif-loading', !record.loaded);
-      card.classList.toggle('is-gif-ready', record.loaded);
-
-      if (record.loaded) {
-        preview.src = gifSrc;
-        return;
-      }
-
-      record.image.onload = () => {
-        markLoaded(gifSrc);
-        if (!isHovering) return;
-
-        card.classList.remove('is-gif-loading');
-        card.classList.add('is-gif-ready');
-        preview.src = gifSrc;
-      };
+  index.querySelectorAll('[data-project-preview]').forEach(link => {
+    link.addEventListener('pointerenter', () => showPreview(link));
+    link.addEventListener('pointerleave', () => {
+      if(document.activeElement !== link) hidePreview();
     });
-
-    card.addEventListener('pointerleave', () => {
-      isHovering = false;
-      preview.src = stillSrc;
-      card.classList.remove('is-gif-loading', 'is-gif-ready');
-    });
+    link.addEventListener('focus', () => showPreview(link));
+    link.addEventListener('blur', hidePreview);
   });
-
-  if (document.readyState === 'complete') {
-    warmGifCacheLast();
-  } else {
-    window.addEventListener('load', warmGifCacheLast, { once: true });
-  }
+  canPreview.addEventListener('change', event => { if(!event.matches) hidePreview(); });
 })();
 
-// Tabs: Projects showcase
-(() => {
-  const projects = document.getElementById('projects');
-  if(!projects) return;
-  const tabs = Array.from(projects.querySelectorAll('[role="tab"]'));
-  if(!tabs.length) return;
-
-  const panelFor = (tab) => {
-    const id = tab.getAttribute('aria-controls');
-    return id ? document.getElementById(id) : null;
-  };
-
-  let current = tabs.find(tab => tab.getAttribute('aria-selected') === 'true') || tabs[0];
-
-  const activate = (next, shouldFocus = true) => {
-    if(!next) return;
-    current = next;
-    tabs.forEach(tab => {
-      const selected = tab === next;
-      tab.setAttribute('aria-selected', selected ? 'true' : 'false');
-      if(selected){
-        tab.setAttribute('aria-current', 'true');
-        tab.removeAttribute('tabindex');
-        if(shouldFocus) tab.focus();
-      }else{
-        tab.removeAttribute('aria-current');
-        tab.setAttribute('tabindex', '-1');
-      }
-      const panel = panelFor(tab);
-      if(panel){
-        panel.classList.toggle('tab-hidden', !selected);
-      }
-    });
-  };
-
-  const focusNext = (delta) => {
-    const index = tabs.indexOf(current);
-    const nextIndex = (index + delta + tabs.length) % tabs.length;
-    activate(tabs[nextIndex]);
-  };
-
-  activate(current, false);
-  tabs.forEach(tab => {
-    if(tab !== current){
-      tab.setAttribute('tabindex', '-1');
-      const panel = panelFor(tab);
-      if(panel) panel.classList.add('tab-hidden');
-    }
-    tab.addEventListener('click', () => activate(tab));
-    tab.addEventListener('keydown', (event) => {
-      switch(event.key){
-        case 'ArrowLeft':
-          event.preventDefault();
-          focusNext(-1);
-          break;
-        case 'ArrowRight':
-          event.preventDefault();
-          focusNext(1);
-          break;
-        case 'Home':
-          event.preventDefault();
-          activate(tabs[0]);
-          break;
-        case 'End':
-          event.preventDefault();
-          activate(tabs[tabs.length - 1]);
-          break;
-        case ' ':
-        case 'Enter':
-          event.preventDefault();
-          activate(tab);
-          break;
-        default:
-          break;
-      }
-    });
-  });
-})();
 
 // Section + element reveal animation
 (() => {
@@ -582,7 +494,7 @@ document.addEventListener('DOMContentLoaded', () => {
   sections.forEach(section => {
     section.setAttribute('data-animate', '');
     const revealItems = section.querySelectorAll(
-      '.featured-project, .project-list-item, .stat-pill, #blogList > a, .oss-card, .build-row, .t-card'
+      '.project-list-item, .stat-pill, #blogList > a, .oss-card, .build-row, .t-card'
     );
     if(revealItems.length){
       section.setAttribute('data-animate-group', '');
