@@ -131,7 +131,7 @@
     const seen = new Set();
     return items.filter((item) => {
       if(!item || typeof item !== 'object') return false;
-      const key = item.url || `${item.repo || ''}:${item.title || ''}:${item.type || ''}`;
+      const key = item.id || item.url || `${item.repo || ''}:${item.title || ''}:${item.type || ''}`;
       if(seen.has(key)) return false;
       seen.add(key);
       return true;

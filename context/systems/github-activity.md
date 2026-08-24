@@ -27,8 +27,13 @@ and renders:
 
 The `update-contribs.yml` GitHub Actions workflow runs every 12 hours (and can be
 started manually). It requests up to 100 public events for the `uxillary` GitHub
-account, converts supported events to the site schema, removes duplicate URLs,
-and writes the nine newest unique events to `public/contributions.json`.
+account, converts supported events to the site schema, removes duplicate event
+IDs, and writes the nine newest unique events to `public/contributions.json`.
+
+Event IDs, rather than destination URLs, are used for de-duplication because
+separate branch create/delete events can legitimately link to the same
+repository. Keeping those genuine events allows the latest-event card and all
+eight recent-event cells to be populated when GitHub returns enough activity.
 
 The frontend then:
 
