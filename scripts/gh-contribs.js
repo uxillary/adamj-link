@@ -1,17 +1,8 @@
 // gh-contribs.js — compact activity log renderer
 (function(){
   const SOURCE = '/public/contributions.json';
-  const FALLBACK_AVATAR = 'https://avatars.githubusercontent.com/u/22217717?v=4';
   const mount = document.getElementById('ossList');
   if(!mount) return;
-
-  const dot = (repo = '') => {
-    const r = repo.toLowerCase();
-    if (r.includes('hex') || r.includes('labs')) return '#55e6a5';
-    if (r.includes('404cache')) return '#60a5fa';
-    if (r.includes('synthtax')) return '#a78bfa';
-    return '#ff6b6b';
-  };
 
   const pillLabel = (t) => {
     const m = (t || '').toLowerCase();
@@ -154,6 +145,40 @@
     `;
   };
 
+  const eventData = (it) => {
+    const repo = it.repo || it.repository || it.project || 'repo';
+    const type = pillLabel(it.type || it.kind);
+    const ref = (it.shortRef || it.sha || it.id || it.number || '').toString().trim();
+    const commitMeta = it.commitMeta && typeof it.commitMeta === 'object' ? it.commitMeta : null;
+    const stats = [];
+    if(commitMeta){
+      if(Number.isFinite(commitMeta.additions)) stats.push(`<span class="oss-add">+${commitMeta.additions}</span>`);
+      if(Number.isFinite(commitMeta.deletions)) stats.push(`<span class="oss-delete">−${commitMeta.deletions}</span>`);
+      if(Number.isFinite(commitMeta.filesChanged)) stats.push(`<span>${commitMeta.filesChanged} file${commitMeta.filesChanged === 1 ? '' : 's'}</span>`);
+    }
+    const ts = resolveTimestamp(it);
+    return {
+      href: safeHref(it.url || it.link || '#'),
+      repo,
+      type,
+      icon: eventIcon(it.type || it.kind),
+      title: it.title || it.message || it.subtitle || '',
+      summary: (it.summary || `${type}${ref ? ` ${ref}` : ''}`).trim(),
+      hash: ref ? ref.slice(0, 10) : '',
+      stats: stats.join(''),
+      ts,
+      when: formatInitialTime(it, ts)
+    };
+  };
+
+  const timeMarkup = (event) => `<time class="oss-time"${Number.isFinite(event.ts) ? ` data-ts="${event.ts}"` : ''}>${escapeHtml(event.when)}</time>`;
+
+  const metaMarkup = (event) => `
+    <span class="oss-meta">
+      ${event.hash ? `<span class="oss-sha">${escapeHtml(event.hash)}</span>` : ''}
+      ${event.stats}
+    </span>`;
+
   const render = (items) => {
     mount.classList.remove('oss-grid');
     mount.classList.add('oss-log');
@@ -163,50 +188,48 @@
       return;
     }
 
-    mount.innerHTML = items.map((it) => {
-      const href = safeHref(it.url || it.link || '#');
-      const avatar = safeHref(it.avatar || it.userAvatar || FALLBACK_AVATAR);
-      const repo = it.repo || it.repository || it.project || 'repo';
-      const title = it.title || it.message || it.subtitle || '';
-      const type = pillLabel(it.type || it.kind);
-      const iconClass = eventIcon(it.type || it.kind);
-      const ref = (it.shortRef || it.sha || it.id || it.number || '').toString().trim();
-      const hash = ref ? ref.slice(0, 10) : '';
-      const summary = (it.summary || `${type}${ref ? ` ${ref}` : ''}`).trim();
-      const repoDescription = it.repoMeta && it.repoMeta.description ? it.repoMeta.description : '';
-      const commitMeta = it.commitMeta && typeof it.commitMeta === 'object' ? it.commitMeta : null;
-      const statsParts = [];
-      if(commitMeta){
-        if(Number.isFinite(commitMeta.additions)) statsParts.push(`+${commitMeta.additions}`);
-        if(Number.isFinite(commitMeta.deletions)) statsParts.push(`−${commitMeta.deletions}`);
-        if(Number.isFinite(commitMeta.filesChanged)) statsParts.push(`${commitMeta.filesChanged} file${commitMeta.filesChanged === 1 ? '' : 's'}`);
-      }
-      const statsHint = statsParts.join(' • ');
-      const ts = resolveTimestamp(it);
-      const when = formatInitialTime(it, ts);
-      const timeAttr = Number.isFinite(ts) ? ` data-ts="${ts}"` : '';
+    const events = items.map(eventData);
+    const latest = events[0];
+    const recent = events.slice(1, 5);
+    const dayAgo = Date.now() - (24 * 60 * 60 * 1000);
+    const counts = new Map();
+    events.forEach((event) => {
+      if(!Number.isFinite(event.ts) || event.ts >= dayAgo) counts.set(event.repo, (counts.get(event.repo) || 0) + 1);
+    });
+    const repositories = [...counts.entries()].sort((a, b) => b[1] - a[1]);
+    const maxCount = Math.max(...repositories.map(([, count]) => count), 1);
 
-      return `
-        <a class="oss-row" href="${escapeHtml(href)}" rel="noopener noreferrer">
-          <i class="oss-event-icon fa-solid ${iconClass}" style="--event-color:${dot(repo)}" aria-hidden="true"></i>
-          <span class="oss-time"${timeAttr}>${escapeHtml(when)}</span>
-          <div class="oss-entry">
-            <div class="oss-head">
-              <img class="oss-ava" src="${escapeHtml(avatar)}" alt="" loading="lazy" decoding="async" onerror="this.hidden=true" />
-              <span class="oss-repo clamp-1">${escapeHtml(repo)}</span>
-              <span class="oss-pill">${escapeHtml(type)}</span>
-            </div>
-            <div class="oss-title clamp-2">${escapeHtml(title)}</div>
-            <div class="oss-summary clamp-1">${escapeHtml(summary)}</div>
-            ${repoDescription ? `<div class="oss-desc clamp-1">${escapeHtml(repoDescription)}</div>` : ''}
-          </div>
-          <div class="oss-meta">
-            ${hash ? `<span class="oss-sha">${escapeHtml(hash)}</span>` : ''}
-            ${statsHint ? `<span class="oss-stats">${escapeHtml(statsHint)}</span>` : ''}
-          </div>
+    mount.innerHTML = `
+      <div class="oss-signal" aria-labelledby="oss-signal-title">
+        <div class="oss-board-label" id="oss-signal-title">24H Activity Signal</div>
+        <div class="oss-signal-list">
+          ${repositories.map(([repo, count]) => {
+            const level = Math.max(1, Math.ceil((count / maxCount) * 5));
+            return `<div class="oss-signal-row"><span class="clamp-1">${escapeHtml(repo)}</span><span class="oss-signal-count">${count} event${count === 1 ? '' : 's'}</span><span class="oss-bars" aria-label="Relative activity: ${level} of 5">${Array.from({length: 5}, (_, index) => `<i${index < level ? ' class="is-active"' : ''}></i>`).join('')}</span></div>`;
+          }).join('') || '<div class="oss-signal-empty">No events in the last 24 hours</div>'}
+        </div>
+      </div>
+      <div class="oss-latest">
+        <div class="oss-board-label">Latest Event</div>
+        <a class="oss-latest-link" href="${escapeHtml(latest.href)}" rel="noopener noreferrer">
+          <span class="oss-event-mark"><i class="fa-solid ${latest.icon}" aria-hidden="true"></i></span>
+          <span class="oss-latest-body">
+            <span class="oss-event-head"><span class="oss-pill">${escapeHtml(latest.type)}</span><span class="oss-repo">${escapeHtml(latest.repo)}</span>${timeMarkup(latest)}</span>
+            <span class="oss-title clamp-2">${escapeHtml(latest.title)}</span>
+            <span class="oss-summary clamp-1">${escapeHtml(latest.summary)}</span>
+            ${metaMarkup(latest)}
+          </span>
         </a>
-      `;
-    }).join('');
+      </div>
+      ${recent.length ? `<div class="oss-recent"><div class="oss-board-label">Recent Events</div><div class="oss-recent-grid">${recent.map((event) => `
+        <a class="oss-event-cell" href="${escapeHtml(event.href)}" rel="noopener noreferrer">
+          <span class="oss-event-head"><i class="fa-solid ${event.icon}" aria-hidden="true"></i><span class="oss-pill">${escapeHtml(event.type)}</span>${timeMarkup(event)}</span>
+          <span class="oss-repo clamp-1">${escapeHtml(event.repo)}</span>
+          <span class="oss-title clamp-2">${escapeHtml(event.title)}</span>
+          <span class="oss-summary clamp-1">${escapeHtml(event.summary)}</span>
+          ${metaMarkup(event)}
+        </a>`).join('')}</div></div>` : ''}
+    `;
     mount.removeAttribute('aria-busy');
     updateTimes();
     ensureTicker();
@@ -220,7 +243,7 @@
       const generatedAt = data && data.generatedAt ? new Date(data.generatedAt).getTime() : Date.now();
       baseGeneratedAt = Number.isNaN(generatedAt) ? Date.now() : generatedAt;
       const raw = Array.isArray(data) ? data : (data && data.items) || [];
-      const items = uniqueItems(raw).slice(0, 8);
+      const items = uniqueItems(raw);
       render(items);
     }catch(e){
       console.error('contribs load failed', e);
