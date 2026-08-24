@@ -4,7 +4,11 @@ document.getElementById('y').textContent = new Date().getFullYear();
 // Theme toggle with flair (fade + icon spin)
 const toggle = document.getElementById('themeToggle');
 const icon = document.getElementById('themeIcon');
-icon.textContent = document.documentElement.classList.contains('dark') ? '☾' : '☀';
+const updateThemeIcon = (isDark) => {
+  icon.classList.toggle('fa-moon', isDark);
+  icon.classList.toggle('fa-sun', !isDark);
+};
+updateThemeIcon(document.documentElement.classList.contains('dark'));
 toggle.addEventListener('click', () => {
   icon.classList.add('spin-anim');
   setTimeout(() => icon.classList.remove('spin-anim'), 400);
@@ -12,7 +16,7 @@ toggle.addEventListener('click', () => {
   const isDark = document.documentElement.classList.toggle('dark');
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 
-  icon.textContent = isDark ? '☾' : '☀';
+  updateThemeIcon(isDark);
 });
 
 // Contact form handling
@@ -249,9 +253,6 @@ window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v
     const isSoft = current === 'soft';
     button.classList.toggle('rounded-full', isSoft);
     button.classList.toggle('r', !isSoft);
-    button.classList.toggle('bg-brand/25', isSoft);
-    button.classList.toggle('border-brand/80', isSoft);
-    button.classList.toggle('text-white', isSoft);
     softIcon.classList.toggle('hidden', !isSoft);
     squareIcon.classList.toggle('hidden', isSoft);
     button.setAttribute('aria-label', isSoft ? 'Switch to square corners' : 'Switch to rounded corners');
@@ -297,8 +298,7 @@ const UPCOMING_PROJECTS = [
     const segments = stages.map((stage, stageIndex) =>
       `<span class="build-stage-segment${stageIndex <= currentStage ? ' is-reached' : ''}${stageIndex === currentStage ? ' is-current' : ''}" aria-hidden="true"></span>`
     ).join('');
-    const active = project.status === 'ACTIVE';
-    return `<li class="build-row r${active ? ' is-active' : ''}" tabindex="0">
+    return `<li class="build-row r" tabindex="0">
       <span class="build-queue-number" aria-label="Queue position ${index + 1}">${String(index + 1).padStart(2, '0')}</span>
       <div class="build-project">
         <div class="build-project-meta">
