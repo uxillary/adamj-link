@@ -1,6 +1,11 @@
 name: Update public contributions feed
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/update-contribs.yml'
   schedule:
     - cron: '0 */12 * * *'
   workflow_dispatch:
@@ -61,7 +66,7 @@ jobs:
             });
 
             const repoMetaCache = new Map();
-            const seenUrls = new Set();
+            const seenEvents = new Set();
             const items = [];
 
             const getRepoMeta = async (repoName) => {
@@ -166,13 +171,15 @@ jobs:
                 url = `https://github.com/${repoName}`;
               }
 
-              if (!url || seenUrls.has(url)) {
+              const eventKey = ev.id || `${type}:${repoName}:${ev.created_at}:${url}`;
+              if (!url || seenEvents.has(eventKey)) {
                 continue;
               }
 
-              seenUrls.add(url);
+              seenEvents.add(eventKey);
 
               const item = {
+                id: eventKey,
                 repo,
                 title,
                 type: type.replace('Event', ''),
