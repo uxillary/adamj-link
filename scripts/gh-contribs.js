@@ -17,11 +17,17 @@
   const eventIcon = (t) => {
     const type = (t || '').toLowerCase();
     if(type === 'commit' || type === 'push') return 'fa-code-commit';
+    if(type === 'delete' || type === 'deleted') return 'fa-trash-can';
+    if(type === 'branch' || type === 'create' || type === 'created') return 'fa-code-branch';
     if(type === 'issue' || type === 'issues') return 'fa-circle-exclamation';
     if(type === 'pr' || type === 'pullrequest' || type === 'pull_request') return 'fa-code-pull-request';
     if(type.includes('merge') || type === 'merged') return 'fa-code-merge';
     return 'fa-code-branch';
   };
+
+  const iconMarkup = (icon, className = '') => icon
+    ? `<i class="fa-solid fa-fw ${icon} ${className}" aria-hidden="true"></i>`
+    : '';
 
   const escapeHtml = (value) => String(value ?? '')
     .replace(/&/g, '&amp;')
@@ -190,7 +196,7 @@
 
     const events = items.map(eventData);
     const latest = events[0];
-    const recent = events.slice(1, 5);
+    const recent = events.slice(1, 9);
     const dayAgo = Date.now() - (24 * 60 * 60 * 1000);
     const counts = new Map();
     events.forEach((event) => {
@@ -212,7 +218,7 @@
       <div class="oss-latest">
         <div class="oss-board-label">Latest Event</div>
         <a class="oss-latest-link" href="${escapeHtml(latest.href)}" rel="noopener noreferrer">
-          <span class="oss-event-mark"><i class="fa-solid ${latest.icon}" aria-hidden="true"></i></span>
+          <span class="oss-event-mark">${iconMarkup(latest.icon)}</span>
           <span class="oss-latest-body">
             <span class="oss-event-head"><span class="oss-pill">${escapeHtml(latest.type)}</span><span class="oss-repo">${escapeHtml(latest.repo)}</span>${timeMarkup(latest)}</span>
             <span class="oss-title clamp-2">${escapeHtml(latest.title)}</span>
@@ -223,7 +229,7 @@
       </div>
       ${recent.length ? `<div class="oss-recent"><div class="oss-board-label">Recent Events</div><div class="oss-recent-grid">${recent.map((event) => `
         <a class="oss-event-cell" href="${escapeHtml(event.href)}" rel="noopener noreferrer">
-          <span class="oss-event-head"><i class="fa-solid ${event.icon}" aria-hidden="true"></i><span class="oss-pill">${escapeHtml(event.type)}</span>${timeMarkup(event)}</span>
+          <span class="oss-event-head">${iconMarkup(event.icon, 'oss-cell-icon')}<span class="oss-pill">${escapeHtml(event.type)}</span>${timeMarkup(event)}</span>
           <span class="oss-repo clamp-1">${escapeHtml(event.repo)}</span>
           <span class="oss-title clamp-2">${escapeHtml(event.title)}</span>
           <span class="oss-summary clamp-1">${escapeHtml(event.summary)}</span>
