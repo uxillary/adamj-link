@@ -555,13 +555,13 @@ html, body { overflow-x: hidden; }
 }
 
 #writing #blogList > .post-card-featured .p-4{
-  min-height:clamp(240px,27vw,310px);
-  padding:clamp(1.5rem,3vw,2.25rem) 0;
+  min-height:clamp(200px,22vw,250px);
+  padding:clamp(1.25rem,2.3vw,1.75rem) 0;
 }
 
 #writing #blogList > a.post-card-featured h3{
   max-width:19ch;
-  font-size:clamp(1.75rem,3.3vw,2.7rem);
+  font-size:clamp(1.5rem,2.6vw,2.05rem);
   font-weight:700;
   line-height:1.06;
 }
@@ -654,7 +654,7 @@ html, body { overflow-x: hidden; }
 .writing-book blockquote{
   margin-top:1.4rem;
   padding-left:.85rem;
-  border-left:1px solid rgba(85,230,165,.5);
+  border-left:1px solid rgba(255,255,255,.12);
   color:#8f9492;
   font-size:.78rem;
   font-style:italic;
@@ -664,14 +664,15 @@ html, body { overflow-x: hidden; }
 .writing-book .book-cta{
   display:inline-flex;
   align-items:center;
-  justify-content:space-between;
-  align-self:stretch;
-  min-height:44px;
+  justify-content:flex-start;
+  align-self:flex-start;
+  gap:.7rem;
+  min-height:40px;
   margin-top:1.35rem;
-  padding:.6rem .8rem;
+  padding:.45rem .65rem;
   color:#55e6a5;
-  background:rgba(85,230,165,.035);
-  border:1px solid rgba(85,230,165,.38);
+  background:transparent;
+  border:1px solid rgba(255,255,255,.14);
   font-size:.82rem;
   font-weight:650;
   letter-spacing:.06em;
