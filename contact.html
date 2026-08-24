@@ -23,6 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="/scripts/theme.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="/scripts/tailwind-config.js"></script>
@@ -123,14 +124,12 @@
     </div>
   </footer>
 
-  <div id="radiusUI" class="fixed bottom-4 right-4 flex flex-col gap-2 z-40">
-    <button id="scrollTop" type="button" class="w-8 h-8 flex items-center justify-center r border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-brand focus-ring" aria-label="Scroll to top" title="Back to top">
-      <svg width="16" height="16" class="icon-line" aria-hidden="true"><path d="M8 12V4"/><path d="M4.75 7.25L8 4l3.25 3.25"/><path d="M4.25 13.5h7.5"/></svg>
+  <div class="utility-controls fixed bottom-4 right-4 z-40" role="group" aria-label="Page utilities">
+    <button id="scrollTop" type="button" class="utility-control r focus-ring" aria-label="Scroll to top" title="Back to top">
+      <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
     </button>
-    <button id="themeToggle" class="w-8 h-8 flex items-center justify-center r border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Toggle theme"><span id="themeIcon" class="spin">☾</span></button>
-    <button id="radiusToggle" type="button" class="w-8 h-8 flex items-center justify-center border border-zinc-700 bg-zinc-900/60 text-zinc-400 hover:text-white focus-ring" aria-label="Toggle corner style" aria-pressed="false">
-      <svg id="radiusIconSoft" width="16" height="16" class="icon-line hidden" aria-hidden="true"><circle cx="8" cy="8" r="5"/></svg>
-      <svg id="radiusIconSquare" width="16" height="16" class="icon-line hidden" aria-hidden="true"><rect x="3" y="3" width="10" height="10" rx="0"/></svg>
+    <button id="themeToggle" type="button" class="utility-control r focus-ring" aria-label="Switch to light theme" title="Switch to light theme">
+      <i id="themeIcon" class="fa-solid fa-moon spin" aria-hidden="true"></i>
     </button>
   </div>
 

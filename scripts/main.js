@@ -5,8 +5,11 @@ document.getElementById('y').textContent = new Date().getFullYear();
 const toggle = document.getElementById('themeToggle');
 const icon = document.getElementById('themeIcon');
 const updateThemeIcon = (isDark) => {
-  icon.classList.toggle('fa-moon', isDark);
-  icon.classList.toggle('fa-sun', !isDark);
+  const action = isDark ? 'light' : 'dark';
+  icon.classList.toggle('fa-sun', isDark);
+  icon.classList.toggle('fa-moon', !isDark);
+  toggle.setAttribute('aria-label', `Switch to ${action} theme`);
+  toggle.setAttribute('title', `Switch to ${action} theme`);
 };
 updateThemeIcon(document.documentElement.classList.contains('dark'));
 toggle.addEventListener('click', () => {
@@ -231,41 +234,6 @@ toggle.addEventListener('click', () => {
       el.title = 'Temporarily unavailable';
     }
   });
-})();
-
-
-// Radius preference helper (optional, persists)
-const savedR = localStorage.getItem('radius');
-if(savedR) document.documentElement.setAttribute('data-radius', savedR);
-window.setRadius = (v)=>{ document.documentElement.setAttribute('data-radius', v); localStorage.setItem('radius', v); };
-
-// Radius toggle UI
-(function(){
-  const ui = document.getElementById('radiusUI');
-  if(!ui) return;
-  const button = document.getElementById('radiusToggle');
-  const softIcon = document.getElementById('radiusIconSoft');
-  const squareIcon = document.getElementById('radiusIconSquare');
-  if(!button || !softIcon || !squareIcon) return;
-
-  const update = () => {
-    const current = document.documentElement.getAttribute('data-radius');
-    const isSoft = current === 'soft';
-    button.classList.toggle('rounded-full', isSoft);
-    button.classList.toggle('r', !isSoft);
-    softIcon.classList.toggle('hidden', !isSoft);
-    squareIcon.classList.toggle('hidden', isSoft);
-    button.setAttribute('aria-label', isSoft ? 'Switch to square corners' : 'Switch to rounded corners');
-    button.setAttribute('aria-pressed', String(isSoft));
-  };
-
-  button.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-radius');
-    setRadius(current === 'soft' ? 'square' : 'soft');
-    update();
-  });
-
-  update();
 })();
 
 // Scroll-to-top button
