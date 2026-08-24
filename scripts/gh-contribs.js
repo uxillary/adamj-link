@@ -23,6 +23,15 @@
     return t ? t : 'Update';
   };
 
+  const eventIcon = (t) => {
+    const type = (t || '').toLowerCase();
+    if(type === 'commit' || type === 'push') return 'fa-code-commit';
+    if(type === 'issue' || type === 'issues') return 'fa-circle-exclamation';
+    if(type === 'pr' || type === 'pullrequest' || type === 'pull_request') return 'fa-code-pull-request';
+    if(type.includes('merge') || type === 'merged') return 'fa-code-merge';
+    return 'fa-code-branch';
+  };
+
   const escapeHtml = (value) => String(value ?? '')
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
@@ -160,6 +169,7 @@
       const repo = it.repo || it.repository || it.project || 'repo';
       const title = it.title || it.message || it.subtitle || '';
       const type = pillLabel(it.type || it.kind);
+      const iconClass = eventIcon(it.type || it.kind);
       const ref = (it.shortRef || it.sha || it.id || it.number || '').toString().trim();
       const hash = ref ? ref.slice(0, 10) : '';
       const summary = (it.summary || `${type}${ref ? ` ${ref}` : ''}`).trim();
@@ -178,7 +188,7 @@
 
       return `
         <a class="oss-row" href="${escapeHtml(href)}" rel="noopener noreferrer">
-          <span class="oss-dot" style="background:${dot(repo)}" aria-hidden="true"></span>
+          <i class="oss-event-icon fa-solid ${iconClass}" style="--event-color:${dot(repo)}" aria-hidden="true"></i>
           <span class="oss-time"${timeAttr}>${escapeHtml(when)}</span>
           <div class="oss-entry">
             <div class="oss-head">

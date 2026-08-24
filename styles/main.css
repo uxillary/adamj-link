@@ -1533,8 +1533,8 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
 }
 .build-row:focus-visible{ outline:2px solid var(--ring); outline-offset:2px; }
 .build-row.is-active{
-  border-color:color-mix(in oklab,#55e6a5 50%,var(--border));
-  background:rgba(85,230,165,.035);
+  border-color:rgba(255,255,255,.1);
+  background:transparent;
 }
 .build-queue-number{
   display:block;
@@ -1548,7 +1548,7 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
   display:inline-block;
   width:1.35rem;
   color:color-mix(in oklab,var(--text-soft) 72%,var(--surface));
-  font-family:"Font Awesome 7 Free";
+  font-family:"Font Awesome 6 Free";
   font-size:.68rem;
   font-style:normal;
   font-weight:900;
@@ -1565,7 +1565,7 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
 .build-row:nth-child(5) .build-project h4::before{ content:"\f53f"; }
 .build-row:nth-child(6) .build-project h4::before{
   content:"\f09b";
-  font-family:"Font Awesome 7 Brands";
+  font-family:"Font Awesome 6 Brands";
   font-weight:400;
 }
 .build-project{ min-width:0; }
@@ -1716,8 +1716,7 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
   background:linear-gradient(90deg,rgba(85,230,165,.05),transparent 72%);
 }
 .project-list-item:hover::before,
-.project-list-item:focus-visible::before,
-.project-list-item.is-selected::before{ height:100%; }
+.project-list-item:focus-visible::before{ height:100%; }
 .project-list-item:focus-visible{ outline:2px solid var(--ring); outline-offset:3px; }
 .project-list-item .project-number{ color:var(--text-soft); transition:color .18s ease; }
 .project-list-item:hover .project-number,
@@ -1735,7 +1734,7 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
 .project-list-status{ display:block; margin-bottom:.36rem; color:var(--text-soft); }
 .project-list-status em{
   margin-left:.55rem;
-  color:#55e6a5;
+  color:inherit;
   font-style:normal;
 }
 .project-list-copy h3{
@@ -1747,7 +1746,6 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
 }
 .project-list-item:hover h3,
 .project-list-item:focus-visible h3{ color:#55e6a5; }
-.is-selected .project-list-copy h3{ font-weight:760; }
 .project-list-copy p{
   max-width:38rem;
   margin-top:.32rem;
@@ -2026,7 +2024,7 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
 
 .oss-row{
   display:grid;
-  grid-template-columns:6px 5.25rem minmax(0,1fr) auto;
+  grid-template-columns:1rem 5.25rem minmax(0,1fr) auto;
   gap:1rem;
   align-items:start;
   padding:.9rem .25rem .9rem 0;
@@ -2043,12 +2041,14 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
   outline:2px solid rgba(85,230,165,.62);
   outline-offset:2px;
 }
-.oss-dot{
-  width:5px;
-  height:5px;
-  margin-top:.38rem;
-  border-radius:1px;
-  opacity:.8;
+.oss-event-icon{
+  width:1rem;
+  margin-top:.18rem;
+  color:var(--event-color,var(--text-soft));
+  font-size:.68rem;
+  line-height:1;
+  text-align:center;
+  opacity:.78;
 }
 .oss-time,
 .oss-meta,
@@ -2129,7 +2129,7 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
 
 @media (max-width:639px){
   .oss-row{
-    grid-template-columns:6px minmax(0,1fr) auto;
+    grid-template-columns:1rem minmax(0,1fr) auto;
     gap:.65rem;
     padding:.8rem 0;
   }
@@ -2379,6 +2379,19 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
   color:#55e6a5;
   border-left-color:rgba(85,230,165,.55);
   background:rgba(255,255,255,.06);
+}
+
+.utility-control:focus-visible,
+.utility-control:active{
+  color:#55e6a5;
+  border-left-color:rgba(85,230,165,.55);
+}
+
+.utility-control > i{
+  width:1rem;
+  font-size:.82rem;
+  line-height:1;
+  text-align:center;
 }
 
 @media (min-width:768px){

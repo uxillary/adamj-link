@@ -49,7 +49,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Apply saved/system theme BEFORE paint to avoid flash -->
   <script src="/scripts/theme.js"></script>
@@ -260,13 +260,13 @@
           </div>
           <div class="project-index-wrap">
           <ol class="project-index" aria-label="Selected projects">
-            <li data-project-tags="web tools" data-project-status="live"><a href="https://infinite-curios.pages.dev" data-project-preview="/public/404cache.png" data-project-preview-label="404cache preview" class="project-list-item is-selected">
+            <li data-project-tags="web tools" data-project-status="live"><a href="https://infinite-curios.pages.dev" data-project-preview="/public/404cache.png" data-project-preview-label="404cache preview" class="project-list-item">
               <span class="project-number">01</span>
               <div class="project-list-copy"><span class="project-list-status">Web / Content / Tools <em>Selected</em></span><h3>404cache</h3><p>Publishing platform and collection of useful web tools.</p></div>
               <span class="project-tags">Web <span>·</span> Content <span>·</span> Tools</span>
               <span class="project-destination is-live"><span><i aria-hidden="true"></i>Live</span><span class="project-arrow" aria-hidden="true">↗</span></span>
             </a></li>
-            <li data-project-tags="web tools" data-project-status="live"><a href="https://hexlabs.pages.dev" data-project-preview="/public/hex-labs-card.png" data-project-preview-label="Hex Labs preview" class="project-list-item is-selected">
+            <li data-project-tags="web tools" data-project-status="live"><a href="https://hexlabs.pages.dev" data-project-preview="/public/hex-labs-card.png" data-project-preview-label="Hex Labs preview" class="project-list-item">
               <span class="project-number">02</span>
               <div class="project-list-copy"><span class="project-list-status">Web app / Automotive <em>Selected</em></span><h3>Hex Labs</h3><p>Modern browser-based ECU tooling and learning platform.</p></div>
               <span class="project-tags">Web app <span>·</span> Automotive <span>·</span> Tools</span>
@@ -594,18 +594,14 @@
   <!-- Radius toggle UI -->
     <div id="radiusUI" class="utility-controls fixed bottom-4 right-4 flex flex-col gap-2 z-40">
       <button id="scrollTop" type="button" class="utility-control r focus-ring" aria-label="Scroll to top" title="Back to top">
-        <svg width="16" height="16" class="icon-line" aria-hidden="true">
-          <path d="M8 12V4"/>
-          <path d="M4.75 7.25L8 4l3.25 3.25"/>
-          <path d="M4.25 13.5h7.5"/>
-        </svg>
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
       </button>
       <button id="themeToggle" class="utility-control r focus-ring" aria-label="Toggle theme">
-        <span id="themeIcon" class="spin">☾</span>
+        <i id="themeIcon" class="fa-solid fa-moon spin" aria-hidden="true"></i>
       </button>
       <button id="radiusToggle" type="button" class="utility-control focus-ring" aria-label="Toggle corner style" aria-pressed="false">
-        <svg id="radiusIconSoft" width="16" height="16" class="icon-line hidden" aria-hidden="true"><circle cx="8" cy="8" r="5"/></svg>
-        <svg id="radiusIconSquare" width="16" height="16" class="icon-line hidden" aria-hidden="true"><rect x="3" y="3" width="10" height="10" rx="0"/></svg>
+        <i id="radiusIconSoft" class="fa-regular fa-square hidden" aria-hidden="true"></i>
+        <i id="radiusIconSquare" class="fa-solid fa-square-full hidden" aria-hidden="true"></i>
       </button>
   </div>
 
