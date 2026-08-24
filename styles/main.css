@@ -834,7 +834,7 @@ html, body { overflow-x: hidden; }
 
 .contact-form{
   display:grid;
-  gap:1.75rem;
+  gap:1.35rem;
   min-width:0;
 }
 
@@ -842,7 +842,7 @@ html, body { overflow-x: hidden; }
   display:grid;
   grid-template-columns:minmax(0,1fr);
   column-gap:1.75rem;
-  row-gap:1.6rem;
+  row-gap:1.25rem;
 }
 
 .contact-field{
@@ -852,7 +852,7 @@ html, body { overflow-x: hidden; }
 }
 
 .contact-field label{
-  color:#8f9492;
+  color:color-mix(in oklab,var(--text-soft) 88%,var(--text-strong) 12%);
   font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
   font-size:.68rem;
   letter-spacing:.14em;
@@ -865,7 +865,7 @@ html, body { overflow-x: hidden; }
   width:100%;
   min-width:0;
   border:0;
-  border-bottom:1px solid rgba(255,255,255,.18);
+  border-bottom:1px solid rgba(255,255,255,.26);
   border-radius:0;
   background:transparent;
   color:var(--text-strong);
@@ -877,13 +877,13 @@ html, body { overflow-x: hidden; }
 }
 
 .contact-field textarea{
-  min-height:9.5rem;
+  min-height:8.5rem;
   resize:vertical;
 }
 
 .contact-field input::placeholder,
 .contact-field textarea::placeholder{
-  color:color-mix(in oklab,var(--text) 42%,var(--surface) 58%);
+  color:color-mix(in oklab,var(--text-soft) 70%,var(--surface) 30%);
 }
 
 .contact-field input:focus,
@@ -899,8 +899,8 @@ html, body { overflow-x: hidden; }
 
 .contact-verification{
   display:grid;
-  gap:1.1rem;
-  padding-top:1.35rem;
+  gap:.65rem;
+  padding-top:1rem;
   border-top:1px solid rgba(255,255,255,.1);
 }
 
@@ -951,12 +951,21 @@ html, body { overflow-x: hidden; }
 }
 
 .human-challenge{
-  padding:1rem 0 0;
-  border-top:1px solid rgba(255,255,255,.07);
+  padding:.35rem 0 0;
 }
 
 .human-mount{
-  margin-top:.85rem;
+  margin-top:.6rem;
+}
+
+.human-challenge-head .eyebrow{
+  color:var(--text-soft);
+  font-size:.6rem;
+  letter-spacing:.12em;
+}
+
+.human-challenge-head p{
+  margin-top:.2rem;
 }
 
 .human-mount .t-card,
@@ -980,7 +989,7 @@ html, body { overflow-x: hidden; }
 .contact-submit-row{
   align-items:center;
   justify-content:flex-start;
-  padding-top:1.35rem;
+  padding-top:.9rem;
   border-top:1px solid rgba(255,255,255,.1);
 }
 
@@ -1035,8 +1044,8 @@ html, body { overflow-x: hidden; }
   }
 
   .contact-shell{
-    grid-template-columns:minmax(180px,240px) minmax(0,1fr);
-    gap:clamp(3rem,7vw,7rem);
+    grid-template-columns:minmax(160px,210px) minmax(0,1fr);
+    gap:clamp(2.5rem,5vw,5rem);
   }
 
   .contact-fields{
