@@ -1,13 +1,14 @@
 {
-  "generatedAt": "2026-08-24T01:07:40.035Z",
+  "generatedAt": "2026-08-24T03:19:35.139Z",
   "items": [
     {
+      "id": "18667193486",
       "repo": "adamj-link",
-      "title": "codex/clean-up-adamj.link-homepage",
+      "title": "codex/investigate-github-activity-ui-change",
       "type": "Delete",
       "url": "https://github.com/uxillary/adamj-link",
       "shortRef": "",
-      "timeAgo": "9 minutes ago",
+      "timeAgo": "a few seconds ago",
       "summary": "Deleted branch",
       "repoMeta": {
         "description": "ultra-light polished landing for Adam J",
@@ -16,12 +17,13 @@
       }
     },
     {
+      "id": "18667191260",
       "repo": "adamj-link",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/adamj-link/commit/89a87151865fc5d3f626515d73eba04d198f3603",
-      "shortRef": "89a8715",
-      "timeAgo": "9 minutes ago",
+      "url": "https://github.com/uxillary/adamj-link/commit/3a49c3478a401348e6b5a8ce05cd90c2888ed57c",
+      "shortRef": "3a49c34",
+      "timeAgo": "a few seconds ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "ultra-light polished landing for Adam J",
@@ -29,118 +31,139 @@
         "stars": 0
       },
       "commitMeta": {
-        "additions": 54,
-        "deletions": 35,
+        "additions": 20,
+        "deletions": 8,
         "filesChanged": 4
       }
     },
     {
+      "id": "18667166213",
       "repo": "adamj-link",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/adamj-link/commit/18cf90ddc4eb01e2bacc30e0616a3adf704d95c2",
-      "shortRef": "18cf90d",
-      "timeAgo": "18 minutes ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "ultra-light polished landing for Adam J",
-        "language": "HTML",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 54,
-        "deletions": 35,
-        "filesChanged": 4
-      }
-    },
-    {
-      "repo": "adamj-link",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/adamj-link/commit/49cdfd44d6724f8a8a847d9e1776b7b30195c88a",
-      "shortRef": "49cdfd4",
-      "timeAgo": "36 minutes ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "ultra-light polished landing for Adam J",
-        "language": "HTML",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 289,
-        "deletions": 148,
-        "filesChanged": 3
-      }
-    },
-    {
-      "repo": "adamj-link",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/adamj-link/commit/4c2753ee644e0b19c9fd5fd0e48a0487478798af",
-      "shortRef": "4c2753e",
-      "timeAgo": "38 minutes ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "ultra-light polished landing for Adam J",
-        "language": "HTML",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 51,
-        "deletions": 32,
-        "filesChanged": 2
-      }
-    },
-    {
-      "repo": "maintenance-goblin",
-      "title": "codex/add-font-awesome-icon-system-to-/docs-site",
+      "title": "codex/refine-contact-section-on-adamj.link",
       "type": "Delete",
-      "url": "https://github.com/uxillary/maintenance-goblin",
+      "url": "https://github.com/uxillary/adamj-link",
       "shortRef": "",
-      "timeAgo": "2 hours ago",
+      "timeAgo": "a few seconds ago",
       "summary": "Deleted branch",
       "repoMeta": {
-        "description": "A lightweight Python-powered desktop app to automate essential PC maintenance tasks like SFC, DISM, temp cleanup, disk defrag, and more — all with a single click. Think of it as a digital spa day for your Windows machine.",
-        "language": "Python",
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
         "stars": 0
       }
     },
     {
-      "repo": "maintenance-goblin",
+      "id": "18667164005",
+      "repo": "adamj-link",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/maintenance-goblin/commit/380c35bf810a4e52b510931dac8180768c54b7ed",
-      "shortRef": "380c35b",
-      "timeAgo": "2 hours ago",
+      "url": "https://github.com/uxillary/adamj-link/commit/a8dbf956c9fa497c36311d4df3e874875f3de0e2",
+      "shortRef": "a8dbf95",
+      "timeAgo": "a few seconds ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
-        "description": "A lightweight Python-powered desktop app to automate essential PC maintenance tasks like SFC, DISM, temp cleanup, disk defrag, and more — all with a single click. Think of it as a digital spa day for your Windows machine.",
-        "language": "Python",
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
         "stars": 0
       },
       "commitMeta": {
-        "additions": 36,
-        "deletions": 27,
-        "filesChanged": 2
+        "additions": 78,
+        "deletions": 59,
+        "filesChanged": 1
       }
     },
     {
-      "repo": "maintenance-goblin",
+      "id": "18667095831",
+      "repo": "adamj-link",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/maintenance-goblin/commit/e642f980629c6e56d9fe66395d81104770e4cfa9",
-      "shortRef": "e642f98",
-      "timeAgo": "2 hours ago",
+      "url": "https://github.com/uxillary/adamj-link/commit/b74b96325ef2ae8fef3c78655ce701d2088194d8",
+      "shortRef": "b74b963",
+      "timeAgo": "2 minutes ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
-        "description": "A lightweight Python-powered desktop app to automate essential PC maintenance tasks like SFC, DISM, temp cleanup, disk defrag, and more — all with a single click. Think of it as a digital spa day for your Windows machine.",
-        "language": "Python",
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
         "stars": 0
       },
       "commitMeta": {
-        "additions": 36,
-        "deletions": 27,
-        "filesChanged": 2
+        "additions": 23,
+        "deletions": 14,
+        "filesChanged": 1
+      }
+    },
+    {
+      "id": "18666447014",
+      "repo": "adamj-link",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/adamj-link/commit/25830e44fc0060e0d3604fc96641f10bb82f885a",
+      "shortRef": "25830e4",
+      "timeAgo": "11 minutes ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 20,
+        "deletions": 8,
+        "filesChanged": 4
+      }
+    },
+    {
+      "id": "18666081559",
+      "repo": "adamj-link",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/adamj-link/commit/12ddca9b1fb8266e7cd4aa0ff4537cf56aec52ec",
+      "shortRef": "12ddca9",
+      "timeAgo": "16 minutes ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 68,
+        "deletions": 58,
+        "filesChanged": 1
+      }
+    },
+    {
+      "id": "18666079462",
+      "repo": "adamj-link",
+      "title": "codex/refine-contact-section-on-adamj.link",
+      "type": "Create",
+      "url": "https://github.com/uxillary/adamj-link",
+      "shortRef": "",
+      "timeAgo": "16 minutes ago",
+      "summary": "Created branch",
+      "repoMeta": {
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
+        "stars": 0
+      }
+    },
+    {
+      "id": "18666050427",
+      "repo": "adamj-link",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/adamj-link/commit/9e6d0c4840bdb5b6b3767b85f6506f773bdde0c8",
+      "shortRef": "9e6d0c4",
+      "timeAgo": "16 minutes ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 1,
+        "deletions": 1,
+        "filesChanged": 1
       }
     }
   ]
