@@ -1,14 +1,29 @@
 {
-  "generatedAt": "2026-08-25T12:41:30.587Z",
+  "generatedAt": "2026-08-26T01:08:47.977Z",
   "items": [
     {
-      "id": "18794856517",
+      "id": "13864481938",
+      "repo": "font-size-tweak",
+      "title": "font-size-tweak",
+      "type": "Release",
+      "url": "https://github.com/uxillary/font-size-tweak",
+      "shortRef": "",
+      "timeAgo": "33 minutes ago",
+      "summary": "Release",
+      "repoMeta": {
+        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
+        "language": "Python",
+        "stars": 5
+      }
+    },
+    {
+      "id": "18896327104",
       "repo": "font-size-tweak",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/font-size-tweak/commit/c2c87ec88b12ca786ef06e3e98d89c763c0c55ac",
-      "shortRef": "c2c87ec",
-      "timeAgo": "10 hours ago",
+      "url": "https://github.com/uxillary/font-size-tweak/commit/16f681de50107f7ce09462ef76fda15c19026165",
+      "shortRef": "16f681d",
+      "timeAgo": "40 minutes ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
@@ -16,19 +31,79 @@
         "stars": 5
       },
       "commitMeta": {
-        "additions": 39,
-        "deletions": 30,
-        "filesChanged": 3
+        "additions": 1,
+        "deletions": 1,
+        "filesChanged": 1
       }
     },
     {
-      "id": "18794472570",
+      "id": "18895146989",
       "repo": "font-size-tweak",
-      "title": "codex/polish-visual-design-of-font-size-tweak-site",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/font-size-tweak/commit/9bc2d501f808a3ba657f653fc840d881fd3571e3",
+      "shortRef": "9bc2d50",
+      "timeAgo": "an hour ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
+        "language": "Python",
+        "stars": 5
+      },
+      "commitMeta": {
+        "additions": 7,
+        "deletions": 7,
+        "filesChanged": 1
+      }
+    },
+    {
+      "id": "18891342532",
+      "repo": "font-size-tweak",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/font-size-tweak/commit/e41da3e0d08084ba201d567628ec2f3ee62e2cf4",
+      "shortRef": "e41da3e",
+      "timeAgo": "2 hours ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
+        "language": "Python",
+        "stars": 5
+      },
+      "commitMeta": {
+        "additions": 22,
+        "deletions": 16,
+        "filesChanged": 1
+      }
+    },
+    {
+      "id": "18889767033",
+      "repo": "font-size-tweak",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/font-size-tweak/commit/6969a4d693867ce85eaebe7f9b697c81704a54f1",
+      "shortRef": "6969a4d",
+      "timeAgo": "2 hours ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
+        "language": "Python",
+        "stars": 5
+      },
+      "commitMeta": {
+        "additions": 7,
+        "deletions": 7,
+        "filesChanged": 1
+      }
+    },
+    {
+      "id": "18889734030",
+      "repo": "font-size-tweak",
+      "title": "codex/add-seo-content-and-faq-for-font-size-tweak",
       "type": "Delete",
       "url": "https://github.com/uxillary/font-size-tweak",
       "shortRef": "",
-      "timeAgo": "11 hours ago",
+      "timeAgo": "2 hours ago",
       "summary": "Deleted branch",
       "repoMeta": {
         "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
@@ -37,138 +112,58 @@
       }
     },
     {
-      "id": "18793313078",
+      "id": "18889731397",
       "repo": "font-size-tweak",
-      "title": "codex/update-github-stats-and-add-cta",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/font-size-tweak/commit/fcec39515341f1df8c4a2d67b2ba4976f7d4b912",
+      "shortRef": "fcec395",
+      "timeAgo": "2 hours ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
+        "language": "Python",
+        "stars": 5
+      },
+      "commitMeta": {
+        "additions": 21,
+        "deletions": 15,
+        "filesChanged": 1
+      }
+    },
+    {
+      "id": "18872265147",
+      "repo": "font-size-tweak",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/font-size-tweak/commit/8cdfd37c56615f80ca8e792905ea690bcd74203f",
+      "shortRef": "8cdfd37",
+      "timeAgo": "11 hours ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
+        "language": "Python",
+        "stars": 5
+      },
+      "commitMeta": {
+        "additions": 21,
+        "deletions": 15,
+        "filesChanged": 1
+      }
+    },
+    {
+      "id": "18871544256",
+      "repo": "font-size-tweak",
+      "title": "codex/add-seo-content-and-faq-for-font-size-tweak",
       "type": "Create",
       "url": "https://github.com/uxillary/font-size-tweak",
       "shortRef": "",
-      "timeAgo": "10 hours ago",
+      "timeAgo": "11 hours ago",
       "summary": "Created branch",
       "repoMeta": {
         "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
         "language": "Python",
         "stars": 5
-      }
-    },
-    {
-      "id": "18791777788",
-      "repo": "font-size-tweak",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/font-size-tweak/commit/252bf373fd7ba9502c9fdcbe321d48253fb9d308",
-      "shortRef": "252bf37",
-      "timeAgo": "10 hours ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
-        "language": "Python",
-        "stars": 5
-      },
-      "commitMeta": {
-        "additions": 39,
-        "deletions": 30,
-        "filesChanged": 3
-      }
-    },
-    {
-      "id": "18788552959",
-      "repo": "font-size-tweak",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/font-size-tweak/commit/72c0060e1e403bfc8915df268bd2fbc60d634edd",
-      "shortRef": "72c0060",
-      "timeAgo": "11 hours ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
-        "language": "Python",
-        "stars": 5
-      },
-      "commitMeta": {
-        "additions": 153,
-        "deletions": 889,
-        "filesChanged": 8
-      }
-    },
-    {
-      "id": "18783475174",
-      "repo": "font-size-tweak",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/font-size-tweak/commit/05656d397bd989307b3dfcc0b99a3862e6e9ca7a",
-      "shortRef": "05656d3",
-      "timeAgo": "10 hours ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
-        "language": "Python",
-        "stars": 5
-      },
-      "commitMeta": {
-        "additions": 39,
-        "deletions": 30,
-        "filesChanged": 3
-      }
-    },
-    {
-      "id": "18782347368",
-      "repo": "font-size-tweak",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/font-size-tweak/commit/01f2e7d4f27670bca64c54f68a68bf5a35b5286e",
-      "shortRef": "01f2e7d",
-      "timeAgo": "11 hours ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
-        "language": "Python",
-        "stars": 5
-      },
-      "commitMeta": {
-        "additions": 183,
-        "deletions": 17,
-        "filesChanged": 3
-      }
-    },
-    {
-      "id": "18782206248",
-      "repo": "font-size-tweak",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/font-size-tweak/commit/5c6aebce8ffb598093091cfcc94d142e049c6414",
-      "shortRef": "5c6aebc",
-      "timeAgo": "11 hours ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
-        "language": "Python",
-        "stars": 5
-      },
-      "commitMeta": {
-        "additions": 183,
-        "deletions": 17,
-        "filesChanged": 3
-      }
-    },
-    {
-      "id": "18781398033",
-      "repo": "font-size-tweak",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/font-size-tweak/commit/6d7c4ab02aef52cced2e03c67498738de02158bf",
-      "shortRef": "6d7c4ab",
-      "timeAgo": "11 hours ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
-        "language": "Python",
-        "stars": 5
-      },
-      "commitMeta": {
-        "additions": 183,
-        "deletions": 17,
-        "filesChanged": 3
       }
     }
   ]
