@@ -28,8 +28,8 @@ Animated counters
 
 Current live counters include:
 
-- GitHub public repositories
-- GitHub contributions
+- Combined lifetime app downloads
+- GitHub contributions (lifetime and past year)
 - Total blog posts
 - Total YouTube videos
 - Total subscribers
@@ -46,6 +46,10 @@ uxillary/automated
 GitHub Actions periodically collect data from external APIs and write simple output files into the repository's `/docs` folder.
 
 The website downloads these small files rather than calling external APIs directly.
+
+Lifetime contributions and app downloads use the generated files published at
+`https://uxillary.github.io/automated/lifetime-contributions.txt` and
+`https://uxillary.github.io/automated/release-downloads.txt` respectively.
 
 This approach:
 

@@ -174,6 +174,78 @@
       </div>
     </section>
 
+    <section class="section activity-section" id="activity" aria-labelledby="activity-title">
+      <div class="activity-head">
+        <div>
+          <p class="eyebrow">Activity</p>
+          <h2 id="activity-title">Some of my online stats and activity.</h2>
+        </div>
+        <p>Just to show what i've been up to.</p>
+      </div>
+
+      <div class="activity-panel">
+        <div class="activity-panel-head">
+          <div>
+            <span class="activity-kicker">Public Stats</span>
+            <h3>and counting ...</h3>
+          </div>
+          <span class="activity-source-note">Cloudflare KV + generated files</span>
+        </div>
+
+        <div class="activity-counters">
+          <div class="stat-pill" title="Global views from Cloudflare KV with local fallback">
+            <span id="views" class="value tabular-nums" aria-live="polite">—</span>
+            <span class="label">page views</span>
+            <span class="stat-source">KV</span>
+          </div>
+          <div class="stat-pill" title="Blog posts total from generated files">
+            <span id="blog-counter" class="value tabular-nums" aria-live="polite">—</span>
+            <span class="label">blog posts</span>
+            <span class="stat-source">Published</span>
+          </div>
+          <div class="stat-pill" title="YouTube video count from generated files">
+            <span id="youtube-counter" class="value tabular-nums" aria-live="polite">—</span>
+            <span class="label">youtube videos</span>
+            <span class="stat-source">Published</span>
+          </div>
+          <div class="stat-pill" title="Combined lifetime downloads for released apps">
+            <span id="app-downloads-counter" class="value tabular-nums" aria-live="polite">—</span>
+            <span class="label">app downloads</span>
+            <span class="stat-source">Total</span>
+          </div>
+          <div class="stat-pill stat-pill-contributions" title="Lifetime and past-year GitHub contributions from generated files">
+            <span id="lifetime-contributions" class="value tabular-nums" aria-live="polite">—</span>
+            <span class="label">contributions</span>
+            <span class="stat-source">Total</span>
+            <span class="stat-secondary"><strong id="gh-contributions" class="tabular-nums" aria-live="polite">—</strong> in the past year</span>
+          </div>
+          <div class="stat-pill" title="Total subscribers from generated files">
+            <span id="subscriber-counter" class="value tabular-nums" aria-live="polite">—</span>
+            <span class="label">subscribers</span>
+            <span class="stat-source">YouTube</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="activity-log">
+        <div class="activity-panel-head">
+          <div>
+            <span class="activity-kicker">Repository log</span>
+            <h3>Recent GitHub activity</h3>
+          </div>
+          <button id="refreshContribs" type="button" class="activity-refresh focus-ring" aria-label="Refresh contributions">
+            <svg width="16" height="16" class="icon-line" aria-hidden="true"><use href="/public/icons.svg#refresh"></use></svg>
+            <span>Refresh</span>
+          </button>
+        </div>
+
+        <div id="ossList" class="mt-2" aria-live="polite">
+          <div class="t-card">Loading recent contributions…</div>
+        </div>
+        <a href="https://github.com/uxillary" class="activity-link">View all on GitHub →</a>
+      </div>
+    </section>
+
     <section class="section now-section" id="now" aria-labelledby="now-title">
       <div class="now-shell">
         <div class="now-intro">
@@ -334,77 +406,6 @@
           <ol class="build-queue" id="buildQueue" aria-label="Upcoming project build queue"></ol>
         </div>
 
-      </div>
-    </section>
-
-    <section class="section activity-section" id="activity" aria-labelledby="activity-title">
-      <div class="activity-head">
-        <div>
-          <p class="eyebrow">Activity</p>
-          <h2 id="activity-title">Some of my online stats and activity.</h2>
-        </div>
-        <p>Just to show what i've been up to.</p>
-      </div>
-
-      <div class="activity-panel">
-        <div class="activity-panel-head">
-          <div>
-            <span class="activity-kicker">Public Stats</span>
-            <h3>and counting ...</h3>
-          </div>
-          <span class="activity-source-note">Cloudflare KV + generated files</span>
-        </div>
-
-        <div class="activity-counters">
-          <div class="stat-pill" title="Global views from Cloudflare KV with local fallback">
-            <span id="views" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
-            <span class="label">page views</span>
-            <span class="stat-source">KV</span>
-          </div>
-          <div class="stat-pill" title="Blog posts total from generated files">
-            <span id="blog-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
-            <span class="label">blog posts</span>
-            <span class="stat-source">Published</span>
-          </div>
-          <div class="stat-pill" title="YouTube video count from generated files">
-            <span id="youtube-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
-            <span class="label">youtube videos</span>
-            <span class="stat-source">Published</span>
-          </div>
-          <div class="stat-pill" title="Public GitHub repository count from generated files">
-            <span id="repo-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
-            <span class="label">public repos</span>
-            <span class="stat-source">GitHub</span>
-          </div>
-          <div class="stat-pill" title="GitHub contributions from generated files">
-            <span id="gh-contributions" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
-            <span class="label">contributions</span>
-            <span class="stat-source">GitHub</span>
-          </div>
-          <div class="stat-pill" title="Total subscribers from generated files">
-            <span id="subscriber-counter" class="value tabular-nums" aria-live="polite"><span class="inline-block w-6 h-3 bg-zinc-700/50 animate-pulse"></span></span>
-            <span class="label">subscribers</span>
-            <span class="stat-source">YouTube</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="activity-log">
-        <div class="activity-panel-head">
-          <div>
-            <span class="activity-kicker">Repository log</span>
-            <h3>Recent GitHub activity</h3>
-          </div>
-          <button id="refreshContribs" type="button" class="activity-refresh focus-ring" aria-label="Refresh contributions">
-            <svg width="16" height="16" class="icon-line" aria-hidden="true"><use href="/public/icons.svg#refresh"></use></svg>
-            <span>Refresh</span>
-          </button>
-        </div>
-
-        <div id="ossList" class="mt-2" aria-live="polite">
-          <div class="t-card">Loading recent contributions…</div>
-        </div>
-        <a href="https://github.com/uxillary" class="activity-link">View all on GitHub →</a>
       </div>
     </section>
 

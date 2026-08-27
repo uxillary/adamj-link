@@ -287,14 +287,14 @@ const UPCOMING_PROJECTS = [
 
 const COUNTERS = [
   { id: 'youtube-counter', url: 'https://uxillary.github.io/automated/video-count.txt' },
-  { id: 'repo-counter', url: 'https://uxillary.github.io/automated/repos.txt' },
+  { id: 'app-downloads-counter', url: 'https://uxillary.github.io/automated/release-downloads.txt' },
+  { id: 'lifetime-contributions', url: 'https://uxillary.github.io/automated/lifetime-contributions.txt' },
   { id: 'gh-contributions', url: 'https://uxillary.github.io/automated/contributions.txt' },
   { id: 'blog-counter', url: 'https://uxillary.github.io/automated/blog-total.txt' },
   { id: 'subscriber-counter', url: 'https://uxillary.github.io/automated/total-subscribers.txt' }
 ];
 const MIRRORS = {
   'youtube-counter': 'statVideos',
-  'repo-counter': 'statRepos',
   'gh-contributions': 'statContribs',
   'blog-counter': 'statBlog'
 };
@@ -351,8 +351,10 @@ async function refreshCounters(){
       const res = await fetch(url);
       if(!res.ok) throw new Error('fetch failed');
       const txt = await res.text();
-      const num = parseInt(txt.trim(), 10);
-      if(!Number.isFinite(num)) throw new Error('NaN');
+      const value = txt.trim();
+      if(!/^\d+$/.test(value)) throw new Error('invalid counter value');
+      const num = Number(value);
+      if(!Number.isSafeInteger(num)) throw new Error('invalid counter value');
       setNumber(id, num);
       sessionStorage.setItem(id, JSON.stringify({v:num, t:now}));
       el.removeAttribute('title');
