@@ -47,8 +47,9 @@ GitHub Actions periodically collect data from external APIs and write simple out
 
 The website downloads these small files rather than calling external APIs directly.
 
-Lifetime contributions and app downloads use the generated raw files at
-`docs/lifetime-contributions.txt` and `docs/release-downloads.txt` respectively.
+Lifetime contributions and app downloads use the generated files published at
+`https://uxillary.github.io/automated/lifetime-contributions.txt` and
+`https://uxillary.github.io/automated/release-downloads.txt` respectively.
 
 This approach:
 

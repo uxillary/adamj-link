@@ -287,8 +287,8 @@ const UPCOMING_PROJECTS = [
 
 const COUNTERS = [
   { id: 'youtube-counter', url: 'https://uxillary.github.io/automated/video-count.txt' },
-  { id: 'app-downloads-counter', url: 'https://raw.githubusercontent.com/uxillary/automated/main/docs/release-downloads.txt' },
-  { id: 'lifetime-contributions', url: 'https://raw.githubusercontent.com/uxillary/automated/main/docs/lifetime-contributions.txt' },
+  { id: 'app-downloads-counter', url: 'https://uxillary.github.io/automated/release-downloads.txt' },
+  { id: 'lifetime-contributions', url: 'https://uxillary.github.io/automated/lifetime-contributions.txt' },
   { id: 'gh-contributions', url: 'https://uxillary.github.io/automated/contributions.txt' },
   { id: 'blog-counter', url: 'https://uxillary.github.io/automated/blog-total.txt' },
   { id: 'subscriber-counter', url: 'https://uxillary.github.io/automated/total-subscribers.txt' }
