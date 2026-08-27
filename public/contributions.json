@@ -1,134 +1,89 @@
 {
-  "generatedAt": "2026-08-26T12:45:34.375Z",
+  "generatedAt": "2026-08-27T07:17:32.681Z",
   "items": [
     {
-      "id": "18939036287",
-      "repo": "font-size-tweak",
-      "title": "codex/restore-previous-github-stats-strip-design",
+      "id": "19038621278",
+      "repo": "adamj-link",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/adamj-link/commit/610486cf87f2bffdef00af745d41b8dd2b5d98f8",
+      "shortRef": "610486c",
+      "timeAgo": "5 minutes ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 5,
+        "deletions": 4,
+        "filesChanged": 2
+      }
+    },
+    {
+      "id": "19038608819",
+      "repo": "adamj-link",
+      "title": "codex/update-homepage-stats-section-layout",
       "type": "Delete",
-      "url": "https://github.com/uxillary/font-size-tweak",
+      "url": "https://github.com/uxillary/adamj-link",
       "shortRef": "",
-      "timeAgo": "10 hours ago",
+      "timeAgo": "2 minutes ago",
       "summary": "Deleted branch",
       "repoMeta": {
-        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
-        "language": "Python",
-        "stars": 5
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
+        "stars": 0
       }
     },
     {
-      "id": "18938865330",
-      "repo": "font-size-tweak",
-      "title": "codex/restore-previous-github-stats-strip-design",
-      "type": "Create",
-      "url": "https://github.com/uxillary/font-size-tweak",
-      "shortRef": "",
-      "timeAgo": "10 hours ago",
-      "summary": "Created branch",
-      "repoMeta": {
-        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
-        "language": "Python",
-        "stars": 5
-      }
-    },
-    {
-      "id": "18937752129",
-      "repo": "font-size-tweak",
+      "id": "19038598136",
+      "repo": "adamj-link",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/font-size-tweak/commit/c48cff20d86b23bf1537bf5d5103703d830d8736",
-      "shortRef": "c48cff2",
-      "timeAgo": "10 hours ago",
+      "url": "https://github.com/uxillary/adamj-link/commit/1485882d3ebcbee85f397067663099857f054a5b",
+      "shortRef": "1485882",
+      "timeAgo": "3 minutes ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
-        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
-        "language": "Python",
-        "stars": 5
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
+        "stars": 0
       },
       "commitMeta": {
-        "additions": 11,
-        "deletions": 7,
-        "filesChanged": 1
+        "additions": 107,
+        "deletions": 84,
+        "filesChanged": 4
       }
     },
     {
-      "id": "18925777354",
-      "repo": "font-size-tweak",
-      "title": "codex/link-logo-and-screenshot-images-properly",
-      "type": "Delete",
-      "url": "https://github.com/uxillary/font-size-tweak",
-      "shortRef": "",
-      "timeAgo": "13 hours ago",
-      "summary": "Deleted branch",
-      "repoMeta": {
-        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
-        "language": "Python",
-        "stars": 5
-      }
-    },
-    {
-      "id": "18923275756",
-      "repo": "font-size-tweak",
-      "title": "codex/link-logo-and-screenshot-images-properly",
-      "type": "Create",
-      "url": "https://github.com/uxillary/font-size-tweak",
-      "shortRef": "",
-      "timeAgo": "14 hours ago",
-      "summary": "Created branch",
-      "repoMeta": {
-        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
-        "language": "Python",
-        "stars": 5
-      }
-    },
-    {
-      "id": "18905372111",
-      "repo": "font-size-tweak",
+      "id": "19035244652",
+      "repo": "adamj-link",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/font-size-tweak/commit/585ad2c2588b6c32c72e7a8e77a9bd0c23a605ce",
-      "shortRef": "585ad2c",
-      "timeAgo": "10 hours ago",
+      "url": "https://github.com/uxillary/adamj-link/commit/3dc0a372c7dde7c0bc494a689b69b9caab58a402",
+      "shortRef": "3dc0a37",
+      "timeAgo": "43 minutes ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
-        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
-        "language": "Python",
-        "stars": 5
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
+        "stars": 0
       },
       "commitMeta": {
-        "additions": 117,
-        "deletions": 121,
-        "filesChanged": 8
+        "additions": 106,
+        "deletions": 84,
+        "filesChanged": 4
       }
     },
     {
-      "id": "18905336657",
-      "repo": "font-size-tweak",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/font-size-tweak/commit/bd99de2cea362eab6ffd737cb054c47a04f65ea7",
-      "shortRef": "bd99de2",
-      "timeAgo": "10 hours ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
-        "language": "Python",
-        "stars": 5
-      },
-      "commitMeta": {
-        "additions": 117,
-        "deletions": 121,
-        "filesChanged": 8
-      }
-    },
-    {
-      "id": "18904794967",
+      "id": "19032171937",
       "repo": "automated",
-      "title": "codex/add-automated-github-statistics-workflow",
+      "title": "codex/fix-download-count-workflow-to-exclude-forks",
       "type": "Create",
       "url": "https://github.com/uxillary/automated",
       "shortRef": "",
-      "timeAgo": "10 hours ago",
+      "timeAgo": "13 hours ago",
       "summary": "Created branch",
       "repoMeta": {
         "description": "for all automated tasks",
@@ -137,23 +92,73 @@
       }
     },
     {
-      "id": "18903113353",
-      "repo": "font-size-tweak",
+      "id": "18989334354",
+      "repo": "automated",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/font-size-tweak/commit/f231b861c0c2df911d7660549c92cfe5b4eed31d",
-      "shortRef": "f231b86",
-      "timeAgo": "11 hours ago",
+      "url": "https://github.com/uxillary/automated/commit/4aa71588f645bd24c7db229e568f3dd5a0fc8858",
+      "shortRef": "4aa7158",
+      "timeAgo": "a day ago",
       "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "for all automated tasks",
+        "language": "JavaScript",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 388,
+        "deletions": 0,
+        "filesChanged": 6
+      }
+    },
+    {
+      "id": "18984014116",
+      "repo": "automated",
+      "title": "codex/add-automated-github-statistics-workflow",
+      "type": "Delete",
+      "url": "https://github.com/uxillary/automated",
+      "shortRef": "",
+      "timeAgo": "a day ago",
+      "summary": "Deleted branch",
+      "repoMeta": {
+        "description": "for all automated tasks",
+        "language": "JavaScript",
+        "stars": 0
+      }
+    },
+    {
+      "id": "18981188427",
+      "repo": "automated",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/automated/commit/6436bbec80b56c2b3869f3312f4c03ad67154251",
+      "shortRef": "6436bbe",
+      "timeAgo": "13 hours ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "for all automated tasks",
+        "language": "JavaScript",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 35,
+        "deletions": 7,
+        "filesChanged": 3
+      }
+    },
+    {
+      "id": "18980938859",
+      "repo": "font-size-tweak",
+      "title": "codex/clean-up-repository-for-better-discoverability",
+      "type": "Delete",
+      "url": "https://github.com/uxillary/font-size-tweak",
+      "shortRef": "",
+      "timeAgo": "a day ago",
+      "summary": "Deleted branch",
       "repoMeta": {
         "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
         "language": "Python",
         "stars": 5
-      },
-      "commitMeta": {
-        "additions": 18,
-        "deletions": 10,
-        "filesChanged": 3
       }
     }
   ]
