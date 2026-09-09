@@ -1,6 +1,51 @@
 {
-  "generatedAt": "2026-09-09T03:04:15.679Z",
+  "generatedAt": "2026-09-09T15:54:53.778Z",
   "items": [
+    {
+      "id": "20584485858",
+      "repo": "font-size-tweak",
+      "title": "codex/update-fontsize-tweak-documentation",
+      "type": "Delete",
+      "url": "https://github.com/uxillary/font-size-tweak",
+      "shortRef": "",
+      "timeAgo": "a day ago",
+      "summary": "Deleted branch",
+      "repoMeta": {
+        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
+        "language": "Python",
+        "stars": 5
+      }
+    },
+    {
+      "id": "20557017783",
+      "repo": "adamj-link",
+      "title": "codex/add-project-row-for-youtube-channel-tracker",
+      "type": "Delete",
+      "url": "https://github.com/uxillary/adamj-link",
+      "shortRef": "",
+      "timeAgo": "2 days ago",
+      "summary": "Deleted branch",
+      "repoMeta": {
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
+        "stars": 0
+      }
+    },
+    {
+      "id": "20518927693",
+      "repo": "adamj-link",
+      "title": "codex/update-active-focus-project-panel",
+      "type": "Create",
+      "url": "https://github.com/uxillary/adamj-link",
+      "shortRef": "",
+      "timeAgo": "2 days ago",
+      "summary": "Created branch",
+      "repoMeta": {
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
+        "stars": 0
+      }
+    },
     {
       "id": "20503025519",
       "repo": "adamj-link",
@@ -8,7 +53,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/adamj-link/commit/257a6b59dde25eee61ffe0a83dba8afd03db53d7",
       "shortRef": "257a6b5",
-      "timeAgo": "a day ago",
+      "timeAgo": "2 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "ultra-light polished landing for Adam J",
@@ -114,51 +159,6 @@
         "additions": 22,
         "deletions": 14,
         "filesChanged": 2
-      }
-    },
-    {
-      "id": "20491133735",
-      "repo": "automated",
-      "title": "codex/add-fontawesome-icons-to-youtube-tracker",
-      "type": "Delete",
-      "url": "https://github.com/uxillary/automated",
-      "shortRef": "",
-      "timeAgo": "2 days ago",
-      "summary": "Deleted branch",
-      "repoMeta": {
-        "description": "for all automated tasks",
-        "language": "JavaScript",
-        "stars": 0
-      }
-    },
-    {
-      "id": "20477755271",
-      "repo": "automated",
-      "title": "codex/add-fontawesome-icons-to-youtube-tracker",
-      "type": "Create",
-      "url": "https://github.com/uxillary/automated",
-      "shortRef": "",
-      "timeAgo": "2 days ago",
-      "summary": "Created branch",
-      "repoMeta": {
-        "description": "for all automated tasks",
-        "language": "JavaScript",
-        "stars": 0
-      }
-    },
-    {
-      "id": "20475261404",
-      "repo": "maintenance-goblin",
-      "title": "codex/add-fontawesome-icons-to-the-page",
-      "type": "Create",
-      "url": "https://github.com/uxillary/maintenance-goblin",
-      "shortRef": "",
-      "timeAgo": "2 days ago",
-      "summary": "Created branch",
-      "repoMeta": {
-        "description": "A lightweight Python-powered desktop app to automate essential PC maintenance tasks like SFC, DISM, temp cleanup, disk defrag, and more — all with a single click. Think of it as a digital spa day for your Windows machine.",
-        "language": "Python",
-        "stars": 0
       }
     }
   ]
