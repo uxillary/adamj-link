@@ -1,14 +1,49 @@
 {
-  "generatedAt": "2026-09-04T15:44:59.506Z",
+  "generatedAt": "2026-09-10T15:49:26.466Z",
   "items": [
     {
-      "id": "19250604672",
+      "id": "20694892993",
+      "repo": "maintenance-goblin",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/maintenance-goblin/commit/9d564fb91e81c6fd1fde1ce503b54c3be0182806",
+      "shortRef": "9d564fb",
+      "timeAgo": "an hour ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "A lightweight Python-powered desktop app to automate essential PC maintenance tasks like SFC, DISM, temp cleanup, disk defrag, and more — all with a single click. Think of it as a digital spa day for your Windows machine.",
+        "language": "Python",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 46,
+        "deletions": 1,
+        "filesChanged": 2
+      }
+    },
+    {
+      "id": "14781888470",
+      "repo": "ClipSift",
+      "title": "ClipSift",
+      "type": "Public",
+      "url": "https://github.com/uxillary/ClipSift",
+      "shortRef": "",
+      "timeAgo": "3 days ago",
+      "summary": "Public",
+      "repoMeta": {
+        "description": "google cloud x nvidia AI CCTV sifter",
+        "language": "Python",
+        "stars": 0
+      }
+    },
+    {
+      "id": "20658653354",
       "repo": "adamj-link",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/adamj-link/commit/35c8955a04660e2a306cc57cb5904da47c155bc4",
-      "shortRef": "35c8955",
-      "timeAgo": "8 days ago",
+      "url": "https://github.com/uxillary/adamj-link/commit/2773a28337c263f88927517d844fdb96a9ac4644",
+      "shortRef": "2773a28",
+      "timeAgo": "13 hours ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "ultra-light polished landing for Adam J",
@@ -16,34 +51,19 @@
         "stars": 0
       },
       "commitMeta": {
-        "additions": 20,
-        "deletions": 15,
+        "additions": 103,
+        "deletions": 45,
         "filesChanged": 2
       }
     },
     {
-      "id": "19250600727",
+      "id": "20657086662",
       "repo": "adamj-link",
-      "title": "codex/polish-spacing-and-density-on-homepage",
-      "type": "Create",
-      "url": "https://github.com/uxillary/adamj-link",
-      "shortRef": "",
-      "timeAgo": "8 days ago",
-      "summary": "Created branch",
-      "repoMeta": {
-        "description": "ultra-light polished landing for Adam J",
-        "language": "HTML",
-        "stars": 0
-      }
-    },
-    {
-      "id": "19228715931",
-      "repo": "adamj-link",
-      "title": "codex/polish-spacing-and-density-on-homepage",
+      "title": "codex/refine-hero-section-of-adamj.link",
       "type": "Delete",
       "url": "https://github.com/uxillary/adamj-link",
       "shortRef": "",
-      "timeAgo": "8 days ago",
+      "timeAgo": "13 hours ago",
       "summary": "Deleted branch",
       "repoMeta": {
         "description": "ultra-light polished landing for Adam J",
@@ -52,13 +72,13 @@
       }
     },
     {
-      "id": "19157324456",
+      "id": "20644470574",
       "repo": "adamj-link",
-      "title": "codex/update-homepage-stats-section-layout",
+      "title": "codex/refine-hero-section-of-adamj.link",
       "type": "Create",
       "url": "https://github.com/uxillary/adamj-link",
       "shortRef": "",
-      "timeAgo": "8 days ago",
+      "timeAgo": "13 hours ago",
       "summary": "Created branch",
       "repoMeta": {
         "description": "ultra-light polished landing for Adam J",
@@ -67,98 +87,63 @@
       }
     },
     {
-      "id": "19111168133",
-      "repo": "adamj-link",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/adamj-link/commit/200b76d4817600c5c78f5eb5aad08108dbfaebf5",
-      "shortRef": "200b76d",
-      "timeAgo": "8 days ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "ultra-light polished landing for Adam J",
-        "language": "HTML",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 20,
-        "deletions": 15,
-        "filesChanged": 2
-      }
-    },
-    {
-      "id": "19108823081",
-      "repo": "automated",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/automated/commit/8775302ff7a65a555d737ce90940da17b01aca51",
-      "shortRef": "8775302",
-      "timeAgo": "9 days ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "for all automated tasks",
-        "language": "JavaScript",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 48,
-        "deletions": 4,
-        "filesChanged": 3
-      }
-    },
-    {
-      "id": "19108785848",
-      "repo": "automated",
-      "title": "codex/fix-lifetime-contributions-and-downloads-count",
+      "id": "20598048787",
+      "repo": "font-size-tweak",
+      "title": "codex/update-fontsize-tweak-documentation",
       "type": "Create",
-      "url": "https://github.com/uxillary/automated",
+      "url": "https://github.com/uxillary/font-size-tweak",
       "shortRef": "",
-      "timeAgo": "9 days ago",
+      "timeAgo": "2 days ago",
       "summary": "Created branch",
       "repoMeta": {
-        "description": "for all automated tasks",
-        "language": "JavaScript",
-        "stars": 0
+        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
+        "language": "Python",
+        "stars": 5
       }
     },
     {
-      "id": "19039784957",
+      "id": "20584485858",
+      "repo": "font-size-tweak",
+      "title": "codex/update-fontsize-tweak-documentation",
+      "type": "Delete",
+      "url": "https://github.com/uxillary/font-size-tweak",
+      "shortRef": "",
+      "timeAgo": "2 days ago",
+      "summary": "Deleted branch",
+      "repoMeta": {
+        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
+        "language": "Python",
+        "stars": 5
+      }
+    },
+    {
+      "id": "20557017783",
       "repo": "adamj-link",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/adamj-link/commit/877d0d1c4c1c6e596d33a2beea1cddc097459539",
-      "shortRef": "877d0d1",
-      "timeAgo": "8 days ago",
-      "summary": "Pushed 1 commit",
+      "title": "codex/add-project-row-for-youtube-channel-tracker",
+      "type": "Delete",
+      "url": "https://github.com/uxillary/adamj-link",
+      "shortRef": "",
+      "timeAgo": "3 days ago",
+      "summary": "Deleted branch",
       "repoMeta": {
         "description": "ultra-light polished landing for Adam J",
         "language": "HTML",
         "stars": 0
-      },
-      "commitMeta": {
-        "additions": 102,
-        "deletions": 97,
-        "filesChanged": 1
       }
     },
     {
-      "id": "19038621278",
+      "id": "20518927693",
       "repo": "adamj-link",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/adamj-link/commit/610486cf87f2bffdef00af745d41b8dd2b5d98f8",
-      "shortRef": "610486c",
-      "timeAgo": "8 days ago",
-      "summary": "Pushed 1 commit",
+      "title": "codex/update-active-focus-project-panel",
+      "type": "Create",
+      "url": "https://github.com/uxillary/adamj-link",
+      "shortRef": "",
+      "timeAgo": "3 days ago",
+      "summary": "Created branch",
       "repoMeta": {
         "description": "ultra-light polished landing for Adam J",
         "language": "HTML",
         "stars": 0
-      },
-      "commitMeta": {
-        "additions": 5,
-        "deletions": 4,
-        "filesChanged": 2
       }
     }
   ]

@@ -124,48 +124,51 @@
         <div class="hero-copy">
           <p class="hero-kicker">ADAMJ.LINK / PERSONAL WORKSPACE</p>
           <h1 id="hero-title" class="hero-title">
-            Creative Digital Developer
+            <span>Creative Digital</span>
+            <span>Developer.</span>
           </h1>
-          <p class="hero-subtitle">
-            Building web-based products for over 10 years.
-          </p>
+          <p class="hero-statement">I build things for the internet.</p>
+          <p class="hero-experience">Building useful, playful things for the web since 2015.</p>
           <p class="hero-description">
-            A living workspace for my projects and digital creations - from web apps, tools to interactive multimedia.
+            A living workspace for web projects, tools, experiments and interactive media.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
-            <a href="https://ajstudios.online" class="px-5 py-3 r btn-primary font-semibold focus-ring">Portfolio site</a>
-            <a href="#contact" class="px-1 py-3 text-sm sm:text-base hero-link focus-ring">Get in touch</a>
+            <a href="https://ajstudios.online" class="hero-primary-action focus-ring">View portfolio <span aria-hidden="true">↗</span></a>
+            <a href="#contact" class="hero-link focus-ring">Get in touch</a>
           </div>
         </div>
 
         <aside class="hero-status" aria-label="Workspace status">
           <div class="hero-status-top">
             <span class="hero-status-dot" aria-hidden="true"></span>
-            <span>Available</span>
+            <span>Open to collaborate</span>
           </div>
           <dl class="hero-status-grid">
             <div class="hero-status-detail">
               <dt>Currently</dt>
-              <dd>Building, refining.</dd>
+              <dd>Building + shipping</dd>
             </div>
             <div class="hero-status-detail">
-              <dt>Focus</dt>
-              <dd>Polishing</dd>
+              <dt>Interests</dt>
+              <dd>Web · AI · Multimedia</dd>
             </div>
             <div class="hero-contact">
               <dt>Contact</dt>
               <dd class="hero-contact-actions">
                 <a href="tel:+447396961595" aria-label="Call Adam on 07396 961 595" class="hero-contact-action">
                   <svg class="hero-contact-icon" aria-hidden="true"><use href="/public/icons.svg#phone"></use></svg>
-                  <span><strong>Call</strong><small>07396 961 595</small></span>
+                  <span><strong>Call</strong><small class="tabular-nums">07396 961 595</small></span>
+                  <span class="hero-contact-indicator" aria-hidden="true">→</span>
                 </a>
                 <a href="https://wa.me/447396961595" target="_blank" rel="noopener noreferrer" aria-label="Message Adam on WhatsApp (opens in a new tab)" class="hero-contact-action">
                   <svg class="hero-contact-icon" aria-hidden="true"><use href="/public/icons.svg#whatsapp"></use></svg>
-                  <span><strong>WhatsApp</strong><small>Message me <span aria-hidden="true">↗</span></small></span>
+                  <span><strong>WhatsApp</strong><small>Message me</small></span>
+                  <span class="hero-contact-indicator" aria-hidden="true">↗</span>
                 </a>
                 <a href="mailto:mail@adamj.link" aria-label="Email Adam at mail@adamj.link" class="hero-contact-action">
                   <svg class="hero-contact-icon" aria-hidden="true"><use href="/public/icons.svg#mail"></use></svg>
-                  <span><strong>Email</strong><small>mail@adamj.link <span aria-hidden="true">↗</span></small></span>
+                  <span><strong>Email</strong><small>mail@adamj.link</small></span>
+                  <span class="hero-contact-indicator" aria-hidden="true">↗</span>
                 </a>
               </dd>
             </div>
@@ -259,22 +262,22 @@
           <div class="now-project-head">
             <div>
               <p class="now-project-label">Project / In progress</p>
-              <h3 id="now-project-title"><span>90%</span> <span aria-hidden="true">→</span> Shipped</h3>
+              <h3 id="now-project-title">ClipSift</h3>
             </div>
             <span class="now-building"><i aria-hidden="true"></i>Building</span>
           </div>
 
-          <p class="now-project-copy">A small AI tool for creative projects stuck at 90%. Describe what’s unfinished and get the smallest version worth shipping, what to cut, and your next 30-minute task.</p>
+          <p class="now-project-copy">A privacy-focused CCTV review tool that uses AI and GPU inference to find clips likely to contain a person—reducing hours of footage to a short, manageable review queue.</p>
 
           <ol class="now-pipeline" aria-label="Inference pipeline">
-            <li>Unfinished project</li>
-            <li>Gemma</li>
-            <li>Completion plan</li>
-            <li>Shipped</li>
+            <li>Video clips</li>
+            <li>Frame sampling</li>
+            <li>Gemma vision</li>
+            <li>Review queue</li>
           </ol>
 
           <dl class="now-metadata" aria-label="Project technology">
-            <div><dt>Model</dt><dd>Gemma</dd></div>
+            <div><dt>Model</dt><dd>Gemma 3</dd></div>
             <div><dt>Local GPU</dt><dd>RTX 3070 Ti</dd></div>
             <div><dt>Cloud</dt><dd>Google Cloud</dd></div>
             <div><dt>Status</dt><dd>Building</dd></div>
@@ -282,13 +285,13 @@
 
           <div class="now-project-foot">
             <ul class="now-features" aria-label="Planned features">
-              <li>Local inference</li><li>Completion plans</li><li>Scope cutting</li><li>GPU comparison</li>
+              <li>Person detection</li><li>Local inference</li><li>Privacy first</li><li>GPU benchmark</li>
             </ul>
-            <p class="now-warning">Perfectionism detected <span aria-hidden="true">→</span> <strong>ship it anyway</strong></p>
+            <p class="now-warning">Hours of footage <span aria-hidden="true">→</span> <strong>minutes to review</strong></p>
           </div>
 
           <div class="now-context">
-            <p>Built alongside NVIDIA’s GPU inference pathway with Google Cloud.</p>
+            <p>Built alongside Google Cloud and NVIDIA’s GPU inference learning pathways.</p>
             <p>GTC Berlin 2026 Golden Ticket challenge <span aria-hidden="true">·</span> Sep 2026</p>
           </div>
         </article>
@@ -354,6 +357,12 @@
               <span class="project-number">05</span>
               <div class="project-list-copy"><span class="project-list-status">Game / Web</span><h3>Virtual Stock Market</h3><p>Playful stock exchange simulation with trading, booster packs and minigames.</p></div>
               <span class="project-tags">Game <span>·</span> Web <span>·</span> Interactive</span>
+              <span class="project-destination is-live"><span><i aria-hidden="true"></i>Live</span><span class="project-arrow" aria-hidden="true">↗</span></span>
+            </a></li>
+            <li data-project-tags="web tools" data-project-status="live"><a href="https://uxillary.github.io/automated/" class="project-list-item">
+              <span class="project-number">06</span>
+              <div class="project-list-copy"><span class="project-list-status">Web app / Analytics</span><h3>YouTube Channel Tracker</h3><p>Tracks performance and growth trends across multiple YouTube channels.</p></div>
+              <span class="project-tags">Web app <span>·</span> Analytics <span>·</span> YouTube</span>
               <span class="project-destination is-live"><span><i aria-hidden="true"></i>Live</span><span class="project-arrow" aria-hidden="true">↗</span></span>
             </a></li>
             <li data-project-tags="tools" data-project-status="github"><a href="https://uxillary.github.io/maintenance-goblin/" class="project-list-item">
