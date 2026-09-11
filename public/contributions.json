@@ -1,49 +1,74 @@
 {
-  "generatedAt": "2026-09-10T15:49:26.466Z",
+  "generatedAt": "2026-09-11T02:59:57.603Z",
   "items": [
     {
-      "id": "20694892993",
-      "repo": "maintenance-goblin",
+      "id": "20753292531",
+      "repo": "automated",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/maintenance-goblin/commit/9d564fb91e81c6fd1fde1ce503b54c3be0182806",
-      "shortRef": "9d564fb",
-      "timeAgo": "an hour ago",
+      "url": "https://github.com/uxillary/automated/commit/b956adc2034101687182e2523a710fdd158d4644",
+      "shortRef": "b956adc",
+      "timeAgo": "6 hours ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
-        "description": "A lightweight Python-powered desktop app to automate essential PC maintenance tasks like SFC, DISM, temp cleanup, disk defrag, and more — all with a single click. Think of it as a digital spa day for your Windows machine.",
+        "description": "for all automated tasks",
+        "language": "JavaScript",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 1,
+        "deletions": 1,
+        "filesChanged": 1
+      }
+    },
+    {
+      "id": "20753248727",
+      "repo": "automated",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/automated/commit/eac88d2811ce11b22ee70ef4755607b83206e98c",
+      "shortRef": "eac88d2",
+      "timeAgo": "6 hours ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "for all automated tasks",
+        "language": "JavaScript",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 1,
+        "deletions": 1,
+        "filesChanged": 1
+      }
+    },
+    {
+      "id": "20752387341",
+      "repo": "ClipSift",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/ClipSift/commit/c70fb1bf8f3ca35712c117e94f19aaa6bff25875",
+      "shortRef": "c70fb1b",
+      "timeAgo": "7 hours ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "google cloud x nvidia AI CCTV sifter",
         "language": "Python",
         "stars": 0
       },
       "commitMeta": {
-        "additions": 46,
+        "additions": 15,
         "deletions": 1,
         "filesChanged": 2
       }
     },
     {
-      "id": "14781888470",
-      "repo": "ClipSift",
-      "title": "ClipSift",
-      "type": "Public",
-      "url": "https://github.com/uxillary/ClipSift",
-      "shortRef": "",
-      "timeAgo": "3 days ago",
-      "summary": "Public",
-      "repoMeta": {
-        "description": "google cloud x nvidia AI CCTV sifter",
-        "language": "Python",
-        "stars": 0
-      }
-    },
-    {
-      "id": "20658653354",
+      "id": "20751973692",
       "repo": "adamj-link",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/adamj-link/commit/2773a28337c263f88927517d844fdb96a9ac4644",
-      "shortRef": "2773a28",
-      "timeAgo": "13 hours ago",
+      "url": "https://github.com/uxillary/adamj-link/commit/7021e1f607395a366963cf07bdf7ac006039ed9c",
+      "shortRef": "7021e1f",
+      "timeAgo": "34 minutes ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "ultra-light polished landing for Adam J",
@@ -51,19 +76,19 @@
         "stars": 0
       },
       "commitMeta": {
-        "additions": 103,
-        "deletions": 45,
+        "additions": 18,
+        "deletions": 9,
         "filesChanged": 2
       }
     },
     {
-      "id": "20657086662",
+      "id": "20751973429",
       "repo": "adamj-link",
-      "title": "codex/refine-hero-section-of-adamj.link",
+      "title": "codex/update-project-tooltips-with-borders-and-thumbnails",
       "type": "Delete",
       "url": "https://github.com/uxillary/adamj-link",
       "shortRef": "",
-      "timeAgo": "13 hours ago",
+      "timeAgo": "34 minutes ago",
       "summary": "Deleted branch",
       "repoMeta": {
         "description": "ultra-light polished landing for Adam J",
@@ -72,78 +97,83 @@
       }
     },
     {
-      "id": "20644470574",
+      "id": "20751805329",
       "repo": "adamj-link",
-      "title": "codex/refine-hero-section-of-adamj.link",
-      "type": "Create",
-      "url": "https://github.com/uxillary/adamj-link",
-      "shortRef": "",
-      "timeAgo": "13 hours ago",
-      "summary": "Created branch",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/adamj-link/commit/0e52a5c7c7de3016076e5d702f3efd930e31883b",
+      "shortRef": "0e52a5c",
+      "timeAgo": "37 minutes ago",
+      "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "ultra-light polished landing for Adam J",
         "language": "HTML",
         "stars": 0
+      },
+      "commitMeta": {
+        "additions": 18,
+        "deletions": 9,
+        "filesChanged": 2
       }
     },
     {
-      "id": "20598048787",
-      "repo": "font-size-tweak",
-      "title": "codex/update-fontsize-tweak-documentation",
-      "type": "Create",
-      "url": "https://github.com/uxillary/font-size-tweak",
-      "shortRef": "",
-      "timeAgo": "2 days ago",
-      "summary": "Created branch",
+      "id": "20750896254",
+      "repo": "adamj-link",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/adamj-link/commit/302541d846492323ac8794c1493ec668063b7d88",
+      "shortRef": "302541d",
+      "timeAgo": "an hour ago",
+      "summary": "Pushed 1 commit",
       "repoMeta": {
-        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 197,
+        "deletions": 148,
+        "filesChanged": 3
+      }
+    },
+    {
+      "id": "20742973629",
+      "repo": "ClipSift",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/ClipSift/commit/ecc15033465e3fae09c08d3e23d7a12814c31100",
+      "shortRef": "ecc1503",
+      "timeAgo": "3 hours ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "google cloud x nvidia AI CCTV sifter",
         "language": "Python",
-        "stars": 5
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 389,
+        "deletions": 20,
+        "filesChanged": 7
       }
     },
     {
-      "id": "20584485858",
-      "repo": "font-size-tweak",
-      "title": "codex/update-fontsize-tweak-documentation",
-      "type": "Delete",
-      "url": "https://github.com/uxillary/font-size-tweak",
-      "shortRef": "",
-      "timeAgo": "2 days ago",
-      "summary": "Deleted branch",
+      "id": "20742229624",
+      "repo": "ClipSift",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/ClipSift/commit/6a65a126c9f1f82df2ae9e03986bc15f91dcba68",
+      "shortRef": "6a65a12",
+      "timeAgo": "3 hours ago",
+      "summary": "Pushed 1 commit",
       "repoMeta": {
-        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
+        "description": "google cloud x nvidia AI CCTV sifter",
         "language": "Python",
-        "stars": 5
-      }
-    },
-    {
-      "id": "20557017783",
-      "repo": "adamj-link",
-      "title": "codex/add-project-row-for-youtube-channel-tracker",
-      "type": "Delete",
-      "url": "https://github.com/uxillary/adamj-link",
-      "shortRef": "",
-      "timeAgo": "3 days ago",
-      "summary": "Deleted branch",
-      "repoMeta": {
-        "description": "ultra-light polished landing for Adam J",
-        "language": "HTML",
         "stars": 0
-      }
-    },
-    {
-      "id": "20518927693",
-      "repo": "adamj-link",
-      "title": "codex/update-active-focus-project-panel",
-      "type": "Create",
-      "url": "https://github.com/uxillary/adamj-link",
-      "shortRef": "",
-      "timeAgo": "3 days ago",
-      "summary": "Created branch",
-      "repoMeta": {
-        "description": "ultra-light polished landing for Adam J",
-        "language": "HTML",
-        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 466,
+        "deletions": 98,
+        "filesChanged": 7
       }
     }
   ]
