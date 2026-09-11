@@ -2023,6 +2023,7 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
   width:clamp(280px,24vw,340px);
   aspect-ratio:16/9;
   overflow:hidden;
+  padding:5px;
   border:1px solid color-mix(in oklab,var(--text) 20%,var(--surface));
   background:var(--surface);
   opacity:0;
@@ -2031,7 +2032,15 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
   transition:opacity .18s ease,transform .18s ease;
 }
 .project-preview.is-visible{ opacity:1; transform:translateY(0); }
-.project-preview img{ width:100%; height:100%; object-fit:cover; filter:brightness(.78); }
+.project-preview img{
+  display:block;
+  width:100%;
+  height:100%;
+  border:1px solid color-mix(in oklab,#55e6a5 34%,var(--border));
+  background:#050807;
+  object-fit:contain;
+  filter:brightness(.84);
+}
 .project-preview > span{
   position:absolute;
   right:.6rem;
