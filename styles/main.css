@@ -1516,7 +1516,7 @@ html, body { overflow-x: hidden; }
   position:absolute;
   z-index:0;
   inset:0;
-  background:url("/public/clipsift-youtube-thumbnail.jpg") center/cover no-repeat;
+  background:url("/public/clipsift-yt-thumb.png") center/cover no-repeat;
   filter:brightness(.42) saturate(.8);
   opacity:.2;
   transform:scale(1);
