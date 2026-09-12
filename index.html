@@ -250,7 +250,7 @@
         <div class="now-intro">
           <p class="eyebrow">Now</p>
           <h2 id="now-title">Recently shipped</h2>
-          <p class="now-lede">Latest finished build, demo and source.</p>
+          <p class="now-lede">A closer look at the latest finished build, demo and source.</p>
         </div>
 
         <article class="now-project" aria-labelledby="now-project-title">
@@ -258,7 +258,12 @@
             <div class="now-project-copy-column">
               <p class="now-project-label">Featured build</p>
               <h3 id="now-project-title">clipsift</h3>
-              <p class="now-project-copy">AI-assisted CCTV review, built around Gemma 3 and GPU inference.</p>
+              <div class="now-project-status" aria-label="Shipped September 2026">
+                <span><span class="now-status-dot" aria-hidden="true"></span>Shipped</span>
+                <time datetime="2026-09">Sep 2026</time>
+              </div>
+              <p class="now-project-copy"><strong>AI-assisted CCTV review, built around Gemma 3 and GPU inference.</strong></p>
+              <p class="now-project-detail">ClipSift scans local CCTV clips, samples representative frames and sorts them into a review queue without uploading footage.</p>
 
               <ul class="now-tags" aria-label="Project technology">
                 <li>Gemma 3</li>
@@ -267,33 +272,44 @@
                 <li>Privacy-first</li>
                 <li>NVIDIA</li>
               </ul>
-
-              <div class="now-outcome">
-                <p class="now-outcome-label">Outcome</p>
-                <h4>Submission complete.</h4>
-                <p>Walkthrough published <span aria-hidden="true">·</span> source public <span aria-hidden="true">·</span> release next</p>
-              </div>
             </div>
 
             <div class="now-media-column">
               <div class="clipsift-video">
-                <iframe src="https://www.youtube-nocookie.com/embed/yNnWoigpHvA" title="ClipSift project walkthrough" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe id="clipsift-walkthrough" src="https://www.youtube-nocookie.com/embed/yNnWoigpHvA" title="ClipSift CCTV review project walkthrough" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
               </div>
-              <p class="clipsift-video-label"><span aria-hidden="true">▶</span> Watch ClipSift working — embedded walkthrough</p>
+              <p class="clipsift-video-label">Walkthrough <span aria-hidden="true">—</span> see ClipSift in action</p>
+            </div>
+
+            <div class="now-project-actions">
+              <div class="now-primary-actions">
+                <a class="now-action-primary focus-ring" href="https://www.youtube.com/watch?v=yNnWoigpHvA" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">▶</span> Watch walkthrough</a>
+                <a class="now-action-secondary focus-ring" href="https://github.com/uxillary/clipsift" target="_blank" rel="noopener noreferrer"><svg class="now-project-link-icon" aria-hidden="true"><use href="/public/icons.svg#github"></use></svg><span>View source <span aria-hidden="true">↗</span></span></a>
+              </div>
+              <nav class="now-project-links" aria-label="More ClipSift links">
+              <a href="https://www.youtube.com/watch?v=yNnWoigpHvA" target="_blank" rel="noopener noreferrer"><span>Open on YouTube <span aria-hidden="true">↗</span></span></a>
+              <a href="https://x.com/admjski/status/2098178133048398179?s=20" target="_blank" rel="noopener noreferrer"><svg class="now-project-link-icon" aria-hidden="true"><use href="/public/icons.svg#x"></use></svg><span>X submission post <span aria-hidden="true">↗</span></span></a>
+              </nav>
             </div>
           </div>
 
-          <footer class="now-project-footer">
-            <nav class="now-project-links" aria-label="ClipSift project links">
-              <a href="https://github.com/uxillary/clipsift" target="_blank" rel="noopener noreferrer"><svg class="now-project-link-icon" aria-hidden="true"><use href="/public/icons.svg#github"></use></svg><span>GitHub source <span aria-hidden="true">↗</span></span></a>
-              <a href="https://www.youtube.com/watch?v=yNnWoigpHvA" target="_blank" rel="noopener noreferrer"><span>Open on YouTube <span aria-hidden="true">↗</span></span></a>
-              <a href="https://x.com/admjski/status/2098178133048398179?s=20" target="_blank" rel="noopener noreferrer"><svg class="now-project-link-icon" aria-hidden="true"><use href="/public/icons.svg#x"></use></svg><span>X submission post <span aria-hidden="true">↗</span></span></a>
-              <!-- Future release URL: replace this span with an anchor when the release is published. -->
-              <span class="now-release">Release coming soon <span aria-hidden="true">↓</span></span>
-            </nav>
-            <p class="now-shipped">Sep 2026 <span aria-hidden="true">·</span> Shipped ✓</p>
+          <footer class="now-info-strip">
+            <div class="now-info-item">
+              <p class="now-info-label">Outcome</p>
+              <h4>Submission complete.</h4>
+              <p>Walkthrough published <span aria-hidden="true">·</span> source public <span aria-hidden="true">·</span> release next</p>
+            </div>
+            <div class="now-info-item">
+              <p class="now-info-label">What’s next</p>
+              <h4>Refining and preparing for release.</h4>
+              <p>More features, testing and documentation.</p>
+            </div>
+            <div class="now-info-item now-projects-item">
+              <p class="now-info-label">View all projects</p>
+              <a class="now-projects-link focus-ring" href="/projects">View all projects <span aria-hidden="true">→</span></a>
+              <p>Explore more things I’ve built and what’s in progress.</p>
+            </div>
           </footer>
-          <a class="now-all-projects focus-ring" href="/projects">View all projects →</a>
         </article>
       </div>
     </section>
