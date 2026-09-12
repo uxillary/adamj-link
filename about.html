@@ -3,96 +3,100 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About — Adam J</title>
-  <meta name="description" content="About Adam Johnston and what adamj.link contains." />
+  <title>About Adam J | adamj.link</title>
+  <meta name="description" content="Meet Adam Johnston, the creative digital developer behind adamj.link, and find his verified profiles and current areas of work." />
   <meta name="robots" content="index,follow" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta http-equiv="content-language" content="en-GB" />
   <link rel="canonical" href="https://adamj.link/about.html" />
-  <meta property="og:title" content="About — Adam J" />
-  <meta property="og:description" content="About Adam Johnston, creative digital developer based in Fife, Scotland, UK." />
+  <meta property="og:title" content="About Adam J | adamj.link" />
+  <meta property="og:description" content="Meet Adam Johnston, the creative digital developer behind adamj.link, and find his verified profiles and current areas of work." />
   <meta property="og:image" content="https://adamj.link/public/og.jpg" />
   <meta property="og:type" content="profile" />
   <meta property="og:url" content="https://adamj.link/about.html" />
+  <meta property="og:site_name" content="adamj.link" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="About — Adam J" />
-  <meta name="twitter:description" content="About Adam Johnston, creative digital developer based in Fife, Scotland, UK." />
+  <meta name="twitter:title" content="About Adam J | adamj.link" />
+  <meta name="twitter:description" content="Meet Adam Johnston, the creative digital developer behind adamj.link, and find his verified profiles and current areas of work." />
   <meta name="twitter:image" content="https://adamj.link/public/og.jpg" />
-
   <link rel="shortcut icon" href="/public/favicon.ico" sizes="any" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/favicon/apple-icon-180x180.png" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="/scripts/theme.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="/scripts/tailwind-config.js"></script>
-  <link rel="stylesheet" href="/styles/main.css?v=0f61b39">
+  <link rel="stylesheet" href="/styles/main.css?v=secondary-shell" />
+  <script type="application/ld+json">{
+    "@context":"https://schema.org", "@type":"AboutPage", "name":"About Adam J",
+    "url":"https://adamj.link/about.html", "isPartOf":{"@type":"WebSite","name":"adamj.link","url":"https://adamj.link/"},
+    "about":{"@type":"Person","name":"Adam Johnston","url":"https://adamj.link/","jobTitle":"Creative Digital Developer"}
+  }</script>
 </head>
-<body class="selection:bg-brand/30 selection:text-white">
+<body class="secondary-page selection:bg-brand/30 selection:text-white">
   <a href="#main" class="skip">Skip to content</a>
-
   <header class="relative sticky top-0 z-30 backdrop-blur-md bg-black/40 dark:bg-black/40 border-b border-zinc-800/60">
     <div class="grid-bg absolute inset-0 pointer-events-none" id="bgGrid"></div>
     <div class="max-w-6xl mx-auto px-7 py-4 sm:py-5 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3 font-semibold tracking-[-0.01em] text-lg">
-        <img src="/public/AJ-inverted.png" alt="Adam J logo" class="h-8 w-8" />
+      <a href="/" class="flex items-center gap-3 font-semibold tracking-[-0.01em] text-lg focus-ring" aria-label="adamj.link home">
+        <img src="/public/AJ-inverted.png" alt="" class="h-8 w-8" />
         <span class="hidden sm:inline"><span class="text-zinc-500">//</span> <span class="text-zinc-200">Adam</span><span class="text-brand">J</span></span>
       </a>
       <nav class="flex items-center gap-6" aria-label="Primary">
-        <a href="/" class="group relative text-sm uppercase tracking-wide text-zinc-400 hover:text-white transition-colors duration-200 focus-ring">Home<span class="absolute left-0 -bottom-1 h-px w-0 bg-brand transition-[width] duration-200 ease-out group-hover:w-full"></span></a>
-        <a href="https://ajstudios.dev" class="hidden sm:inline group relative text-sm uppercase tracking-wide text-zinc-400 hover:text-white transition-colors duration-200 focus-ring">Portfolio<span class="absolute left-0 -bottom-1 h-px w-0 bg-brand transition-[width] duration-200 ease-out group-hover:w-full"></span></a>
-        <a href="https://github.com/uxillary" class="hidden sm:inline group relative text-sm uppercase tracking-wide text-zinc-400 hover:text-white transition-colors duration-200 focus-ring">GitHub<span class="absolute left-0 -bottom-1 h-px w-0 bg-brand transition-[width] duration-200 ease-out group-hover:w-full"></span></a>
+        <a href="/" class="group relative text-sm uppercase tracking-wide text-zinc-200 hover:text-white transition-colors duration-200 focus-ring">adamj.link<span class="absolute left-0 -bottom-1 h-px w-full bg-brand"></span></a>
+        <a href="/#projects" class="hidden sm:inline group relative text-sm uppercase tracking-wide text-zinc-400 hover:text-white transition-colors duration-200 focus-ring">Projects<span class="absolute left-0 -bottom-1 h-px w-0 bg-brand transition-[width] duration-200 group-hover:w-full"></span></a>
+        <a href="/#writing" class="hidden sm:inline group relative text-sm uppercase tracking-wide text-zinc-400 hover:text-white transition-colors duration-200 focus-ring">Writing<span class="absolute left-0 -bottom-1 h-px w-0 bg-brand transition-[width] duration-200 group-hover:w-full"></span></a>
       </nav>
     </div>
   </header>
-
-  <main id="main" class="max-w-5xl mx-auto px-6 py-10 space-y-8">
-    <a href="/" class="inline-flex items-center gap-2 text-sm underline decoration-brand/20 underline-offset-4 hover:decoration-brand">← Back to home</a>
-
-    <section class="t-card p-5 sm:p-6">
-      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">About Adam Johnston</h1>
-      <p class="mt-3 text-zinc-300">I'm a creative digital developer focused on practical web products, polished UX, and tooling that helps people get useful results quickly.</p>
-      <p class="mt-3 text-zinc-400">adamj.link is my public hub for portfolio work, project updates, and writing. I'm based in Fife, Scotland, UK.</p>
-    </section>
-
-    <section class="t-card p-5 sm:p-6">
-      <h2 class="text-2xl font-semibold mb-3">Profiles</h2>
-      <ul class="space-y-2 text-zinc-300">
-        <li><a href="https://github.com/uxillary" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">GitHub</a></li>
-        <li><a href="https://www.youtube.com/@admjski" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">YouTube</a></li>
-        <li><a href="https://devpost.com/uxillary" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">Devpost</a></li>
-      </ul>
-    </section>
+  <main id="main" class="secondary-shell">
+    <div class="secondary-content">
+      <nav class="secondary-orientation" aria-label="Breadcrumb"><a href="/">← adamj.link</a><span class="separator" aria-hidden="true">/</span><span aria-current="page">About</span></nav>
+      <header class="secondary-heading"><p class="eyebrow">Profile / context</p><h1>About Adam Johnston</h1><p>I’m a creative digital developer based in Fife, Scotland, building useful, playful things for the internet.</p></header>
+      <article class="secondary-article">
+        <section class="secondary-section"><h2>What I do</h2><p>I work across web products, developer tools, interactive media, UX and brand systems. I care about making technically capable work feel clear, considered and genuinely useful.</p><p><strong>adamj.link is the main hub</strong> for my selected projects, current activity, writing and ways to get in touch.</p></section>
+        <section class="secondary-section"><h2>Elsewhere online</h2><p>These are the first-party profiles I use to publish code, project work and video.</p><div class="secondary-meta-links"><a href="https://github.com/uxillary">GitHub ↗</a><a href="https://www.youtube.com/@admjski">YouTube ↗</a><a href="https://devpost.com/uxillary">Devpost ↗</a></div></section>
+        <aside class="secondary-continue" aria-label="Continue exploring"><p>Continue exploring</p><a href="/">Back to adamj.link →</a></aside></article>
+    </div>
   </main>
-
-  <footer class="relative mt-20 before:content-[''] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-zinc-800/60 before:to-transparent">
-    <div class="max-w-6xl mx-auto px-6 py-8 text-sm text-zinc-500 space-y-6">
-      <nav class="flex flex-col items-center gap-3 w-max mx-auto sm:w-full sm:flex-row sm:flex-wrap sm:justify-center" aria-label="Social links">
-        <a href="mailto:hello@ajstudios.dev" class="inline-flex w-full sm:w-auto justify-center items-center gap-2 px-4 py-2 r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group">
-          <svg class="icon-line transition-transform group-hover:scale-110" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg>
-          <span>adam@ajstudios.dev</span>
-        </a>
-        <div class="flex flex-wrap justify-center gap-3">
-          <a aria-label="X (Twitter)" href="https://x.com/admjski" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group"><svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#x"></use></svg></a>
-          <a aria-label="GitHub" href="https://github.com/uxillary" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group"><svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#github"></use></svg></a>
-          <a aria-label="Devpost" href="https://devpost.com/uxillary" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group"><svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#devpost"></use></svg></a>
-          <a aria-label="YouTube" href="https://www.youtube.com/@admjski" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group"><svg class="transition-transform group-hover:scale-110" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.8 8s-.2-1.5-.8-2.2c-.8-.9-1.7-.9-2.1-1-2.9-.2-7.1-.2-7.1-.2h-.1s-4.2 0-7.1.2c-.4 0-1.3 0-2.1 1C2.4 6.5 2.2 8 2.2 8S2 9.6 2 11.1v1.7c0 1.5.2 3.1.2 3.1s.2 1.5.8 2.2c.8.9 1.8.9 2.2 1 1.6.1 6.9.2 6.9.2s4.2 0 7.1-.2c.4 0 1.3 0 2.1-1 .6-.7.8-2.2.8-2.2s.2-1.5.2-3.1v-1.7c0-1.5-.2-3.1-.2-3.1zM9.9 14.7V9.3l5.7 2.7-5.7 2.7z"/></svg></a>
-          <a aria-label="Instagram" href="https://instagram.com/admjski" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group"><svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#instagram"></use></svg></a>
+  <footer class="site-footer">
+    <div class="footer-shell">
+      <div class="footer-primary">
+        <div>
+          <p class="footer-kicker">Direct contact</p>
+          <a href="mailto:mail@adamj.link" class="footer-email focus-ring group">
+            <svg class="icon-line transition-transform group-hover:scale-110" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg><span>mail@adamj.link</span>
+          </a>
         </div>
-      </nav>
-      <div class="flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between text-sm text-zinc-700">
-        <span>© <span id="y"></span> Adam C Johnston — Fife, Scotland, UK</span>
-        <div class="flex flex-wrap gap-3 sm:gap-4">
-          <a href="/about.html" class="text-xs text-zinc-600 underline decoration-brand/10 underline-offset-4 hover:text-zinc-400 hover:decoration-brand/40">About</a>
-          <a href="/contact.html" class="text-xs text-zinc-600 underline decoration-brand/10 underline-offset-4 hover:text-zinc-400 hover:decoration-brand/40">Contact</a>
-          <a href="/privacy.html" class="text-xs text-zinc-600 underline decoration-brand/10 underline-offset-4 hover:text-zinc-400 hover:decoration-brand/40">Privacy</a>
-          <a href="/terms.html" class="text-xs text-zinc-600 underline decoration-brand/10 underline-offset-4 hover:text-zinc-400 hover:decoration-brand/40">Terms</a>
-          <a href="/site-info.html" class="text-xs text-zinc-600 underline decoration-brand/10 underline-offset-4 hover:text-zinc-400 hover:decoration-brand/40">Site Info</a>
-        </div>
+        <nav class="footer-social" aria-label="Social links">
+          <span class="footer-kicker">Social</span>
+          <div class="footer-icon-row">
+            <a aria-label="X (Twitter)" href="https://x.com/admjski" class="footer-icon-link focus-ring"><svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#x"></use></svg></a>
+            <a aria-label="GitHub" href="https://github.com/uxillary" class="footer-icon-link focus-ring"><svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#github"></use></svg></a>
+            <a aria-label="Devpost" href="https://devpost.com/uxillary" class="footer-icon-link focus-ring"><svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#devpost"></use></svg></a>
+            <a aria-label="YouTube" href="https://www.youtube.com/@admjski" class="footer-icon-link focus-ring"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.8 8s-.2-1.5-.8-2.2c-.8-.9-1.7-.9-2.1-1-2.9-.2-7.1-.2-7.1-.2h-.1s-4.2 0-7.1.2c-.4 0-1.3 0-2.1 1C2.4 6.5 2.2 8 2.2 8S2 9.6 2 11.1v1.7c0 1.5.2 3.1.2 3.1s.2 1.5.8 2.2c.8.9 1.8.9 2.2 1 1.6.1 6.9.2 6.9.2s4.2 0 7.1-.2c.4 0 1.3 0 2.1-1 .6-.7.8-2.2.8-2.2s.2-1.5.2-3.1v-1.7c0-1.5-.2-3.1-.2-3.1zM9.9 14.7V9.3l5.7 2.7-5.7 2.7z"/></svg></a>
+            <a aria-label="Instagram" href="https://instagram.com/admjski" class="footer-icon-link focus-ring"><svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#instagram"></use></svg></a>
+            <a aria-label="Facebook" href="https://facebook.com/admjski" class="footer-icon-link focus-ring"><svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#facebook"></use></svg></a>
+            <a aria-label="Buy Me A Coffee" href="https://buymeacoffee.com/admjski" class="footer-icon-link focus-ring"><svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#buymeacoffee"></use></svg></a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-secondary">
+        <a href="/" class="focus-ring">© <span id="y"></span> Adam C Johnston — Fife, Scotland, UK</a>
+        <nav class="footer-legal" aria-label="Footer links"><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/site-info.html">Site Info</a></nav>
       </div>
     </div>
   </footer>
-
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <div class="utility-controls fixed bottom-4 right-4 z-40" role="group" aria-label="Page utilities">
+    <button id="scrollTop" type="button" class="utility-control r focus-ring" aria-label="Scroll to top" title="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
+    <button id="themeToggle" type="button" class="utility-control r focus-ring" aria-label="Switch to light theme" title="Switch to light theme"><i id="themeIcon" class="fa-solid fa-moon spin" aria-hidden="true"></i></button>
+  </div>
+  <script src="/scripts/main.js"></script>
 </body>
 </html>

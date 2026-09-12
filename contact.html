@@ -3,136 +3,104 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact — Adam J</title>
-  <meta name="description" content="Contact Adam Johnston via the secure contact form on adamj.link." />
-  <meta name="robots" content="index,follow" />
+  <title>Contact | adamj.link</title>
+  <meta name="description" content="Contact Adam Johnston about projects or collaboration using the secure adamj.link contact form." />
+  <meta name="robots" content="noindex,follow" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta http-equiv="content-language" content="en-GB" />
   <link rel="canonical" href="https://adamj.link/contact.html" />
-  <meta property="og:title" content="Contact — Adam J" />
-  <meta property="og:description" content="Send a message to Adam Johnston via the contact form on adamj.link." />
+  <meta property="og:title" content="Contact | adamj.link" />
+  <meta property="og:description" content="Contact Adam Johnston about projects or collaboration using the secure adamj.link contact form." />
   <meta property="og:image" content="https://adamj.link/public/og.jpg" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://adamj.link/contact.html" />
+  <meta property="og:site_name" content="adamj.link" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Contact — Adam J" />
-  <meta name="twitter:description" content="Send a message to Adam Johnston via the contact form on adamj.link." />
+  <meta name="twitter:title" content="Contact | adamj.link" />
+  <meta name="twitter:description" content="Contact Adam Johnston about projects or collaboration using the secure adamj.link contact form." />
   <meta name="twitter:image" content="https://adamj.link/public/og.jpg" />
-
   <link rel="shortcut icon" href="/public/favicon.ico" sizes="any" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/favicon/apple-icon-180x180.png" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="/scripts/theme.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="/scripts/tailwind-config.js"></script>
-  <link rel="stylesheet" href="/styles/main.css?v=0f61b39">
+  <link rel="stylesheet" href="/styles/main.css?v=secondary-shell" />
 </head>
-<body class="selection:bg-brand/30 selection:text-white">
+<body class="secondary-page selection:bg-brand/30 selection:text-white">
   <a href="#main" class="skip">Skip to content</a>
-
   <header class="relative sticky top-0 z-30 backdrop-blur-md bg-black/40 dark:bg-black/40 border-b border-zinc-800/60">
     <div class="grid-bg absolute inset-0 pointer-events-none" id="bgGrid"></div>
     <div class="max-w-6xl mx-auto px-7 py-4 sm:py-5 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3 font-semibold tracking-[-0.01em] text-lg">
-        <img src="/public/AJ-inverted.png" alt="Adam J logo" class="h-8 w-8" />
+      <a href="/" class="flex items-center gap-3 font-semibold tracking-[-0.01em] text-lg focus-ring" aria-label="adamj.link home">
+        <img src="/public/AJ-inverted.png" alt="" class="h-8 w-8" />
         <span class="hidden sm:inline"><span class="text-zinc-500">//</span> <span class="text-zinc-200">Adam</span><span class="text-brand">J</span></span>
       </a>
       <nav class="flex items-center gap-6" aria-label="Primary">
-        <a href="/" class="group relative text-sm uppercase tracking-wide text-zinc-400 hover:text-white transition-colors duration-200 focus-ring">Home<span class="absolute left-0 -bottom-1 h-px w-0 bg-brand transition-[width] duration-200 ease-out group-hover:w-full"></span></a>
-        <a href="https://ajstudios.dev" class="hidden sm:inline group relative text-sm uppercase tracking-wide text-zinc-400 hover:text-white transition-colors duration-200 focus-ring">Portfolio<span class="absolute left-0 -bottom-1 h-px w-0 bg-brand transition-[width] duration-200 ease-out group-hover:w-full"></span></a>
-        <a href="https://github.com/uxillary" class="hidden sm:inline group relative text-sm uppercase tracking-wide text-zinc-400 hover:text-white transition-colors duration-200 focus-ring">GitHub<span class="absolute left-0 -bottom-1 h-px w-0 bg-brand transition-[width] duration-200 ease-out group-hover:w-full"></span></a>
+        <a href="/" class="group relative text-sm uppercase tracking-wide text-zinc-200 hover:text-white transition-colors duration-200 focus-ring">adamj.link<span class="absolute left-0 -bottom-1 h-px w-full bg-brand"></span></a>
+        <a href="/#projects" class="hidden sm:inline group relative text-sm uppercase tracking-wide text-zinc-400 hover:text-white transition-colors duration-200 focus-ring">Projects<span class="absolute left-0 -bottom-1 h-px w-0 bg-brand transition-[width] duration-200 group-hover:w-full"></span></a>
+        <a href="/#writing" class="hidden sm:inline group relative text-sm uppercase tracking-wide text-zinc-400 hover:text-white transition-colors duration-200 focus-ring">Writing<span class="absolute left-0 -bottom-1 h-px w-0 bg-brand transition-[width] duration-200 group-hover:w-full"></span></a>
       </nav>
     </div>
   </header>
-
-  <main id="main" class="max-w-5xl mx-auto px-6 py-10 space-y-8">
-    <a href="/" class="inline-flex items-center gap-2 text-sm underline decoration-brand/20 underline-offset-4 hover:decoration-brand">← Back to home</a>
-
-    <section class="t-card p-5 sm:p-6">
-      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Contact</h1>
-      <p class="mt-3 text-zinc-300">Use the form below to get in touch. Your message will be sent through the site contact system.</p>
-      <p class="mt-2 text-zinc-400">Email: <a href="mailto:adam@ajstudios.dev" class="underline decoration-brand/20 underline-offset-4 hover:decoration-brand">adam@ajstudios.dev</a>. Spam prevention is enabled via a lightweight human challenge.</p>
-    </section>
-
-    <section id="contact" class="section mb-20">
-      <div class="t-card p-5 sm:p-6">
-        <h2 class="font-semibold text-l mb-2 text-zinc-400">Send a message</h2>
-        <form id="contactForm" class="flex flex-col space-y-3">
-          <div>
-            <label for="cf-name" class="block text-xs text-zinc-600">Name</label>
-            <input id="cf-name" name="name" type="text" required placeholder="Name" aria-invalid="false" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70" />
-          </div>
-          <div>
-            <label for="cf-email" class="block text-xs text-zinc-600">Email</label>
-            <input id="cf-email" name="email" type="email" required placeholder="Email" aria-invalid="false" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70" />
-          </div>
-          <div>
-            <label for="cf-message" class="block text-xs text-zinc-600">Message</label>
-            <textarea id="cf-message" name="message" rows="3" required placeholder="Message" aria-invalid="false" class="w-full p-2 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70"></textarea>
-          </div>
-          <button type="button" id="humanToggle" class="self-start inline-flex items-center gap-2 text-sm text-brand hover:text-brand/80 focus-ring" aria-controls="humanChallenge" aria-expanded="false">
-            <span>Verify you’re human</span>
-          </button>
-          <div id="humanChallenge" class="t-card p-3 mb-2 border border-zinc-800/40 bg-zinc-900/20">
-            <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <div class="eyebrow">Human check</div>
-                <p id="hcStatus" class="text-sm text-zinc-400/90">Complete a quick branded challenge to enable Send.</p>
-              </div>
-              <div class="flex items-center gap-2">
-                <button id="hcRefresh" type="button" class="text-zinc-400 hover:text-brand focus-ring" aria-label="New challenge">
-                  <svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#refresh"></use></svg>
-                </button>
-              </div>
-            </div>
-            <div id="hcMount" class="mt-2"></div>
-          </div>
-          <button type="submit" class="px-4 py-2 bg-brand text-black font-semibold hover:opacity-90 transition focus-ring">Send</button>
-          <p id="cf-status" class="text-sm mt-2" aria-live="polite"></p>
-        </form>
-      </div>
-    </section>
+  <main id="main" class="secondary-shell">
+    <div class="secondary-content">
+      <nav class="secondary-orientation" aria-label="Breadcrumb"><a href="/">← adamj.link</a><span class="separator" aria-hidden="true">/</span><span aria-current="page">Contact</span></nav>
+      <header class="secondary-heading"><p class="eyebrow">Supporting page</p><h1>Contact Adam</h1><p>Send a project or collaboration enquiry. The main portfolio, work and writing all live on adamj.link. </p></header>
+      <article class="secondary-article">
+        <section class="secondary-section"><h2>Start a conversation</h2><p>For project, collaboration or general enquiries, email <a href="mailto:mail@adamj.link">mail@adamj.link</a> or use the form. You can also find the full contact experience on the <a href="/#contact">adamj.link homepage</a>.</p></section>
+        <section class="secondary-section contact-panel" aria-labelledby="message-title"><h2 id="message-title">Send a message</h2>
+          <form id="contactForm" class="flex flex-col space-y-3">
+            <div><label for="cf-name" class="block text-xs text-zinc-500 mb-1">Name</label><input id="cf-name" name="name" type="text" autocomplete="name" required placeholder="Name" aria-invalid="false" class="w-full p-3 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70" /></div>
+            <div><label for="cf-email" class="block text-xs text-zinc-500 mb-1">Email</label><input id="cf-email" name="email" type="email" autocomplete="email" required placeholder="Email" aria-invalid="false" class="w-full p-3 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70" /></div>
+            <div><label for="cf-message" class="block text-xs text-zinc-500 mb-1">Message</label><textarea id="cf-message" name="message" rows="5" required placeholder="Message" aria-invalid="false" class="w-full p-3 border border-zinc-800/60 bg-black/20 focus:ring-0 focus:border-brand/70"></textarea></div>
+            <button type="button" id="humanToggle" class="self-start text-sm text-brand focus-ring" aria-controls="humanChallenge" aria-expanded="false">Verify you’re human</button>
+            <div id="humanChallenge" class="t-card p-3 border border-zinc-800/40 bg-zinc-900/20"><div class="flex items-center justify-between gap-2"><div><div class="eyebrow">Human check</div><p id="hcStatus" class="text-sm text-zinc-400">Complete the challenge to enable Send.</p></div><button id="hcRefresh" type="button" class="text-zinc-400 hover:text-brand focus-ring" aria-label="New challenge"><svg width="16" height="16" class="icon-line"><use href="/public/icons.svg#refresh"></use></svg></button></div><div id="hcMount" class="mt-2"></div></div>
+            <button type="submit" class="contact-submit focus-ring self-start">Send</button><p id="cf-status" class="text-sm" aria-live="polite"></p>
+          </form>
+        </section>
+        <aside class="secondary-continue" aria-label="Continue exploring"><p>Primary destination</p><a href="/">Back to adamj.link →</a></aside></article>
+    </div>
   </main>
-
-  <footer class="relative mt-20 before:content-[''] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-zinc-800/60 before:to-transparent">
-    <div class="max-w-6xl mx-auto px-6 py-8 text-sm text-zinc-500 space-y-6">
-      <nav class="flex flex-col items-center gap-3 w-max mx-auto sm:w-full sm:flex-row sm:flex-wrap sm:justify-center" aria-label="Social links">
-        <a href="mailto:hello@ajstudios.dev" class="inline-flex w-full sm:w-auto justify-center items-center gap-2 px-4 py-2 r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group">
-          <svg class="icon-line transition-transform group-hover:scale-110" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg>
-          <span>adam@ajstudios.dev</span>
-        </a>
-        <div class="flex flex-wrap justify-center gap-3">
-          <a aria-label="X (Twitter)" href="https://x.com/admjski" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group"><svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#x"></use></svg></a>
-          <a aria-label="GitHub" href="https://github.com/uxillary" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group"><svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#github"></use></svg></a>
-          <a aria-label="Devpost" href="https://devpost.com/uxillary" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group"><svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#devpost"></use></svg></a>
-          <a aria-label="YouTube" href="https://www.youtube.com/@admjski" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group"><svg class="transition-transform group-hover:scale-110" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.8 8s-.2-1.5-.8-2.2c-.8-.9-1.7-.9-2.1-1-2.9-.2-7.1-.2-7.1-.2h-.1s-4.2 0-7.1.2c-.4 0-1.3 0-2.1 1C2.4 6.5 2.2 8 2.2 8S2 9.6 2 11.1v1.7c0 1.5.2 3.1.2 3.1s.2 1.5.8 2.2c.8.9 1.8.9 2.2 1 1.6.1 6.9.2 6.9.2s4.2 0 7.1-.2c.4 0 1.3 0 2.1-1 .6-.7.8-2.2.8-2.2s.2-1.5.2-3.1v-1.7c0-1.5-.2-3.1-.2-3.1zM9.9 14.7V9.3l5.7 2.7-5.7 2.7z"/></svg></a>
-          <a aria-label="Instagram" href="https://instagram.com/admjski" class="w-10 h-10 flex items-center justify-center r border border-zinc-800/60 hover:border-brand/70 hover:bg-zinc-900/30 hover:text-white transition focus-ring group"><svg class="transition-transform group-hover:scale-110" width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#instagram"></use></svg></a>
+  <footer class="site-footer">
+    <div class="footer-shell">
+      <div class="footer-primary">
+        <div>
+          <p class="footer-kicker">Direct contact</p>
+          <a href="mailto:mail@adamj.link" class="footer-email focus-ring group">
+            <svg class="icon-line transition-transform group-hover:scale-110" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg><span>mail@adamj.link</span>
+          </a>
         </div>
-      </nav>
-      <div class="flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between text-sm text-zinc-700">
-        <span>© <span id="y"></span> Adam C Johnston — Fife, Scotland, UK</span>
-        <div class="flex flex-wrap gap-3 sm:gap-4">
-          <a href="/about.html" class="text-xs text-zinc-600 underline decoration-brand/10 underline-offset-4 hover:text-zinc-400 hover:decoration-brand/40">About</a>
-          <a href="/contact.html" class="text-xs text-zinc-600 underline decoration-brand/10 underline-offset-4 hover:text-zinc-400 hover:decoration-brand/40">Contact</a>
-          <a href="/privacy.html" class="text-xs text-zinc-600 underline decoration-brand/10 underline-offset-4 hover:text-zinc-400 hover:decoration-brand/40">Privacy</a>
-          <a href="/terms.html" class="text-xs text-zinc-600 underline decoration-brand/10 underline-offset-4 hover:text-zinc-400 hover:decoration-brand/40">Terms</a>
-          <a href="/site-info.html" class="text-xs text-zinc-600 underline decoration-brand/10 underline-offset-4 hover:text-zinc-400 hover:decoration-brand/40">Site Info</a>
-        </div>
+        <nav class="footer-social" aria-label="Social links">
+          <span class="footer-kicker">Social</span>
+          <div class="footer-icon-row">
+            <a aria-label="X (Twitter)" href="https://x.com/admjski" class="footer-icon-link focus-ring"><svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#x"></use></svg></a>
+            <a aria-label="GitHub" href="https://github.com/uxillary" class="footer-icon-link focus-ring"><svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#github"></use></svg></a>
+            <a aria-label="Devpost" href="https://devpost.com/uxillary" class="footer-icon-link focus-ring"><svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#devpost"></use></svg></a>
+            <a aria-label="YouTube" href="https://www.youtube.com/@admjski" class="footer-icon-link focus-ring"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.8 8s-.2-1.5-.8-2.2c-.8-.9-1.7-.9-2.1-1-2.9-.2-7.1-.2-7.1-.2h-.1s-4.2 0-7.1.2c-.4 0-1.3 0-2.1 1C2.4 6.5 2.2 8 2.2 8S2 9.6 2 11.1v1.7c0 1.5.2 3.1.2 3.1s.2 1.5.8 2.2c.8.9 1.8.9 2.2 1 1.6.1 6.9.2 6.9.2s4.2 0 7.1-.2c.4 0 1.3 0 2.1-1 .6-.7.8-2.2.8-2.2s.2-1.5.2-3.1v-1.7c0-1.5-.2-3.1-.2-3.1zM9.9 14.7V9.3l5.7 2.7-5.7 2.7z"/></svg></a>
+            <a aria-label="Instagram" href="https://instagram.com/admjski" class="footer-icon-link focus-ring"><svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#instagram"></use></svg></a>
+            <a aria-label="Facebook" href="https://facebook.com/admjski" class="footer-icon-link focus-ring"><svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#facebook"></use></svg></a>
+            <a aria-label="Buy Me A Coffee" href="https://buymeacoffee.com/admjski" class="footer-icon-link focus-ring"><svg width="22" height="22" aria-hidden="true"><use href="/public/icons.svg#buymeacoffee"></use></svg></a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-secondary">
+        <a href="/" class="focus-ring">© <span id="y"></span> Adam C Johnston — Fife, Scotland, UK</a>
+        <nav class="footer-legal" aria-label="Footer links"><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/site-info.html">Site Info</a></nav>
       </div>
     </div>
   </footer>
-
   <div class="utility-controls fixed bottom-4 right-4 z-40" role="group" aria-label="Page utilities">
-    <button id="scrollTop" type="button" class="utility-control r focus-ring" aria-label="Scroll to top" title="Back to top">
-      <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-    </button>
-    <button id="themeToggle" type="button" class="utility-control r focus-ring" aria-label="Switch to light theme" title="Switch to light theme">
-      <i id="themeIcon" class="fa-solid fa-moon spin" aria-hidden="true"></i>
-    </button>
+    <button id="scrollTop" type="button" class="utility-control r focus-ring" aria-label="Scroll to top" title="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
+    <button id="themeToggle" type="button" class="utility-control r focus-ring" aria-label="Switch to light theme" title="Switch to light theme"><i id="themeIcon" class="fa-solid fa-moon spin" aria-hidden="true"></i></button>
   </div>
-
   <script src="/scripts/main.js"></script>
   <script src="/scripts/human-challenge.js"></script>
 </body>
