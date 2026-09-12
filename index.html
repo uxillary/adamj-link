@@ -110,9 +110,9 @@
         <span class="hidden sm:inline"><span class="text-zinc-500">//</span> <span class="text-zinc-200">Adam</span><span class="text-brand">J</span></span>
       </a>
       <nav class="flex items-center gap-6" aria-label="Primary">
-        <a href="https://ajstudios.online" class="hidden sm:inline group relative text-sm uppercase tracking-wide text-zinc-400 hover:text-white transition-colors duration-200 focus-ring">Portfolio<span class="absolute left-0 -bottom-1 h-px w-0 bg-brand transition-[width] duration-200 ease-out group-hover:w-full"></span></a>
-        <a href="https://infinite-curios.pages.dev" class="hidden sm:inline group relative text-sm uppercase tracking-wide text-zinc-400 hover:text-white transition-colors duration-200 focus-ring">Blog<span class="absolute left-0 -bottom-1 h-px w-0 bg-brand transition-[width] duration-200 ease-out group-hover:w-full"></span></a>
-        <a href="https://github.com/uxillary" class="hidden sm:inline group relative text-sm uppercase tracking-wide text-zinc-400 hover:text-white transition-colors duration-200 focus-ring">GitHub<span class="absolute left-0 -bottom-1 h-px w-0 bg-brand transition-[width] duration-200 ease-out group-hover:w-full"></span></a>
+        <a href="/projects" class="group relative text-sm uppercase tracking-wide text-zinc-200 hover:text-white transition-colors duration-200 focus-ring">Projects<span class="absolute left-0 -bottom-1 h-px w-0 bg-brand transition-[width] duration-200 ease-out group-hover:w-full"></span></a>
+        <a href="https://ajstudios.online" class="hidden sm:inline group relative text-sm uppercase tracking-wide text-zinc-400 hover:text-white transition-colors duration-200 focus-ring" target="_blank" rel="noopener noreferrer">Portfolio ↗<span class="absolute left-0 -bottom-1 h-px w-0 bg-brand transition-[width] duration-200 ease-out group-hover:w-full"></span></a>
+        <a href="#writing" class="hidden sm:inline group relative text-sm uppercase tracking-wide text-zinc-400 hover:text-white transition-colors duration-200 focus-ring">Writing<span class="absolute left-0 -bottom-1 h-px w-0 bg-brand transition-[width] duration-200 ease-out group-hover:w-full"></span></a>
       </nav>
     </div>
   </header>
@@ -133,7 +133,8 @@
             A living workspace for web projects, tools, experiments and interactive media.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
-            <a href="https://ajstudios.online" class="hero-primary-action focus-ring">View portfolio <span aria-hidden="true">↗</span></a>
+            <a href="/projects" class="hero-link hero-link-priority focus-ring">Explore projects <span aria-hidden="true">→</span></a>
+            <a href="https://ajstudios.online" class="hero-link focus-ring" target="_blank" rel="noopener noreferrer">Portfolio <span aria-hidden="true">↗</span></a>
             <a href="#contact" class="hero-link focus-ring">Get in touch</a>
           </div>
         </div>
@@ -175,6 +176,9 @@
           </dl>
         </aside>
       </div>
+      <a class="hero-scroll-cue focus-ring" href="#activity">
+        <span>Scroll to explore</span><span class="hero-scroll-arrow" aria-hidden="true">↓</span>
+      </a>
     </section>
 
     <section class="section activity-section" id="activity" aria-labelledby="activity-title">
@@ -280,144 +284,25 @@
             </div>
 
             <div class="now-media-column">
-              <a class="clipsift-preview focus-ring" href="https://www.youtube.com/watch?v=yNnWoigpHvA" target="_blank" rel="noopener noreferrer" aria-label="Watch the ClipSift project walkthrough on YouTube (opens in a new tab)">
-                <span class="clipsift-screen clipsift-screen-camera">
-                  <span class="clipsift-screen-label">Cam 01</span>
-                  <span class="camera-scene" aria-hidden="true"><i></i><i></i><i></i></span>
-                  <span class="clipsift-time">00:18:42</span>
-                </span>
-                <span class="clipsift-screen clipsift-screen-review">
-                  <span class="clipsift-screen-label">AI review</span>
-                  <span class="review-target" aria-hidden="true"></span>
-                  <span class="review-lines" aria-hidden="true"><i></i><i></i><i></i></span>
-                </span>
-                <span class="clipsift-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 7.25 17 12l-8 4.75z"/></svg></span>
-                <span class="clipsift-caption">Gemma 3 vision inference <b aria-hidden="true">→</b> candidate clips</span>
-              </a>
-              <a class="now-watch focus-ring" href="https://www.youtube.com/watch?v=yNnWoigpHvA" target="_blank" rel="noopener noreferrer">
-                <span><span aria-hidden="true">▶</span> Watch project walkthrough</span><span aria-hidden="true">↗</span>
-              </a>
+              <div class="clipsift-video">
+                <iframe src="https://www.youtube-nocookie.com/embed/yNnWoigpHvA" title="ClipSift project walkthrough" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <p class="clipsift-video-label"><span aria-hidden="true">▶</span> Watch ClipSift working — embedded walkthrough</p>
             </div>
           </div>
 
           <footer class="now-project-footer">
             <nav class="now-project-links" aria-label="ClipSift project links">
               <a href="https://github.com/uxillary/clipsift" target="_blank" rel="noopener noreferrer"><svg class="now-project-link-icon" aria-hidden="true"><use href="/public/icons.svg#github"></use></svg><span>GitHub source <span aria-hidden="true">↗</span></span></a>
+              <a href="https://www.youtube.com/watch?v=yNnWoigpHvA" target="_blank" rel="noopener noreferrer"><span>Open on YouTube <span aria-hidden="true">↗</span></span></a>
               <a href="https://x.com/admjski/status/2098178133048398179?s=20" target="_blank" rel="noopener noreferrer"><svg class="now-project-link-icon" aria-hidden="true"><use href="/public/icons.svg#x"></use></svg><span>X submission post <span aria-hidden="true">↗</span></span></a>
               <!-- Future release URL: replace this span with an anchor when the release is published. -->
               <span class="now-release">Release coming soon <span aria-hidden="true">↓</span></span>
             </nav>
             <p class="now-shipped">Sep 2026 <span aria-hidden="true">·</span> Shipped ✓</p>
           </footer>
+          <a class="now-all-projects focus-ring" href="/projects">View all projects →</a>
         </article>
-      </div>
-    </section>
-
-    <section class="section projects-section" id="projects" aria-labelledby="projects-title">
-      <div class="projects-head">
-        <div>
-          <p class="eyebrow">Projects</p>
-          <h2 id="projects-title">Selected work</h2>
-        </div>
-        <div class="projects-intro">
-          <p>Web products, creative tools, experiments and other things I've designed, built and shipped.</p>
-          <p class="projects-summary" id="projectsSummary" aria-live="polite">09 projects <span aria-hidden="true">·</span> 05 live <span aria-hidden="true">·</span> 07 categories</p>
-        </div>
-      </div>
-      <div class="projects-body">
-        <div class="project-lane">
-          <div class="project-index-head">
-            <span class="project-lane-kicker">Selected work / Project index</span>
-            <span>Web, tools, experiments + open source</span>
-          </div>
-          <div class="project-filter-bar" id="projectFilters" aria-label="Filter selected work" hidden>
-            <span class="project-filter-label" aria-hidden="true">Filter</span>
-            <div class="project-filter-scroll">
-              <button type="button" class="project-filter is-active" data-project-filter="all" aria-pressed="true">All</button>
-              <button type="button" class="project-filter" data-project-filter="web" aria-pressed="false">Web</button>
-              <button type="button" class="project-filter" data-project-filter="tools" aria-pressed="false">Tools</button>
-              <button type="button" class="project-filter" data-project-filter="ai" aria-pressed="false">AI</button>
-              <button type="button" class="project-filter" data-project-filter="audio" aria-pressed="false">Audio</button>
-              <button type="button" class="project-filter" data-project-filter="games" aria-pressed="false">Games</button>
-              <button type="button" class="project-filter" data-project-filter="experiments" aria-pressed="false">Experiments</button>
-            </div>
-          </div>
-          <div class="project-index-wrap">
-          <ol class="project-index" aria-label="Selected projects">
-            <li data-project-tags="web tools" data-project-status="live"><a href="https://infinite-curios.pages.dev" data-project-preview="/public/404cache-page.png" data-project-preview-label="Infinite Curios screenshot" class="project-list-item">
-              <span class="project-number">01</span>
-              <div class="project-list-copy"><span class="project-list-status">Web / Content / Tools <em>Selected</em></span><h3>404cache</h3><p>Publishing platform and collection of useful web tools.</p></div>
-              <span class="project-tags">Web <span>·</span> Content <span>·</span> Tools</span>
-              <span class="project-destination is-live"><span><i aria-hidden="true"></i>Live</span><span class="project-arrow" aria-hidden="true">↗</span></span>
-            </a></li>
-            <li data-project-tags="web tools" data-project-status="live"><a href="https://hexlabs.pages.dev" data-project-preview="/public/hex-labs-thumb.png" data-project-preview-label="Hex Labs screenshot" class="project-list-item">
-              <span class="project-number">02</span>
-              <div class="project-list-copy"><span class="project-list-status">Web app / Automotive <em>Selected</em></span><h3>Hex Labs</h3><p>Modern browser-based ECU tooling and learning platform.</p></div>
-              <span class="project-tags">Web app <span>·</span> Automotive <span>·</span> Tools</span>
-              <span class="project-destination is-live"><span><i aria-hidden="true"></i>Live</span><span class="project-arrow" aria-hidden="true">↗</span></span>
-            </a></li>
-            <li data-project-tags="tools ai" data-project-status="github"><a href="https://github.com/uxillary/codex-assist" data-project-preview="/public/codex-assist.png" data-project-preview-label="Codex Assist preview" class="project-list-item">
-              <span class="project-number">03</span>
-              <div class="project-list-copy"><span class="project-list-status">Tool / Windows</span><h3>Codex Assist</h3><p>Local AI coding assistant with smart prompt and token management.</p></div>
-              <span class="project-tags">AI <span>·</span> Python <span>·</span> Windows</span>
-              <span class="project-destination"><span>GitHub</span><span class="project-arrow" aria-hidden="true">↗</span></span>
-            </a></li>
-            <li data-project-tags="ai audio experiments" data-project-status="github"><a href="https://github.com/uxillary/synthtax" data-project-preview="/public/synthtax-preview.png" data-project-preview-label="Synthtax preview" class="project-list-item">
-              <span class="project-number">04</span>
-              <div class="project-list-copy"><span class="project-list-status">Experiment / Music</span><h3>Synthtax</h3><p>Experimental code-first system for making music and designing sound.</p></div>
-              <span class="project-tags">Audio <span>·</span> Python <span>·</span> AI</span>
-              <span class="project-destination"><span>GitHub</span><span class="project-arrow" aria-hidden="true">↗</span></span>
-            </a></li>
-            <li data-project-tags="web games" data-project-status="live"><a href="https://404cache.pages.dev" data-project-preview="/public/404cache-preview.png" data-project-preview-label="Virtual Stock Market screenshot" class="project-list-item">
-              <span class="project-number">05</span>
-              <div class="project-list-copy"><span class="project-list-status">Game / Web</span><h3>Virtual Stock Market</h3><p>Playful stock exchange simulation with trading, booster packs and minigames.</p></div>
-              <span class="project-tags">Game <span>·</span> Web <span>·</span> Interactive</span>
-              <span class="project-destination is-live"><span><i aria-hidden="true"></i>Live</span><span class="project-arrow" aria-hidden="true">↗</span></span>
-            </a></li>
-            <li data-project-tags="web tools" data-project-status="live"><a href="https://uxillary.github.io/automated/" data-project-preview="/public/youtube-tracker.png" data-project-preview-label="YouTube Channel Tracker screenshot" class="project-list-item">
-              <span class="project-number">06</span>
-              <div class="project-list-copy"><span class="project-list-status">Web app / Analytics</span><h3>YouTube Channel Tracker</h3><p>Tracks performance and growth trends across multiple YouTube channels.</p></div>
-              <span class="project-tags">Web app <span>·</span> Analytics <span>·</span> YouTube</span>
-              <span class="project-destination is-live"><span><i aria-hidden="true"></i>Live</span><span class="project-arrow" aria-hidden="true">↗</span></span>
-            </a></li>
-            <li data-project-tags="tools" data-project-status="github"><a href="https://uxillary.github.io/maintenance-goblin/" data-project-preview="/public/goblin.png" data-project-preview-label="Maintenance Goblin screenshot" class="project-list-item">
-              <span class="project-number">07</span>
-              <div class="project-list-copy"><span class="project-list-status">Tool / Windows</span><h3>Maintenance Goblin</h3><p>One-click Windows maintenance, diagnostics and repair workflows.</p></div>
-              <span class="project-tags">Tool <span>·</span> Python <span>·</span> Windows</span>
-              <span class="project-destination is-live"><span>Live</span><span class="project-arrow" aria-hidden="true">↗</span></span>
-            </a></li>
-            <li data-project-tags="tools" data-project-status="live"><a href="https://uxillary.github.io/font-size-tweak/" data-project-preview="/public/font-size.png" data-project-preview-label="Font Size Tweak screenshot" class="project-list-item">
-              <span class="project-number">08</span>
-              <div class="project-list-copy"><span class="project-list-status">Utility / Windows</span><h3>Font Size Tweak</h3><p>Small Windows utility for clearer, more readable system text.</p></div>
-              <span class="project-tags">Utility <span>·</span> Accessibility <span>·</span> Windows</span>
-              <span class="project-destination is-live"><span><i aria-hidden="true"></i>Live</span><span class="project-arrow" aria-hidden="true">↗</span></span>
-            </a></li>
-            <li data-project-tags="ai experiments" data-project-status="experiment"><a href="https://github.com/uxillary/greg-ai" class="project-list-item">
-              <span class="project-number">09</span>
-              <div class="project-list-copy"><span class="project-list-status">Experiment / AI</span><h3>Gregg AI</h3><p>Character-driven voice AI experiment combining language and speech synthesis.</p></div>
-              <span class="project-tags">AI <span>·</span> Python <span>·</span> Voice</span>
-              <span class="project-destination"><span>Experiment</span><span class="project-arrow" aria-hidden="true">↗</span></span>
-            </a></li>
-          </ol>
-          <aside class="project-preview" id="projectPreview" aria-hidden="true">
-            <img alt="" decoding="async" />
-            <span></span>
-          </aside>
-          </div>
-        </div>
-
-        <div class="project-lane project-lane-upcoming">
-          <div class="project-lane-head">
-            <div>
-              <span class="project-lane-kicker">Queue</span>
-              <h3>Upcoming projects</h3>
-            </div>
-            <span class="project-queue-count" id="projectQueueCount"></span>
-          </div>
-          <p class="project-lane-copy">Ideas moving through the build queue — from early experiments to things approaching release.</p>
-          <ol class="build-queue" id="buildQueue" aria-label="Upcoming project build queue"></ol>
-        </div>
-
       </div>
     </section>
 
