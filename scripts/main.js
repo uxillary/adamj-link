@@ -266,7 +266,7 @@ const UPCOMING_PROJECTS = [
     const segments = stages.map((stage, stageIndex) =>
       `<span class="build-stage-segment${stageIndex <= currentStage ? ' is-reached' : ''}${stageIndex === currentStage ? ' is-current' : ''}" aria-hidden="true"></span>`
     ).join('');
-    return `<li class="build-row r" tabindex="0">
+    return `<li class="build-row r${project.status === 'ACTIVE' ? ' is-active' : ''}" tabindex="0">
       <span class="build-queue-number" aria-label="Queue position ${index + 1}">${String(index + 1).padStart(2, '0')}</span>
       <div class="build-project">
         <div class="build-project-meta">
