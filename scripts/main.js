@@ -254,6 +254,56 @@ const UPCOMING_PROJECTS = [
   { title: 'GitHub XP Tracker', type: 'DEV TOOL', status: 'EXPERIMENT', stage: 'IDEA', description: 'Gamified developer dashboard that turns GitHub activity, commits and contributions into XP, levels and progression.' }
 ];
 
+// Projects use local images first, then adopt automated captures only after they load.
+// Keeping the remote host and paths here avoids coupling the page markup to storage details.
+(function enhanceProjectPreviews(){
+  const images = Array.from(document.querySelectorAll('[data-remote-preview]'));
+  if(!images.length) return;
+
+  const remoteRoot = 'https://raw.githubusercontent.com/uxillary/automated/main/generated/project-previews';
+  const manifestUrl = `${remoteRoot}/manifest.json`;
+  const capturedAt = (manifest, slug) => {
+    const projects = manifest?.projects || manifest?.previews || manifest;
+    const entry = Array.isArray(projects)
+      ? projects.find(item => item?.slug === slug)
+      : projects?.[slug];
+    return entry?.capturedAt || entry?.generatedAt || manifest?.generatedAt || '';
+  };
+  const adoptRemote = (image, version = '') => {
+    const slug = image.dataset.remotePreview;
+    const query = version ? `?v=${encodeURIComponent(version)}` : '';
+    const remoteUrl = `${remoteRoot}/${slug}.webp${query}`;
+    const candidate = new Image();
+    candidate.onload = () => {
+      image.onerror = () => {
+        image.onerror = null;
+        image.src = image.dataset.localFallback;
+      };
+      image.src = remoteUrl;
+    };
+    candidate.src = remoteUrl;
+  };
+
+  fetch(manifestUrl)
+    .then(response => response.ok ? response.json() : Promise.reject())
+    .catch(() => null)
+    .then(manifest => {
+      const load = image => adoptRemote(image, manifest ? capturedAt(manifest, image.dataset.remotePreview) : '');
+      if(!('IntersectionObserver' in window)){
+        images.forEach(load);
+        return;
+      }
+      const observer = new IntersectionObserver((entries, instance) => {
+        entries.forEach(entry => {
+          if(!entry.isIntersecting) return;
+          load(entry.target);
+          instance.unobserve(entry.target);
+        });
+      }, { rootMargin:'300px 0px' });
+      images.forEach(image => observer.observe(image));
+    });
+})();
+
 (function renderBuildQueue(){
   const queue = document.getElementById('buildQueue');
   if(!queue) return;

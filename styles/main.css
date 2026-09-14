@@ -3122,3 +3122,52 @@ a{ transition:color .18s ease,border-color .18s ease,background-color .18s ease,
   .projects-page .project-card,.projects-page .project-card-media img,.projects-page .project-card-link span,.projects-page .project-card .project-number,.projects-page .archive-row,.projects-page .archive-row::before,.projects-page .archive-copy strong,.projects-page .archive-row .project-number,.projects-page .archive-row .project-arrow{transition:none}
   .projects-page .project-card:hover .project-card-link span,.projects-page .archive-row:hover .project-arrow,.projects-page .archive-row:focus-visible .project-arrow{transform:none}
 }
+
+/* Projects preview system: one restrained viewport for web, app and cover media. */
+.projects-page .project-preview{
+  position:relative;display:grid;grid-template-rows:2rem minmax(0,1fr);aspect-ratio:16/10;
+  overflow:hidden;border-bottom:1px solid var(--border);background:#050807;color:inherit;text-decoration:none;
+  outline-offset:-3px;transition:border-color .2s ease;
+}
+.projects-page .project-preview-rail{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0 .75rem;
+  border-bottom:1px solid var(--border);color:var(--text-soft);background:color-mix(in oklab,var(--surface) 96%,#55e6a5 4%);
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.53rem;letter-spacing:.13em;text-transform:uppercase;
+}
+.projects-page .project-preview-rail span:first-child{color:color-mix(in oklab,#55e6a5 72%,var(--text-soft))}
+.projects-page .project-preview-viewport{display:block;min-width:0;min-height:0;overflow:hidden;background:#070a09}
+.projects-page .project-preview-image{display:block;width:100%;height:100%;object-fit:cover;object-position:top center;filter:saturate(.86) brightness(.86);transition:filter .22s ease,transform .22s ease}
+.projects-page .project-card:hover .project-preview,.projects-page .project-card:focus-within .project-preview,.projects-page .archive-row:hover .project-preview,.projects-page .archive-row:focus-visible .project-preview{border-color:color-mix(in oklab,#55e6a5 48%,var(--border))}
+.projects-page .project-card:hover .project-preview-image,.projects-page .project-card:focus-within .project-preview-image,.projects-page .archive-row:hover .project-preview-image,.projects-page .archive-row:focus-visible .project-preview-image{filter:saturate(1) brightness(1);transform:scale(1.012)}
+.projects-page .project-preview-fallback{display:grid;grid-template:1fr/1fr;place-items:center;background-color:#07100c;background-image:linear-gradient(rgba(85,230,165,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(85,230,165,.055) 1px,transparent 1px);background-size:14px 14px}
+.projects-page .project-preview-fallback::after{content:"VOICE / LLM";position:absolute;right:.4rem;bottom:.3rem;color:var(--text-soft);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.43rem;letter-spacing:.1em}
+.projects-page .project-cover-icon,.projects-page .project-cover-name{grid-area:1/1;color:#55e6a5}
+.projects-page .project-cover-icon{font-size:1rem;opacity:.28}.projects-page .project-cover-name{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.7rem;letter-spacing:.14em}
+.projects-page .archive-row{grid-template-columns:4.5rem 8rem minmax(240px,1fr) minmax(125px,.36fr) 4.5rem 1.5rem}
+.projects-page .archive-preview{grid-template-rows:1fr;width:8rem;border:1px solid var(--border)}
+
+@media(max-width:900px){
+  .projects-page .archive-row{grid-template-columns:3.8rem 7rem minmax(0,1fr) auto 1.25rem}
+  .projects-page .archive-preview{width:7rem;grid-row:1/3}
+  .projects-page .archive-copy{grid-column:3}
+  .projects-page .archive-row .project-card-meta{grid-column:3}
+  .projects-page .archive-row .project-status{grid-column:4;grid-row:1/3}
+  .projects-page .archive-row .project-arrow{grid-column:5;grid-row:1/3}
+}
+@media(max-width:767px){
+  .projects-page .archive-row{grid-template-columns:3.15rem 5.75rem minmax(0,1fr) 1rem;gap:.65rem}
+  .projects-page .archive-preview{width:5.75rem;grid-column:2;grid-row:1/3}
+  .projects-page .archive-copy{grid-column:3}
+  .projects-page .archive-row .project-card-meta{grid-column:3}
+  .projects-page .archive-row .project-status{grid-column:3;grid-row:auto}
+  .projects-page .archive-row .project-arrow{grid-column:4;grid-row:1/4}
+}
+@media(max-width:430px){
+  .projects-page .archive-row{grid-template-columns:2.85rem 4.8rem minmax(0,1fr) .8rem;gap:.5rem}
+  .projects-page .archive-preview{width:4.8rem}
+  .projects-page .archive-copy small{font-size:.7rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .projects-page .project-preview,.projects-page .project-preview-image{transition:none}
+  .projects-page .project-card:hover .project-preview-image,.projects-page .project-card:focus-within .project-preview-image,.projects-page .archive-row:hover .project-preview-image,.projects-page .archive-row:focus-visible .project-preview-image{transform:none}
+}
