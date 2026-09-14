@@ -1698,6 +1698,42 @@ html:not(.dark) .secondary-continue a{ color:#087a50; }
 
 .clipsift-video-label span{ color:#55e6a5; }
 
+.clipsift-release{
+  margin-top:1rem;
+  padding-top:.9rem;
+  border-top:1px solid color-mix(in oklab,var(--border) 72%,#55e6a5 28%);
+}
+
+.clipsift-release-label{
+  color:#55e6a5;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:.58rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.clipsift-release > p:not(.clipsift-release-label){
+  margin-top:.42rem;
+  color:var(--text-soft);
+  font-size:.76rem;
+  line-height:1.5;
+}
+
+.clipsift-release-link{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  margin-top:.48rem;
+  color:var(--text-strong);
+  font-size:.78rem;
+  font-weight:650;
+  text-decoration:none;
+}
+
+.clipsift-release-link span{ color:#55e6a5; }
+.clipsift-release-link:hover{ color:#55e6a5; }
+
 .now-project-actions{
   grid-area:actions;
   align-self:start;
