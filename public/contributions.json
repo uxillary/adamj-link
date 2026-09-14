@@ -1,48 +1,13 @@
 {
-  "generatedAt": "2026-09-14T03:22:17.787Z",
+  "generatedAt": "2026-09-14T17:41:15.405Z",
   "items": [
     {
-      "id": "21043866439",
-      "repo": "adamj-link",
-      "title": "codex/improve-visual-treatment-of-projects-page",
-      "type": "Create",
-      "url": "https://github.com/uxillary/adamj-link",
-      "shortRef": "",
-      "timeAgo": "19 minutes ago",
-      "summary": "Created branch",
-      "repoMeta": {
-        "description": "ultra-light polished landing for Adam J",
-        "language": "HTML",
-        "stars": 0
-      }
-    },
-    {
-      "id": "21043863442",
+      "id": "21081774277",
       "repo": "adamj-link",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/adamj-link/commit/80f9182f62443ecf515361f7af1c2a2b2efc6652",
-      "shortRef": "80f9182",
-      "timeAgo": "19 minutes ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "ultra-light polished landing for Adam J",
-        "language": "HTML",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 110,
-        "deletions": 11,
-        "filesChanged": 4
-      }
-    },
-    {
-      "id": "21043808576",
-      "repo": "adamj-link",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/adamj-link/commit/5da1c8d15f9ab67184be0af571f635551ac8ecb8",
-      "shortRef": "5da1c8d",
+      "url": "https://github.com/uxillary/adamj-link/commit/3878d0849543e7c5d9a2d85dfdb9378aa8cd1493",
+      "shortRef": "3878d08",
       "timeAgo": "2 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
@@ -51,19 +16,19 @@
         "stars": 0
       },
       "commitMeta": {
-        "additions": 1,
-        "deletions": 1,
+        "additions": 4,
+        "deletions": 4,
         "filesChanged": 1
       }
     },
     {
-      "id": "21043271230",
+      "id": "21073072913",
       "repo": "adamj-link",
-      "title": "codex/update-clipsift-recently-shipped-section",
+      "title": "codex/polish-spacing-and-alignment-for-clipsift-section",
       "type": "Delete",
       "url": "https://github.com/uxillary/adamj-link",
       "shortRef": "",
-      "timeAgo": "27 minutes ago",
+      "timeAgo": "2 days ago",
       "summary": "Deleted branch",
       "repoMeta": {
         "description": "ultra-light polished landing for Adam J",
@@ -72,13 +37,13 @@
       }
     },
     {
-      "id": "21043269495",
+      "id": "21073070884",
       "repo": "adamj-link",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/adamj-link/commit/82f2a8688bb05069b910d35c53eb1ab1ab3ec634",
-      "shortRef": "82f2a86",
-      "timeAgo": "27 minutes ago",
+      "url": "https://github.com/uxillary/adamj-link/commit/5e78a67bac7154a4538e082e9c2cd592a8e0d771",
+      "shortRef": "5e78a67",
+      "timeAgo": "2 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "ultra-light polished landing for Adam J",
@@ -86,79 +51,124 @@
         "stars": 0
       },
       "commitMeta": {
-        "additions": 43,
-        "deletions": 2,
+        "additions": 16,
+        "deletions": 14,
         "filesChanged": 2
       }
     },
     {
-      "id": "21043264185",
-      "repo": "automated",
-      "title": "codex/add-automated-project-preview-screenshot-system",
-      "type": "Delete",
-      "url": "https://github.com/uxillary/automated",
-      "shortRef": "",
-      "timeAgo": "27 minutes ago",
-      "summary": "Deleted branch",
-      "repoMeta": {
-        "description": "for all automated tasks",
-        "language": "JavaScript",
-        "stars": 0
-      }
-    },
-    {
-      "id": "21043133489",
-      "repo": "automated",
+      "id": "21061528643",
+      "repo": "AIIDE",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/automated/commit/a4e780d817681008a229d88a8b558872267598be",
-      "shortRef": "a4e780d",
-      "timeAgo": "29 minutes ago",
+      "url": "https://github.com/uxillary/AIIDE/commit/7003e229f2f22faed137a8520a2d090d0d2e4b99",
+      "shortRef": "7003e22",
+      "timeAgo": "2 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
-        "description": "for all automated tasks",
-        "language": "JavaScript",
+        "description": "AIIDE - An AI-powered web application designed to enhance developer productivity through intelligent code completion, error detection, and context-aware suggestions. Leveraging the power of large language models, this IDE aims to create an integrated environment that adapts to the user's coding style and project requirements.",
+        "language": "Rust",
         "stars": 0
       },
       "commitMeta": {
-        "additions": 967,
-        "deletions": 0,
-        "filesChanged": 9
+        "additions": 793,
+        "deletions": 39,
+        "filesChanged": 4
       }
     },
     {
-      "id": "21043132364",
-      "repo": "automated",
-      "title": "codex/add-automated-project-preview-screenshot-system",
+      "id": "21052985361",
+      "repo": "AIIDE",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/AIIDE/commit/bb388928c2eec0867a60536680c7862a4dc96799",
+      "shortRef": "bb38892",
+      "timeAgo": "12 hours ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "AIIDE - An AI-powered web application designed to enhance developer productivity through intelligent code completion, error detection, and context-aware suggestions. Leveraging the power of large language models, this IDE aims to create an integrated environment that adapts to the user's coding style and project requirements.",
+        "language": "Rust",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 273,
+        "deletions": 5,
+        "filesChanged": 11
+      }
+    },
+    {
+      "id": "21051801927",
+      "repo": "aiide-sandbox",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/aiide-sandbox/commit/8b9ead58f32089f7f16b70f5888ec837d49142e8",
+      "shortRef": "8b9ead5",
+      "timeAgo": "13 hours ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "experimental website for AIIDE to work on using ollama model",
+        "language": "CSS",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 1058,
+        "deletions": 0,
+        "filesChanged": 3
+      }
+    },
+    {
+      "id": "21051289613",
+      "repo": "clipsift",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/clipsift/commit/6c40b19c8879513722a83a2b485b6a4d70481077",
+      "shortRef": "6c40b19",
+      "timeAgo": "3 days ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "google cloud x nvidia AI CCTV sifter",
+        "language": "Python",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 17,
+        "deletions": 0,
+        "filesChanged": 1
+      }
+    },
+    {
+      "id": "21051287530",
+      "repo": "aiide-sandbox",
+      "title": "main",
       "type": "Create",
-      "url": "https://github.com/uxillary/automated",
+      "url": "https://github.com/uxillary/aiide-sandbox",
       "shortRef": "",
-      "timeAgo": "29 minutes ago",
+      "timeAgo": "13 hours ago",
       "summary": "Created branch",
       "repoMeta": {
-        "description": "for all automated tasks",
-        "language": "JavaScript",
+        "description": "experimental website for AIIDE to work on using ollama model",
+        "language": "CSS",
         "stars": 0
       }
     },
     {
-      "id": "21043047799",
-      "repo": "adamj-link",
+      "id": "21050718427",
+      "repo": "AIIDE",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/adamj-link/commit/d7adfb7aca741d375c2cdf3ab0b3f30b0eecb349",
-      "shortRef": "d7adfb7",
-      "timeAgo": "31 minutes ago",
+      "url": "https://github.com/uxillary/AIIDE/commit/eefb52c1891c944e0f3ed60defd4b3ea829df8d4",
+      "shortRef": "eefb52c",
+      "timeAgo": "13 hours ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
-        "description": "ultra-light polished landing for Adam J",
-        "language": "HTML",
+        "description": "AIIDE - An AI-powered web application designed to enhance developer productivity through intelligent code completion, error detection, and context-aware suggestions. Leveraging the power of large language models, this IDE aims to create an integrated environment that adapts to the user's coding style and project requirements.",
+        "language": "Rust",
         "stars": 0
       },
       "commitMeta": {
-        "additions": 43,
-        "deletions": 2,
-        "filesChanged": 2
+        "additions": 0,
+        "deletions": 0,
+        "filesChanged": 1
       }
     }
   ]
