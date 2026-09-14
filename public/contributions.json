@@ -1,13 +1,48 @@
 {
-  "generatedAt": "2026-09-13T15:36:36.625Z",
+  "generatedAt": "2026-09-14T03:22:17.787Z",
   "items": [
     {
-      "id": "20998663561",
+      "id": "21043866439",
+      "repo": "adamj-link",
+      "title": "codex/improve-visual-treatment-of-projects-page",
+      "type": "Create",
+      "url": "https://github.com/uxillary/adamj-link",
+      "shortRef": "",
+      "timeAgo": "19 minutes ago",
+      "summary": "Created branch",
+      "repoMeta": {
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
+        "stars": 0
+      }
+    },
+    {
+      "id": "21043863442",
       "repo": "adamj-link",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/adamj-link/commit/0774c19a8d60cc4f4d345ec0a50428ce1b74edc8",
-      "shortRef": "0774c19",
+      "url": "https://github.com/uxillary/adamj-link/commit/80f9182f62443ecf515361f7af1c2a2b2efc6652",
+      "shortRef": "80f9182",
+      "timeAgo": "19 minutes ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 110,
+        "deletions": 11,
+        "filesChanged": 4
+      }
+    },
+    {
+      "id": "21043808576",
+      "repo": "adamj-link",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/adamj-link/commit/5da1c8d15f9ab67184be0af571f635551ac8ecb8",
+      "shortRef": "5da1c8d",
       "timeAgo": "2 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
@@ -16,84 +51,104 @@
         "stars": 0
       },
       "commitMeta": {
-        "additions": 413,
-        "deletions": 294,
-        "filesChanged": 3
+        "additions": 1,
+        "deletions": 1,
+        "filesChanged": 1
       }
     },
     {
-      "id": "20998512018",
-      "repo": "clipsift",
-      "title": "codex/implement-clipsift-github-pages-site",
+      "id": "21043271230",
+      "repo": "adamj-link",
+      "title": "codex/update-clipsift-recently-shipped-section",
       "type": "Delete",
-      "url": "https://github.com/uxillary/clipsift",
+      "url": "https://github.com/uxillary/adamj-link",
       "shortRef": "",
-      "timeAgo": "35 minutes ago",
+      "timeAgo": "27 minutes ago",
       "summary": "Deleted branch",
       "repoMeta": {
-        "description": "google cloud x nvidia AI CCTV sifter",
-        "language": "Python",
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
         "stars": 0
       }
     },
     {
-      "id": "20998510364",
-      "repo": "clipsift",
+      "id": "21043269495",
+      "repo": "adamj-link",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/clipsift/commit/0736630578d682cf54979b9440425c3e981aa139",
-      "shortRef": "0736630",
-      "timeAgo": "35 minutes ago",
+      "url": "https://github.com/uxillary/adamj-link/commit/82f2a8688bb05069b910d35c53eb1ab1ab3ec634",
+      "shortRef": "82f2a86",
+      "timeAgo": "27 minutes ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
-        "description": "google cloud x nvidia AI CCTV sifter",
-        "language": "Python",
+        "description": "ultra-light polished landing for Adam J",
+        "language": "HTML",
         "stars": 0
       },
       "commitMeta": {
-        "additions": 121,
+        "additions": 43,
+        "deletions": 2,
+        "filesChanged": 2
+      }
+    },
+    {
+      "id": "21043264185",
+      "repo": "automated",
+      "title": "codex/add-automated-project-preview-screenshot-system",
+      "type": "Delete",
+      "url": "https://github.com/uxillary/automated",
+      "shortRef": "",
+      "timeAgo": "27 minutes ago",
+      "summary": "Deleted branch",
+      "repoMeta": {
+        "description": "for all automated tasks",
+        "language": "JavaScript",
+        "stars": 0
+      }
+    },
+    {
+      "id": "21043133489",
+      "repo": "automated",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/automated/commit/a4e780d817681008a229d88a8b558872267598be",
+      "shortRef": "a4e780d",
+      "timeAgo": "29 minutes ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "for all automated tasks",
+        "language": "JavaScript",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 967,
         "deletions": 0,
-        "filesChanged": 7
+        "filesChanged": 9
       }
     },
     {
-      "id": "20998495501",
-      "repo": "clipsift",
-      "title": "codex/implement-clipsift-github-pages-site",
+      "id": "21043132364",
+      "repo": "automated",
+      "title": "codex/add-automated-project-preview-screenshot-system",
       "type": "Create",
-      "url": "https://github.com/uxillary/clipsift",
+      "url": "https://github.com/uxillary/automated",
       "shortRef": "",
-      "timeAgo": "35 minutes ago",
+      "timeAgo": "29 minutes ago",
       "summary": "Created branch",
       "repoMeta": {
-        "description": "google cloud x nvidia AI CCTV sifter",
-        "language": "Python",
+        "description": "for all automated tasks",
+        "language": "JavaScript",
         "stars": 0
       }
     },
     {
-      "id": "20998190524",
-      "repo": "adamj-link",
-      "title": "codex/refactor-projects-page-layout-and-styles",
-      "type": "Delete",
-      "url": "https://github.com/uxillary/adamj-link",
-      "shortRef": "",
-      "timeAgo": "40 minutes ago",
-      "summary": "Deleted branch",
-      "repoMeta": {
-        "description": "ultra-light polished landing for Adam J",
-        "language": "HTML",
-        "stars": 0
-      }
-    },
-    {
-      "id": "20998188393",
+      "id": "21043047799",
       "repo": "adamj-link",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/adamj-link/commit/bf7db4a6b01062df7841f25388437104257696aa",
-      "shortRef": "bf7db4a",
-      "timeAgo": "40 minutes ago",
+      "url": "https://github.com/uxillary/adamj-link/commit/d7adfb7aca741d375c2cdf3ab0b3f30b0eecb349",
+      "shortRef": "d7adfb7",
+      "timeAgo": "31 minutes ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "ultra-light polished landing for Adam J",
@@ -101,59 +156,9 @@
         "stars": 0
       },
       "commitMeta": {
-        "additions": 87,
-        "deletions": 83,
+        "additions": 43,
+        "deletions": 2,
         "filesChanged": 2
-      }
-    },
-    {
-      "id": "20997913200",
-      "repo": "adamj-link",
-      "title": "codex/redesign-clipsift-section-to-recently-shipped",
-      "type": "Create",
-      "url": "https://github.com/uxillary/adamj-link",
-      "shortRef": "",
-      "timeAgo": "2 days ago",
-      "summary": "Created branch",
-      "repoMeta": {
-        "description": "ultra-light polished landing for Adam J",
-        "language": "HTML",
-        "stars": 0
-      }
-    },
-    {
-      "id": "20997646602",
-      "repo": "adamj-link",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/adamj-link/commit/7a0a4aadbf5eb5a5e8eba0e47b39df7ce53f079c",
-      "shortRef": "7a0a4aa",
-      "timeAgo": "an hour ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "ultra-light polished landing for Adam J",
-        "language": "HTML",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 87,
-        "deletions": 83,
-        "filesChanged": 2
-      }
-    },
-    {
-      "id": "20997645029",
-      "repo": "adamj-link",
-      "title": "codex/refactor-projects-page-layout-and-styles",
-      "type": "Create",
-      "url": "https://github.com/uxillary/adamj-link",
-      "shortRef": "",
-      "timeAgo": "an hour ago",
-      "summary": "Created branch",
-      "repoMeta": {
-        "description": "ultra-light polished landing for Adam J",
-        "language": "HTML",
-        "stars": 0
       }
     }
   ]
