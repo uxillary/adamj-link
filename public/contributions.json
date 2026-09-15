@@ -1,69 +1,34 @@
 {
-  "generatedAt": "2026-09-14T17:41:15.405Z",
+  "generatedAt": "2026-09-15T03:23:41.239Z",
   "items": [
     {
-      "id": "21081774277",
-      "repo": "adamj-link",
+      "id": "21149246307",
+      "repo": "AIIDE",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/adamj-link/commit/3878d0849543e7c5d9a2d85dfdb9378aa8cd1493",
-      "shortRef": "3878d08",
-      "timeAgo": "2 days ago",
+      "url": "https://github.com/uxillary/AIIDE/commit/3d8124007a313de8dd52c8fcb3249109417b2e1d",
+      "shortRef": "3d81240",
+      "timeAgo": "an hour ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
-        "description": "ultra-light polished landing for Adam J",
-        "language": "HTML",
+        "description": "AIIDE - An AI-powered web application designed to enhance developer productivity through intelligent code completion, error detection, and context-aware suggestions. Leveraging the power of large language models, this IDE aims to create an integrated environment that adapts to the user's coding style and project requirements.",
+        "language": "Rust",
         "stars": 0
       },
       "commitMeta": {
-        "additions": 4,
-        "deletions": 4,
-        "filesChanged": 1
-      }
-    },
-    {
-      "id": "21073072913",
-      "repo": "adamj-link",
-      "title": "codex/polish-spacing-and-alignment-for-clipsift-section",
-      "type": "Delete",
-      "url": "https://github.com/uxillary/adamj-link",
-      "shortRef": "",
-      "timeAgo": "2 days ago",
-      "summary": "Deleted branch",
-      "repoMeta": {
-        "description": "ultra-light polished landing for Adam J",
-        "language": "HTML",
-        "stars": 0
-      }
-    },
-    {
-      "id": "21073070884",
-      "repo": "adamj-link",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/adamj-link/commit/5e78a67bac7154a4538e082e9c2cd592a8e0d771",
-      "shortRef": "5e78a67",
-      "timeAgo": "2 days ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "ultra-light polished landing for Adam J",
-        "language": "HTML",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 16,
-        "deletions": 14,
+        "additions": 44,
+        "deletions": 10,
         "filesChanged": 2
       }
     },
     {
-      "id": "21061528643",
+      "id": "21147128949",
       "repo": "AIIDE",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/AIIDE/commit/7003e229f2f22faed137a8520a2d090d0d2e4b99",
-      "shortRef": "7003e22",
-      "timeAgo": "2 days ago",
+      "url": "https://github.com/uxillary/AIIDE/commit/a9ac465d73075c700a780de253cc9a52d300c7d3",
+      "shortRef": "a9ac465",
+      "timeAgo": "2 hours ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "AIIDE - An AI-powered web application designed to enhance developer productivity through intelligent code completion, error detection, and context-aware suggestions. Leveraging the power of large language models, this IDE aims to create an integrated environment that adapts to the user's coding style and project requirements.",
@@ -71,94 +36,19 @@
         "stars": 0
       },
       "commitMeta": {
-        "additions": 793,
-        "deletions": 39,
-        "filesChanged": 4
-      }
-    },
-    {
-      "id": "21052985361",
-      "repo": "AIIDE",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/AIIDE/commit/bb388928c2eec0867a60536680c7862a4dc96799",
-      "shortRef": "bb38892",
-      "timeAgo": "12 hours ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "AIIDE - An AI-powered web application designed to enhance developer productivity through intelligent code completion, error detection, and context-aware suggestions. Leveraging the power of large language models, this IDE aims to create an integrated environment that adapts to the user's coding style and project requirements.",
-        "language": "Rust",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 273,
-        "deletions": 5,
+        "additions": 119,
+        "deletions": 4,
         "filesChanged": 11
       }
     },
     {
-      "id": "21051801927",
-      "repo": "aiide-sandbox",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/aiide-sandbox/commit/8b9ead58f32089f7f16b70f5888ec837d49142e8",
-      "shortRef": "8b9ead5",
-      "timeAgo": "13 hours ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "experimental website for AIIDE to work on using ollama model",
-        "language": "CSS",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 1058,
-        "deletions": 0,
-        "filesChanged": 3
-      }
-    },
-    {
-      "id": "21051289613",
-      "repo": "clipsift",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/clipsift/commit/6c40b19c8879513722a83a2b485b6a4d70481077",
-      "shortRef": "6c40b19",
-      "timeAgo": "3 days ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "google cloud x nvidia AI CCTV sifter",
-        "language": "Python",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 17,
-        "deletions": 0,
-        "filesChanged": 1
-      }
-    },
-    {
-      "id": "21051287530",
-      "repo": "aiide-sandbox",
-      "title": "main",
-      "type": "Create",
-      "url": "https://github.com/uxillary/aiide-sandbox",
-      "shortRef": "",
-      "timeAgo": "13 hours ago",
-      "summary": "Created branch",
-      "repoMeta": {
-        "description": "experimental website for AIIDE to work on using ollama model",
-        "language": "CSS",
-        "stars": 0
-      }
-    },
-    {
-      "id": "21050718427",
+      "id": "21146593143",
       "repo": "AIIDE",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/AIIDE/commit/eefb52c1891c944e0f3ed60defd4b3ea829df8d4",
-      "shortRef": "eefb52c",
-      "timeAgo": "13 hours ago",
+      "url": "https://github.com/uxillary/AIIDE/commit/85b4803c38de77cbfd4a64b64d3c80a57dbc5c05",
+      "shortRef": "85b4803",
+      "timeAgo": "2 hours ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "AIIDE - An AI-powered web application designed to enhance developer productivity through intelligent code completion, error detection, and context-aware suggestions. Leveraging the power of large language models, this IDE aims to create an integrated environment that adapts to the user's coding style and project requirements.",
@@ -168,7 +58,127 @@
       "commitMeta": {
         "additions": 0,
         "deletions": 0,
+        "filesChanged": 89
+      }
+    },
+    {
+      "id": "21139762285",
+      "repo": "AIIDE",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/AIIDE/commit/89dc8111dc70ca58761877ca28f4661a8d85d4ec",
+      "shortRef": "89dc811",
+      "timeAgo": "4 hours ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "AIIDE - An AI-powered web application designed to enhance developer productivity through intelligent code completion, error detection, and context-aware suggestions. Leveraging the power of large language models, this IDE aims to create an integrated environment that adapts to the user's coding style and project requirements.",
+        "language": "Rust",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 39,
+        "deletions": 0,
+        "filesChanged": 3
+      }
+    },
+    {
+      "id": "21136397342",
+      "repo": "clipsift",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/clipsift/commit/bf1c3f337cd4de7d6c854c9033ace609a7fbaa61",
+      "shortRef": "bf1c3f3",
+      "timeAgo": "2 days ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "google cloud x nvidia AI CCTV sifter",
+        "language": "Python",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 16,
+        "deletions": 13,
+        "filesChanged": 4
+      }
+    },
+    {
+      "id": "21136083463",
+      "repo": "AIIDE",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/AIIDE/commit/1b55ca09985d8fd10a59e797ef6103178456b7d1",
+      "shortRef": "1b55ca0",
+      "timeAgo": "5 hours ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "AIIDE - An AI-powered web application designed to enhance developer productivity through intelligent code completion, error detection, and context-aware suggestions. Leveraging the power of large language models, this IDE aims to create an integrated environment that adapts to the user's coding style and project requirements.",
+        "language": "Rust",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 300,
+        "deletions": 33,
+        "filesChanged": 4
+      }
+    },
+    {
+      "id": "21133699932",
+      "repo": "automated",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/automated/commit/ec82a7178b0922fcc15d80e09612544a45632e3a",
+      "shortRef": "ec82a71",
+      "timeAgo": "5 hours ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "for all automated tasks",
+        "language": "JavaScript",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 256,
+        "deletions": 0,
         "filesChanged": 1
+      }
+    },
+    {
+      "id": "21118327619",
+      "repo": "clipsift",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/clipsift/commit/2b70d25e1c29622c68ada9ea0c2d21246a0e7282",
+      "shortRef": "2b70d25",
+      "timeAgo": "2 days ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "google cloud x nvidia AI CCTV sifter",
+        "language": "Python",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 121,
+        "deletions": 0,
+        "filesChanged": 7
+      }
+    },
+    {
+      "id": "21115082128",
+      "repo": "AIIDE",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/AIIDE/commit/eb8685710e21740345c0e37fc2164106d9e3049d",
+      "shortRef": "eb86857",
+      "timeAgo": "2 days ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "AIIDE - An AI-powered web application designed to enhance developer productivity through intelligent code completion, error detection, and context-aware suggestions. Leveraging the power of large language models, this IDE aims to create an integrated environment that adapts to the user's coding style and project requirements.",
+        "language": "Rust",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 368,
+        "deletions": 0,
+        "filesChanged": 25
       }
     }
   ]
