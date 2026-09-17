@@ -1,53 +1,13 @@
 {
-  "generatedAt": "2026-09-16T16:07:30.641Z",
+  "generatedAt": "2026-09-17T03:25:28.023Z",
   "items": [
     {
-      "id": "21305298655",
+      "id": "21354652496",
       "repo": "AIIDE",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/AIIDE/commit/e00f9028c253aaae7c0898772bd7856d0c6f8b7b",
-      "shortRef": "e00f902",
-      "timeAgo": "2 hours ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "AIIDE - An AI-powered web application designed to enhance developer productivity through intelligent code completion, error detection, and context-aware suggestions. Leveraging the power of large language models, this IDE aims to create an integrated environment that adapts to the user's coding style and project requirements.",
-        "language": "Rust",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 69,
-        "deletions": 12,
-        "filesChanged": 3
-      }
-    },
-    {
-      "id": "21304225799",
-      "repo": "AIIDE",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/AIIDE/commit/15558645f586c82145d2313dc1b1ca6174a5dd1f",
-      "shortRef": "1555864",
-      "timeAgo": "3 hours ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "AIIDE - An AI-powered web application designed to enhance developer productivity through intelligent code completion, error detection, and context-aware suggestions. Leveraging the power of large language models, this IDE aims to create an integrated environment that adapts to the user's coding style and project requirements.",
-        "language": "Rust",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 54,
-        "deletions": 9,
-        "filesChanged": 3
-      }
-    },
-    {
-      "id": "21299882609",
-      "repo": "AIIDE",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/AIIDE/commit/a767c8f6f81aaaafbe73f9d32357d71a9811d9c9",
-      "shortRef": "a767c8f",
+      "url": "https://github.com/uxillary/AIIDE/commit/5b0e5a461cae4c1f696d3d538cc3a9db2689f39a",
+      "shortRef": "5b0e5a4",
       "timeAgo": "5 hours ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
@@ -56,19 +16,19 @@
         "stars": 0
       },
       "commitMeta": {
-        "additions": 62,
-        "deletions": 14,
-        "filesChanged": 2
+        "additions": 509,
+        "deletions": 186,
+        "filesChanged": 6
       }
     },
     {
-      "id": "21299080964",
+      "id": "21353348485",
       "repo": "AIIDE",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/AIIDE/commit/360502ea2a7a1157ffbda0e50eda7239927fd579",
-      "shortRef": "360502e",
-      "timeAgo": "4 hours ago",
+      "url": "https://github.com/uxillary/AIIDE/commit/93c472e7f66d30371711dbb04184829d439451c2",
+      "shortRef": "93c472e",
+      "timeAgo": "an hour ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "AIIDE - An AI-powered web application designed to enhance developer productivity through intelligent code completion, error detection, and context-aware suggestions. Leveraging the power of large language models, this IDE aims to create an integrated environment that adapts to the user's coding style and project requirements.",
@@ -76,89 +36,144 @@
         "stars": 0
       },
       "commitMeta": {
-        "additions": 497,
-        "deletions": 53,
-        "filesChanged": 4
-      }
-    },
-    {
-      "id": "21298107043",
-      "repo": "AIIDE",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/AIIDE/commit/928b6fe873b51678e2c1681f4643b7d7f586fec5",
-      "shortRef": "928b6fe",
-      "timeAgo": "a day ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "AIIDE - An AI-powered web application designed to enhance developer productivity through intelligent code completion, error detection, and context-aware suggestions. Leveraging the power of large language models, this IDE aims to create an integrated environment that adapts to the user's coding style and project requirements.",
-        "language": "Rust",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 55,
+        "additions": 470,
         "deletions": 0,
+        "filesChanged": 15
+      }
+    },
+    {
+      "id": "21352305015",
+      "repo": "AIIDE",
+      "title": "tools-workshop",
+      "type": "Create",
+      "url": "https://github.com/uxillary/AIIDE",
+      "shortRef": "",
+      "timeAgo": "2 hours ago",
+      "summary": "Created branch",
+      "repoMeta": {
+        "description": "AIIDE - An AI-powered web application designed to enhance developer productivity through intelligent code completion, error detection, and context-aware suggestions. Leveraging the power of large language models, this IDE aims to create an integrated environment that adapts to the user's coding style and project requirements.",
+        "language": "Rust",
+        "stars": 0
+      }
+    },
+    {
+      "id": "21336200722",
+      "repo": "AIIDE",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/AIIDE/commit/10686665c7858734053856bad3e6b920553214c1",
+      "shortRef": "1068666",
+      "timeAgo": "6 hours ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "AIIDE - An AI-powered web application designed to enhance developer productivity through intelligent code completion, error detection, and context-aware suggestions. Leveraging the power of large language models, this IDE aims to create an integrated environment that adapts to the user's coding style and project requirements.",
+        "language": "Rust",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 338,
+        "deletions": 17,
         "filesChanged": 2
       }
     },
     {
-      "id": "15145108821",
+      "id": "21335461282",
       "repo": "AIIDE",
-      "title": "Qwen 2.5 Coder 7B: Structured edit proposals may not match the requested chang",
-      "type": "Issues",
-      "url": "https://github.com/uxillary/AIIDE/issues/3",
-      "shortRef": "#3",
-      "timeAgo": "3 hours ago",
-      "summary": "Labeled issue #3",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/AIIDE/commit/55ba9be7b6c6ff82ed933e2ec3380ecf23c6a8f9",
+      "shortRef": "55ba9be",
+      "timeAgo": "2 days ago",
+      "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "AIIDE - An AI-powered web application designed to enhance developer productivity through intelligent code completion, error detection, and context-aware suggestions. Leveraging the power of large language models, this IDE aims to create an integrated environment that adapts to the user's coding style and project requirements.",
         "language": "Rust",
         "stars": 0
+      },
+      "commitMeta": {
+        "additions": 606,
+        "deletions": 49,
+        "filesChanged": 5
       }
     },
     {
-      "id": "15145108561",
+      "id": "21332142157",
       "repo": "AIIDE",
-      "title": "Qwen 2.5 Coder 7B: Structured edit proposals may not match the requested chang",
-      "type": "Issues",
-      "url": "https://github.com/uxillary/AIIDE/issues/3",
-      "shortRef": "#3",
-      "timeAgo": "3 hours ago",
-      "summary": "Labeled issue #3",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/AIIDE/commit/a9c5fab7accbf700286deeb9f61456de4bb37832",
+      "shortRef": "a9c5fab",
+      "timeAgo": "2 days ago",
+      "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "AIIDE - An AI-powered web application designed to enhance developer productivity through intelligent code completion, error detection, and context-aware suggestions. Leveraging the power of large language models, this IDE aims to create an integrated environment that adapts to the user's coding style and project requirements.",
         "language": "Rust",
         "stars": 0
+      },
+      "commitMeta": {
+        "additions": 239,
+        "deletions": 73,
+        "filesChanged": 3
       }
     },
     {
-      "id": "15145108403",
+      "id": "21327269720",
       "repo": "AIIDE",
-      "title": "Qwen 2.5 Coder 7B: Structured edit proposals may not match the requested chang",
-      "type": "Issues",
-      "url": "https://github.com/uxillary/AIIDE/issues/3",
-      "shortRef": "#3",
-      "timeAgo": "3 hours ago",
-      "summary": "Labeled issue #3",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/AIIDE/commit/87bc8e7a10cdc63543c9be1d12fd0487c582827c",
+      "shortRef": "87bc8e7",
+      "timeAgo": "8 hours ago",
+      "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "AIIDE - An AI-powered web application designed to enhance developer productivity through intelligent code completion, error detection, and context-aware suggestions. Leveraging the power of large language models, this IDE aims to create an integrated environment that adapts to the user's coding style and project requirements.",
         "language": "Rust",
         "stars": 0
+      },
+      "commitMeta": {
+        "additions": 13,
+        "deletions": 4,
+        "filesChanged": 1
       }
     },
     {
-      "id": "15145108234",
+      "id": "21326016035",
       "repo": "AIIDE",
-      "title": "Qwen 2.5 Coder 7B: Structured edit proposals may not match the requested chang",
-      "type": "Issues",
-      "url": "https://github.com/uxillary/AIIDE/issues/3",
-      "shortRef": "#3",
-      "timeAgo": "3 hours ago",
-      "summary": "Opened issue #3",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/AIIDE/commit/0a402cf9669b0957c3b7d8a44da11e10ff5f5df0",
+      "shortRef": "0a402cf",
+      "timeAgo": "8 hours ago",
+      "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "AIIDE - An AI-powered web application designed to enhance developer productivity through intelligent code completion, error detection, and context-aware suggestions. Leveraging the power of large language models, this IDE aims to create an integrated environment that adapts to the user's coding style and project requirements.",
         "language": "Rust",
         "stars": 0
+      },
+      "commitMeta": {
+        "additions": 58,
+        "deletions": 8,
+        "filesChanged": 2
+      }
+    },
+    {
+      "id": "21323951733",
+      "repo": "AIIDE",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/AIIDE/commit/0bb8d16d15015bdf8fab64630534669d486de874",
+      "shortRef": "0bb8d16",
+      "timeAgo": "2 days ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "AIIDE - An AI-powered web application designed to enhance developer productivity through intelligent code completion, error detection, and context-aware suggestions. Leveraging the power of large language models, this IDE aims to create an integrated environment that adapts to the user's coding style and project requirements.",
+        "language": "Rust",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 35,
+        "deletions": 7,
+        "filesChanged": 1
       }
     }
   ]
