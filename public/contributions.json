@@ -1,93 +1,48 @@
 {
-  "generatedAt": "2026-09-29T04:13:44.859Z",
+  "generatedAt": "2026-09-29T17:37:23.182Z",
   "items": [
     {
-      "id": "22443297113",
-      "repo": "tray-xmr",
+      "id": "22493129364",
+      "repo": "font-size-tweak",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/tray-xmr/commit/4b18c04f3272f55c8693dd0d356f08ce1ea9aaf3",
-      "shortRef": "4b18c04",
-      "timeAgo": "an hour ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
-        "language": "Python",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 401,
-        "deletions": 164,
-        "filesChanged": 12
-      }
-    },
-    {
-      "id": "22442114942",
-      "repo": "zenplay",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/zenplay/commit/b0a068182ede507da345d8adbcd777900015ee72",
-      "shortRef": "b0a0681",
-      "timeAgo": "an hour ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "Put the Feng Shui into your play. Complte ad-free, no fuss experience. Bringing the ultimate accessible experience to your classic gameplay experiences,  Nana, Granny and Grandad proof.",
-        "language": "TypeScript",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 30,
-        "deletions": 8,
-        "filesChanged": 7
-      }
-    },
-    {
-      "id": "22439331743",
-      "repo": "tray-xmr",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/tray-xmr/commit/e70af885888d8f3092f4dedd24ed1a273ddf44c1",
-      "shortRef": "e70af88",
+      "url": "https://github.com/uxillary/font-size-tweak/commit/45f0703da3e41c68eb74189f58c8ef3e08bd5966",
+      "shortRef": "45f0703",
       "timeAgo": "2 hours ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
-        "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
+        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
         "language": "Python",
-        "stars": 0
+        "stars": 6
       },
       "commitMeta": {
-        "additions": 382,
-        "deletions": 7,
-        "filesChanged": 7
-      }
-    },
-    {
-      "id": "22438765027",
-      "repo": "zenplay",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/zenplay/commit/00d9bb1f8f948ad7962ec1c3c93252e1d738fecb",
-      "shortRef": "00d9bb1",
-      "timeAgo": "2 hours ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "Put the Feng Shui into your play. Complte ad-free, no fuss experience. Bringing the ultimate accessible experience to your classic gameplay experiences,  Nana, Granny and Grandad proof.",
-        "language": "TypeScript",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 75,
-        "deletions": 14,
+        "additions": 136,
+        "deletions": 0,
         "filesChanged": 5
       }
     },
     {
-      "id": "22438716633",
+      "id": "22492661376",
+      "repo": "font-size-tweak",
+      "title": "feat/organic-search-growth",
+      "type": "Create",
+      "url": "https://github.com/uxillary/font-size-tweak",
+      "shortRef": "",
+      "timeAgo": "2 hours ago",
+      "summary": "Created branch",
+      "repoMeta": {
+        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
+        "language": "Python",
+        "stars": 6
+      }
+    },
+    {
+      "id": "22491751617",
       "repo": "automated",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/automated/commit/601c0ddd2c53abf5ff91b9200941600150167700",
-      "shortRef": "601c0dd",
+      "url": "https://github.com/uxillary/automated/commit/1f8a848074df8e283c128c6f931110aabc3ea4be",
+      "shortRef": "1f8a848",
       "timeAgo": "2 hours ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
@@ -96,43 +51,43 @@
         "stars": 0
       },
       "commitMeta": {
-        "additions": 66,
-        "deletions": 62,
-        "filesChanged": 6
+        "additions": 30,
+        "deletions": 5,
+        "filesChanged": 5
       }
     },
     {
-      "id": "22436393489",
-      "repo": "automated",
+      "id": "22490942793",
+      "repo": "astro-genesis",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/automated/commit/0ec792ddb0869721d3a27d46e71fb0d3636a3bf3",
-      "shortRef": "0ec792d",
+      "url": "https://github.com/uxillary/astro-genesis/commit/b2a7806cd98415475e326ccce9081ec61e4576b3",
+      "shortRef": "b2a7806",
       "timeAgo": "3 hours ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
-        "description": "for all automated tasks",
-        "language": "JavaScript",
+        "description": "A zero-database, static, AI-assisted dashboard that summarizes ~608 NASA bioscience studies and lets users explore missions, organisms, research areas, and results via search, semantic similarity, clusters, and knowledge graphs",
+        "language": "HTML",
         "stars": 0
       },
       "commitMeta": {
-        "additions": 338,
-        "deletions": 0,
-        "filesChanged": 6
+        "additions": 495,
+        "deletions": 82,
+        "filesChanged": 63
       }
     },
     {
-      "id": "22427301013",
-      "repo": "automated",
+      "id": "22490865986",
+      "repo": "aiide-sandbox",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/automated/commit/3ad5924c81c2e46e2d699c4d3db4546bae0b5626",
-      "shortRef": "3ad5924",
-      "timeAgo": "5 hours ago",
+      "url": "https://github.com/uxillary/aiide-sandbox/commit/a3cc6e51e5f6c5b9cbb6a49a73b0eed46cea73f0",
+      "shortRef": "a3cc6e5",
+      "timeAgo": "3 hours ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
-        "description": "for all automated tasks",
-        "language": "JavaScript",
+        "description": "experimental website for AIIDE to work on using ollama model",
+        "language": "CSS",
         "stars": 0
       },
       "commitMeta": {
@@ -142,13 +97,33 @@
       }
     },
     {
-      "id": "22368005693",
+      "id": "22489740609",
+      "repo": "tray-xmr",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/tray-xmr/commit/5431df511718c46e27e8b8197a174ffb32151984",
+      "shortRef": "5431df5",
+      "timeAgo": "3 hours ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
+        "language": "Rust",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 535,
+        "deletions": 69,
+        "filesChanged": 9
+      }
+    },
+    {
+      "id": "22482818199",
       "repo": "zenplay",
       "title": "Commit",
       "type": "Push",
-      "url": "https://github.com/uxillary/zenplay/commit/219dc215319fddd8543f6e43abf7b0dbb1fd548a",
-      "shortRef": "219dc21",
-      "timeAgo": "a day ago",
+      "url": "https://github.com/uxillary/zenplay/commit/8e1e7eee42758967ca36e6cdc39e0e8c36306a90",
+      "shortRef": "8e1e7ee",
+      "timeAgo": "4 hours ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Put the Feng Shui into your play. Complte ad-free, no fuss experience. Bringing the ultimate accessible experience to your classic gameplay experiences,  Nana, Granny and Grandad proof.",
@@ -156,24 +131,49 @@
         "stars": 0
       },
       "commitMeta": {
-        "additions": 162,
-        "deletions": 28,
-        "filesChanged": 2
+        "additions": 49,
+        "deletions": 4,
+        "filesChanged": 4
       }
     },
     {
-      "id": "22356882228",
-      "repo": "zenplay",
-      "title": "m13-supporter-system",
-      "type": "Create",
-      "url": "https://github.com/uxillary/zenplay",
-      "shortRef": "",
-      "timeAgo": "a day ago",
-      "summary": "Created branch",
+      "id": "22480528413",
+      "repo": "automated",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/automated/commit/0e7451dea249a475b18b82238f26291d4ed18450",
+      "shortRef": "0e7451d",
+      "timeAgo": "5 hours ago",
+      "summary": "Pushed 1 commit",
       "repoMeta": {
-        "description": "Put the Feng Shui into your play. Complte ad-free, no fuss experience. Bringing the ultimate accessible experience to your classic gameplay experiences,  Nana, Granny and Grandad proof.",
-        "language": "TypeScript",
+        "description": "for all automated tasks",
+        "language": "JavaScript",
         "stars": 0
+      },
+      "commitMeta": {
+        "additions": 90,
+        "deletions": 55,
+        "filesChanged": 11
+      }
+    },
+    {
+      "id": "22462570576",
+      "repo": "automated",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/automated/commit/6a57b181b04b7b173b6e15f36a7451d47b75468e",
+      "shortRef": "6a57b18",
+      "timeAgo": "15 hours ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "for all automated tasks",
+        "language": "JavaScript",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 1,
+        "deletions": 0,
+        "filesChanged": 1
       }
     }
   ]
