@@ -257,7 +257,7 @@ const UPCOMING_PROJECTS = [
 // Projects use local images first, then adopt automated captures only after they load.
 // Keeping the remote host and paths here avoids coupling the page markup to storage details.
 (function enhanceProjectPreviews(){
-  const images = Array.from(document.querySelectorAll('[data-remote-preview]'));
+  const images = Array.from(document.querySelectorAll('[data-project-remote-preview]'));
   if(!images.length) return;
 
   const remoteRoot = 'https://raw.githubusercontent.com/uxillary/automated/main/generated/project-previews';
@@ -270,14 +270,14 @@ const UPCOMING_PROJECTS = [
     return entry?.capturedAt || entry?.generatedAt || manifest?.generatedAt || '';
   };
   const adoptRemote = (image, version = '') => {
-    const slug = image.dataset.remotePreview;
+    const slug = image.dataset.projectRemotePreview;
     const query = version ? `?v=${encodeURIComponent(version)}` : '';
     const remoteUrl = `${remoteRoot}/${slug}.webp${query}`;
     const candidate = new Image();
     candidate.onload = () => {
       image.onerror = () => {
         image.onerror = null;
-        image.src = image.dataset.localFallback;
+        image.src = image.dataset.projectFallback;
       };
       image.src = remoteUrl;
     };
@@ -288,7 +288,7 @@ const UPCOMING_PROJECTS = [
     .then(response => response.ok ? response.json() : Promise.reject())
     .catch(() => null)
     .then(manifest => {
-      const load = image => adoptRemote(image, manifest ? capturedAt(manifest, image.dataset.remotePreview) : '');
+      const load = image => adoptRemote(image, manifest ? capturedAt(manifest, image.dataset.projectRemotePreview) : '');
       if(!('IntersectionObserver' in window)){
         images.forEach(load);
         return;
