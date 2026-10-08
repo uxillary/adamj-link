@@ -1,6 +1,46 @@
 {
-  "generatedAt": "2026-10-07T18:25:34.962Z",
+  "generatedAt": "2026-10-08T04:30:22.534Z",
   "items": [
+    {
+      "id": "23320925198",
+      "repo": "tray-xmr",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/tray-xmr/commit/cd9403f05386837f527bf155051a7023ad8125fb",
+      "shortRef": "cd9403f",
+      "timeAgo": "15 hours ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
+        "language": "Rust",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 617,
+        "deletions": 170,
+        "filesChanged": 35
+      }
+    },
+    {
+      "id": "23306885314",
+      "repo": "tray-xmr",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/tray-xmr/commit/f3e398c9c720de139ea6d37250a7ebcf1eb9bbeb",
+      "shortRef": "f3e398c",
+      "timeAgo": "16 hours ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
+        "language": "Rust",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 9913,
+        "deletions": 119,
+        "filesChanged": 91
+      }
+    },
     {
       "id": "23177102468",
       "repo": "tray-xmr",
@@ -8,7 +48,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/tray-xmr/commit/73094b119f8fc14eafec7808b0013d66e1fc49f8",
       "shortRef": "73094b1",
-      "timeAgo": "2 days ago",
+      "timeAgo": "3 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
@@ -43,7 +83,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/font-size-tweak/commit/24743ab979701ed84c481603b1f66a49163f317c",
       "shortRef": "24743ab",
-      "timeAgo": "2 days ago",
+      "timeAgo": "3 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
@@ -98,7 +138,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/zenplay/commit/1eb218a75e4bfc8a80a745ccf8a37163be6c2eca",
       "shortRef": "1eb218a",
-      "timeAgo": "4 days ago",
+      "timeAgo": "5 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Put the Feng Shui into your play. Complte ad-free, no fuss experience. Bringing the ultimate accessible experience to your classic gameplay experiences,  Nana, Granny and Grandad proof.",
@@ -129,36 +169,6 @@
         "additions": 224,
         "deletions": 1,
         "filesChanged": 7
-      }
-    },
-    {
-      "id": "23015330851",
-      "repo": "font-size-tweak",
-      "title": "codex/enhance-sponsorship-section-hierarchy",
-      "type": "Delete",
-      "url": "https://github.com/uxillary/font-size-tweak",
-      "shortRef": "",
-      "timeAgo": "3 days ago",
-      "summary": "Deleted branch",
-      "repoMeta": {
-        "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
-        "language": "Python",
-        "stars": 7
-      }
-    },
-    {
-      "id": "23007912447",
-      "repo": "zenplay",
-      "title": "m13-supporter-system",
-      "type": "Delete",
-      "url": "https://github.com/uxillary/zenplay",
-      "shortRef": "",
-      "timeAgo": "4 days ago",
-      "summary": "Deleted branch",
-      "repoMeta": {
-        "description": "Put the Feng Shui into your play. Complte ad-free, no fuss experience. Bringing the ultimate accessible experience to your classic gameplay experiences,  Nana, Granny and Grandad proof.",
-        "language": "TypeScript",
-        "stars": 0
       }
     }
   ]
