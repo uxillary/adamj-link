@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T04:30:22.534Z",
+  "generatedAt": "2026-10-08T18:24:56.124Z",
   "items": [
     {
       "id": "23320925198",
@@ -8,7 +8,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/tray-xmr/commit/cd9403f05386837f527bf155051a7023ad8125fb",
       "shortRef": "cd9403f",
-      "timeAgo": "15 hours ago",
+      "timeAgo": "a day ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
@@ -28,7 +28,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/tray-xmr/commit/f3e398c9c720de139ea6d37250a7ebcf1eb9bbeb",
       "shortRef": "f3e398c",
-      "timeAgo": "16 hours ago",
+      "timeAgo": "a day ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
@@ -68,7 +68,7 @@
       "type": "Create",
       "url": "https://github.com/uxillary/font-size-tweak",
       "shortRef": "",
-      "timeAgo": "3 days ago",
+      "timeAgo": "4 days ago",
       "summary": "Created branch",
       "repoMeta": {
         "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
@@ -103,7 +103,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/zenplay/commit/773c6fb90a6aef680d5682059228a251e5835ac4",
       "shortRef": "773c6fb",
-      "timeAgo": "4 days ago",
+      "timeAgo": "5 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Put the Feng Shui into your play. Complte ad-free, no fuss experience. Bringing the ultimate accessible experience to your classic gameplay experiences,  Nana, Granny and Grandad proof.",
@@ -123,7 +123,7 @@
       "type": "Delete",
       "url": "https://github.com/uxillary/font-size-tweak",
       "shortRef": "",
-      "timeAgo": "3 days ago",
+      "timeAgo": "4 days ago",
       "summary": "Deleted branch",
       "repoMeta": {
         "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
@@ -158,7 +158,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/font-size-tweak/commit/98e29a7342c9a40edea5e6d4edcfdd862b261576",
       "shortRef": "98e29a7",
-      "timeAgo": "3 days ago",
+      "timeAgo": "4 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
