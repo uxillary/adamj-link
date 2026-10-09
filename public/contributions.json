@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T18:24:56.124Z",
+  "generatedAt": "2026-10-09T04:33:57.141Z",
   "items": [
     {
       "id": "23320925198",
@@ -8,7 +8,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/tray-xmr/commit/cd9403f05386837f527bf155051a7023ad8125fb",
       "shortRef": "cd9403f",
-      "timeAgo": "a day ago",
+      "timeAgo": "2 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
@@ -28,7 +28,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/tray-xmr/commit/f3e398c9c720de139ea6d37250a7ebcf1eb9bbeb",
       "shortRef": "f3e398c",
-      "timeAgo": "a day ago",
+      "timeAgo": "2 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
@@ -48,7 +48,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/tray-xmr/commit/73094b119f8fc14eafec7808b0013d66e1fc49f8",
       "shortRef": "73094b1",
-      "timeAgo": "3 days ago",
+      "timeAgo": "4 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
@@ -83,7 +83,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/font-size-tweak/commit/24743ab979701ed84c481603b1f66a49163f317c",
       "shortRef": "24743ab",
-      "timeAgo": "3 days ago",
+      "timeAgo": "4 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Free tool alternative to Advanced System Font Changer, to change system font sizes",
@@ -138,7 +138,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/zenplay/commit/1eb218a75e4bfc8a80a745ccf8a37163be6c2eca",
       "shortRef": "1eb218a",
-      "timeAgo": "5 days ago",
+      "timeAgo": "6 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Put the Feng Shui into your play. Complte ad-free, no fuss experience. Bringing the ultimate accessible experience to your classic gameplay experiences,  Nana, Granny and Grandad proof.",
