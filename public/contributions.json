@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T17:27:53.302Z",
+  "generatedAt": "2026-10-28T03:58:49.324Z",
   "items": [
     {
       "id": "25342439072",
@@ -8,7 +8,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/zenplay/commit/17d13e2fbb714356f55cc3cb24a496903e444906",
       "shortRef": "17d13e2",
-      "timeAgo": "a day ago",
+      "timeAgo": "2 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Put the Feng Shui into your play. Complte ad-free, no fuss experience. Bringing the ultimate accessible experience to your classic gameplay experiences,  Nana, Granny and Grandad proof.",
@@ -28,7 +28,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/zenplay/commit/8d96b41978c6179af4e7d7835e75f37100108f63",
       "shortRef": "8d96b41",
-      "timeAgo": "16 hours ago",
+      "timeAgo": "a day ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Put the Feng Shui into your play. Complte ad-free, no fuss experience. Bringing the ultimate accessible experience to your classic gameplay experiences,  Nana, Granny and Grandad proof.",
@@ -48,7 +48,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/zenplay/commit/49d35260a19c0df1aad51ae7bb20e7f02b930db5",
       "shortRef": "49d3526",
-      "timeAgo": "15 hours ago",
+      "timeAgo": "a day ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Put the Feng Shui into your play. Complte ad-free, no fuss experience. Bringing the ultimate accessible experience to your classic gameplay experiences,  Nana, Granny and Grandad proof.",
@@ -68,7 +68,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/zenplay/commit/8de4846ebdf5015ba3ef3d5bba393677fc9477d8",
       "shortRef": "8de4846",
-      "timeAgo": "15 hours ago",
+      "timeAgo": "a day ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Put the Feng Shui into your play. Complte ad-free, no fuss experience. Bringing the ultimate accessible experience to your classic gameplay experiences,  Nana, Granny and Grandad proof.",
@@ -88,7 +88,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/zenplay/commit/943a73aadf9ea4915994afe02633fd7df10a71c2",
       "shortRef": "943a73a",
-      "timeAgo": "15 hours ago",
+      "timeAgo": "a day ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Put the Feng Shui into your play. Complte ad-free, no fuss experience. Bringing the ultimate accessible experience to your classic gameplay experiences,  Nana, Granny and Grandad proof.",
@@ -128,12 +128,12 @@
       "type": "Watch",
       "url": "https://github.com/storytold/artcraft",
       "shortRef": "",
-      "timeAgo": "2 days ago",
+      "timeAgo": "3 days ago",
       "summary": "Watch",
       "repoMeta": {
         "description": "ArtCraft is an intentional crafting engine for artists, designers, and filmmakers",
         "language": "Rust",
-        "stars": 37110
+        "stars": 37210
       }
     },
     {
