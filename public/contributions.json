@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06T18:53:03.193Z",
+  "generatedAt": "2026-11-07T04:39:12.910Z",
   "items": [
     {
       "id": "25669417788",
@@ -28,7 +28,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/zenplay/commit/d1ca8a7a3ae27ae06a40da91151a87157e14668c",
       "shortRef": "d1ca8a7",
-      "timeAgo": "10 days ago",
+      "timeAgo": "11 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Put the Feng Shui into your play. Complte ad-free, no fuss experience. Bringing the ultimate accessible experience to your classic gameplay experiences,  Nana, Granny and Grandad proof.",
@@ -48,7 +48,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/zenplay/commit/17d13e2fbb714356f55cc3cb24a496903e444906",
       "shortRef": "17d13e2",
-      "timeAgo": "11 days ago",
+      "timeAgo": "12 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Put the Feng Shui into your play. Complte ad-free, no fuss experience. Bringing the ultimate accessible experience to your classic gameplay experiences,  Nana, Granny and Grandad proof.",
@@ -168,12 +168,12 @@
       "type": "Watch",
       "url": "https://github.com/storytold/artcraft",
       "shortRef": "",
-      "timeAgo": "12 days ago",
+      "timeAgo": "13 days ago",
       "summary": "Watch",
       "repoMeta": {
         "description": "ArtCraft is an intentional crafting engine for artists, designers, and filmmakers",
         "language": "Rust",
-        "stars": 39200
+        "stars": 39304
       }
     }
   ]
