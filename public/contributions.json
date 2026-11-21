@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-20T19:36:34.956Z",
+  "generatedAt": "2026-11-21T05:38:09.641Z",
   "items": [
+    {
+      "id": "27767383142",
+      "repo": "tray-xmr",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/tray-xmr/commit/1b0c2ed68bdb27e0d6469495fcbf4d37dd4e7182",
+      "shortRef": "1b0c2ed",
+      "timeAgo": "2 days ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
+        "language": "Rust",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 748,
+        "deletions": 69,
+        "filesChanged": 50
+      }
+    },
     {
       "id": "27737458545",
       "repo": "tray-xmr",
@@ -48,7 +68,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/tray-xmr/commit/d3079d1bcb2ecf1630a4d9401e9247a7ba20e064",
       "shortRef": "d3079d1",
-      "timeAgo": "2 days ago",
+      "timeAgo": "3 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
@@ -68,7 +88,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/tray-xmr/commit/f935ed2ee521ee1db882289143d1b13ab9351f72",
       "shortRef": "f935ed2",
-      "timeAgo": "2 days ago",
+      "timeAgo": "3 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
@@ -154,21 +174,6 @@
         "additions": 335,
         "deletions": 0,
         "filesChanged": 3
-      }
-    },
-    {
-      "id": "27436659669",
-      "repo": "zenplay",
-      "title": "planning/m20-discoverability",
-      "type": "Create",
-      "url": "https://github.com/uxillary/zenplay",
-      "shortRef": "",
-      "timeAgo": "4 days ago",
-      "summary": "Created branch",
-      "repoMeta": {
-        "description": "Put the Feng Shui into your play. Complte ad-free, no fuss experience. Bringing the ultimate accessible experience to your classic gameplay experiences,  Nana, Granny and Grandad proof.",
-        "language": "TypeScript",
-        "stars": 0
       }
     }
   ]
