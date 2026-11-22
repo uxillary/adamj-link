@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-21T18:41:07.611Z",
+  "generatedAt": "2026-11-22T05:03:17.422Z",
   "items": [
+    {
+      "id": "27894079891",
+      "repo": "tray-xmr",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/tray-xmr/commit/5a95fa3e0a11ba6c87744f76664997ca6f70763a",
+      "shortRef": "5a95fa3",
+      "timeAgo": "2 hours ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
+        "language": "Rust",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 15825,
+        "deletions": 95,
+        "filesChanged": 91
+      }
+    },
     {
       "id": "27767383142",
       "repo": "tray-xmr",
@@ -68,7 +88,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/tray-xmr/commit/d3079d1bcb2ecf1630a4d9401e9247a7ba20e064",
       "shortRef": "d3079d1",
-      "timeAgo": "3 days ago",
+      "timeAgo": "4 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
@@ -88,7 +108,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/tray-xmr/commit/f935ed2ee521ee1db882289143d1b13ab9351f72",
       "shortRef": "f935ed2",
-      "timeAgo": "3 days ago",
+      "timeAgo": "4 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
@@ -154,26 +174,6 @@
         "description": "Put the Feng Shui into your play. Complte ad-free, no fuss experience. Bringing the ultimate accessible experience to your classic gameplay experiences,  Nana, Granny and Grandad proof.",
         "language": "TypeScript",
         "stars": 0
-      }
-    },
-    {
-      "id": "27535222428",
-      "repo": "zenplay",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/zenplay/commit/abd855da3432df4cecc8dd2831cba3e30f46197e",
-      "shortRef": "abd855d",
-      "timeAgo": "4 days ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "Put the Feng Shui into your play. Complte ad-free, no fuss experience. Bringing the ultimate accessible experience to your classic gameplay experiences,  Nana, Granny and Grandad proof.",
-        "language": "TypeScript",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 335,
-        "deletions": 0,
-        "filesChanged": 3
       }
     }
   ]
