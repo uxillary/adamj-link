@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-24T21:54:33.978Z",
+  "generatedAt": "2026-11-25T06:59:02.965Z",
   "items": [
+    {
+      "id": "28181967247",
+      "repo": "tray-xmr",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/tray-xmr/commit/ae9e8061c51b6e7ec13d0df9edb5c59204da13b3",
+      "shortRef": "ae9e806",
+      "timeAgo": "17 hours ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
+        "language": "Rust",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 13005,
+        "deletions": 24,
+        "filesChanged": 22
+      }
+    },
     {
       "id": "28014112450",
       "repo": "tray-xmr",
@@ -108,7 +128,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/tray-xmr/commit/d3079d1bcb2ecf1630a4d9401e9247a7ba20e064",
       "shortRef": "d3079d1",
-      "timeAgo": "6 days ago",
+      "timeAgo": "7 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
@@ -128,7 +148,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/tray-xmr/commit/f935ed2ee521ee1db882289143d1b13ab9351f72",
       "shortRef": "f935ed2",
-      "timeAgo": "6 days ago",
+      "timeAgo": "7 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
@@ -148,7 +168,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/tray-xmr/commit/7469add985974b57d8bbf223aea22ae878a08ec7",
       "shortRef": "7469add",
-      "timeAgo": "7 days ago",
+      "timeAgo": "8 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
@@ -159,26 +179,6 @@
         "additions": 2138,
         "deletions": 114,
         "filesChanged": 67
-      }
-    },
-    {
-      "id": "27603141757",
-      "repo": "zenplay",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/zenplay/commit/cd4cdad813b488c00202e16d49080892fd580472",
-      "shortRef": "cd4cdad",
-      "timeAgo": "7 days ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "Put the Feng Shui into your play. Complte ad-free, no fuss experience. Bringing the ultimate accessible experience to your classic gameplay experiences,  Nana, Granny and Grandad proof.",
-        "language": "TypeScript",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 877,
-        "deletions": 186,
-        "filesChanged": 38
       }
     }
   ]
