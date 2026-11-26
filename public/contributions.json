@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-26T06:50:50.989Z",
+  "generatedAt": "2026-11-26T20:55:06.140Z",
   "items": [
+    {
+      "id": "28299991546",
+      "repo": "tray-xmr",
+      "title": "Commit",
+      "type": "Push",
+      "url": "https://github.com/uxillary/tray-xmr/commit/5b1302eb08de93c8dead07ee06f7933b2d966b98",
+      "shortRef": "5b1302e",
+      "timeAgo": "2 days ago",
+      "summary": "Pushed 1 commit",
+      "repoMeta": {
+        "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
+        "language": "Rust",
+        "stars": 0
+      },
+      "commitMeta": {
+        "additions": 20851,
+        "deletions": 18,
+        "filesChanged": 72
+      }
+    },
     {
       "id": "28181967247",
       "repo": "tray-xmr",
@@ -28,7 +48,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/tray-xmr/commit/fe7e60e25cacbf4de584061a66a22980ad1cc58d",
       "shortRef": "fe7e60e",
-      "timeAgo": "4 days ago",
+      "timeAgo": "5 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
@@ -48,7 +68,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/tray-xmr/commit/5a95fa3e0a11ba6c87744f76664997ca6f70763a",
       "shortRef": "5a95fa3",
-      "timeAgo": "4 days ago",
+      "timeAgo": "5 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
@@ -68,7 +88,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/tray-xmr/commit/1b0c2ed68bdb27e0d6469495fcbf4d37dd4e7182",
       "shortRef": "1b0c2ed",
-      "timeAgo": "7 days ago",
+      "timeAgo": "8 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
@@ -88,7 +108,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/tray-xmr/commit/0f307dd7a4c14ef4343a1efef7ae415fd63286e4",
       "shortRef": "0f307dd",
-      "timeAgo": "7 days ago",
+      "timeAgo": "8 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
@@ -108,7 +128,7 @@
       "type": "Push",
       "url": "https://github.com/uxillary/tray-xmr/commit/d8b411af7646f629319dbc6bd32f9158a49a944c",
       "shortRef": "d8b411a",
-      "timeAgo": "7 days ago",
+      "timeAgo": "8 days ago",
       "summary": "Pushed 1 commit",
       "repoMeta": {
         "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
@@ -159,26 +179,6 @@
         "additions": 4603,
         "deletions": 0,
         "filesChanged": 51
-      }
-    },
-    {
-      "id": "27621339833",
-      "repo": "tray-xmr",
-      "title": "Commit",
-      "type": "Push",
-      "url": "https://github.com/uxillary/tray-xmr/commit/7469add985974b57d8bbf223aea22ae878a08ec7",
-      "shortRef": "7469add",
-      "timeAgo": "9 days ago",
-      "summary": "Pushed 1 commit",
-      "repoMeta": {
-        "description": "Windows tray silent notification to give feedback on current XMR balance from mining",
-        "language": "Rust",
-        "stars": 0
-      },
-      "commitMeta": {
-        "additions": 2138,
-        "deletions": 114,
-        "filesChanged": 67
       }
     }
   ]
